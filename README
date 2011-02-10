@@ -1,6 +1,9 @@
 This is a RAILS Application that helps you to collect twitter data:
 
 It does the following:
+
+	It uses Delayed Jobs to get things done.
+	The Twitter API is wrapped using grackle
 	
 	Persons
 		collect one person
@@ -16,3 +19,19 @@ It does the following:
 			Gephi
 		export the retweet networks of persons
 
+	Tasks	
+		It has some onboard scrapers under tasks that scrape the following websites
+			Murack.com
+			Google
+			Twellow
+			Wefollow
+		
+		It can compute some sentiment for german tweets 
+
+
+The rails app is totally in a beta stadium, has no test coverage!
+
+To get it running you will need to create a :
+
+twitter.yml that contains your twitter credentials
+see twitter.example.yml for details

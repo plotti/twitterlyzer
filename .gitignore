@@ -9,3 +9,5 @@ db/schema.rb
 /follower_ids_data
 config/api_key.txt
 config/twitter.yml
+/graphs
+/graphs/*.*

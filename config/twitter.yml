@@ -1,7 +1,6 @@
-dev:
-    login: plotti
-    password: wrzesz
-
-prod:
-    login: plotti
-    password: wrzesz
+login: plotti
+password: wrzesz
+consumer_key: "lPeEtUCou8uFFOBt94h3Q"
+consumer_secret: "iBFQqoV9a5qKCiAfitEXFzvkD7jcpSFupG8FBGWE"
+access_token: "15533871-abkroGVmE7m1oJGzZ38L29c7o7vDyGGSevx6X25kA"
+access_token_secret: "pAoyFeGQlHr53BiRSxpTUpVtQW0B0zMRKBHC3hm3s"

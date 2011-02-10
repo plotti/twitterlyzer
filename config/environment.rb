@@ -11,16 +11,18 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 #Constants
 STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line| line.chomp}
-TWITTER_USERNAME = "plotti"
-TWITTER_PASSWORD = "wrzesz"
 FRIENDS_IDS_PATH = RAILS_ROOT + "/friends_ids_data/"
 FOLLOWER_IDS_PATH = RAILS_ROOT  + "/follower_ids_data/"
 
 #Twitter Client
-CONSUMER_KEY = "lPeEtUCou8uFFOBt94h3Q"
-CONSUMER_SECRET = "iBFQqoV9a5qKCiAfitEXFzvkD7jcpSFupG8FBGWE"
-ACCESS_TOKEN = "15533871-abkroGVmE7m1oJGzZ38L29c7o7vDyGGSevx6X25kA"
-ACCESS_TOKEN_SECRET = "pAoyFeGQlHr53BiRSxpTUpVtQW0B0zMRKBHC3hm3s"
+TWITTER_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/twitter.yml")
+CONSUMER_KEY = TWITTER_CONFIG("consumer_key")
+CONSUMER_SECRET = TWITTER_CONFIG("consumer_secret")
+ACCESS_TOKEN = TWITTER_CONFIG("access_token")
+ACCESS_TOKEN_SECRET = TWITTER_CONFIG("access_token_secret")
+TWITTER_USERNAME = TWITTER_CONFIG("login")
+TWITTER_PASSWORD = TWITTER_CONFIG("password")
+
 @@client = Grackle::Client.new(:auth=>{
   :type=>:oauth,
   :consumer_key=>CONSUMER_KEY, :consumer_secret=>CONSUMER_SECRET,
