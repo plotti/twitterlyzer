@@ -5,19 +5,35 @@ It does the following:
 	It uses Delayed Jobs to get things done.
 	The Twitter API is wrapped using grackle
 	
+	Projects
+		Persons are organized in projects that contain a set of people
+
 	Persons
 		collect one person
-		collect multiple persons based on a csv import
-	
+		collect multiple persons based on a csv import		
+		collect the egonetwork of a given person
+		show all people
+		show statistics of the people collected (friends, follower distributions, origin etc..)
+		
+	Connections between persons
+		Connections between persons are stored not in the DB but on the HD in  a PStore
+		
 	Tweets
 		collect the tweets of a person
 		collect the tweets of all persons
-
+		collects tweets based on a csv list
+		collect all retweets of all collected tweets
+		export all tweets into a csv		
+		show statistics on the tweets (links used, keywords, timeline)
+	
 	Networks
-		export the friendship network of persons in the formats:
+		export the friendship network of the collected persons in a project the formats:
 			UCINET
 			Gephi
 		export the retweet networks of persons
+		export the @ networks between persons
+		export the person stats
+		export the twitter links of persons
 
 	Tasks	
 		It has some onboard scrapers under tasks that scrape the following websites

@@ -1,10 +1,11 @@
 # Be sure to restart your server when you modify this file
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.7' unless defined? RAILS_GEM_VERSION
 require 'csv'
 require 'rubygems'
 require 'grackle'
+require 'twitter'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -14,20 +15,30 @@ STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line
 FRIENDS_IDS_PATH = RAILS_ROOT + "/friends_ids_data/"
 FOLLOWER_IDS_PATH = RAILS_ROOT  + "/follower_ids_data/"
 
-#Twitter Client
+#Twitter Configs
 TWITTER_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/twitter.yml")
-CONSUMER_KEY = TWITTER_CONFIG("consumer_key")
-CONSUMER_SECRET = TWITTER_CONFIG("consumer_secret")
-ACCESS_TOKEN = TWITTER_CONFIG("access_token")
-ACCESS_TOKEN_SECRET = TWITTER_CONFIG("access_token_secret")
-TWITTER_USERNAME = TWITTER_CONFIG("login")
-TWITTER_PASSWORD = TWITTER_CONFIG("password")
+CONSUMER_KEY = TWITTER_CONFIG["consumer_key"]
+CONSUMER_SECRET = TWITTER_CONFIG["consumer_secret"]
+ACCESS_TOKEN = TWITTER_CONFIG["access_token"]
+ACCESS_TOKEN_SECRET = TWITTER_CONFIG["access_token_secret"]
+TWITTER_USERNAME = TWITTER_CONFIG["login"]
+TWITTER_PASSWORD = TWITTER_CONFIG["password"]
 
+#Grackle Client
 @@client = Grackle::Client.new(:auth=>{
   :type=>:oauth,
   :consumer_key=>CONSUMER_KEY, :consumer_secret=>CONSUMER_SECRET,
   :token=>ACCESS_TOKEN, :token_secret=>ACCESS_TOKEN_SECRET
 })
+
+#Twitter Client
+Twitter.configure do |config|
+  config.consumer_key = CONSUMER_KEY
+  config.consumer_secret = CONSUMER_SECRET
+  config.oauth_token = ACCESS_TOKEN
+  config.oauth_token_secret = ACCESS_TOKEN_SECRET
+end
+@@twitter = Twitter
 
 #read in cities hash
 temp = Hash.new

@@ -49,80 +49,47 @@ class FeedEntry < ActiveRecord::Base
   #Sphinx
   is_indexed :fields => ['text', 'author', 'url']
     
-  #Determines number of feeds that have to be downloaded for a person
-  #It can either be 0, all, or a number less than 200.
-  def self.downloadable_feeds(person)
-    db_feeds = person.feed_entries.all(:order => "published_at DESC")  
-    i = 0
-    
-    if db_feeds.count > person.statuses_count
-      person.update_attributes :statuses_count => db_feeds.count
-      feeds_to_download = 0
-      puts "More Entries in db"
-    elsif db_feeds.count == person.statuses_count
-      feeds_to_download = 0
-    elsif db_feeds.count == 0
-      if person.private == false
-        feeds_to_download = person.statuses_count
-      else
-        feeds_to_download = 0
-      end
-    else      
-      begin
-        feeds = @@client.statuses.user_timeline :screen_name => person.username, :page => 1, :count => ENTRIES_PER_PAGE
-        #feeds = FeedEntry.user_timeline(:params => {:screen_name => person.username, :page => 1, :count => ENTRIES_PER_PAGE})
-        feeds.entries.each do |entry|        
-          #if entry.id == db_feeds.first.guid #Feedzirra
-          if entry.guid == db_feeds.first.guid          
-            feeds_to_download = i
-            puts "Entry already exists #{i}" 
-            break
-          end
-          puts "Checking entry #{i}" 
-          i = i + 1
-        end
-      rescue Exception => e  
-        SystemMessage.add_message("error", "Downloadable Feeds", "User " + person.username + " not found. Error #{e}")
-      end
-    end
-        
-    return feeds_to_download
-  end
-
   #Collects all possible rss entries from one person on twitter 
   def self.collect_all_entries(person)
-    #init    
-    feeds_to_download = FeedEntry.downloadable_feeds(person)
-    puts "collecting #{feeds_to_download} for person #{person.username}"
-    pages = feeds_to_download.to_f / ENTRIES_PER_PAGE.to_f
-    pages = pages.ceil
-    url_strings = []
-    feeds = {}
     
-    for page in 1..pages
+    puts "Collecting Tweets for Person #{person.username}"
+    feeds = []    
+    page = 1
+    more_tweets_found = true
+    
+    #Gather Feeds from Twitter
+    while more_tweets_found
       begin
-        feeds[page] = @client.statuses.user_timeline? :screen_name => person.username, :page => page, :count => ENTRIES_PER_PAGE
-      rescue Exception => e  
-        feeds = {}
-        puts e
-        SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.")
-      end      
+        puts "On page #{page}"
+        r = @@twitter.user_timeline("plotti", {:count => ENTRIES_PER_PAGE, :page => page})        
+        #r = @@client.statuses.user_timeline? :screen_name => person.username, :page => page, :count => ENTRIES_PER_PAGE
+        if r == []
+          more_tweets_found = false
+        end
+        feeds << r
+      rescue Grackle::TwitterError => e
+        puts e.class
+        SystemMessage.add_message("error", "Grackle Error", e)
+        retry
+      rescue Exception => e
+        puts e.class
+        SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
+      end
+      page += 1
     end
     
+    #Add to Database
     if feeds != nil
-      feeds.each do |key, value|
-        puts "Adding Feed to Database: " + value.to_s 
-        FeedEntry.add_entries(value, person)        
-      end
-      
-      #update statuses count    
-      #person.update_attributes :statuses_count => person.feed_entries.count
-      logger.info "Collect_all_entries -- Collected " + feeds_to_download.to_s + " feeds of of: " + person.username
+      feeds.each do |f|
+        FeedEntry.add_entries(f, person)
+      end      
+      logger.info "Collect_all_entries -- Collected Tweets of " + person.username
       
       return feeds
     end
   end
   
+  #Marks for the collected retweets if those are isolates in the network or not
   def self.mark_isolates(retweets,o_tweet)
     tweets = retweets
     #Mark Isolate Tweets
