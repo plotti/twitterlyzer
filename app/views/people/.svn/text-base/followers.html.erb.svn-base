@@ -1,4 +1,0 @@
-<h1>Listing followers of <%= link_to @person.name, project_person_path(@project,@person) %> | Project  <%= @project.name %> | Total <%= @persons.count %> </h1>
-<%= link_to 'Back',  project_people_path(@project) %>
-
-<%= render :partial => "person", :object => @persons %>

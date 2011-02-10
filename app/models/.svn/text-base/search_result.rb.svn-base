@@ -1,7 +1,0 @@
-class SearchResult < ActiveRecord::Base
- 
-  belongs_to :searches
-  
-  
-end
-#!/usr/bin/env ruby
