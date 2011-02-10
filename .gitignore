@@ -7,3 +7,5 @@ db/schema.rb
 /data/*.*
 /friends_ids_data
 /follower_ids_data
+config/api_key.txt
+config/twitter.yml
