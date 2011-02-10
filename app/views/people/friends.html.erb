@@ -1,0 +1,8 @@
+<%= link_to 'Back', project_people_path(@project) %>
+<div id="center">
+  <div class="contentcenter">  
+  <h2>Listing friends of <%= @person.name %> | Project  <%= @project.name %> | Total <%= @persons.count %> </h2>  
+  <div class="contentleftbox">
+    <%= render :partial => "person", :object => @persons %>
+  </div>
+</div>

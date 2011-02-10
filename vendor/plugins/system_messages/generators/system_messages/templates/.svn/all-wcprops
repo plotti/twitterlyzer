@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/generators/system_messages/templates
+END
+model.rb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/generators/system_messages/templates/model.rb
+END
+controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/generators/system_messages/templates/controller.rb
+END
+migration.rb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/generators/system_messages/templates/migration.rb
+END

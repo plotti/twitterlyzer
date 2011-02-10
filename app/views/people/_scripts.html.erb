@@ -1,0 +1,242 @@
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['geomap','columnchart', 'scatterchart']});  
+  google.setOnLoadCallback(drawCharts);
+  function drawCharts(){
+    drawMap();
+    drawFollowers();
+    drawFriends();
+    drawTweets();
+    drawFriendsToFollowers();
+    drawFriendsToMessages();
+    drawFollowersToMessages();
+    drawLastActivity();
+    drawJoin();
+  }
+</script>
+
+<!--Geographical distribution-->
+<script type="text/javascript">
+  function drawMap() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Country');
+  data.addColumn('number', 'People');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_country.each do |key, value|
+    if key != " "
+      result << "['" + key.to_s +  "'," + value.to_s + "],"
+      result << "\r\n"
+    end
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var geomap = new google.visualization.GeoMap(document.getElementById('map_canvas'));
+  geomap.draw(data, {width: 700, height: 240});
+  }
+</script>
+
+<!--Follower Distribution-->
+<script type="text/javascript">
+  function drawFollowers() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Persons');
+  data.addColumn('number', 'Followers');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_followers.each do |key, value|
+    result << "['" + key.to_s +  "'," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var followers_chart = new google.visualization.ColumnChart(document.getElementById('followers_chart'));
+  followers_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Followers Distribution logarithmized'});
+  }
+</script>
+
+<!--Friends Distribution-->
+<script type="text/javascript">
+  function drawFriends() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Persons');
+  data.addColumn('number', 'Friends');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_friends.each do |key, value|
+    result << "['" + key.to_s +  "'," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var friends_chart = new google.visualization.ColumnChart(document.getElementById('friends_chart'));
+  friends_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Friends Distribution logarithmized'});
+  }
+</script>
+
+<!--Tweets Distribution-->
+<script type="text/javascript">
+  function drawTweets() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Persons');
+  data.addColumn('number', 'Tweets');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_tweets.each do |key, value|
+    result << "['" + key.to_s +  "'," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var tweets_chart = new google.visualization.ColumnChart(document.getElementById('tweets_chart'));
+  tweets_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Tweets Distribution logarithmized'});
+  }
+</script>
+
+<!--Friends to Follower Ratio-->
+<script type="text/javascript">
+  function drawFriendsToFollowers() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('number', 'Friends');
+  data.addColumn('number', 'Followers');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons.each do |person|
+    result << "[" + Math.log(person.followers_count+1).to_s  +  "," + Math.log(person.friends_count+1).to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var friends_to_followers = new google.visualization.ScatterChart(document.getElementById('friends_to_followers_chart'));
+  friends_to_followers.draw(data, {width: 500, height: 300, is3D: false, titleX: 'Followers', titleY: 'Friends', legend: 'none', title: 'Friends / Followers logarithmized'});
+  }
+</script>
+
+<!--Friends to Messages Ratio-->
+<script type="text/javascript">
+  function drawFriendsToMessages() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('number', 'Friends');
+  data.addColumn('number', 'Messages');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons.each do |person|
+    result << "[" + Math.log(person.statuses_count+1).to_s  +  "," + Math.log(person.friends_count+1).to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var friends_to_messages = new google.visualization.ScatterChart(document.getElementById('friends_to_messages_chart'));
+  friends_to_messages.draw(data, {width: 500, height: 300, titleX: 'Tweets', titleY: 'Friends', is3D: false, legend: 'none', title: 'Friends / Messages logarithmized'});
+  }
+</script>
+
+<!--Follower to Messages Ratio-->
+<script type="text/javascript">
+  function drawFollowersToMessages() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('number', 'Followers');
+  data.addColumn('number', 'Messages');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons.each do |person|
+    result << "[" + Math.log(person.statuses_count+1).to_s  +  "," + Math.log(person.followers_count+1).to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var followers_to_messages = new google.visualization.ScatterChart(document.getElementById('followers_to_messages_chart'));
+  followers_to_messages.draw(data, {width: 500, titleX: 'Tweets', titleY: 'Followers', height: 300, is3D: false, legend: 'none', title: 'Followers / Messages logarithmized'});
+  }
+</script>
+
+<!--People by last activity-->
+<script type="text/javascript">
+  function drawLastActivity() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('date', 'Last Activity');
+  data.addColumn('number', 'People');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_activity.each do |key, value|
+    result << "[" + "new Date(" + Time.parse(key).year.to_s + "," + (Time.parse(key).month-1).to_s + "," + Time.parse(key).day.to_s + ")" +  "," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var last_activity_chart = new google.visualization.ColumnChart(document.getElementById('last_activity_chart'));
+  last_activity_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Last Activity on Day'});
+  }
+</script>
+
+<!--People by Join Date-->
+<script type="text/javascript">
+  function drawJoin() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('date', 'Join Date');
+  data.addColumn('number', 'People');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @persons_by_join.each do |key, value|
+    result << "[" + "new Date(" + Time.parse(key).year.to_s + "," + (Time.parse(key).month-1).to_s + "," + Time.parse(key).day.to_s + ")" +  "," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var join_date_chart = new google.visualization.ColumnChart(document.getElementById('join_date_chart'));
+  join_date_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Joined on Day'});
+  }
+</script>

@@ -1,0 +1,76 @@
+<%= render :partial => "scripts" %>
+
+<div id="left">
+  <h2>Actions </h2>
+  <div class="box">  
+    <%= link_to 'Add new people', new_project_person_path %>    
+    <br>
+      <%= link_to_remote "Update all People",
+        :url => {:controller => "projects", :action => "update_all_project_people"},
+        :confirm => "This might take a long while are you sure?"
+    %>
+    <br>
+    <%= text_field_tag("max_friends", "Number of Max friends", :size => 20 ) %>  
+      <%= link_to_remote 'Collect Project Persons Egonets', 
+                  :url => {:action=>'collect_project_persons_egonets', :project_id => @project.id},
+                  :with => "'max_friends=' + $F('max_friends')",
+                  :confirm => 'This operation might take a long time. Are you sure?',
+                  :loading => "Element.show('spinner')",
+                  :complete => "Element.hide('spinner')"
+      %>
+    <br>
+    <%= link_to 'Show all people', show_all_project_people_path %>
+    <br>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>People by Country</h2>
+    <div class="contentleftbox">    
+      <div id="map_canvas"></div>
+    </div>
+    
+    <h2> Distribution of log(Followers)</h2>
+    <div class="contentleftbox">
+      <div id="followers_chart"></div>
+    </div>
+    
+    <h2> Distribution of log(Friends) </h2>
+    <div class="contentleftbox">
+      <div id="friends_chart"></div>
+    </div>
+    
+    <h2> Distribution of log(Tweets) </h2>
+    <div class="contentleftbox">
+      <div id="tweets_chart"></div>
+    </div>    
+    
+    <h2> Friends to Follwers Ratio </h2>
+    <div class="contentleftbox">
+      <div id="friends_to_followers_chart"></div>      
+    </div>    
+    
+    <h2> Friends to Messages Ratio </h2>
+    <div class="contentleftbox">
+      <div id="friends_to_messages_chart"></div>      
+    </div>
+    
+    <h2> Followers to Messages Ratio </h2>
+    <div class="contentleftbox">
+      <div id="followers_to_messages_chart"></div>      
+    </div>
+        
+    <h2> Distribution of Last Activity </h2>
+    <div class="contentleftbox">
+      <div id="last_activity_chart"></div>     
+    </div>
+    
+    <h2> Distribution of Account Age </h2>
+    <div class="contentleftbox">
+      <div id="join_date_chart"></div>   
+    </div>
+    
+  </div>
+</div>

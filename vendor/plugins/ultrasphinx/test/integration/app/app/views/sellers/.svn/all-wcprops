@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/app/views/sellers
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/app/views/sellers/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/app/views/sellers/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/app/views/sellers/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/app/views/sellers/show.html.erb
+END

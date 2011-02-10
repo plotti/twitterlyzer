@@ -1,0 +1,7 @@
+<p>
+  <b>Search Query:</b>
+  <%=h @search.search_query %>
+</p>
+
+<%= link_to 'Edit', edit_project_search_path(@project,@search) %> |
+<%= link_to 'Back', project_searches_path(@project) %>

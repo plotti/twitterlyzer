@@ -1,0 +1,39 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 14
+/svn/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 22
+/svn/!svn/ver/17/trunk
+END
+graph.txt
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/5/trunk/graph.txt
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 30
+/svn/!svn/ver/3/trunk/Rakefile
+END
+socializer.kpf
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/17/trunk/socializer.kpf
+END
+twitterlyzer.kpf
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/5/trunk/twitterlyzer.kpf
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 28
+/svn/!svn/ver/5/trunk/README
+END

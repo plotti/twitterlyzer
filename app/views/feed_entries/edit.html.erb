@@ -1,0 +1,32 @@
+<h1>Editing feed_entry</h1>
+
+<% form_for(@feed_entry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary %>
+  </p>
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :published_at %><br />
+    <%= f.datetime_select :published_at %>
+  </p>
+  <p>
+    <%= f.label :guid %><br />
+    <%= f.text_field :guid %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @feed_entry %> |
+<%= link_to 'Back', person_feed_entries_path %>

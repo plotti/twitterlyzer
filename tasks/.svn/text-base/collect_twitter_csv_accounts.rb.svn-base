@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+#!/usr/bin/env ruby
+require 'thread'
+require 'rubygems'
+require 'typhoeus'
+require 'json'
+require "base64"
+require 'csv'
+require 'uri'
+include Typhoeus
+  
+class CollectTwitterAccounts < Struct.new(:text)
+ 
+  TWITTER_USERNAME = "plotti"
+  TWITTER_PASSWORD = "wrzesz"
+  
+  define_remote_method :twitter_user, :path => '/users/show.json',:headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"},
+                       :on_success => lambda {|response| JSON.parse(response.body)},
+                       :on_failure => lambda {|response| puts "error code: #{response.code}" },
+                       :base_uri   => "http://twitter.com"
+                       
+  if ARGV.length != 1
+    puts "usage: collect_twitter_csv_accounts.rb file.csv"
+    exit
+  end
+  
+  csv_file = ARGV[0]
+  
+  twitter_ids = []
+  CSV::Reader.parse(File.open(csv_file, 'rb')) do |row  |
+    twitter_ids <<  URI.parse(row.to_s).path.reverse.chop.reverse
+  end
+
+  outfile = File.open(csv_file + "_stats.csv",'w')
+
+  CSV::Writer.generate(outfile) do |csv|
+    csv << ["Twitter ID", "Username", "Friends", "Followers", "Messages", "Created At",
+            "Description", "Favorites_count", "TimeZone", "Location", "Url", "Protected", "Geo",
+            "Verified"]
+  end
+
+  CSV::Writer.generate(outfile) do |csv|
+    i = 0
+    twitter_ids.each do |id|
+      i = i+1
+      begin
+        twitter_user =  self.twitter_user(:params => {:id => id})
+        puts id.to_s + " found. (" + i.to_s + "/" + twitter_ids.count.to_s + ")"
+        csv << [twitter_user['id'], twitter_user['screen_name'], twitter_user['friends_count'],
+             twitter_user['followers_count'], twitter_user['statuses_count'], twitter_user['created_at'],
+             twitter_user['description'], twitter_user['favorites_count'], twitter_user['time_zone'],
+             twitter_user['location'], twitter_user['url'], twitter_user['protected'], twitter_user['geo_enabled'],
+             twitter_user['verified']]
+      rescue
+       puts id.to_s + " not found. (" + i.to_s + "/" + twitter_ids.count.to_s + ")"
+      end
+    end
+  end   
+
+end

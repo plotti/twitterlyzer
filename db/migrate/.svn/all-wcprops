@@ -1,0 +1,89 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/17/trunk/db/migrate
+END
+20090708140538_create_feed_entries.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/db/migrate/20090708140538_create_feed_entries.rb
+END
+20090924072526_create_system_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/9/trunk/db/migrate/20090924072526_create_system_messages.rb
+END
+20090716145128_create_friendships.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/13/trunk/db/migrate/20090716145128_create_friendships.rb
+END
+20090903091501_create_search_results.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/2/trunk/db/migrate/20090903091501_create_search_results.rb
+END
+20090821125505_add_index_to_persons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/2/trunk/db/migrate/20090821125505_add_index_to_persons.rb
+END
+20090714074218_create_people.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/12/trunk/db/migrate/20090714074218_create_people.rb
+END
+20090722072637_create_delayed_jobs.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/2/trunk/db/migrate/20090722072637_create_delayed_jobs.rb
+END
+20090723072319_project_people.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/db/migrate/20090723072319_project_people.rb
+END
+20090916101922_add_unique_to_friend_ships.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/13/trunk/db/migrate/20090916101922_add_unique_to_friend_ships.rb
+END
+20090821090152_add_indexto_feeds_persons.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2/trunk/db/migrate/20090821090152_add_indexto_feeds_persons.rb
+END
+20090901114646_add_indexto_friendship.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/13/trunk/db/migrate/20090901114646_add_indexto_friendship.rb
+END
+20090716082534_create_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/17/trunk/db/migrate/20090716082534_create_projects.rb
+END
+20090903140942_create_searches.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/2/trunk/db/migrate/20090903140942_create_searches.rb
+END
+20090820145043_add_index_to_feeds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2/trunk/db/migrate/20090820145043_add_index_to_feeds.rb
+END

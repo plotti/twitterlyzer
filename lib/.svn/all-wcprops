@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/13/trunk/lib
+END
+two_step_egonet_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/lib/two_step_egonet_job.rb
+END
+collect_all_friends_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/lib/collect_all_friends_job.rb
+END
+collect_person_and_friends_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/12/trunk/lib/collect_person_and_friends_job.rb
+END
+update_person_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/6/trunk/lib/update_person_job.rb
+END
+collect_person_and_followers_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/2/trunk/lib/collect_person_and_followers_job.rb
+END
+collect_all_feed_entries_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/lib/collect_all_feed_entries_job.rb
+END
+wahlliste teil2.csv
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/2/trunk/lib/wahlliste%20teil2.csv
+END
+collect_person_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/13/trunk/lib/collect_person_job.rb
+END
+collect_all_project_entries_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/2/trunk/lib/collect_all_project_entries_job.rb
+END
+collect_proper_nouns_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/lib/collect_proper_nouns_job.rb
+END
+update_feed_entries_job.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/11/trunk/lib/update_feed_entries_job.rb
+END

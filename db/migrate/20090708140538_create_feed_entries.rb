@@ -1,0 +1,20 @@
+class CreateFeedEntries < ActiveRecord::Migration
+  def self.up
+    create_table :feed_entries do |t|
+      t.string :text
+      t.text :author
+      t.string :url
+      t.datetime :published_at
+      t.string :guid
+      t.integer :person_id
+      t.text :retweet_ids      
+      t.string  :geo
+
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :feed_entries
+  end
+end

@@ -1,0 +1,101 @@
+# This file is auto-generated from the current state of the database. Instead of editing this file, 
+# please use the migrations feature of Active Record to incrementally modify your database, and
+# then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your database schema. If you need
+# to create the application database on another system, you should be using db:schema:load, not running
+# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20090924072526) do
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "feed_entries", :force => true do |t|
+    t.string   "text"
+    t.text     "author"
+    t.string   "url"
+    t.datetime "published_at"
+    t.string   "guid"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "feed_entries", ["guid"], :name => "index_feed_entries_on_guid"
+  add_index "feed_entries", ["person_id"], :name => "index_feed_entries_on_person_id"
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.string   "bio"
+    t.string   "location"
+    t.binary   "picture"
+    t.date     "acc_created_at"
+    t.string   "time_offset"
+    t.integer  "friends_count"
+    t.integer  "followers_count"
+    t.integer  "statuses_count"
+    t.integer  "twitter_id"
+    t.string   "website"
+    t.string   "username"
+    t.boolean  "private"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "people", ["twitter_id"], :name => "index_people_on_twitter_id"
+
+  create_table "people_projects", :id => false, :force => true do |t|
+    t.integer "project_id"
+    t.integer "person_id"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.boolean  "monitor_feeds"
+    t.boolean  "monitor_people"
+    t.boolean  "monitor_searches"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "search_results", :force => true do |t|
+    t.string   "search_id"
+    t.text     "feed_entry_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "searches", :force => true do |t|
+    t.string   "project_id"
+    t.text     "search_query"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "system_messages", :force => true do |t|
+    t.string   "header"
+    t.string   "level"
+    t.text     "message"
+    t.boolean  "dismissed",        :default => false
+    t.boolean  "dismissable",      :default => false
+    t.datetime "expires"
+    t.integer  "messageable_id"
+    t.string   "messageable_type"
+  end
+
+end

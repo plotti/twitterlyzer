@@ -1,0 +1,60 @@
+<%= render :partial => "scripts" %>
+
+<div id="left">
+  <h2>Actions</h2>
+  <div class="box">
+    <%= puts.controller.name %>
+    <%= link_to_remote 'Collect all peoples tweets', 
+        :url => {:controller => 'projects', :action=>'collect_all_project_entries'}
+    %>
+    <br>
+    <%= link_to_remote 'Update all peoples tweets',
+      :url =>{:controller => 'projects', :action => 'update_all_project_entries'}
+    %>
+    <br>
+    <br>
+    <%= link_to 'Collect Public Timeline' %>
+    <br>
+    <%= link_to 'Collect Random Tweets' %>
+    <br>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    
+    <!-- TermCloud Div -->
+    <h2> Word Tag Cloud </h2>
+    <div class="contentleftbox">
+      <div id="tcdiv"></div>
+    </div>
+    
+    <!-- Feeds per Day-->
+    <h2> Feed Entries per Day </h2>
+    <div class="contentleftbox">
+      <div id="chart_div"></div>
+    </div>
+    
+    <!-- Proper Nouns Cloud -->
+    <h2> Proper Nouns (NLP Processing)</h2>
+    <div class="contentleftbox">
+      <div id="proper_nouns"></div>
+    </div>
+
+    <h2> Listing all Feed entries in project xy </h2>
+    <div class="contentleftbox">
+      <table >
+        <tr id="rss_table">
+          <th>Text</th>
+          <th>Author</th>
+          <th>Url</th>
+          <th>Published ago:</th>
+          <th>Guid</th>
+        </tr>      
+        <%= render :partial => "feed_entry", :collection => @feed_entries %>
+      </table>
+    </div>
+    
+  </div>
+</div>

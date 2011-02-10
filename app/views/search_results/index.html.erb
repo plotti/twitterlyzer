@@ -1,0 +1,32 @@
+<div id="left">
+  <h2>Actions </h2>
+  <div class="box">
+    <%= link_to "Show found Tweets ", show_feeds_project_search_search_results_path(@search.project_id, @search)%>
+    <br>
+    <%= link_to "Show found Persons ", show_persons_project_search_search_results_path(@search.project_id, @search) %>
+    <br>
+    <%= link_to 'Back', project_searches_path %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>Search Results</h2>
+    <div class="contentleftbox">
+    <table >
+        <tr id="rss_table">
+          <th>Person</th>
+          <th>Feed_ID</th>
+          <th>Created_At</th>
+        </tr>
+        <% @search_results.each do |result| %>
+          <tr>
+            <td> <%= result.twitter_username %> </td>
+            <td> <%= result.feed_entry_guid %> </td>
+            <td> <%= result.created_at %> </td>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

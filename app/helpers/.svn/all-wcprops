@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/17/trunk/app/helpers
+END
+friendships_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/app/helpers/friendships_helper.rb
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/app/helpers/application_helper.rb
+END
+people_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/17/trunk/app/helpers/people_helper.rb
+END
+projects_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/app/helpers/projects_helper.rb
+END
+feed_entries_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/app/helpers/feed_entries_helper.rb
+END

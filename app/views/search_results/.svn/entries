@@ -1,0 +1,37 @@
+9
+
+dir
+0
+https://socialyzer.googlecode.com/svn/trunk/app/views/search_results
+https://socialyzer.googlecode.com/svn
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+show_feeds.html.erb
+file
+
+
+
+add
+
+index.html.erb
+file
+
+
+
+add
+
+show_persons.html.erb
+file
+
+
+
+add
+

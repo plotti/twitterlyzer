@@ -1,0 +1,17 @@
+<% @feed_entries.each do |feed_entry| %>
+    <tr id="feed_entry_<%= feed_entry.id %>">
+        <td><%= feed_entry.id %> <%= auto_link_username(feed_entry.text) %></td>
+        <td><%= feed_entry.author %></td>
+        <td><%= link_to("Twitter", feed_entry.url) %></td>
+        <td><%=h time_ago_in_words(feed_entry.published_at) %></td>
+        <td><%=h feed_entry.retweet_ids.count.to_s %></td>
+        <td><%= link_to_remote "Create retweet Network",
+          :url => {:controller => "feed_entries", :action => "create_retweet_network", :feed_id=> feed_entry.id, :project_id => @project.id}
+          %>
+          <br>
+        <%= link_to_remote "Create full retweet Network",
+          :url => {:controller => "feed_entries", :action => "create_full_reetweet_nework", :feed_id=> feed_entry.id, :project_id => @project.id}
+          %>
+        </td>
+    </tr>
+<% end %>

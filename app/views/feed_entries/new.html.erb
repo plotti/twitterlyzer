@@ -1,0 +1,24 @@
+<div id="right">
+  <div class="contentleft">
+      <h2>Bulk Import</h2>
+      <div class="contentleftbox">
+        <% form_for :dump, :url=>{:controller=>"projects", :action=>"csv_feed_import", :id => @project},
+                      :html => { :multipart => true } do |f| -%> 
+          <table>
+            <tr>
+              <td>
+               <label for="dump_file">
+                 Select a CSV File with Tweets Links:
+               </label>
+              </td>
+              <td >
+                <%= f.file_field :file -%>
+              </td>
+            </tr>
+          </table>
+          <br>
+          <%= submit_tag 'Import all Feeds ' -%>
+        <% end -%>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+<div id="left">
+  <h2> System Messages </h2>
+  <div class="box">  
+    <%= system_messages %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>Listing projects</h2>
+    <div class="contentleftbox"> 
+      <%= link_to 'New project', new_project_path %>
+      <table>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>People</th>
+          <th>Searches</th>
+          <th>Feeds</th>
+          <th>Export</th>
+          <th>Actions</th>
+        </tr>
+      
+      <% @projects.each do |project| %>
+        <tr>
+          <td>
+            <%= link_to project.name, project_people_path(project) %>
+          </td>
+          <td>
+            <%h project.description %>
+          <td>    
+            <%= link_to 'People(' + project.persons.count.to_s + ")", project_people_path(project) %>
+          </td>  
+          <td>
+            <%= link_to 'Searches(' + project.searches.count.to_s + ")", project_searches_path(project) %>
+          </td>
+          <td>
+            <%= link_to 'Feeds (' + project.persons.collect{ |p| p.feed_entries}.length.to_s + ")", project_feed_entries_path(project) %>
+          </td>
+          <td>
+            <%= link_to_remote 'UCINET', 
+                    :url => {:controller => 'projects', :action=>'export_to_uci_net', :id => project.id}
+            %>
+            <br>
+            <%= link_to_remote 'Person Stats',
+                    :url => {:controller => 'projects', :action => 'export_person_stats', :id => project.id}
+            %>
+            <br>
+            <%= link_to_remote 'Twitter Links',
+                    :url => {:controller => 'projects', :action => 'export_twitter_links', :id => project.id}
+            %>
+          </td>
+      
+          <td>
+            <%= link_to 'Show Details', project %>
+            <br>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <br>
+            <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+    <h2> Delayed Jobs (<%= @delayed_jobs.length.to_s %>) </h2>
+    <div class="contentleftbox">  
+    <table>
+      <tr>
+        <th>Job</th>
+        <th>Errors</th>
+        <th>Attempts</th>
+      </tr>
+      <% @delayed_jobs.each do |delayed_job| %>
+      <tr>
+        <td>
+          <%= truncate(delayed_job.handler.to_s, :length => 14) %>
+        <td>
+        <td>
+        <%= "Attempts:" + delayed_job.attempts.to_s + " " + delayed_job.last_error.to_s %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  </div>
+</div>

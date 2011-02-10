@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/test/functional
+END
+addresses_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/test/functional/addresses_controller_test.rb
+END
+users_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/test/functional/users_controller_test.rb
+END
+states_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/test/functional/states_controller_test.rb
+END
+sellers_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/test/functional/sellers_controller_test.rb
+END

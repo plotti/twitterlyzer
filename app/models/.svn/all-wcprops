@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/17/trunk/app/models
+END
+search_result.rb
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/app/models/search_result.rb
+END
+feed_entry.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/17/trunk/app/models/feed_entry.rb
+END
+search.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/17/trunk/app/models/search.rb
+END
+person.rb
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/17/trunk/app/models/person.rb
+END
+project.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/17/trunk/app/models/project.rb
+END
+system_message.rb
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/11/trunk/app/models/system_message.rb
+END

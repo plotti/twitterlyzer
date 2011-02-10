@@ -1,0 +1,18 @@
+<tr id="feed_entry_<%= feed_entry.id %>">
+    <td><%= auto_link_username(feed_entry.text) %></td>
+    <td><%= feed_entry.author %></td>
+    <td><%= link_to("Twitter", feed_entry.url) %></td>
+    <td><%=h time_ago_in_words(feed_entry.published_at) %></td>
+    <td><%=h feed_entry.guid %></td>
+    <td><%=
+    
+    #link_to 'Show', person_feed_entry_path(feed_entry.person_id,feed_entry.id)
+    
+    %></td>
+    <td><%=
+    #link_to 'Edit', edit_feed_entry_path(feed_entry)
+    %></td>
+    <td><%=
+    #link_to 'Destroy', feed_entry, :confirm => 'Are you sure?', :method => :delete
+    %></td>
+</tr>

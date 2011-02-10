@@ -1,0 +1,10 @@
+<div id="center">
+  <%= will_paginate @persons %>
+  <div class="contentcenter">  
+    <h2>Listing people of project <%= @project.name %> | Total <%= @project.persons.count.to_s %> </h2>      
+    <div class="contentleftbox">
+      <%= render :partial => "person", :object => @persons %>
+    </div>  
+  </div>
+  <%= will_paginate @persons %>
+</div>

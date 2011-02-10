@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Twitterlyzer: <%= controller.action_name %></title>
+
+  
+  <script type="text/javascript" src="http://visapi-gadgets.googlecode.com/svn/trunk/termcloud/tc.js"></script>
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  
+  <%= javascript_include_tag :defaults %>  
+  <%= stylesheet_link_tag 'scaffold', 'system_messages', 'style' %>
+  
+  
+</head>
+<body>
+<div id="wrap">  
+  <div id="header">
+    <h1> <%= link_to "The Twitterminer", projects_path %> </h1>
+    <h2> The twitterminer helps you to analyze the twitter network</h2>
+  </div>
+  <div id="menu">
+    <ul>
+      <% if controller.controller_name == "projects" %>
+        <li><%= link_to_unless_current 'Home', projects_path %></li>
+      <% else %>
+        <li>Project <%= @project.name + " :" %></li>
+      <% end %>
+      <% if controller.controller_name != "projects"  %>
+      <li><%= link_to_unless_current 'People', project_people_path %></li>
+      <li><%= link_to_unless_current 'Searches', project_searches_path %></li>
+      <li><%= link_to_unless_current 'Feeds', project_feed_entries_path %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div id="content">
+    <p style="color: green"><%= flash[:notice] %></p>
+    <%= yield %>
+    <div style="clear: both;"> </div>
+  </div>   
+  <div id="footer">
+    <p> Remaining API Calls for this hour <%= FeedEntry.get_remaining_api_hits.to_s  %>
+    <p> Contact: Thomas Plotkowiak <%= mail_to "thomas.plotkowiak@unisg.ch" %> or <%= link_to "Twitter", "http://www.twitter.com/plotti" %> </p>
+  </div>
+</div>
+</body>
+</html>

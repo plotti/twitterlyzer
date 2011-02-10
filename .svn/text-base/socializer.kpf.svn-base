@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="a0d5005a-6ee0-4bf1-b9a1-bb2c3355e8a4" kpf_version="4" name="feedagg.kpf">
+<preference-set idref="a0d5005a-6ee0-4bf1-b9a1-bb2c3355e8a4">
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>

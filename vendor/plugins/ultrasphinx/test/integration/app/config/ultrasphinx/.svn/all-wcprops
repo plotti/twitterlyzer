@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/config/ultrasphinx
+END
+development.conf.canonical
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/config/ultrasphinx/development.conf.canonical
+END
+default.base
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/config/ultrasphinx/default.base
+END

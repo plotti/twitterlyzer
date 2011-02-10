@@ -1,0 +1,127 @@
+<div id="left">
+  <h2> System Messages </h2>
+  <div class="box">
+    <%= link_to_remote 'Dismiss all Messages',
+    :url => {:controller => 'system_messages', :action => 'dismiss_all'} %>
+    <%= system_messages %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>Listing projects</h2>
+    <div class="contentleftbox"> 
+      <%= link_to 'New project', new_project_path %>
+      <table>
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>People</th>
+          <th>Searches</th>
+          <th>Feeds</th>
+          <th>Export</th>
+          <th>Actions</th>
+        </tr>
+      
+      <% @projects.each do |project| %>      
+      <%
+      #project_people_feeds = 0 
+        #project.persons.collect{|p| project_people_feeds= project_people_feeds+p.feed_entries.count}
+        %>
+        <tr>
+          <td>
+            <%= link_to project.name, project_people_path(project) %>
+          </td>
+          <td>
+            <%h project.description %>
+          <td>    
+            <%= link_to 'People(' + project.persons.count.to_s + ")", project_people_path(project) %>
+          </td>  
+          <td>
+            <%= link_to 'Searches(' + project.searches.count.to_s + ")", project_searches_path(project) %>
+          </td>
+          <td>
+            <% result = 0 %>
+            <%
+            #project.persons.each {|p| result += p.feed_entries.count}
+            %>
+            <%= link_to 'Feeds(' + result.to_s + ')',  project_feed_entries_path(project) %>
+          </td>
+          <td>
+             <%= link_to_remote 'GEPHI', 
+                    :url => {:controller => 'projects', :action=>'export_to_gephi', :id => project.id}
+            %>
+            <br>              
+            <%= link_to_remote 'UCINET', 
+                    :url => {:controller => 'projects', :action=>'export_to_uci_net', :id => project.id}
+            %>
+            <br>
+              <%= link_to_remote 'Valued @ Network',
+                  :url => {:controller => "projects", :action => "export_valued_to_uci_net", :id => project.id}
+              %>
+            <br>
+              <%= link_to_remote 'Valued RT Network',
+                  :url => {:controller => "projects", :action => "export_retweet_net_to_uci_net", :id => project.id}
+                  %>
+            <br>
+            <%= link_to_remote 'Person Stats',
+                    :url => {:controller => 'projects', :action => 'export_person_stats', :id => project.id}
+            %>
+            <br>
+              <%= link_to_remote 'Retweet Stats',
+                  :url => {:controller => 'projects', :action => 'export_retweet_stats', :id => project.id}
+              %>
+            <br>
+            <%= link_to_remote 'Twitter Links',
+                    :url => {:controller => 'projects', :action => 'export_twitter_links', :id => project.id}
+            %>
+            <br>
+            <%= link_to_remote 'All Messages',
+                    :url => {:controller => 'projects', :action => 'export_twitter_messages', :id => project.id}
+            %>
+          </td>
+      
+          <td>
+            <%= link_to 'Show Details', project %>
+            <br>
+            <%= link_to 'Edit', edit_project_path(project) %>
+            <br>
+            <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+          </td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+    <h2> Current Processes </h2>
+    <div class="contentleftbox">      
+      <%= link_to_remote "Start 4 Workers | ", :url =>{:controller => 'projects', :action => 'start_jobs'},:confirm => "Are you sure?" %>
+      <%= link_to_remote "Stop 4 Workers", :url =>{:controller => 'projects', :action => 'stop_jobs'},:confirm => "Are you sure?" %>      
+      <hr>
+      <% Dir[RAILS_ROOT + "/tmp/pids/*"].each do |entry| %>
+      <%= File.basename(entry.to_s) %><br>
+      <% end %>
+    </div>
+    <h2> Jobs (<%= @delayed_jobs.length.to_s %>) </h2>
+    <div class="contentleftbox">  
+    <%= link_to_remote "Delete all Jobs | ", :url =>{:controller => 'projects', :action => 'delete_jobs'},:confirm => "Are you sure?" %>  
+    <hr>
+    <table>
+      <tr>
+        <th>Job</th>
+        <th>Errors</th>
+        <th>Attempts</th>
+      </tr>
+      <% @delayed_jobs.each do |delayed_job| %>
+      <tr>
+        <td>
+          <%= truncate(delayed_job.handler.to_s, :length => 14) %>
+        <td>
+        <td>
+        <%= "Attempts:" + delayed_job.attempts.to_s + " " + delayed_job.last_error.to_s %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  </div>
+</div>

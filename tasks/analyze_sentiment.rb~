@@ -1,0 +1,136 @@
+require 'rubygems'
+require 'gnuplot'
+require 'uri'
+require 'csv'
+require 'classifier'
+require 'logger'
+
+log = Logger.new("sentiment.log")
+
+PARTY = {}
+CSV.open("tasks/politiker_parteien.csv", "r") do |row|
+	PARTY[row[0]] = row[1]
+end
+
+b = Classifier::Bayes.new 'positive', 'negative'
+
+def train(file, category, classifier)
+  File.open(file).each { |line|
+    line.split(" ").each do |word|
+      if word =~/[a-zA-Z]/
+        word.gsub!(/[|][A-Z]*/,"")
+        word.split(",").each do |sub|
+          classifier.train category, sub
+        end
+      end
+    end
+  }
+end
+
+train("tasks/positive.txt", :positive, b)
+train("tasks/negative.txt", :negative, b)
+
+cdu_people = []
+spd_people = []
+fdp_people = []
+csu_people = []
+linke_people = []
+gruene_people = []
+piraten_people = []
+
+PARTY.each do |k,v|
+  if v == "SPD"
+    spd_people << k
+  elsif v == "CDU"
+    cdu_people << k
+  elsif v == "FDP"
+    fdp_people << k
+  elsif v == "CSU"
+    csu_people << k
+  elsif v == "LINKE"
+    linke_people << k
+  elsif v == "GRUENEN"
+    gruene_people << k
+  elsif v == "PIRATEN"
+    piraten_people << k
+  end  
+end
+
+@umlauts = {
+    '&#252;' => 'ü',
+   '&#228;' => 'ä',
+   '&#246;' => 'ö',
+   '&#220;;' => 'Ü',
+   '&#196;' => 'Ä',
+   '&#214;' => 'Ö',
+   '&#223;' => 'ß',
+  }
+
+all_parties = {"CDU" => cdu_people, "SPD" => spd_people, "FDP" => fdp_people,
+               "CSU" => csu_people, "LINKE" => linke_people, "GRUENEN" => gruene_people, "PIRATEN" => piraten_people }
+
+results = {}
+all_parties.each do |k,v|
+  puts "COMPUTING PARTY #{k}"
+  all_parties.each do |ik,iv|
+    negative_count = 0
+    positive_count = 0
+    neutral_count = 0
+    puts "Comparing people from Party #{k} with Party #{ik}"
+    v.each do |person|
+      puts "#{person} from #{k}"
+      candidate = Person.find_by_username(person)
+      if candidate != nil
+        entries = candidate.get_all_entries
+        if entries != nil
+          entries.each  do |entry|
+            text = entry.text
+            #Remove all uris from text
+            URI.extract(text).each do |part|
+              text= text.sub(part, "")
+            end
+            iv.each do |searchterm|
+              #recode umlauts
+              @umlauts.each_pair do |umlaut,entity|
+                text.gsub!(umlaut,entity)            
+              end
+              text.downcase!              
+              if text.include?(searchterm)
+		 classification = b.classifications(text)
+		 ratio = (1-(classification["Positive"] / classification["Negative"])).abs
+		 if  ratio > 0.05
+			if b.classify(text) == "Positive"
+				positive_count += 1
+				puts "POSITIVE:" + text 
+				log.info("POSITIVE: Person #{person} from party{k} says:#{text}")
+			else
+				negative_count += 1
+				puts "NEGATIVE:" + text
+				log.info("NEGATIVE: Person #{person} from party{k} says:#{text}")
+			end
+		 else
+			neutral_count +=1
+			#puts ratio.to_s
+		 end			
+              end                                
+            end
+          end
+        end
+      end
+    end
+    resultstring = k + "_" + ik
+    results[resultstring + "_pos"] =  positive_count
+    results[resultstring + "_neg"] =  negative_count 
+    results[resultstring + "_neu"] =  neutral_count
+  end
+end
+
+outfile = File.open("sentiment_count.csv", 'wb')
+CSV::Writer.generate(outfile) do |csv|
+  results.each do |k,v|
+    csv << [k,v]
+  end
+end
+outfile.close
+
+  

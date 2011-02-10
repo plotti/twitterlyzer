@@ -1,0 +1,72 @@
+
+<div id="left">
+  <h2>Actions</h2>
+  <div class="box">
+    <% if @show_all %>
+      <%= link_to_remote 'Collect all peoples tweets', 
+          :url => {:controller => 'projects', :action=>'collect_all_project_entries', :id => @project.id},
+          :confirm => 'This operation might take a long time. Are you sure?'
+      %>
+      <br>
+      <%= link_to_remote 'Collect retweets for all peoples tweets',
+          :url => {:controller => "projects", :action => "collect_all_project_retweets", :id => @project.id},
+          :confirm => "Do you have all the tweets for this project?. If yes continue"
+      %>
+      <br>
+        <%= link_to 'Add new tweets', new_project_feed_entry_path %>    
+      <br>
+      <%= link_to_remote 'Update all peoples tweets',
+        :url =>{:controller => 'projects', :action => 'update_all_project_entries'},
+        :confirm => 'This operation might take a long time. Are you sure?'
+      %>
+      <br>
+     <%= link_to_remote "Export as CSV",
+        :url =>{:controller => "feed_entries", :action => "export_feeds", :project_id => @project.id}
+      %>
+      <br>
+        <%= link_to_remote "Export Keywords",
+        :url =>{:controller => "feed_entries", :action => "export_keyword_count", :id => @project.id}
+      %>
+      <br>
+      <%= link_to 'Collect Public Timeline' %>
+      <br>
+      <%= link_to 'Collect Random Tweets' %>
+      <br>
+    <% else %>
+      <%= link_to_remote "Export as CSV",
+         :url =>{:controller => "feed_entries", :action => "export_feeds", :id => params[:person_id] }
+       %>
+       <br>
+      <%= link_to_remote "Collect all Retweets for Tweets of that Person",
+          :url => {:controller => "feed_entries", :action => "collect_retweets", :id=> params[:person_id]}
+          %>
+    <% end %>
+    <br>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+       
+    
+    <% if @show_all %>
+      <h2> Listing all Feed entries in project <%= @project.name %> </h2>
+    <% else %>
+      <h2> Listing collected Feed entries of person <%= @person.username %> </h2>
+    <% end %>
+    <div class="contentleftbox">
+      <table >
+        <tr id="rss_table">
+          <th>Text</th>
+          <th>Author</th>
+          <th>Url</th>
+          <th>Published ago:</th>
+          <th>Retweet_Count</th>
+        </tr>      
+        <%= render :partial => "feed_entry", :object => @feed_entries %>
+      </table>
+    </div>
+    
+  </div>
+</div>

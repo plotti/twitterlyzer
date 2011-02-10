@@ -1,0 +1,7 @@
+dev:
+    login: plotti
+    password: wrzesz
+
+prod:
+    login: plotti
+    password: wrzesz

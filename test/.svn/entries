@@ -1,0 +1,77 @@
+9
+
+dir
+17
+https://socialyzer.googlecode.com/svn/trunk/test
+https://socialyzer.googlecode.com/svn
+
+
+
+2009-10-26T20:17:50.919287Z
+17
+plotti2k1
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+979e89a0-a1ff-11de-9e49-a714085a53fc
+
+unit
+dir
+
+test_helper.rb
+file
+
+
+
+
+2009-07-08T11:38:06.000000Z
+e297614c72684d065aef001f86188732
+2009-09-15T14:37:33.314872Z
+2
+plotti2k1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1800
+
+performance
+dir
+
+functional
+dir
+
+integration
+dir
+
+fixtures
+dir
+

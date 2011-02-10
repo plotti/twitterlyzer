@@ -1,0 +1,49 @@
+<div id="left">
+  <h2> Help </h2>
+    <div class="box">
+      <ul>
+      Monitor People: Auto Update People periodically.
+      Monitor Searches: Auto Update Search Results periodically.
+      Monitor Feeds: Update Peoples Tweets periodically.
+    </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>New Project</h2>
+    <div class="contentleftbox">
+      
+    <% form_for(@project) do |f| %>
+      <%= f.error_messages %>
+    
+      <p>
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+      </p>
+      <p>
+        <%= f.label :description %><br />
+        <%= f.text_field :description %>
+      </p>
+      <p>
+        <%= f.label :monitor_feeds %>
+        <%= check_box_tag "project[monitor_feeds]", true %>
+      </p>
+      
+      <p>
+        <%= f.label :monitor_people %>
+        <%= check_box_tag "project[monitor_people]", true %>
+      </p>
+      
+      <p>
+        <%= f.label :monitor_searches %>
+        <%= check_box_tag "project[monitor_searches]", true %>
+      </p>
+      
+      <p>
+        <%= f.submit 'Create' %>
+      </p>
+    <% end %>
+    </div>
+  </div>
+</div>
+<%= link_to 'Back', projects_path %>

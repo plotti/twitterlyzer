@@ -1,0 +1,37 @@
+<div id="left">
+  <h2>Actions </h2>
+  <div class="box">  
+    <%= link_to 'Add new search', new_project_search_path %>
+    <br>
+    <%= link_to 'Back', project_searches_path %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2>Searches</h2>
+    <div class="contentleftbox">
+      <table>
+        <tr>
+          <th>Query</th>
+          <th>Entries</th>
+          <th>Persons</th>
+          <th>Actions</th>
+        </tr>        
+        <% @searches.each do |search| %>
+          <tr>
+            <td> <%= link_to search.search_query, project_search_search_results_path(search.project_id, search)%></td>            
+            <td> <%= link_to "Show found Tweets (" + search.search_results.collect{|s| s.feed_entry}.count.to_s + ")", show_feeds_project_search_search_results_path(search.project_id, search)%></td>
+            <td> <%= link_to "Show found Persons (" + search.search_results.collect{|s| s.person}.count.to_s + ")", show_persons_project_search_search_results_path(search.project_id, search) %></td>            
+            <td>
+              <%= link_to_remote "Collect all Persons and Feeds", :url => {:controller => 'searches', :action => 'collect_persons_and_feeds', :id => search.id} %>
+              <%= link_to "Show", project_search_path(search.project_id, search)%>
+              <%= link_to 'Destroy', project_search_path(search.project_id,search), :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+      <br>
+    </div>
+  </div>
+</div>

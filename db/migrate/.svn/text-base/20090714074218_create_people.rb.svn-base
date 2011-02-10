@@ -1,0 +1,25 @@
+class CreatePeople < ActiveRecord::Migration
+  def self.up
+    create_table :people do |t|
+      t.string :name      
+      t.string :bio
+      t.string :location
+      t.binary :picture
+      t.date :acc_created_at
+      t.string :time_offset
+      t.integer :friends_count
+      t.integer :followers_count
+      t.integer :statuses_count      
+      t.integer :twitter_id
+      t.string :website
+      t.string :username
+      t.boolean :private
+      
+      t.timestamps
+    end
+  end
+
+  def self.down
+    drop_table :people
+  end
+end

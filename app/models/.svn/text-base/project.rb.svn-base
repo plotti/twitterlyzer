@@ -1,0 +1,109 @@
+class Project < ActiveRecord::Base
+  #require "graphviz"
+  require "csv"
+  #require 'igraph'
+
+  #associations
+  has_and_belongs_to_many :persons
+  has_many :searches
+  has_many :system_messages, :as => :messageable
+  
+  
+  def self.graph_net(project_id)  
+    project = Project.find(project_id)
+    persons = project.persons       
+    g = GraphViz::new( "G" )    
+    project_net = project.find_all_friend_connections
+    
+    #add nodes and edges
+    project_net.each do |entry|
+      g.add_node(entry[0])
+      g.add_edge(entry[0],entry[1])
+      g.output( :output => "png", :use=> "fdp", :file => "#{project.name.gsub!(" ","_")}.png" )
+    end
+  end
+  
+  
+  def self.find_k_cores(project_id, core)
+    project = Project.find(project_id)
+    persons = project.persons    
+    followers = project.followers
+    
+    g = IGraph.new([],true)
+    
+    followers.each do |follower|
+      follower_id = Person.find_by_username(follower.person).id
+      followed_by_id = Person.find_by_username(follower.followed_by_person).id
+      edges << follower_id
+      edges << followed_by_id
+      #g.add_vertex(follower_id)
+      #g.add_vertex(followed_by_id)
+      #g.add_edge(follower_id, followed_by_id)
+    end
+    
+    return g
+  end
+  
+  #Write project people net to disk
+  def self.write_net_to_disk
+    content_type = ' text/csv '    
+    Project.all.each do |project|      
+      if project.monitor_feeds == true
+        project_net = project.find_all_friend_connections                
+        outfile = File.open(RAILS_ROOT + "/log/" + project.name + "_SNA_" + Time.now.strftime("%d_%m_%Y %I:%M").to_s + ".csv", 'w')      
+        CSV::Writer.generate(outfile) do |csv|
+          csv << ["DL n=" + project.persons.count.to_s ]
+          csv << ["format = edgelist1"]
+          csv << ["labels embedded:"]
+          csv << ["data:"]
+          project_net.each do |entry|
+            csv << [entry[0], entry[1], "1"]
+          end
+        end
+        outfile.close
+        SystemMessage.add_message("info", "Write net to disk", project.name + " net was written to disk.")          
+      end
+    end
+  end
+  
+  #Write project stats to disk 
+  def self.write_stats_to_disk
+    content_type = ' text/csv '
+    Project.all.each do |project|      
+      if project.monitor_feeds == true
+        outfile = File.open(RAILS_ROOT + "/log/" + project.name + "_STATS_" + Time.now.strftime("%d_%m_%Y %I:%M").to_s + ".csv", 'w')      
+        CSV::Writer.generate(outfile) do |csv|
+          csv << ["Person", "Twitter_Username", "Friends", "Followers", "Messages"]
+          project.persons.each do |person|
+            csv << [person.name, person.username, person.friends_count, person.followers_count, person.statuses_count]
+          end
+        end
+        outfile.close
+        SystemMessage.add_message("info", "Write stats to disk", project.name + " stats were written to disk.")          
+      end
+    end
+  end
+    
+  #Tries to find all connections for a given project
+  def find_all_friend_connections
+    i= 0
+    values = []
+    persons_ids = []
+    persons = Project.find(self.id).persons    
+    persons.each do |person|
+      persons_ids << person.twitter_id
+    end    
+    persons.each do |person|
+      i = i+1
+      logger.info("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for friend connections.")          
+      friends_ids_hash = person.friends_ids_hash
+      persons_ids.each do |person_id|
+        if friends_ids_hash.include?(person_id)
+          values << [Person.find_by_twitter_id(person_id).username, person.username.to_s]
+        end
+      end
+    end
+    return values 
+  end
+  
+end

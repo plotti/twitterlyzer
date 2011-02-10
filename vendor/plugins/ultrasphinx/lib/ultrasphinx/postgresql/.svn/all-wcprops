@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql
+END
+group_concat.sql
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/group_concat.sql
+END
+language.sql
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/language.sql
+END
+unix_timestamp.sql
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/unix_timestamp.sql
+END
+crc32.sql
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/crc32.sql
+END
+concat_ws.sql
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/concat_ws.sql
+END
+hex_to_int.sql
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/lib/ultrasphinx/postgresql/hex_to_int.sql
+END

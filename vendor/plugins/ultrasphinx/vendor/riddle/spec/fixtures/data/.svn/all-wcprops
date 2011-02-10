@@ -1,0 +1,155 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data
+END
+filter_floats_range.bin
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_floats_range.bin
+END
+filter_range_exclude.bin
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_range_exclude.bin
+END
+anchor.bin
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/anchor.bin
+END
+weights.bin
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/weights.bin
+END
+field_weights.bin
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/field_weights.bin
+END
+boolean.bin
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/boolean.bin
+END
+keywords_without_hits.bin
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/keywords_without_hits.bin
+END
+distinct.bin
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/distinct.bin
+END
+phrase.bin
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/phrase.bin
+END
+filter_array.bin
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_array.bin
+END
+filter.bin
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter.bin
+END
+sort.bin
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/sort.bin
+END
+any.bin
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/any.bin
+END
+simple.bin
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/simple.bin
+END
+keywords_with_hits.bin
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/keywords_with_hits.bin
+END
+update_simple.bin
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/update_simple.bin
+END
+group.bin
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/group.bin
+END
+filter_array_exclude.bin
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_array_exclude.bin
+END
+filter_floats.bin
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_floats.bin
+END
+rank_mode.bin
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/rank_mode.bin
+END
+index_weights.bin
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/index_weights.bin
+END
+filter_range.bin
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_range.bin
+END
+comment.bin
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/comment.bin
+END
+filter_floats_exclude.bin
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/filter_floats_exclude.bin
+END
+index.bin
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/vendor/riddle/spec/fixtures/data/index.bin
+END

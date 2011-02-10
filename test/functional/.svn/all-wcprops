@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/2/trunk/test/functional
+END
+feed_entries_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/2/trunk/test/functional/feed_entries_controller_test.rb
+END
+friendships_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/2/trunk/test/functional/friendships_controller_test.rb
+END
+people_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2/trunk/test/functional/people_controller_test.rb
+END
+projects_controller_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/test/functional/projects_controller_test.rb
+END

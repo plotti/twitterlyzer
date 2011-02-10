@@ -1,0 +1,9 @@
+/log/*.*
+/tmp/**/*
+/tmp
+config/database.yml
+db/schema.rb
+/data
+/data/*.*
+/friends_ids_data
+/follower_ids_data

@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public
+END
+dispatch.cgi
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/dispatch.cgi
+END
+dispatch.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/dispatch.rb
+END
+dispatch.fcgi
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/dispatch.fcgi
+END
+robots.txt
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/robots.txt
+END
+500.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/500.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/index.html
+END
+404.html
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/404.html
+END
+.htaccess
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/.htaccess
+END
+favicon.ico
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/2/trunk/vendor/plugins/ultrasphinx/test/integration/app/public/favicon.ico
+END

@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/public/images
+END
+error_msg.png
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/public/images/error_msg.png
+END
+info_warning_msg.png
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/9/trunk/vendor/plugins/system_messages/public/images/info_warning_msg.png
+END

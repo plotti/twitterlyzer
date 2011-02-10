@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/14/trunk/test/unit
+END
+feed_entry_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/test/unit/feed_entry_test.rb
+END
+project_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/12/trunk/test/unit/project_test.rb
+END
+person_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/12/trunk/test/unit/person_test.rb
+END

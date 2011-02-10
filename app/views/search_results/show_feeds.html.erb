@@ -1,0 +1,24 @@
+<div id="left">
+  <h2>Actions</h2>
+  <div class="box">
+        <%= link_to 'Back', project_searches_path(@project) %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    <h2> Listing all Feed entries in search xy </h2>
+    <div class="contentleftbox">
+      <table >
+        <tr id="rss_table">
+          <th>Text</th>
+          <th>Author</th>
+          <th>Url</th>
+          <th>Published ago:</th>
+          <th>Guid</th>
+        </tr>      
+        <%= render :partial => "feed_entries/feed_entry", :object => @feed_entries %>
+      </table>
+    </div>
+  </div>
+</div>

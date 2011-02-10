@@ -1,0 +1,33 @@
+<div id="left">
+  <h2> Examples </h2>
+  <div class="box">
+    <p> Only keyword: "twitter" </p>
+    <p> From a user: "from:alex" </p>
+    <p> Replying to a user: "to:alex" </p>
+    <p> Mentioning a user: "@biz" </p>
+    <p> With a hashtag: "#iran" </p>
+    <br>
+    <%= link_to 'Back', projects_path %>
+  </div>
+</div>
+
+
+<div id="right">
+  <div class="contentleft">
+    <h2> New Search </h2>
+    <div class="contentleftbox">
+      <% form_for([@project,@search]) do |f| %>
+        <%= f.error_messages %>  
+        <p>
+          <%= f.label :query %><br />
+          <%= f.text_field :search_query %>
+        </p>  
+        <br>
+        <p>
+          <%= f.submit 'Create' %>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</div>
+  
