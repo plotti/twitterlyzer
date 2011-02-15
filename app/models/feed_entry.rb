@@ -245,23 +245,23 @@ class FeedEntry < ActiveRecord::Base
     each_slice(n).reduce([]) {|x,y| x += [y] }
   end
 
-  #
+  # Collects the persons and retweets of a tweet
   def self.collect_retweet_ids(entry)    
     i = 0
     i += 1
     puts "(#{i} COLLECTING RETWEETS FOR ENTRY #{entry.guid}"
     entry.retweet_ids = []
     entry.save!
-    begin        
+    #begin        
       @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
         #Collect all Persons on initial try takes a long time!        
         Person.collect_person(retweet.user.screen_name, entry.person.project.first.id, 100000)
         entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
       end      
       entry.save!
-    rescue
-      puts "Couldnt't get retweets for id:#{entry.guid}"
-    end    
+    #rescue
+    #  puts "Couldnt't get retweets for id:#{entry.guid}"
+    #end    
   end
   
   def self.collect_entry_and_person(twitter_id, project_id)

@@ -1,6 +1,10 @@
 require 'rubygems'
 require 'factory_girl'
 
+Factory.define :project do |p|
+  p.name  "Test project"  
+end
+
 Factory.define :person do |p|
   p.name  "Joe Nuxoll"
   p.category  "Java"
@@ -9,4 +13,11 @@ Factory.define :person do |p|
   p.twitter_id  "3557831"
   p.statuses_count  "3595"
   p.username  "joeracer"
+  p.project {[Factory(:project)]}
+end
+
+Factory.define :feed_entry do |f|
+  f.text "Collection of Data Analysis Books http://www.downeu.com/dl/Statistical+Methods+For+Spatial+Data+Analysis.html"
+  f.guid 15312085189
+  f.person {Factory(:person)}
 end

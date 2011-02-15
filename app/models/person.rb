@@ -54,14 +54,11 @@ class Person < ActiveRecord::Base
   
   #collects the friends of a given user
   def collect_friends twitter_id 
-    #twitter = Twitter::Client.from_config('config/twitter.yml', 'dev')
     begin
-      puts "COLLECTING FRIENDS OF #{twitter_id}"
+      puts "COLLECTING Friends IDS OF #{twitter_id}"
       friends_ids = @@client.friends.ids? :id => twitter_id
-      #friends_ids = twitter.graph(:friends, twitter_id)
     rescue
       friends_ids = []      
-      #tmp_person = Person.twitter_user(:params => {:id => twitter_id})
       tmp_person = @@client.users.show? :id => twitter_id
       SystemMessage.add_message("error", "Collect Friends ", "Friends of Person with username: " + tmp_person.screen_name.to_s + " could not be found. Person protection is " + tmp_person.protected.to_s )
       logger.error("ERROR: Collect Friends of person with twitter id " + twitter_id.to_s + "was not possible.")
@@ -79,10 +76,9 @@ class Person < ActiveRecord::Base
   
   # collects the followers of a given user
   def collect_followers twitter_id
-    #twitter = Twitter::Client.from_config('config/twitter.yml', 'dev')
     begin
-     follower_ids = @@client.followers.ids? :id => twitter_id
-      #follower_ids = twitter.graph(:followers, twitter_id)
+     puts "COLLECTING Follower IDS OF #{twitter_id}"    
+     follower_ids = @@client.followers.ids? :id => twitter_id      
     rescue
       follower_ids = []
       tmp_person = @@client.users.show? :id => twitter_id
@@ -190,7 +186,7 @@ class Person < ActiveRecord::Base
     end    
         
     #Collect Person if not in DB
-    if person == nil      
+    if person == nil
       puts "COLLECTING PERSON " + twitter_id.to_s
       if twitter_id.class == "String"
         begin
@@ -204,21 +200,19 @@ class Person < ActiveRecord::Base
         end
       end
       
-      #person = Person.twitter_user(:params => {:id => twitter_id})      
       if person == nil
-        #Delayed::Job.enqueue(CollectPersonJob.new(twitter_id,project_id,max_collection))         
         SystemMessage.add_message("error", "Collect Person ",  " Person with twitter id: " + twitter_id.to_s + " was not found. Retrying.")
         logger.error "Person with twitter id: " + twitter_id.to_s + " was not found. Retrying."
       else
         #Store Person      
         person = Person.add_entry(person)
-        #Collect Friends      
+        #Collect Friends IDS
         if friends
           if person.friends_count.to_i < max_collection.to_i
             person.collect_friends(person.twitter_id)
           end          
         end      
-        #Collect Followers
+        #Collect Followers IDS
         if followers
           if person.followers_count.to_i < max_collection.to_i
             person.collect_followers(person.twitter_id)
@@ -248,7 +242,7 @@ class Person < ActiveRecord::Base
   end
   
   def self.collect_person_and_followers(twitter_id,project_id,max)
-    person = Person.collect_person(twitter_id, project_id, max, false, true)      
+    person = Person.collect_person(twitter_id, project_id, max, "", false, true)    
     person.follower_ids.each do |follower_id|
       Person.collect_person(follower_id, project_id, max)
     end
