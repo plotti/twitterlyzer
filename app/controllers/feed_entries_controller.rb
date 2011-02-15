@@ -20,6 +20,7 @@ class FeedEntriesController < ApplicationController
     @project = Project.find(params[:project_id])
     
     #depending if I am showing all entries or only the persons entries.
+    @count = 0
     if params[:person_id] == nil
       @show_all = true
       @feed_entries = []
@@ -34,10 +35,14 @@ class FeedEntriesController < ApplicationController
       #  FeedEntry.count(:all, :conditions => { :person_id => person}, :order => 'published_at DESC', :group => 'DATE(published_at)').each do |entry|
       #    @grouped_entries << entry
       #  end
-      #end      
+      #end
+      @feed_entries_count = @project.feed_entries.count
+      @feed_entries = @project.feed_entries.paginate :page => params[:page]
     else
+      @feed_entries_count = @person.feed_entries.count
       @person = Person.find(params[:person_id])
-      @feed_entries = FeedEntry.find(:all,  :conditions => { :person_id => @person.id}, :order => 'published_at DESC')
+      @feed_entries = @person.feed_entries.paginate :page => params[:page], :order =>  'updated_at DESC'         
+      #@feed_entries = FeedEntry.find(:all,  :conditions => { :person_id => @person.id}, :order => 'published_at DESC')
     end
     
     respond_to do |format|
@@ -48,6 +53,8 @@ class FeedEntriesController < ApplicationController
 
   def show_analysis
     @person = Person.find(params[:person_id])
+    @project = @person.project
+    
     @feed_entries = FeedEntry.find(:all,  :conditions => { :person_id => @person.id}, :order => 'published_at DESC')
 
     @grouped_entries = FeedEntry.count(:all, :conditions => { :person_id => @person.id}, :order => 'published_at DESC', :group => 'DATE(published_at)')

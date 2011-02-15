@@ -8,36 +8,14 @@ class FeedEntry < ActiveRecord::Base
   serialize :retweet_ids  
   
   #Constants
-  ENTRIES_PER_PAGE = 200
-  BITLY_LOGIN = "plotti"
-  BITLY_API_KEY = "R_fb1f65003bba56b566ed65be4a773741"
-  
-  
-  CONSUMER_KEY = "lPeEtUCou8uFFOBt94h3Q"
-  CONSUMER_SECRET = "iBFQqoV9a5qKCiAfitEXFzvkD7jcpSFupG8FBGWE"
-  ACCESS_TOKEN = "15533871-abkroGVmE7m1oJGzZ38L29c7o7vDyGGSevx6X25kA"
-  ACCESS_TOKEN_SECRET = "pAoyFeGQlHr53BiRSxpTUpVtQW0B0zMRKBHC3hm3s"
-  
-  
+  ENTRIES_PER_PAGE = 200  
+    
   def remove_format(text)
     gsub(/\r\n?/, "").
     gsub(/\n\n+/, "").
     gsub(/([^\n]\n)(?=[^\n])/, "")
   end
-  
-  #define_remote_method :user_timeline, :path => '/statuses/user_timeline.rss',
-  #                     :base_uri => "http://twitter.com",
-  #                     :on_success => lambda {|response| SimpleRSS.parse(response.body)},
-  #                     :on_failure => lambda {|response| puts "error code: #{response.code}"},
-  #                     :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-  #
-  #define_remote_method  :get_status, :path => '/statuses/show.json',
-  #                        :base_uri => "http://twitter.com",
-  #                        :on_success => lambda {|response| JSON.parse(response.body)},
-  #                        :on_failure => lambda {|response| puts "error code: #{response.code}"},
-  #                        :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-  #
-  
+   
   define_remote_method :expand_url, :path =>'http://api.bit.ly/expand',
                        :params => {:version => "2.0.1", :login => BITLY_LOGIN, :apiKey => BITLY_API_KEY},
                        :on_success => lambda{|response| JSON.parse(response.body)},
@@ -62,15 +40,17 @@ class FeedEntry < ActiveRecord::Base
       begin
         puts "On page #{page}"
         r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page})        
-        #r = @@client.statuses.user_timeline? :screen_name => person.username, :page => page, :count => ENTRIES_PER_PAGE
         if r == []
           more_tweets_found = false
         end
         feeds << r
-      rescue Twitter::BadGateway => e
+      rescue Twitter::BadGateway => e        
         puts e.class
         SystemMessage.add_message("error", "Twitter not responding error", e)
         retry
+      rescue Twitter::ServiceUnavailable => e
+        puts e.class
+        retry        
       rescue Exception => e
         puts e.class
         SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
@@ -188,6 +168,7 @@ class FeedEntry < ActiveRecord::Base
     end    
   end
   
+  #TODO: Is this method deprecated? 
   def self.generate_plot(tweets, title)
    Gnuplot.open do |gp|
       Gnuplot::Plot.new(gp) do |plot|
@@ -225,51 +206,10 @@ class FeedEntry < ActiveRecord::Base
         end
       end
    end
-   
-   
-  end
-    
-  def self.update_person_entries(person)
-    page = 1  
-    newer_entries_exist = true
-    entries_to_add = []
-    entries_pp = 50
-    switch = true          
-    latest_published_db_entry = person.feed_entries.maximum("published_at")
-    if latest_published_db_entry == nil
-      latest_published_db_entry = Time.at(0)
-    end          
-    while newer_entries_exist
-      begin
-        entries = @@client.statuses.user_timeline :screen_name => person.username, :page => page, :count => entries_pp
-        #entries = FeedEntry.user_timeline(:params => {:id => person.twitter_id, :page => page, :count => entries_pp}).entries
-      rescue
-        puts "User not found: " + person.username
-        entries = []
-      end            
-      if entries.count == 0
-        newer_entries_exist = false
-      end
-      entries.each do |entry|
-        if entry.pubDate > latest_published_db_entry
-          entries_to_add << entry
-        else
-          newer_entries_exist = false
-        end
-      end
-      # 50,50,50,50,200,200,....
-      if page == 4 && switch
-        entries_pp = 200
-        page = 1
-        switch = false
-      end
-      page = page + 1
-    end    
-    FeedEntry.add_entries(entries_to_add, person)
-    person.update_attributes(:statuses_count => person.statuses_count + entries_to_add.count)
-    logger.info(entries_to_add.count.to_s + " Entries updated for user: " + person.username)    
   end
   
+  # For a given tweet, it goes through its retweets and returns all the retweets that are
+  # in the ego-network of the collected person.
   def ego_net_retweets
     retweets = []
     self.retweet_ids.each do |retweet|    
@@ -283,26 +223,18 @@ class FeedEntry < ActiveRecord::Base
     return retweets
   end
   
+  # Creates a network of persons that retweeted a given tweet.
   def self.create_retweet_network(feed_id,project_id)
     feed = FeedEntry.find(feed_id)
-    #tweets = []
     persons = []
-    #add initial tweet    
-    #tmp = @@client.statuses.show? :id => feed.guid
-    #tweets << tmp
     persons << feed.person
     tweets = feed.retweet_ids    
-    #feed.retweet_ids.collect{|r| r[:id]}.uniq.each do |id|
     tweets.each do |tweet|
       begin
-        #puts "Collecting Person for tweet: #{id}"
-        #tweet = @@client.statuses.show? :id => id            
         person = Person.collect_person(tweet[:person], project_id, 100000)
-        #FeedEntry.add_entry(tweet, person)
         persons << person        
-        #tweets << tweet
       rescue
-        puts "Could not get tweet #{id}"
+        puts "Could not get person for tweet #{id}"
       end
       
     end
@@ -313,6 +245,7 @@ class FeedEntry < ActiveRecord::Base
     each_slice(n).reduce([]) {|x,y| x += [y] }
   end
 
+  #
   def self.collect_retweet_ids(entry)    
     i = 0
     i += 1
@@ -355,6 +288,7 @@ class FeedEntry < ActiveRecord::Base
   end
   
   def get_urls
+    self.text.gsub!("”", "")
     a = self.text.gsub(/((https?:\/\/|www\.)([-\w\.]+)+(:\d+)?(\/([\w\/_\.]*(\?\S+)?)?)?)/).to_a   
   end
   
@@ -411,8 +345,7 @@ class FeedEntry < ActiveRecord::Base
       }
     rescue Timeout::Error
       result = "Twitter Timeout"
-    end
-    
+    end    
     return result
   end
   
@@ -425,14 +358,15 @@ class FeedEntry < ActiveRecord::Base
     end
   end
   
+  #Only adds entries if they are not already existing.
   def self.add_entry(entry,person)
-    unless exists? :guid => entry.guid
+    unless exists? :guid => entry.id_str
         create!(
           :text         => entry.text,
           :author       => person.name,
           :url          => "http://twitter.com/" + entry.user.screen_name.to_s + "/status/" + entry.id.to_s,
           :published_at => entry.created_at,
-          :guid         => entry.id,
+          :guid         => entry.id_str,
           :person_id    => person.id,
           :retweet_ids  => [],
           :reply_to     => entry.in_reply_to_status_id.to_s,

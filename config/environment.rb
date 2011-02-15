@@ -15,6 +15,11 @@ STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line
 FRIENDS_IDS_PATH = RAILS_ROOT + "/friends_ids_data/"
 FOLLOWER_IDS_PATH = RAILS_ROOT  + "/follower_ids_data/"
 
+#Bit Ly Api
+BITLY_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/bitly.yml")
+BITLY_LOGIN = BITLY_CONFIG["login"]
+BITLY_API_KEY = BITLY_CONFIG["api_key"]
+
 #Twitter Configs
 TWITTER_CONFIG = YAML.load_file("#{RAILS_ROOT}/config/twitter.yml")
 CONSUMER_KEY = TWITTER_CONFIG["consumer_key"]
@@ -101,6 +106,7 @@ Rails::Initializer.run do |config|
   config.gem 'typhoeus'
   config.gem 'ar-extensions'
   config.gem 'simple-rss'
+  
   #config.gem 'rsruby'
   
 end

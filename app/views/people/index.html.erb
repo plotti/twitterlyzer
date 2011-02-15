@@ -1,17 +1,35 @@
 <%= render :partial => "scripts" %>
 
 <div id="left">
-  <h2>Actions </h2>
+  <h2>Navigation</h2>
   <div class="box">  
-    <%= link_to 'Add new people', new_project_person_path %>    
+    <%= link_to 'Show all people in project', show_all_project_people_path %>
     <br>
-      <%= link_to_remote "Update all People",
+    <%= link_to 'Back', projects_path %>
+  </div>
+  <h2> Overview </h2>
+  <div class="box">
+    People in Project: <%= @persons.count.to_s %>
+  </div>
+</div>
+
+<div id="right">
+  <div class="contentleft">
+    
+    
+    <h2> Actions </h2>
+    <div class="contentleftbox">    
+    <%= link_to 'Add new persons to project', new_project_person_path %>    
+    <br>
+    <br>
+    <%= link_to_remote "Update the details on the persons in the project",
         :url => {:controller => "projects", :action => "update_all_project_people"},
         :confirm => "This might take a long while are you sure?"
     %>
     <br>
+    <br>
     <%= text_field_tag("max_friends", "Number of Max friends", :size => 20 ) %>  
-      <%= link_to_remote 'Collect Project Persons Egonets', 
+      <%= link_to_remote 'Collect the egonets of the people in the project', 
                   :url => {:action=>'collect_project_persons_egonets', :project_id => @project.id},
                   :with => "'max_friends=' + $F('max_friends')",
                   :confirm => 'This operation might take a long time. Are you sure?',
@@ -19,14 +37,8 @@
                   :complete => "Element.hide('spinner')"
       %>
     <br>
-    <%= link_to 'Show all people', show_all_project_people_path %>
-    <br>
-    <%= link_to 'Back', projects_path %>
-  </div>
-</div>
+   </div>
 
-<div id="right">
-  <div class="contentleft">
     <h2>People by Country</h2>
     <div class="contentleftbox">    
       <div id="map_canvas"></div>

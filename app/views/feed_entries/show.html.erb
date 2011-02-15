@@ -23,9 +23,5 @@
   <%=h @feed_entry.guid %>
 </p>
 
-
-<%=
-#link_to 'Edit', edit_person_feed_entry_path(@feed_entry.person_id)
-#|
-%> 
+ 
 <%= link_to 'Back', person_feed_entries_path(@feed_entry.person_id) %>
