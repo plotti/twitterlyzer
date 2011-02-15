@@ -61,15 +61,15 @@ class FeedEntry < ActiveRecord::Base
     while more_tweets_found
       begin
         puts "On page #{page}"
-        r = @@twitter.user_timeline("plotti", {:count => ENTRIES_PER_PAGE, :page => page})        
+        r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page})        
         #r = @@client.statuses.user_timeline? :screen_name => person.username, :page => page, :count => ENTRIES_PER_PAGE
         if r == []
           more_tweets_found = false
         end
         feeds << r
-      rescue Grackle::TwitterError => e
+      rescue Twitter::BadGateway => e
         puts e.class
-        SystemMessage.add_message("error", "Grackle Error", e)
+        SystemMessage.add_message("error", "Twitter not responding error", e)
         retry
       rescue Exception => e
         puts e.class
