@@ -42,31 +42,32 @@ class FeedEntry < ActiveRecord::Base
         r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page})        
         if r == []
           more_tweets_found = false
+        else
+          #Add to Database
+          feeds << r          
+          FeedEntry.add_entries(r, person)
         end
-        feeds << r
       rescue Twitter::BadGateway => e        
         puts e.class
-        SystemMessage.add_message("error", "Twitter not responding error", e)
         retry
       rescue Twitter::ServiceUnavailable => e
         puts e.class
-        retry        
+        retry
+      rescue Twitter::Unauthorized => e
+        puts e.class
+      rescue Twitter::NotFound => e
+        SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
       rescue Exception => e
         puts e.class
-        SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
+        SystemMessage.add_message("error", "Collect all entries", "General error for User " + person.username + " not found.#{e}")
       end
       page += 1
-    end
+    end    
     
-    #Add to Database
     if feeds != nil
-      feeds.each do |f|
-        FeedEntry.add_entries(f, person)
-      end      
-      logger.info "Collect_all_entries -- Collected Tweets of " + person.username
-      
-      return feeds
+      logger.info "Collect_all_entries -- Collected Tweets of " + person.username      
     end
+    return feeds
   end
   
   #Marks for the collected retweets if those are isolates in the network or not

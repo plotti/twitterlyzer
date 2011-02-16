@@ -50,4 +50,15 @@ The rails app is totally in a beta stadium, has no test coverage!
 To get it running you will need to create a :
 
 twitter.yml that contains your twitter credentials
-see twitter.example.yml for details
+bitly.yml that contains your bitly credentials
+
+see twitter.example.yml or bitly.example.yml for details
+
+Delayed Jobs:
+	To start collecting persons or feeds you need to start a couple of delayed job workers:
+	To do so use the script "./script/delayed_job -n 4"
+	The Benchmarks I measured are depending on the number of workers (n):
+		Collecting Tweets: n 4: 40.000 tweets in 10min
+				   n 8: 90.000 tweets in 10min
+				   n 16: 180.000 tweets in 10 min (70% CPU usage)
+

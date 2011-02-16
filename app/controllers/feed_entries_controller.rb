@@ -36,7 +36,7 @@ class FeedEntriesController < ApplicationController
       #    @grouped_entries << entry
       #  end
       #end
-      @feed_entries_count = @project.feed_entries.count
+      @feed_entries_count = @project.feed_entries_count
       @feed_entries = @project.feed_entries.paginate :page => params[:page]
     else
       @feed_entries_count = @person.feed_entries.count

@@ -244,4 +244,12 @@ class Project < ActiveRecord::Base
     return r
   end
   
+  def feed_entries_count
+    r  = 0 
+    self.persons.each do |p|
+      r += p.feed_entries.count 
+    end
+    return r
+  end
+  
 end

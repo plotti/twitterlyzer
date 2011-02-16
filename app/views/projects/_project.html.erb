@@ -1,0 +1,48 @@
+<p>
+  <h1> Name: <%= link_to project.name, project_people_path(project) %>
+  </h1>
+</p>          
+<p>
+  <h1> 
+    <%= link_to 'Persons(' + project.persons.count.to_s + ")", project_people_path(project) %>  
+    <%= link_to 'Searches(' + project.searches.count.to_s + ")", project_searches_path(project) %>
+    <%= link_to 'Feeds(' + project.feed_entries_count.to_s + ')',  project_feed_entries_path(project) %>
+  </h1>
+</p>
+
+<p>
+  <b> Export Networks: </b>
+    <%= link_to_remote 'GEPHI', 
+        :url => {:controller => 'projects', :action=>'export_to_gephi', :id => project.id}
+    %> |
+    <%= link_to_remote 'UCINET', 
+          :url => {:controller => 'projects', :action=>'export_to_uci_net', :id => project.id}
+    %> |
+    <%= link_to_remote 'Valued @ Network',
+      :url => {:controller => "projects", :action => "export_valued_to_uci_net", :id => project.id}
+    %>|
+    <%= link_to_remote 'Valued RT Network',
+      :url => {:controller => "projects", :action => "export_retweet_net_to_uci_net", :id => project.id}
+      %>
+</p>
+<p>
+  <b>Export Stats: </b>
+  <%= link_to_remote 'Person Stats',
+          :url => {:controller => 'projects', :action => 'export_person_stats', :id => project.id}
+  %> |
+    <%= link_to_remote 'Retweet Stats',
+        :url => {:controller => 'projects', :action => 'export_retweet_stats', :id => project.id}
+    %> |
+  <%= link_to_remote 'Twitter Links',
+          :url => {:controller => 'projects', :action => 'export_twitter_links', :id => project.id}
+  %> |
+  <%= link_to_remote 'All Messages',
+          :url => {:controller => 'projects', :action => 'export_twitter_messages', :id => project.id}
+  %>
+</p>
+<p>
+  <b>Project Actions:</b>
+  <%= link_to 'Show Details', project %> |
+  <%= link_to 'Edit', edit_project_path(project) %> |
+  <%= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete %>
+</p>
