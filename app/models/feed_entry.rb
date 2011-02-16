@@ -7,22 +7,17 @@ class FeedEntry < ActiveRecord::Base
   include Typhoeus
   serialize :retweet_ids  
   
+  #Associations
+  belongs_to :person
+  
   #Constants
-  ENTRIES_PER_PAGE = 200  
-    
-  def remove_format(text)
-    gsub(/\r\n?/, "").
-    gsub(/\n\n+/, "").
-    gsub(/([^\n]\n)(?=[^\n])/, "")
-  end
+  ENTRIES_PER_PAGE = 200      
    
   define_remote_method :expand_url, :path =>'http://api.bit.ly/expand',
                        :params => {:version => "2.0.1", :login => BITLY_LOGIN, :apiKey => BITLY_API_KEY},
                        :on_success => lambda{|response| JSON.parse(response.body)},
                        :on_failure => lambda{|response| puts "error code: #{response.code}"}
                        
-  #Associations
-  belongs_to :person
   
   #Sphinx
   is_indexed :fields => ['text', 'author', 'url']
@@ -277,6 +272,12 @@ class FeedEntry < ActiveRecord::Base
       entry.retweet_ids << {:id => retweet.id, :person => retweet.user.username}
     end      
     entry.save!
+  end
+  
+  def remove_format(text)
+    gsub(/\r\n?/, "").
+    gsub(/\n\n+/, "").
+    gsub(/([^\n]\n)(?=[^\n])/, "")
   end
   
   def get_at_tags

@@ -8,8 +8,6 @@ class Project < ActiveRecord::Base
   has_many :searches
   has_many :system_messages, :as => :messageable
   
-  named_scope :feed_entries, :joins => :persons, :conditions => ['washing_instructions.dry_clean_only = ?', true]
-      
   def self.graph_net(project_id)  
     project = Project.find(project_id)
     persons = project.persons       
@@ -234,16 +232,11 @@ class Project < ActiveRecord::Base
     return values 
   end
   
-  def feed_entries
-    r = []
-    self.persons.each do |p|
-      p.feed_entries.each do |f|
-        r << f
-      end
-    end    
-    return r
+  def feed_entries(limit)
+    FeedEntry.find(:all, :conditions => [ "person_id IN (?)", self.persons], :limit => limit)    
   end
   
+
   def feed_entries_count
     r  = 0 
     self.persons.each do |p|
