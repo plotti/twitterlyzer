@@ -62,3 +62,6 @@ Delayed Jobs:
 				   n 8: 90.000 tweets in 10min
 				   n 16: 180.000 tweets in 10 min (70% CPU usage)
 
+		Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers.
+		TODO: Make the workers intelligent and make sure that they only take the job when there is enough API calls left.
+
