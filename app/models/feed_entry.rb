@@ -241,37 +241,45 @@ class FeedEntry < ActiveRecord::Base
     each_slice(n).reduce([]) {|x,y| x += [y] }
   end
 
+ 
   # Collects the persons and retweets of a tweet
-  def self.collect_retweet_ids(entry)    
+  def self.collect_retweet_ids_for_entry(entry)    
     i = 0
     i += 1
     puts "(#{i} COLLECTING RETWEETS FOR ENTRY #{entry.guid}"
     entry.retweet_ids = []
     entry.save!
-    #begin        
+    begin        
       @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
         #Collect all Persons on initial try takes a long time!        
         Person.collect_person(retweet.user.screen_name, entry.person.project.first.id, 100000)
         entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
       end      
       entry.save!
-    #rescue
-    #  puts "Couldnt't get retweets for id:#{entry.guid}"
-    #end    
+    rescue
+      puts "Couldnt't get retweets for id:#{entry.guid}"
+    end    
+  end
+  
+  def self.collect_retweet_ids_for_person(person)
+    person.feed_entries.each do |entry|
+      entry.retweet_ids = []
+      entry.save!
+      begin        
+        @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
+          entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
+        end      
+        entry.save!
+      rescue
+        puts "Couldnt't get retweets for id:#{entry.guid}"
+      end    
+    end
   end
   
   def self.collect_entry_and_person(twitter_id, project_id)
     entry = @@client.statuses.show? :id => twitter_id
     person = Person.collect_person(entry.user.screen_name, project_id, 10000, friends = true, followers = false)            
     FeedEntry.add_entry(entry, person)
-  end
-  
-  def self.collect_retweet_ids_for_entry(entry)
-    puts "(COLLECTING RETWEETS FOR ENTRY #{entry.guid}"
-    @@client.statuses.retweets?(:id => entry.guid).each do |retweet|
-      entry.retweet_ids << {:id => retweet.id, :person => retweet.user.username}
-    end      
-    entry.save!
   end
   
   def remove_format(text)
@@ -372,7 +380,16 @@ class FeedEntry < ActiveRecord::Base
           :person_id    => person.id,
           :retweet_ids  => [],
           :reply_to     => entry.in_reply_to_status_id.to_s,
-          :geo          => entry.geo
+          :geo          => entry.geo,
+          :place        => entry.place,
+          :in_reply_to_user_id => entry.in_reply_to_user_id,
+          :retweeted    => entry.retweeted,
+          :retweet_count => entry.retweet_count,
+          :contributors  => entry.contributors,
+          :favorited     => entry.favorited,
+          :truncated     => entry.truncated,
+          :coordinates   => entry.coordinates,
+          :source        => entry.source
         )
     end
   end

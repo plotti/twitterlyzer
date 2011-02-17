@@ -59,7 +59,7 @@
     <br>
     </div>
     <% if @show_all %>
-      <h2> Listing all Feed entries in project <%= @project.name %> </h2>
+      <h2> Listing of first 1000 Feed entries in project <%= @project.name %> </h2>
     <% else %>
       <h2> Listing collected Feed entries of person <%= @person.username %> </h2>
       <%= will_paginate @feed_entries %>

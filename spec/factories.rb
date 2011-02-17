@@ -21,3 +21,9 @@ Factory.define :feed_entry do |f|
   f.guid 15312085189
   f.person {Factory(:person)}
 end
+
+Factory.define :list do |l|
+  l.username "ognyanova"
+  l.name "tech"
+  l.slug "ognyanova/tech"
+end

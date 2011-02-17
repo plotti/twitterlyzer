@@ -167,6 +167,14 @@ class Project < ActiveRecord::Base
     return values
   end
   
+  
+  # For a given project it:
+  # Looks through the people contained in a project
+  # and for each person it goes through its tweets and looks if that person
+  # is mentioning a person in the project. If it finds a mention of the other person
+  # it also checks if that is maybe a retweet of that person
+  # This makes sure that we only get the @ communication without the RT.
+  # Everytime we find somebody we set the value up.
   def find_all_valued_connections(friend = true, follower = false)
     i= 0
     values = []

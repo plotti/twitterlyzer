@@ -4,4 +4,3 @@ class CollectFeedEntryAndRetweetsJob < Struct.new(:project_id, :twitter_id)
     FeedEntry.collect_retweet_ids_for_entry(entry)
   end  
 end
-

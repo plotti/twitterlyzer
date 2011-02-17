@@ -162,8 +162,7 @@ class ProjectsController < ApplicationController
          page.reload
        end
      end
-   end  
-     
+   end       
   end
   
   

@@ -19,10 +19,12 @@
           :url => {:controller => 'projects', :action=>'export_to_uci_net', :id => project.id}
     %> |
     <%= link_to_remote 'Valued @ Network',
-      :url => {:controller => "projects", :action => "export_valued_to_uci_net", :id => project.id}
+      :url => {:controller => "projects", :action => "export_valued_to_uci_net", :id => project.id},
+      :confirm => 'Did you collect the retweets for all the tweets yet? If not this function will be useless.'
     %>|
     <%= link_to_remote 'Valued RT Network',
-      :url => {:controller => "projects", :action => "export_retweet_net_to_uci_net", :id => project.id}
+      :url => {:controller => "projects", :action => "export_retweet_net_to_uci_net", :id => project.id},
+      :confirm => 'Did you collect the retweets for all the tweets yet? If not this function will be useless.'
       %>
 </p>
 <p>

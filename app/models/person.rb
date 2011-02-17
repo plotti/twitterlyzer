@@ -15,44 +15,19 @@ class Person < ActiveRecord::Base
   has_many :feed_entries, :dependent => :destroy
   after_destroy :destroy_relations
   
-  remote_defaults :on_success => lambda {|response| JSON.parse(response.body)},
-                  :on_failure => lambda {|response| puts "error code: #{response.code}"},
-                  :base_uri   => "http://twitter.com"
-                    
-  
-  define_remote_method :twitter_user, :path => '/users/show.json',
-                                      :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-  
-  define_remote_method :get_user_lists, :path => '/:username/lists.json',
-                                   :base_uri   => "http://api.twitter.com/1",
-                                   :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-                                   
-  define_remote_method :get_list_subscriptions, :path => '/:username/lists/subscriptions.json',
-                                   :base_uri   => "http://api.twitter.com/1",
-                                   :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-  
-  define_remote_method :get_list_memberships, :path => '/:username/lists/memberships.json',
-                                   :base_uri   => "http://api.twitter.com/1",
-                                   :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-
-  define_remote_method :get_list_members, :path => '/:username/:id/members.json',
-                                          :base_uri   => "http://api.twitter.com/1",
-                                          :headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"}
-                                   
-  define_remote_method :twitter_friends, :path => '/friends/ids.json'
-  define_remote_method :twitter_followers, :path => '/followers/ids.json'
-  
+  #Destroys the files on the HDD
+  #TODO TEST it!
   def destroy_relations
     begin
       File.delete FRIENDS_IDS_PATH + self.twitter_id.to_s
       File.delete FOLLOWER_IDS_PATH + self.twitter_ids.to_s
     rescue
       puts "Didnt find the corresponding files."
-    end
-    
+    end    
   end
   
   #collects the friends of a given user
+  #Tested
   def collect_friends twitter_id 
     begin
       puts "COLLECTING Friends IDS OF #{twitter_id}"
@@ -75,6 +50,7 @@ class Person < ActiveRecord::Base
   end
   
   # collects the followers of a given user
+  # Tested
   def collect_followers twitter_id
     begin
      puts "COLLECTING Follower IDS OF #{twitter_id}"    
@@ -96,15 +72,16 @@ class Person < ActiveRecord::Base
   end
   
   #returns the lists in which the user is listed
-  def self.collect_list_memberships(username)
-    result = Person.get_list_memberships(:username => username,:params =>{:cursor => -1})
+  #Tested
+  def self.collect_list_memberships(username)    
+    result = @@twitter.memberships(username, {:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
     old_next_cursor = 0
     puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = Person.get_list_memberships(:username => username, :params => {:cursor => next_cursor})
+      result = @@twitter.memberships(username, {:cursor => next_cursor})
       lists = lists + result["lists"]
       next_cursor = result["next_cursor"]
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
@@ -117,16 +94,17 @@ class Person < ActiveRecord::Base
   end
   
   #returns the lists which have been created by the user
+  #Tested
   def self.collect_own_lists(username)
     result = []
-    result = Person.get_user_lists(:username => username,:params =>{:cursor => -1})   
+    result = @@twitter.lists(username, {:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
     old_next_cursor = 0
     puts "Own Lists Count #{lists.count} next cursor: #{next_cursor}"
     while old_next_cursor != next_cursor and next_cursor != 0
-      old_next_cursor = next_cursor      
-      result = Person.get_user_lists(:username => username, :params => {:cursor => next_cursor})
+      old_next_cursor = next_cursor
+      result = @@twitter.lists(username, {:cursor => next_cursor})      
       lists = lists + result["lists"]
       next_cursor = result["next_cursor"]
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
@@ -139,15 +117,17 @@ class Person < ActiveRecord::Base
   end
   
   #returns the lists that the user is following
-  def self.collect_list_subscriptions(username)
-    result = Person.get_list_subscriptions(:username => username,:params =>{:cursor => -1})
+  #Tested 
+  def self.collect_list_subscriptions(username)    
+    result = @@twitter.subscriptions(username,{:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
     old_next_cursor = 0
     puts "Subscribed Lists Count #{lists.count} next cursor: #{next_cursor}"
+    
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = Person.get_list_subscriptions(:username => username, :params => {:cursor => next_cursor})
+      result = @@twitter.subscriptions(username,{:cursor => next_cursor})
       lists = lists + result["lists"]
       next_cursor = result["next_cursor"]
     end
@@ -159,26 +139,30 @@ class Person < ActiveRecord::Base
   end
   
   #returns the members of a given list
+  #Tested
   def self.collect_list_members(username, list_id,project_id)    
-    result = Person.get_list_members(:username => username, :id => list_id, :params =>{:cursor => -1})
+    result = @@twitter.list_members(username, list_id, {:cursor => -1})    
     members = result["users"]
     next_cursor = result["next_cursor"]
     old_next_cursor = 0    
     
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = Person.get_list_members(:username => username, :id => list_id, :params => {:cursor => next_cursor})
+      result = @@twitter.list_members(username, list_id, {:cursor => next_cursor})  
       members = members + result["users"]
       next_cursor = result["next_cursor"]
       puts "Member Count #{members.count} next cursor: #{next_cursor}"
     end
     members.each do |member|
-      Delayed::Job.enqueue(CollectPersonJob.new(member["id"],9,100000))  
+      Delayed::Job.enqueue(CollectPersonJob.new(member["id"],project_id,100000))  
     end
+    return members
   end
   
-  def self.collect_person(twitter_id, project_id, max_collection, category = "", friends = true, followers = false)            
-    
+  #Collects a person and adds it to the database if not exisiting yet, otherwise retrieves it from the database
+  #Tested  
+  def self.collect_person(twitter_id, project_id, max_collection, category = "", friends = true, followers = false)                
+    # Check if we can find the user in the DB
     if twitter_id.is_a?(Numeric)
       person = Person.find_by_twitter_id(twitter_id)        
     else
@@ -233,6 +217,8 @@ class Person < ActiveRecord::Base
     return person
   end
 
+  #Collects a person and its friends
+  #TODO: Test
   def self.collect_person_and_friends(twitter_id, project_id,max)           
     person = Person.collect_person(twitter_id,project_id,max)
     person.friends_ids.each do |friend_id|
@@ -241,6 +227,8 @@ class Person < ActiveRecord::Base
     return person
   end
   
+  #Collects a person and its followers
+  #TODO: Test
   def self.collect_person_and_followers(twitter_id,project_id,max)
     person = Person.collect_person(twitter_id, project_id, max, "", false, true)    
     person.follower_ids.each do |follower_id|
@@ -250,6 +238,8 @@ class Person < ActiveRecord::Base
   end  
   
   
+  #Returns a friends_id hash for a given person
+  #TODO: Test
   def friends_ids_hash
     friends_ids_hash = Hash.new()
     store = PStore.new(FRIENDS_IDS_PATH + self.twitter_id.to_s)
@@ -260,10 +250,14 @@ class Person < ActiveRecord::Base
     return friends_ids_hash    
   end
   
+  #Returns the friends ids for  a given person
+  #TODO: Test
   def friends_ids
     self.friends_ids_hash.keys rescue []
   end
   
+  #Returns a follower id hash for a given person
+  #TODO: Test  
   def follower_ids_hash
     follower_ids_hash = Hash.new()
     store = PStore.new(FOLLOWER_IDS_PATH + self.twitter_id.to_s)
@@ -274,18 +268,25 @@ class Person < ActiveRecord::Base
     return follower_ids_hash
   end
   
+  #Returns the follower ids for  a given person
+  #TODO: Test
   def follower_ids
     self.follower_ids_hash.keys rescue []
   end
   
+  #Retrieves all feed entries sorted by published date
+  #TODO Maybe obsolete
   def get_all_entries
     @feed_entries = FeedEntry.find(:all,  :conditions => { :person_id => self.id}, :order => 'published_at DESC')
   end
   
+  #Retrieves the last entry from the person
+  #TODO Maybe obsolete
   def get_last_entry
     @entry = FeedEntry.find(:first, :conditions => {:person_id => self.id})
   end
   
+  #Retrieves all friends from a person from the database
   def get_all_friends
     friends = []
     self.friends_ids.each do |id|
@@ -296,6 +297,7 @@ class Person < ActiveRecord::Base
     return friends
   end
 
+  #Retrieves all followers from a person from the database
   def get_all_followers
     followers = []
     self.follower_ids.each do |id|
@@ -306,6 +308,8 @@ class Person < ActiveRecord::Base
     return followers
   end
   
+  #Updated the person stats and feeds
+  #TODO Obsolete
   def self.update_all_persons
     Project.all.each do |project|      
       if project.monitor_feeds == true        
@@ -317,6 +321,8 @@ class Person < ActiveRecord::Base
     end
   end
   
+  #Update the twitter statistics of a person
+  # TODO Obsolete
   def self.update_twitter_stats(twitter_id)
     tmp_person = Person.find_by_twitter_id(twitter_id)
     twitter_person = Person.twitter_user(:params => {:id => twitter_id})
