@@ -28,22 +28,41 @@ class FeedEntriesController < ApplicationController
       @grouped_by_hashtags = {}
       @grouped_by_replies = {}
       @grouped_urls = {}
-      #@project.persons.each do |person|
-      #  FeedEntry.find(:all,  :conditions => { :person_id => person}, :order => 'published_at DESC').each do |entry|
-      #    @feed_entries << entry
-      #  end
-      #  FeedEntry.count(:all, :conditions => { :person_id => person}, :order => 'published_at DESC', :group => 'DATE(published_at)').each do |entry|
-      #    @grouped_entries << entry
-      #  end
-      #end
       @feed_entries_count = @project.feed_entries_count
       @feed_entries = @project.feed_entries(1000).paginate :page => params[:page]
-      #@project.feed_entries(params[:page]*30).paginate :page => params[:page]
+      
+      
+      #Get a distribution of collected tweets per person.
+      @feed_entries_pp = {}
+      @project.persons.each do |person|
+        key = (FeedEntry.count(:conditions => "person_id = #{person.id}") / 100).to_i*100
+        begin
+          @feed_entries_pp[key] += 1
+        rescue
+          @feed_entries_pp[key] = 1
+        end      
+      end
+      @feed_entries_pp = @feed_entries_pp.sort{|a,b| a <=> b}
+
+      @retweets_distr = {}
+      @project.persons.each do |person|                
+        person.feed_entries.each do |f|          
+          key = f.retweet_count.to_i     
+          if key > 0
+            begin
+              @retweets_distr[key] += 1
+            rescue
+              @retweets_distr[key] = 1
+            end
+          end
+        end
+      end
+      @retweets_distr = @retweets_distr.sort{|a,b| a <=> b}
+
     else
       @feed_entries_count = @person.feed_entries.count
       @person = Person.find(params[:person_id])
-      @feed_entries = @person.feed_entries.paginate :page => params[:page], :order =>  'updated_at DESC'         
-      #@feed_entries = FeedEntry.find(:all,  :conditions => { :person_id => @person.id}, :order => 'published_at DESC')
+      @feed_entries = @person.feed_entries.paginate :page => params[:page], :order =>  'updated_at DESC'               
     end
     
     respond_to do |format|

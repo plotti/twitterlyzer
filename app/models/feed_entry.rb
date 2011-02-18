@@ -34,7 +34,7 @@ class FeedEntry < ActiveRecord::Base
     while more_tweets_found
       begin
         puts "On page #{page}"
-        r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page})        
+        r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page, :include_rts => :true})        
         if r == []
           more_tweets_found = false
         else
@@ -50,6 +50,7 @@ class FeedEntry < ActiveRecord::Base
         retry
       rescue Twitter::Unauthorized => e
         puts e.class
+        SystemMessage.add_message("error", "Collect all entries", "Unauthorized error " + person.username + " not found.#{e}")
       rescue Twitter::NotFound => e
         SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
       rescue Exception => e
@@ -60,7 +61,7 @@ class FeedEntry < ActiveRecord::Base
     end    
     
     if feeds != nil
-      logger.info "Collect_all_entries -- Collected Tweets of " + person.username      
+      logger.info "Collect_all_entries -- Collected #{page} Pages of Tweets of " + person.username      
     end
     return feeds
   end
@@ -241,38 +242,38 @@ class FeedEntry < ActiveRecord::Base
     each_slice(n).reduce([]) {|x,y| x += [y] }
   end
 
- 
+  #TODO Test
   # Collects the persons and retweets of a tweet
-  def self.collect_retweet_ids_for_entry(entry)    
-    i = 0
-    i += 1
-    puts "(#{i} COLLECTING RETWEETS FOR ENTRY #{entry.guid}"
-    entry.retweet_ids = []
-    entry.save!
-    begin        
-      @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
-        #Collect all Persons on initial try takes a long time!        
-        Person.collect_person(retweet.user.screen_name, entry.person.project.first.id, 100000)
-        entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
-      end      
-      entry.save!
-    rescue
-      puts "Couldnt't get retweets for id:#{entry.guid}"
-    end    
+  def self.collect_retweet_ids_for_entry_with_persons(entry)
+    entry = FeedEntry.collect_retweet_ids_for_entry(entry)
+    entry.retweet_ids.each do |retweet|      
+      Person.collect_person(retweet.user.screen_name, entry.person.project.first.id, 100000)
+    end
   end
-  
-  def self.collect_retweet_ids_for_person(person)
-    person.feed_entries.each do |entry|
+ 
+  #Collects the retweets of a tweet
+  #TODO Test
+  def self.collect_retweet_ids_for_entry(entry)    
+    if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
       begin        
         @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
           entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
-        end      
+        end    
         entry.save!
       rescue
         puts "Couldnt't get retweets for id:#{entry.guid}"
-      end    
+      end
+    end
+    return entry
+  end
+  
+  # For a erson for all its tweets collects the retweets
+  #TODO Test
+  def self.collect_retweet_ids_for_person(person)
+    person.feed_entries.each do |entry|      
+      FeedEntry.collect_retweet_ids_for_entry(entry)
     end
   end
   
@@ -288,10 +289,12 @@ class FeedEntry < ActiveRecord::Base
     gsub(/([^\n]\n)(?=[^\n])/, "")
   end
   
+  #returns all the @ tags in the tweet
   def get_at_tags
     self.text.gsub(/@(\w+)/).to_a
   end
   
+  #returns all the hash tags in the tweet
   def get_hash_tags
     self.text.gsub(/#(([a-z_\-]+[0-9_\-]*[a-z0-9_\-]+)|([0-9_\-]+[a-z_\-]+[a-z0-9_\-]+))/).to_a
     #self.text.gsub(/#(\w+)/).to_a

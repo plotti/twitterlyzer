@@ -1,0 +1,56 @@
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['table', 'columnchart','piechart'], });  
+  google.setOnLoadCallback(drawCharts);
+  function drawCharts(){
+    drawTweets();
+    drawTweets2();
+  }
+</script>
+
+<script type="text/javascript">
+  function drawTweets() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Persons');
+  data.addColumn('number', 'Tweets');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @feed_entries_pp.each do |key, value|
+    result << "['" + key.to_s +  "'," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var followers_chart = new google.visualization.ColumnChart(document.getElementById('tweets_chart'));
+  followers_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Persons with x Tweets in Project'});
+  }
+</script>
+
+<script type="text/javascript">
+  function drawTweets2() {  
+  var data = new google.visualization.DataTable();
+  // Declare columns and rows.
+  data.addColumn('string', 'Persons');
+  data.addColumn('number', 'ReTweets');
+  <%
+  result = ""
+  result << "data.addRows(["
+  @retweets_distr.each do |key, value|
+    result << "['" + key.to_s +  "'," + value.to_s + "],"
+    result << "\r\n"
+  end
+  result.chop!
+  result.chop!
+  result << "\r\n"
+  result << "]);"
+  %>
+  <%= result.to_s %>
+  var followers_chart = new google.visualization.ColumnChart(document.getElementById('tweets_chart2'));
+  followers_chart.draw(data, {width: 700, height: 240, is3D: false, title: 'Tweets with x Retweets in Project'});
+  }
+</script>

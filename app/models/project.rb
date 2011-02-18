@@ -208,6 +208,21 @@ class Project < ActiveRecord::Base
     return values
   end
   
+  def get_delta
+    puts "The delta are due to the 'include rts' function that filters out tweets not originating from that person"
+    r = {}
+    r[:count] = 0
+    r[:message] = []
+     self.persons.each do |person|
+       if person.statuses_count != person.feed_entries.count
+         person.statuses_count < 3200 ? max = person.statuses_count : max = 3200  
+         r[:message] << "Person Username: #{person.username} max: #{max} delta: #{max - person.feed_entries.count}"
+         r[:count] += max - person.feed_entries.count
+       end
+     end     
+     return r
+  end
+  
   def find_all_id_connections(friend = true, follower = false)
     i= 0
     values = []

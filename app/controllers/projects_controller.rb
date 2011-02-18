@@ -147,12 +147,16 @@ class ProjectsController < ApplicationController
     @project.persons.each do |person|
      if person.private == false
        if person.statuses_count > 3200
-         total_entries = total_entries + person.statuses_count - 3200
+         total_entries = total_entries + 3200
        else
          total_entries = total_entries + person.statuses_count
        end
      end
-     Delayed::Job.enqueue(CollectPersonRetweetsJob.new(person.id))  
+     person.feed_entries.each do |feed_entry|
+      if feed_entry.retweet_count.to_i > 0
+        Delayed::Job.enqueue(CollectRetweetIdsForEntryJob.new(feed_entry.id))         
+      end
+     end
     end
    
    respond_to do |format|
