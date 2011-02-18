@@ -111,6 +111,7 @@ class ProjectsController < ApplicationController
     end
   end
   
+  #Starts a delayed job for EACH PERSON
   def collect_all_project_entries
     @project = Project.find(params[:id])
     total_entries = 0
@@ -138,6 +139,7 @@ class ProjectsController < ApplicationController
     end    
   end
   
+  #Starts a delayed job for EACH RETWEET!
   def collect_all_project_retweets
     @project = Project.find(params[:id])
     total_entries = 0
@@ -272,7 +274,7 @@ class ProjectsController < ApplicationController
     end
     send_data(output,
             :type => content_type,
-            :filename => @project.name.to_s + "_SNA.csv")
+            :filename => @project.name.to_s + "_FF_SNA.csv")
   end
   
   
@@ -297,7 +299,7 @@ class ProjectsController < ApplicationController
     end
     send_data(output,
             :type => content_type,
-            :filename => @project.name.to_s + "retweet_SNA.csv")
+            :filename => @project.name.to_s + "_RT_SNA.csv")
   end
   
   def generate_valued_csv
@@ -321,7 +323,7 @@ class ProjectsController < ApplicationController
     end
     send_data(output,
             :type => content_type,
-            :filename => @project.name.to_s + "_SNA.csv")
+            :filename => @project.name.to_s + "_AT_SNA.csv")
   end
   
   def generate_gephi

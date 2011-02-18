@@ -175,6 +175,7 @@ class Project < ActiveRecord::Base
   # it also checks if that is maybe a retweet of that person
   # This makes sure that we only get the @ communication without the RT.
   # Everytime we find somebody we set the value up.
+  # TODO Needs a test!!
   def find_all_valued_connections(friend = true, follower = false)
     i= 0
     values = []
@@ -208,19 +209,45 @@ class Project < ActiveRecord::Base
     return values
   end
   
-  def get_delta
+  #Analytic function that returns the amount of collected tweets vs. the
+  # amount of tweets that should have had been collected according to the statuses_count
+  def get_tweet_delta
     puts "The delta are due to the 'include rts' function that filters out tweets not originating from that person"
     r = {}
     r[:count] = 0
     r[:message] = []
+    r[:persons] = []
      self.persons.each do |person|
        if person.statuses_count != person.feed_entries.count
          person.statuses_count < 3200 ? max = person.statuses_count : max = 3200  
          r[:message] << "Person Username: #{person.username} max: #{max} delta: #{max - person.feed_entries.count}"
          r[:count] += max - person.feed_entries.count
+         r[:persons] << person
        end
      end     
      return r
+  end
+  
+  #Analytic function that returns the delta between the collected retweets and
+  #and how many should HAVE HAD been collected according to the retweet-count.
+  def get_retweet_delta
+    r = {}
+    r[:count] = 0
+    r[:message] = []
+    r[:feeds] = []
+    self.persons.each do |person|
+      person.feed_entries.each do |f|
+       if f.retweet_count.to_i != f.retweet_ids.count          
+          delta = f.retweet_count.to_i - f.retweet_ids.count
+          if delta > 1
+            r[:message] << "Person Username: #{person.username} tweet: #{f.guid} delta: #{delta}"
+            r[:feeds] << f
+          end
+          r[:count] += delta
+       end         
+      end
+    end     
+    return r
   end
   
   def find_all_id_connections(friend = true, follower = false)

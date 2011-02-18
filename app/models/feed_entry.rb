@@ -258,8 +258,8 @@ class FeedEntry < ActiveRecord::Base
       entry.retweet_ids = []
       entry.save!
       begin        
-        @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
-          entry.retweet_ids << {:id => retweet.id, :person => retweet.user.screen_name, :followers_count => retweet.user.followers_count, :published_at => retweet.created_at}
+        @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
+          entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
         end    
         entry.save!
       rescue
