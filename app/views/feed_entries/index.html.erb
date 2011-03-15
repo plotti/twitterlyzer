@@ -1,5 +1,3 @@
-<%= render :partial => "scripts2" %>
-
 <div id="left">
   <h2>Navigation</h2>
   <div class="box">
@@ -59,16 +57,19 @@
     <% end %>
     <br>
     </div>
-        
-    <h2> Distribution of Collected Tweets per Person </h2>
-    <div class="contentleftbox">
-        <div id="tweets_chart"></div>      
-    </div>
     
-    <h2> Distribution of Retweets on Tweets</h2>
-    <div class="contentleftbox">
-        <div id="tweets_chart2"></div>      
-    </div>
+    <% if @show_all %>    
+      <%= render :partial => "scripts2" %>    
+      <h2> Distribution of Collected Tweets per Person </h2>
+      <div class="contentleftbox">
+          <div id="tweets_chart"></div>      
+      </div>
+    
+      <h2> Distribution of Retweets on Tweets</h2>
+      <div class="contentleftbox">
+          <div id="tweets_chart2"></div>      
+      </div>
+    <% end %>
     
     <% if @show_all %>
       <h2> Listing of first 1000 Feed entries in project <%= @project.name %> </h2>

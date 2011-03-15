@@ -59,9 +59,9 @@ class FeedEntriesController < ApplicationController
       end
       @retweets_distr = @retweets_distr.sort{|a,b| a <=> b}
 
-    else
-      @feed_entries_count = @person.feed_entries.count
+    else      
       @person = Person.find(params[:person_id])
+      @feed_entries_count = @person.feed_entries.count
       @feed_entries = @person.feed_entries.paginate :page => params[:page], :order =>  'updated_at DESC'               
     end
     

@@ -136,36 +136,61 @@ class Project < ActiveRecord::Base
     return values
   end
   
-  def find_all_retweet_connections(friend = true, follower = false)
-    i= 0
+  def find_all_retweet_connections(friend = true,follower = false)
     values = []
-    persons_hash = []    
-    persons = Project.find(self.id).persons    
+    i = 0
+    usernames = persons.collect{|p| p.username}        
     persons.each do |person|
-      persons_hash << {:id => person.twitter_id, :username => person.username}
-    end
-    persons.each do |person|
-      i = i+1
+      i += 1
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for retweet connections.")
-      friends_ids_hash = person.friends_ids_hash
-      tweets = person.feed_entries        
-      persons_hash.each do |tmp_person|
-        v = 0
-        if friends_ids_hash.include?(tmp_person[:id])
-          v += 0 # do not count friend/follower relation
-          tweets.each do |tweet|
-            tweet.retweet_ids.each do |retweet|
-              if retweet[:person] == tmp_person[:username]
-                v += 1
-              end
-            end
+      person.feed_entries.each do |tweet|
+        tweet.retweet_ids.each do |retweet|          
+          if usernames.include? retweet[:person]
+            #the person that retweets a user must follow that person to be valid
+            #if Person.find_by_username(retweet[:person]).friends_ids.include? person.twitter_id
+              values << [person.username, retweet[:person],1]
+            #end
           end
-          values << [person.username,tmp_person[:username],v]
         end
       end
-    end    
-    return values
+    end
+    #Merge counted pairs
+    hash = values.group_by { |first, second, third| [first,second] }
+    return hash.map{|k,v| [k,v.count].flatten}    
   end
+  
+  #For  a given project
+  #For all persons in the project check if 
+  #def find_all_retweet_connections(friend = true, follower = false)
+  #  i= 0
+  #  values = []
+  #  persons_hash = []    
+  #  persons = Project.find(self.id).persons    
+  #  persons.each do |person|
+  #    persons_hash << {:id => person.twitter_id, :username => person.username}
+  #  end
+  #  persons.each do |person|
+  #    i = i+1
+  #    puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for retweet connections.")
+  #    friends_ids_hash = person.friends_ids_hash
+  #    tweets = person.feed_entries        
+  #    persons_hash.each do |tmp_person|
+  #      v = 0
+  #      if friends_ids_hash.include?(tmp_person[:id])
+  #        v += 0 # do not count friend/follower relation
+  #        tweets.each do |tweet|
+  #          tweet.retweet_ids.each do |retweet|
+  #            if retweet[:person] == tmp_person[:username]
+  #              v += 1
+  #            end
+  #          end
+  #        end
+  #        values << [person.username,tmp_person[:username],v]
+  #      end
+  #    end
+  #  end    
+  #  return values
+  #end
   
   
   # For a given project it:
