@@ -308,6 +308,19 @@ class Person < ActiveRecord::Base
     return followers
   end
   
+  def get_retweets
+    usernames = project.first.persons.collect{|p| p.username}
+    retweets = []
+    feed_entries.each do |tweet|
+      tweet.retweet_ids.each do |retweet|          
+        if usernames.include? retweet[:person]
+          retweets <<  [tweet.id,tweet.text,retweet]
+        end
+      end      
+    end
+    return retweets
+  end
+  
   #Updated the person stats and feeds
   #TODO Obsolete
   def self.update_all_persons

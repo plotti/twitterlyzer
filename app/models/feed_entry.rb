@@ -50,12 +50,12 @@ class FeedEntry < ActiveRecord::Base
         retry
       rescue Twitter::Unauthorized => e
         puts e.class
-        SystemMessage.add_message("error", "Collect all entries", "Unauthorized error " + person.username + " not found.#{e}")
+        #SystemMessage.add_message("error", "Collect all entries", "Unauthorized error " + person.username + " not found.#{e}")
       rescue Twitter::NotFound => e
-        SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
+        #SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
       rescue Exception => e
         puts e.class
-        SystemMessage.add_message("error", "Collect all entries", "General error for User " + person.username + " not found.#{e}")
+        #SystemMessage.add_message("error", "Collect all entries", "General error for User " + person.username + " not found.#{e}")
       end
       page += 1
     end    
