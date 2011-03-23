@@ -61,4 +61,18 @@
       <% end -%>
     </div>
   </div>
+  
+  <div class="contentleft">
+    <h2> Union from other projects </h2>
+    <div class="contentleftbox">
+      <p> Select the projects whose people you want merge in this project:</p>
+      <p>
+      <%form_for :union, :url=>{:controller=>"projects", :action=>"union", :id => @project} do |f| %>
+        <%= select_tag(:union_id, options_from_collection_for_select(Project.all, :id, :name), :multiple => true) %>      
+      <br>
+      <%= submit_tag 'Union all Persons in this project' -%>
+      <% end %>
+      
+    </div>
+  </div>
 </div>

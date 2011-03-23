@@ -208,7 +208,20 @@ class ProjectsController < ApplicationController
       end
     end
   end
-
+  
+  def union
+    @project = Project.find(params[:id])
+    ids = params[:union_id]
+    n= 0
+    ids.each do |id|
+      n += Project.find(id).persons.count
+      @project.persons << Project.find(id).persons
+    end
+    respond_to do |format|
+      flash[:notice]="Union Successful #{n} Persons will be unioned in this project."
+      format.html { redirect_to projects_path }
+    end
+  end
   
   def csv_import
      @project = Project.find(params[:id])
@@ -271,6 +284,9 @@ class ProjectsController < ApplicationController
       project_net.each do |entry|
         csv << [entry[0], entry[1], "1"]
       end
+      @project.persons.each do |person|
+        csv << [person.username]
+      end
     end
     send_data(output,
             :type => content_type,
@@ -296,6 +312,9 @@ class ProjectsController < ApplicationController
       project_net.each do |entry|
         csv << [entry[0], entry[1], entry[2]]
       end
+      @project.persons.each do |person|
+        csv << [person.username]
+      end
     end
     send_data(output,
             :type => content_type,
@@ -319,6 +338,9 @@ class ProjectsController < ApplicationController
       csv << ["data:"]
       project_net.each do |entry|
         csv << [entry[0], entry[1], entry[2]]
+      end
+      @project.persons.each do |person|
+        csv << [person.username]
       end
     end
     send_data(output,
