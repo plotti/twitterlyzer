@@ -1,0 +1,38 @@
+<div id="left">
+  <h2>Navigation</h2>
+  <div class="box">
+    <%= link_to 'Back to Project', projects_path %>
+  </div>
+  <h2>Overview</h2>
+  <div class="box">
+  </div>
+  
+</div>
+
+
+<div id="right">
+  <div class="contentleft">   
+    <h2> Actions </h2>
+    <div class="contentleftbox">
+     <%= link_to 'Add new lists to project', new_project_list_path(@project) %>
+      <br>
+     <%= link_to_remote 'Collect all lists where the project people are MEMBERS', 
+          :url => {:controller => 'lists', :action=>'collect_list_memberships', :id => @project.id},
+          :confirm => 'This operation might take a long time. Are you sure?'
+      %>
+      <br>
+      <hr>
+      <%= link_to_remote 'Collect all members of those lists',
+          :url => {:controller => 'lists', :action => 'collect_list_members', :id => @project.id},
+          :confirm => "This operation might take a long time. Are you sure?"
+        %>      
+    </div>
+
+      
+    <h2> Listing lists in project <%= @project.name %> </h2>
+    <div class="contentleftbox">
+      <%= render :partial => "list", :object => @lists%>
+    </div>
+    <%= will_paginate @lists%>>
+  </div>
+</div>

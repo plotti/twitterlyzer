@@ -10,6 +10,8 @@ class CreateListsTable < ActiveRecord::Migration
       t.string :uri
       t.string :slug
       t.integer :guid
+      t.integer :project_id
+      t.text  :members
     end
   end
 

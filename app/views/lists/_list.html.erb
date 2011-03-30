@@ -1,0 +1,18 @@
+<% @lists.each do |list| %>
+    <br>
+    <p>
+    <b> Name: </b>
+        <%= list.name %>
+        <%= link_to("[view]", "http://www.twitter.com" + list.uri, :target => "_blank") %>
+    </p>
+    <p>
+        <b>ID:</b><%= list.id %>
+        <b>GUID </b><%= list.guid %>
+        <b>Author: </b> <%= list.username %>
+        <b>Members: </b> <%= list.member_count %><b>Collected:</b>
+        <%= list.members.count.to_s rescue 0%>                
+    </p>
+    <p>
+        <b>Description </b> <%= list.description %>
+    </p>  
+<% end %>

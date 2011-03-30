@@ -64,7 +64,7 @@ class Twellow
   def read_in_categories  
     puts "#########Reading in Categories##############"
     begin
-      File.open("categories.txt").each_line do |line|
+      File.open("../data/categories.txt").each_line do |line|
           @categories << line.chomp
       end
     rescue
@@ -156,10 +156,11 @@ class Twellow
         not_found_counter = 0
         while next_cursor != 0 and not_found_counter < MAX_LIST_COUNTER
           begin
-            #Get all memberships of that user
-            r = @@client.lists.memberships? :user => person[:name], :cursor => next_cursor
+            #Get all memberships of that user            
+            r = @@client._(person[:name]).lists.memberships? :cursor => next_cursor
             r.lists.each do |list|
               keyword_found = false                    
+              puts "List Name: #{list.name.downcase} Keyword: #{person[:keywords].last.downcase}"
               if list.name.downcase.include?(person[:keywords].last.downcase)
                 keyword_found = true
               end          
@@ -221,15 +222,15 @@ end
 
 ########MAIN ###########
 
-t = Twellow.new
-t.read_in_categories
-
-if t.read_in_persons == []
-  t.collect_persons
-end
-
-if t.read_in_lists == []
-  t.collect_lists  
-end
-
-t.collect_list_members
+##t = Twellow.new
+##t.read_in_categories
+##
+##if t.read_in_persons == []
+##  t.collect_persons
+##end
+##
+##if t.read_in_lists == []
+##  t.collect_lists  
+##end
+##
+##t.collect_list_members

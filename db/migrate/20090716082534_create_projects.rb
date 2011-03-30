@@ -3,6 +3,7 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.string :description
+      t.string :keyword
       t.boolean :monitor_feeds
       t.boolean :monitor_people
       t.boolean :monitor_searches

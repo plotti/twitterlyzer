@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :projects do |project|
     project.resources :people, :collection => {:show_all => :get} 
     project.resources :feed_entries, :collection => {:show_all => :get}
+    project.resources :lists
     project.resources :searches do |search|
       search.resources :search_results, :collection =>{:show_persons => :get, :show_feeds => :get}
     end

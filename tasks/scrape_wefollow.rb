@@ -7,7 +7,7 @@ class CollectTwitterAccounts < Struct.new(:text)
   uris = []
   BASE_URL = "http://wefollow.com/twitter/"
   
-  search_words = %w(ruby python java abap)
+  search_words = ARGV[0]
   
   scraper = Scraper.define do
     array :items
@@ -19,9 +19,9 @@ class CollectTwitterAccounts < Struct.new(:text)
     result :items
   end
 
-  PAGES = 10
+  PAGES = 4
   
-  outfile = File.open("languages.csv", 'w')  
+  outfile = File.open("../data/#{ARGV[0]}.csv", 'w')  
   
   CSV::Writer.generate(outfile) do |csv|
      #csv << ["Twitter User", "Language"]
@@ -31,9 +31,9 @@ class CollectTwitterAccounts < Struct.new(:text)
     search_words.each do |word|      
       for page in 1..PAGES
         if page == 1
-          uri = URI.parse(BASE_URL + word ) 
+          uri = URI.parse(BASE_URL + word + "/followers") 
         else
-          uri = URI.parse(BASE_URL + word + "/page#{page}")   
+          uri = URI.parse(BASE_URL + word + "/page#{page}" + "/followers")   
         end        
         puts uri
         begin

@@ -214,8 +214,13 @@ class ProjectsController < ApplicationController
     ids = params[:union_id]
     n= 0
     ids.each do |id|
-      n += Project.find(id).persons.count
-      @project.persons << Project.find(id).persons
+      @tmp_project = Project.find(id)
+      n += @tmp_project.persons.count
+      @tmp_project.persons.each do |person|
+        person.category = @tmp_project.name
+        person.save
+        @project.persons << person
+      end
     end
     respond_to do |format|
       flash[:notice]="Union Successful #{n} Persons will be unioned in this project."
@@ -293,7 +298,6 @@ class ProjectsController < ApplicationController
             :filename => @project.name.to_s + "_FF_SNA.csv")
   end
   
-  
   def generate_retweet_net
    @project = Project.find(params[:id])
     
@@ -301,8 +305,9 @@ class ProjectsController < ApplicationController
                  ' application/vnd.ms-excel '
                else
                  ' text/csv '
-               end
-    project_net = @project.find_all_retweet_connections(friend = true, follower = false) 
+              end
+    
+    project_net = @project.find_all_retweet_connections(true, false, params[:category]) 
         
     CSV::Writer.generate(output = "") do |csv|
       csv << ["DL n=" + @project.persons.count.to_s ]
@@ -521,6 +526,51 @@ class ProjectsController < ApplicationController
             :filename => @project.name.to_s + "_twitter_messages" + ".csv")
   end
   
+  def generate_lists_stats
+    @project = Project.find(params[:id])
+    content_type = if request.user_agent =~ /windows/i
+             ' application/vnd.ms-excel '
+           else
+             ' text/csv '
+    end
+    @tmp_persons = []
+    CSV::Writer.generate(output = "") do |csv|
+      csv << ["Username", "Uri", "Followers", "Friends", "List Count"]        
+      @project.persons.each do |person|
+        @tmp_persons << {:username => person.username, :list_count => 1,
+          :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
+          :friends => person.friends_count}
+      end
+      @project.lists.each do |list|
+        if list.name.include? @project.keyword        
+          puts "#{@tmp_persons.count} Analyzing list #{list.name}"
+          list.members.each do |member|
+            tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
+            if tmp_user != nil
+              tmp_user[:list_count] += 1
+            else            
+              @tmp_persons << {:username => member[:username], :list_count => 1,
+                :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
+                :friends => member[:friends_count]}
+            end
+          end
+        end
+      end
+      @tmp_persons.each do |person|
+       csv << [person[:username], person[:uri], person[:followers], person[:friends], person[:list_count]]
+      end
+    end    
+    send_data(output,
+            :type => content_type,
+            :filename => "#{@project.name}_list_stats.csv")    
+  end
+  
+  def export_list_stats
+    render :update do |page|
+      page.redirect_to :action => "generate_lists_stats", :id => params[:id]
+    end  
+  end
+  
   def export_valued_to_uci_net
     render :update do |page|
       page.redirect_to :action => "generate_valued_csv", :id => params[:id]
@@ -567,6 +617,12 @@ class ProjectsController < ApplicationController
   def export_retweet_net_to_uci_net
     render :update do |page|
       page.redirect_to :action => "generate_retweet_net", :id => params[:id]
+    end
+  end
+  
+  def export_retweet_cat_net_to_uci_net
+    render :update do |page|
+      page.redirect_to :action => "generate_retweet_net", :id => params[:id], :category => true
     end
   end
   

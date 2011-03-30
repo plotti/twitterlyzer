@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   #associations
   has_and_belongs_to_many :persons
   has_many :searches
+  has_many :lists
   has_many :system_messages, :as => :messageable
   
   def self.graph_net(project_id)  
@@ -138,20 +139,21 @@ class Project < ActiveRecord::Base
   
   #For  a given project
   #For all persons tweets in the project check if they have been retweeted by other members in the community
-  def find_all_retweet_connections(friend = true,follower = false)
+  def find_all_retweet_connections(friend = true,follower = false,category = false)
     values = []
     i = 0    
     persons.each do |person|
     i += 1
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for retweet connections.")
-      values += find_retweet_connections_for_person(person)
+      values += find_retweet_connections_for_person(person,false,category)
     end
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}    
   end
   
-  def find_retweet_connections_for_person(person,following = false)
+  def find_retweet_connections_for_person(person,following = false,category = false)
+    puts "Finding retweet connections with following:#{following} category:#{category}"
     values = []
     usernames = persons.collect{|p| p.username}        
     person.feed_entries.each do |tweet|
@@ -163,7 +165,14 @@ class Project < ActiveRecord::Base
               values << [person.username, retweet[:person],1]
             end
           else
-            values << [person.username, retweet[:person],1]
+            #Only count retweets that are between different categories
+            if category
+              if Person.find_by_username(retweet[:person]).category != person.category
+                values << [person.username, retweet[:person],1]
+              end
+            else
+              values << [person.username, retweet[:person],1]
+            end
           end
         end
       end
@@ -187,11 +196,11 @@ class Project < ActiveRecord::Base
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.")          
       person.feed_entries.each do |tweet|
         usernames.each do |tmp_user|
-          if tweet.text.include?("@" + tmp_user)
+          if tweet.text.include?("@" + tmp_user + " ")
             #if the tweet has not been retweeted hence is not a retweet
             if tweet.retweet_ids == []
               values << [person.username,tmp_user,1]  
-            end            
+            end             
           end                  
         end
       end      

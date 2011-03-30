@@ -73,7 +73,7 @@ class Person < ActiveRecord::Base
   
   #returns the lists in which the user is listed
   #Tested
-  def self.collect_list_memberships(username)    
+  def self.collect_list_memberships(username, project_id = "")    
     result = @@twitter.memberships(username, {:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
@@ -89,7 +89,8 @@ class Person < ActiveRecord::Base
     lists.each do |list|
       List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
                   :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                  :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"])
+                  :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
+                  :project_id => project_id)
     end    
   end
   
