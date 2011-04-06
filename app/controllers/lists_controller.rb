@@ -28,7 +28,9 @@ class ListsController < ApplicationController
     @project = Project.find(params[:id])
     @lists = @project.lists
     @lists.each do |list|
-      Delayed::Job.enqueue(CollectListMembersJob.new(list.id))      
+      if list.name.include? @project.keyword      
+        Delayed::Job.enqueue(CollectListMembersJob.new(list.id))
+      end
     end
     respond_to do |format|
       flash[:notice]="List members will added to the lists"

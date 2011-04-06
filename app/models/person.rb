@@ -78,6 +78,7 @@ class Person < ActiveRecord::Base
     lists = result["lists"]
     next_cursor = result["next_cursor"]
     old_next_cursor = 0
+    @project = Project.find(project_id)
     puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
@@ -87,10 +88,13 @@ class Person < ActiveRecord::Base
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     end
     lists.each do |list|
-      List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
-                  :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                  :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
-                  :project_id => project_id)
+      #It collects only the lists that match the project keyword
+      if list["name"].include? @project.keyword
+        List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
+                    :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
+                    :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
+                    :project_id => project_id)
+      end
     end    
   end
   

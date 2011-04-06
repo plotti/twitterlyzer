@@ -544,14 +544,16 @@ class ProjectsController < ApplicationController
       @project.lists.each do |list|
         if list.name.include? @project.keyword        
           puts "#{@tmp_persons.count} Analyzing list #{list.name}"
-          list.members.each do |member|
-            tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
-            if tmp_user != nil
-              tmp_user[:list_count] += 1
-            else            
-              @tmp_persons << {:username => member[:username], :list_count => 1,
-                :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
-                :friends => member[:friends_count]}
+          if list.members
+            list.members.each do |member|
+              tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
+              if tmp_user != nil
+                tmp_user[:list_count] += 1
+              else            
+                @tmp_persons << {:username => member[:username], :list_count => 1,
+                  :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
+                  :friends => member[:friends_count]}
+              end
             end
           end
         end
