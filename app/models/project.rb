@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
   require "graphviz"
   require "csv"
+  require 'scrapi'
   #require 'igraph'
 
   #associations
@@ -8,7 +9,19 @@ class Project < ActiveRecord::Base
   has_many :searches
   has_many :lists
   has_many :system_messages, :as => :messageable
+
+  WEFOLLOW_BASE_URL = "http://wefollow.com/twitter/"
   
+  @@wefollow_scraper = Scraper.define do
+    array :items
+    #div+div>div.person-box
+    process "#results>div", :items => Scraper.define {
+      #process "div", :name => :text
+      process "div.result_row>div.result_details>p>strong>a", :name => :text     
+    }    
+    result :items
+  end
+    
   def self.graph_net(project_id)  
     project = Project.find(project_id)
     persons = project.persons       
@@ -83,7 +96,31 @@ class Project < ActiveRecord::Base
       end
     end
   end
-    
+  
+  def add_people_from_wefollow(pages)
+    for page in 1..pages
+        if page == 1
+          uri = URI.parse(WEFOLLOW_BASE_URL + self.keyword + "/followers") 
+        else
+          uri = URI.parse(WEFOLLOW_BASE_URL + self.keyword + "/page#{page}" + "/followers")   
+        end        
+        puts uri
+        begin
+          @@wefollow_scraper.scrape(uri).each do |person|
+            result_string = "http://twitter.com/" + person.name
+            puts result_string
+            username = URI.parse(result_string).path.reverse.chop.reverse
+            maxfriends = 10000
+            category = ""
+            Delayed::Job.enqueue(CollectPersonJob.new(username,self.id,maxfriends,category))  
+          end
+        rescue
+          puts "Couldnt find any page for #{uri}"
+        end
+    end
+
+  end
+  
   #Tries to find all connections for a given project
   def find_all_connections(friend = true, follower = false)
     i= 0
