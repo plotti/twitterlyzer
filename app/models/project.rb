@@ -285,13 +285,13 @@ class Project < ActiveRecord::Base
             if category 
               if person.category != Person.find_by_username(tmp_user).category
                 if tweet.retweet_ids == []
-                  values << [person.username,tmp_user,1]  
+                  values << [tmp_user,person.username,1]  
                 end                             
               end
             else
               #if the tweet has not been retweeted hence is not a retweet
               if tweet.retweet_ids == []
-                values << [person.username,tmp_user,1]  
+                values << [tmp_user,person.username,1]  
               end             
             end
           end                  

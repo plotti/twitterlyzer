@@ -26,13 +26,13 @@ describe FeedEntry do
     f = Factory(:feed_entry)
     f.guid = 3084096859279360
     FeedEntry.collect_retweet_ids_for_entry(f)
-    f.retweet_ids.count.should == 94
+    f.retweet_ids.count.should be_close(94,10)
   end
   
   # Me including my 6 retweets
   it "should collect the right amount of persons for a given retweet" do
     f = Factory(:feed_entry)
-    FeedEntry.collect_retweet_ids(f)
+    FeedEntry.collect_retweet_ids_for_entry_with_persons(f)
     f.person.project.first.persons.count.should == 7
   end
   

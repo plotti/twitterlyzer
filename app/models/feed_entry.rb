@@ -242,17 +242,16 @@ class FeedEntry < ActiveRecord::Base
     each_slice(n).reduce([]) {|x,y| x += [y] }
   end
 
-  #TODO Test
+
   # Collects the persons and retweets of a tweet
   def self.collect_retweet_ids_for_entry_with_persons(entry)
     entry = FeedEntry.collect_retweet_ids_for_entry(entry)
     entry.retweet_ids.each do |retweet|      
-      Person.collect_person(retweet.user.screen_name, entry.person.project.first.id, 100000)
+      Person.collect_person(retweet[:person], entry.person.project.first.id, 100000)
     end
   end
  
   #Collects the retweets of a tweet
-  #TODO Test
   def self.collect_retweet_ids_for_entry(entry)    
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
@@ -269,8 +268,7 @@ class FeedEntry < ActiveRecord::Base
     return entry
   end
   
-  # For a erson for all its tweets collects the retweets
-  #TODO Test
+  # For a erson for all its tweets collects the retweets  
   def self.collect_retweet_ids_for_person(person)
     person.feed_entries.each do |entry|      
       FeedEntry.collect_retweet_ids_for_entry(entry)
