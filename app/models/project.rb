@@ -97,6 +97,51 @@ class Project < ActiveRecord::Base
     end
   end
   
+  #def add_members_to_my_list(listname)
+  #  l = @@twitter.lists :name => listname
+  #  twitter_ids = project.persons.collect{|p| p.twitter_id}
+    #twitter_ids.each do |id|
+    # @@twitter.list_add_members(TWITTER_USERNAME, l.lists.first.id, id )    
+    #end
+    #
+  #end
+  
+  def generate_new_project_from_most_listed_members
+      @tmp_persons = []
+      self.persons.each do |person|
+        @tmp_persons << {:username => person.username, :list_count => 1,
+          :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
+          :friends => person.friends_count}
+      end
+      self.lists.each do |list|
+        if list.name.include? self.keyword        
+          puts "#{@tmp_persons.count} Analyzing list #{list.name}"
+          if list.members
+            list.members.each do |member|
+              tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
+              if tmp_user != nil
+                tmp_user[:list_count] += 1
+              else
+                @tmp_persons << {:username => member[:username], :list_count => 1,
+                  :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
+                  :friends => member[:friends_count]}
+              end
+            end
+          end
+        end
+      end      
+      sorted = @tmp_persons.sort{|a,b| a[:list_count] <=> b[:list_count]}.reverse
+      outfile = File.open(self.keyword + "_sorted_members.csv",'w')
+      CSV::Writer.generate(outfile) do |csv|
+        csv << ["Username", "Followers", "List Count", "URI"]
+        sorted.each do |member|
+          csv << [member[:username], member[:followers], member[:list_count], member[:uri]]
+        end
+      end
+      outfile.close
+      return sorted
+  end
+  
   def add_people_from_wefollow(pages)
     for page in 1..pages
         if page == 1
@@ -224,7 +269,10 @@ class Project < ActiveRecord::Base
   # it also checks if that is maybe a retweet of that person
   # This makes sure that we only get the @ communication without the RT.
   # Everytime we find somebody we set the value up.
-  def find_all_valued_connections(friend = true, follower = false)
+  def find_all_valued_connections(friend = true, follower = false, category = false)
+    if category
+      puts "COMPUTING CATEGORY only @ Interactions"
+    end
     values = []
     usernames = persons.collect{|p| p.username}
     i = 0
@@ -233,11 +281,19 @@ class Project < ActiveRecord::Base
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.")          
       person.feed_entries.each do |tweet|
         usernames.each do |tmp_user|
-          if tweet.text.include?("@" + tmp_user + " ")
-            #if the tweet has not been retweeted hence is not a retweet
-            if tweet.retweet_ids == []
-              values << [person.username,tmp_user,1]  
-            end             
+          if tweet.text.include?("@" + tmp_user + " ")            
+            if category 
+              if person.category != Person.find_by_username(tmp_user).category
+                if tweet.retweet_ids == []
+                  values << [person.username,tmp_user,1]  
+                end                             
+              end
+            else
+              #if the tweet has not been retweeted hence is not a retweet
+              if tweet.retweet_ids == []
+                values << [person.username,tmp_user,1]  
+              end             
+            end
           end                  
         end
       end      
@@ -304,7 +360,7 @@ class Project < ActiveRecord::Base
         friends_ids_hash = person.friends_ids_hash
         persons_ids.each do |person_id|
           if friends_ids_hash.include?(person_id)
-            values << [person_id, person.twitter_id]
+            values << [person.twitter_id,person_id]
           end
         end        
       end

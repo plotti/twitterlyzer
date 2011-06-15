@@ -329,12 +329,20 @@ class ProjectsController < ApplicationController
   def generate_valued_csv
     @project = Project.find(params[:id])
     
+    #get only @replies between categories
+    if params[:category] == nil
+      category_setting = false
+    else
+      puts "USING CATEGORY SETTING"
+      category_setting = true
+    end
+    
     content_type = if request.user_agent =~ /windows/i
                  ' application/vnd.ms-excel '
                else
                  ' text/csv '
                end
-    project_net = @project.find_all_valued_connections(friend = true, follower = false) 
+    project_net = @project.find_all_valued_connections(friend = true, follower = false, category = category_setting) 
         
     CSV::Writer.generate(output = "") do |csv|
       csv << ["DL n=" + @project.persons.count.to_s ]
@@ -348,9 +356,15 @@ class ProjectsController < ApplicationController
         csv << [person.username]
       end
     end
-    send_data(output,
-            :type => content_type,
-            :filename => @project.name.to_s + "_AT_SNA.csv")
+    if category_setting 
+      send_data(output,
+              :type => content_type,
+              :filename => @project.name.to_s + "CAT_AT_SNA.csv")    
+    else
+      send_data(output,
+              :type => content_type,
+              :filename => @project.name.to_s + "_AT_SNA.csv")
+    end
   end
   
   def generate_gephi
@@ -361,10 +375,11 @@ class ProjectsController < ApplicationController
     twitter_ids = []
     begin
       csv_file = @project.name.downcase + ".csv"
-      CSV::Reader.parse(File.open(csv_file, 'rb')) do |row  |
-        result = URI.parse(row.to_s).path.reverse.chop.reverse      
-        twitter_ids <<  result.downcase
-        puts result.downcase
+      CSV::Reader.parse(File.open("data/" + csv_file, 'rb')) do |row  |
+        name = row[0].downcase      
+        role = row[1]
+        twitter_ids <<  {:name => name, :role => role}
+        puts "Name:#{name} and role:#{role}"
       end
     rescue
       puts "No attributelist found"  
@@ -386,10 +401,10 @@ class ProjectsController < ApplicationController
       @project.persons.each do |person|
         csv << ["<node id='"+ person.twitter_id.to_s + "' label='" + person.username.downcase + "' >"]
         csv << ["<attvalues>"]
-        if twitter_ids.include?(person.username.downcase)
-          csv << ["<attvalue for='0' value='listed'/>"]
-        else
-          csv << ["<attvalue for='0' value='not_listed'/>"]
+        twitter_ids.each do |t|
+          if t[:name] == person.username.downcase
+            csv << ["<attvalue for='0' value='"+ t[:role] + "'/>"]
+          end
         end
         csv << ["</attvalues>"]
         csv << ["</node>"]
@@ -533,32 +548,10 @@ class ProjectsController < ApplicationController
            else
              ' text/csv '
     end
-    @tmp_persons = []
+    @list_persons = @project.generate_new_project_from_most_listed_members
     CSV::Writer.generate(output = "") do |csv|
-      csv << ["Username", "Uri", "Followers", "Friends", "List Count"]        
-      @project.persons.each do |person|
-        @tmp_persons << {:username => person.username, :list_count => 1,
-          :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
-          :friends => person.friends_count}
-      end
-      @project.lists.each do |list|
-        if list.name.include? @project.keyword        
-          puts "#{@tmp_persons.count} Analyzing list #{list.name}"
-          if list.members
-            list.members.each do |member|
-              tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
-              if tmp_user != nil
-                tmp_user[:list_count] += 1
-              else            
-                @tmp_persons << {:username => member[:username], :list_count => 1,
-                  :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
-                  :friends => member[:friends_count]}
-              end
-            end
-          end
-        end
-      end
-      @tmp_persons.each do |person|
+      csv << ["Username", "Uri", "Followers", "Friends", "List Count"]              
+      @list_persons.each do |person|
        csv << [person[:username], person[:uri], person[:followers], person[:friends], person[:list_count]]
       end
     end    
@@ -575,7 +568,7 @@ class ProjectsController < ApplicationController
   
   def export_valued_to_uci_net
     render :update do |page|
-      page.redirect_to :action => "generate_valued_csv", :id => params[:id]
+      page.redirect_to :action => "generate_valued_csv", :id => params[:id], :category => params[:category]
     end
   end
   

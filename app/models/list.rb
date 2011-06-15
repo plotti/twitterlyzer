@@ -27,4 +27,5 @@ class List < ActiveRecord::Base
     @list.save!
   end
   
+  
 end
