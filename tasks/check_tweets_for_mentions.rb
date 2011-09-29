@@ -49,4 +49,24 @@ CSV::Writer.generate(outfile) do |csv|
     csv << [tweet[:id], tweet[:text], tweet[:author], tweet[:url],
             tweet[:date], tweet[:reply], tweet[:retweet], tweet[:member]]
   end
-end    
+end
+
+
+projects = [2,4,7,9,14]
+results = {}
+projects.each do |project|  
+  result = {}
+  Project.find(project).persons.each do |person|
+    person.feed_entries.each do |feed|
+      feed.retweet_ids.each do |retweet|                
+        projects.each do |tmp_project|
+          project_persons = Project.find(tmp_project).persons.collect{|p| p.username}
+          if project_persons.include?(retweet["person"])
+            result[project.name] += 1
+          end
+        end        
+      end
+    end
+  end
+  results[project.name] = result
+end

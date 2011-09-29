@@ -434,9 +434,9 @@ class ProjectsController < ApplicationController
            end
     
     CSV::Writer.generate(output = "") do |csv|
-      csv << ["Person", "Twitter_Username", "Friends", "Followers", "Messages", "Acc Created", "Last Activity", "Description", "Location", "Time Offset"]
+      csv << ["Person", "Twitter_Username", "Friends", "Followers", "Messages", "Acc Created", "Last Activity", "Description", "Location", "Time Offset", "Category"]
       @project.persons.each do |person|
-        csv << [person.name, person.username, person.friends_count, person.followers_count, person.statuses_count, person.acc_created_at, person.last_activity, person.bio, person.location, person.time_offset]
+        csv << [person.name, person.username, person.friends_count, person.followers_count, person.statuses_count, person.acc_created_at, person.last_activity, person.bio, person.location, person.time_offset, person.category]
       end
     end
     send_data(output,
@@ -456,19 +456,29 @@ class ProjectsController < ApplicationController
     
     CSV::Writer.generate(output = "") do |csv|
       csv << ["*node data"]
-      csv << ["ID", "Total Tweet Count", "Own Retweeted Count", "Network Retweet Count"]
+      csv << ["ID", "Total Tweet Count", "Own Retweeted Count", "Network Retweet Count", "Additional Audience Reached", "Unique Retweeters", "First Order Retweeters"]
       @project.persons.each do |person|
+        puts person.username
         own_retweeted_count = 0
         network_retweet_count = 0
-        person.feed_entries.each do |entry|
+        direct_audience = []
+        person.feed_entries.each do |entry|          
           own_retweeted_count += entry.retweet_ids.count
           entry.retweet_ids.each do |retweet|
             if @project_person_names.include?(retweet[:person])
               network_retweet_count += 1
             end
+            direct_audience << {:person => retweet[:person], :followers => retweet[:followers_count], :id => retweet[:id]}
           end
         end
-      csv << [person.username, person.feed_entries.count, own_retweeted_count, network_retweet_count]
+        extended_audience = 0
+        unique_retweeters = direct_audience.uniq.count
+        puts direct_audience.uniq.collect{|p| p[:id].to_i}
+        first_order_followers = (direct_audience.uniq.collect{|p| p[:id]} & person.follower_ids).count
+        direct_audience.uniq.each do |p|
+          extended_audience += p[:followers]
+        end
+      csv << [person.username, person.feed_entries.count, own_retweeted_count, network_retweet_count, extended_audience, unique_retweeters, first_order_followers]
       end      
     end
     send_data(output,
@@ -532,7 +542,7 @@ class ProjectsController < ApplicationController
         person.feed_entries.each do |entry|
           text = entry.text
           text.gsub!(/[\n]+/, "");
-          csv << [entry.id, '"' + text + '"', entry.author, entry.url, entry.published_at, entry.reply_to, entry.retweet_ids.join(",")]  
+          csv << [entry.id, '"' + text + '"', entry.author, entry.url, entry.published_at, entry.reply_to, entry.retweet_ids.collect{|r| r[:person]}.join(",")]  
         end        
       end
     end

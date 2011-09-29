@@ -31,8 +31,17 @@ class Person < ActiveRecord::Base
   def collect_friends twitter_id 
     begin
       puts "COLLECTING Friends IDS OF #{twitter_id}"
-      friends_ids = @@client.friends.ids? :id => twitter_id
-    rescue
+      result = @@client.friends.ids? :id => twitter_id, :cursor => -1
+      friends_ids = result.ids
+      old_cursor = 0
+      next_cursor = result.next_cursor
+      while old_cursor != next_cursor and next_cursor != 0
+        old_cursor = next_cursor
+        result = @@client.friends.ids? :id => twitter_id, :cursor => next_cursor
+        friends_ids += friends_ids + result.ids
+        next_cursor = result.next_cursor
+      end
+    rescue      
       friends_ids = []      
       tmp_person = @@client.users.show? :id => twitter_id
       SystemMessage.add_message("error", "Collect Friends ", "Friends of Person with username: " + tmp_person.screen_name.to_s + " could not be found. Person protection is " + tmp_person.protected.to_s )
@@ -53,8 +62,17 @@ class Person < ActiveRecord::Base
   # Tested
   def collect_followers twitter_id
     begin
-     puts "COLLECTING Follower IDS OF #{twitter_id}"    
-     follower_ids = @@client.followers.ids? :id => twitter_id      
+     puts "COLLECTING Follower IDS OF #{twitter_id}"
+     result = @@client.followers.ids? :id => twitter_id, :cursor => -1
+     follower_ids = result.ids
+     old_cursor = 0
+     next_cursor = result.next_cursor
+     while old_cursor != next_cursor and next_cursor != 0
+      old_cursor = next_cursor
+      result = @@client.followers.ids? :id => twitter_id, :cursor => next_cursor
+      follower_ids += follower_ids + result.ids
+      next_cursor = result.next_cursor
+     end     
     rescue
       follower_ids = []
       tmp_person = @@client.users.show? :id => twitter_id

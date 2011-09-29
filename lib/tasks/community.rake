@@ -66,7 +66,7 @@ task :collect_memberships do
 	end
 	lists = project.lists
 	
-	outfile = File.open(project.keyword + "_list.csv",'w')
+	outfile = File.open("data/" + project.keyword + "_list.csv",'w')
 	CSV::Writer.generate(outfile) do |csv|
 		lists.each do |list|
 			if list.name.include? project.keyword
