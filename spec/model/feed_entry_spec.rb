@@ -19,7 +19,7 @@ describe FeedEntry do
   it "should collect the right amount of retweets and persons for a given tweet" do
     f = Factory(:feed_entry)
     FeedEntry.collect_retweet_ids_for_entry(f)
-    f.retweet_ids.count.should == 6
+    f.retweet_ids.count.should == f.retweet_count
   end
   
   it "should also work with tweets that have japanese signs" do
@@ -29,11 +29,11 @@ describe FeedEntry do
     f.retweet_ids.count.should be_close(94,10)
   end
   
-  # Me including my 6 retweets
+  # Me including my 7 retweets
   it "should collect the right amount of persons for a given retweet" do
     f = Factory(:feed_entry)
     FeedEntry.collect_retweet_ids_for_entry_with_persons(f)
-    f.person.project.first.persons.count.should == 7
+    f.person.project.first.persons.count.should == 8
   end
   
 end

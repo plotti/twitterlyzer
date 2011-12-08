@@ -38,7 +38,7 @@ class Person < ActiveRecord::Base
       while old_cursor != next_cursor and next_cursor != 0
         old_cursor = next_cursor
         result = @@client.friends.ids? :id => twitter_id, :cursor => next_cursor
-        friends_ids += friends_ids + result.ids
+        friends_ids +=  result.ids
         next_cursor = result.next_cursor
       end
     rescue      
@@ -70,7 +70,7 @@ class Person < ActiveRecord::Base
      while old_cursor != next_cursor and next_cursor != 0
       old_cursor = next_cursor
       result = @@client.followers.ids? :id => twitter_id, :cursor => next_cursor
-      follower_ids += follower_ids + result.ids
+      follower_ids += result.ids
       next_cursor = result.next_cursor
      end     
     rescue
@@ -101,7 +101,7 @@ class Person < ActiveRecord::Base
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
       result = @@twitter.memberships(username, {:cursor => next_cursor})
-      lists = lists + result["lists"]
+      lists += result["lists"]
       next_cursor = result["next_cursor"]
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     end
@@ -128,7 +128,7 @@ class Person < ActiveRecord::Base
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
       result = @@twitter.lists(username, {:cursor => next_cursor})      
-      lists = lists + result["lists"]
+      lists += result["lists"]
       next_cursor = result["next_cursor"]
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     end
@@ -151,7 +151,7 @@ class Person < ActiveRecord::Base
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
       result = @@twitter.subscriptions(username,{:cursor => next_cursor})
-      lists = lists + result["lists"]
+      lists += result["lists"]
       next_cursor = result["next_cursor"]
     end
     lists.each do |list|

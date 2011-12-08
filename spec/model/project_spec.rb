@@ -20,11 +20,11 @@ describe Project do
     Person.collect_person("plotti4", project.id, 10000)
     result = project.find_all_connections
     puts result.to_yaml
-    result.include?(["plotti2","plotti1"]).should == true
-    result.include?(["plotti3","plotti1"]).should == true
-    result.include?(["plotti4","plotti3"]).should == true
+    result.include?(["plotti1","plotti2"]).should == true
+    result.include?(["plotti1","plotti3"]).should == true
     result.include?(["plotti3","plotti4"]).should == true
-    result.include?(["plotti1","plotti4"]).should == true
+    result.include?(["plotti4","plotti3"]).should == true
+    result.include?(["plotti4","plotti1"]).should == true
   end
   
   it "should contain all the @ mentions" do
@@ -43,9 +43,9 @@ describe Project do
     end
     result = project.find_all_valued_connections
     puts result
-    result.include?(["plotti2","plotti1",1]).should == true
-    result.include?(["plotti3","plotti1",2]).should == true
-    result.include?(["plotti1","plotti4",1]).should == true
+    result.include?(["plotti1","plotti2",1]).should == true
+    result.include?(["plotti1","plotti3",2]).should == true
+    result.include?(["plotti4","plotti1",1]).should == true
   end
   
   it "should contain the RT connections" do
@@ -64,9 +64,9 @@ describe Project do
     end
     result = project.find_all_retweet_connections
     puts result
-    result.include?(["plotti2","plotti1",1]).should == true
-    result.include?(["plotti4","plotti3",2]).should == true
-    result.include?(["plotti3","plotti4",1]).should == true
+    result.include?(["plotti1","plotti2",1]).should == true
+    result.include?(["plotti3","plotti4",2]).should == true
+    result.include?(["plotti4","plotti3",1]).should == true
   end
   
   

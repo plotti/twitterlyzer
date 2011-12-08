@@ -22,7 +22,8 @@ class FeedEntry < ActiveRecord::Base
   #Sphinx
   is_indexed :fields => ['text', 'author', 'url']
     
-  #Collects all possible rss entries from one person on twitter 
+  #Collects all possible rss entries from one person on twitter
+  # Tested
   def self.collect_all_entries(person)
     
     puts "Collecting Tweets for Person #{person.username}"
@@ -34,7 +35,11 @@ class FeedEntry < ActiveRecord::Base
     while more_tweets_found
       begin
         puts "On page #{page}"
-        r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page, :include_rts => :true})        
+        if @@twitter.rate_limit_status.remaining_hits > 20
+          r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page, :include_rts => :true})         
+        else
+          sleep(120)
+        end          
         if r == []
           more_tweets_found = false
         else
@@ -67,6 +72,8 @@ class FeedEntry < ActiveRecord::Base
   end
   
   #Marks for the collected retweets if those are isolates in the network or not
+  #TODO TEST
+  #TODO Describe
   def self.mark_isolates(retweets,o_tweet)
     tweets = retweets
     #Mark Isolate Tweets
@@ -99,6 +106,8 @@ class FeedEntry < ActiveRecord::Base
     return tweets
   end
   
+  #TODO Test
+  #TODO Describe
   def generate_tweet_plot
     tweets = FeedEntry.mark_isolates(self.retweet_ids,self)
   
@@ -252,19 +261,25 @@ class FeedEntry < ActiveRecord::Base
   end
  
   #Collects the retweets of a tweet
+  #TESTED
   def self.collect_retweet_ids_for_entry(entry)    
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
-      begin        
-        @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
-          entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
-        end    
-        entry.save!
+      begin
+        if @@twitter.rate_limit_status.remaining_hits > 20
+          @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
+            entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
+          end    
+          entry.save!
+        else
+          puts "Waiting for 2 minutes since there are no API calls left."
+          sleep(120)
+        end
       rescue
         puts "Couldnt't get retweets for id:#{entry.guid}"
       end
-    end
+    end    
     return entry
   end
   

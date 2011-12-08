@@ -20,7 +20,7 @@ end
 Factory.define :feed_entry do |f|
   f.text "Collection of Data Analysis Books http://www.downeu.com/dl/Statistical+Methods+For+Spatial+Data+Analysis.html"
   f.guid 15312085189
-  f.retweet_count 6
+  f.retweet_count 7
   f.person {Factory(:person)}
 end
 

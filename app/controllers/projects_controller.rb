@@ -326,6 +326,32 @@ class ProjectsController < ApplicationController
             :filename => @project.name.to_s + "_RT_SNA.csv")
   end
   
+  def generate_list_csv
+    @project = Project.find(params[:id])
+    
+    content_type = if request.user_agent =~ /windows/i
+                 ' application/vnd.ms-excel '
+               else
+                 ' text/csv '
+    end
+    project_net = @project.find_all_list_connections
+    CSV::Writer.generate(output = "") do |csv|
+      csv << ["DL n=" + @project.persons.count.to_s ]
+      csv << ["format = edgelist1"]
+      csv << ["labels embedded:"]
+      csv << ["data:"]
+      project_net.each do |entry|
+        csv << [entry[0], entry[1], entry[2]]
+      end
+      @project.persons.each do |person|
+        csv << [person.username]
+      end
+    end
+    send_data(output,
+        :type => content_type,
+        :filename => @project.name.to_s + "_LIST_SNA.csv")    
+  end
+  
   def generate_valued_csv
     @project = Project.find(params[:id])
     
@@ -456,7 +482,7 @@ class ProjectsController < ApplicationController
     
     CSV::Writer.generate(output = "") do |csv|
       csv << ["*node data"]
-      csv << ["ID", "Total Tweet Count", "Own Retweeted Count", "Network Retweet Count", "Additional Audience Reached", "Unique Retweeters", "First Order Retweeters"]
+      csv << ["ID", "Total Tweet Count", "Global Retweeted IN Count", "Network Retweet IN Count", "Additional Audience Reached", "Unique Retweeters", "First Order Retweeters"]
       @project.persons.each do |person|
         puts person.username
         own_retweeted_count = 0
@@ -631,6 +657,11 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def export_list_net_to_uci_net
+    render :update do |page|
+      page.redirect_to :action => "generate_list_csv", :id => params[:id], :category => true
+    end    
+  end
   
   # DELETE /projects/1
   # DELETE /projects/1.xml

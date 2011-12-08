@@ -106,9 +106,11 @@ class Project < ActiveRecord::Base
     #
   #end
   
+  #TODO CHANGE NAME INTO: CALCULATE MOST LISTED MEMBERS
   def generate_new_project_from_most_listed_members
       @tmp_persons = []
       self.persons.each do |person|
+        puts person.username
         @tmp_persons << {:username => person.username, :list_count => 1,
           :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
           :friends => person.friends_count}
@@ -131,7 +133,7 @@ class Project < ActiveRecord::Base
         end
       end      
       sorted = @tmp_persons.sort{|a,b| a[:list_count] <=> b[:list_count]}.reverse
-      outfile = File.open(self.keyword + "_sorted_members.csv",'w')
+      outfile = File.open("data/" + self.keyword + "_sorted_members.csv",'w')
       CSV::Writer.generate(outfile) do |csv|
         csv << ["Username", "Followers", "List Count", "URI"]
         sorted.each do |member|
@@ -182,7 +184,7 @@ class Project < ActiveRecord::Base
         friends_ids_hash = person.friends_ids_hash
         persons_ids.each do |person_id|
           if friends_ids_hash.include?(person_id)
-            values << [Person.find_by_twitter_id(person_id).username, person.username.to_s]
+            values << [person.username.to_s, Person.find_by_twitter_id(person_id).username]
           end
         end        
       end
@@ -191,7 +193,7 @@ class Project < ActiveRecord::Base
         follower_ids_hash = person.follower_ids_hash
         persons_ids.each do |person_id|
           if follower_ids_hash.include?(person_id)
-            values << [Person.find_by_twitter_id(person_id).username, person.username.to_s]
+            values << [person.username.to_s, Person.find_by_twitter_id(person_id).username]
           end
         end  
       end
@@ -212,7 +214,7 @@ class Project < ActiveRecord::Base
       friends_ids_hash = person.friends_ids_hash
       persons_ids.each do |person_id|
         if friends_ids_hash.include?(person_id)
-          values << [person_id, person.twitter_id]
+          values << [person.twitter_id, person_id]
         end
       end       
     end
@@ -221,6 +223,7 @@ class Project < ActiveRecord::Base
   
   #For  a given project
   #For all persons tweets in the project check if they have been retweeted by other members in the community
+  #Tested in project spec
   def find_all_retweet_connections(friend = true,follower = false,category = false)
     values = []
     i = 0    
@@ -234,6 +237,7 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}    
   end
   
+  #Tested in Project spec
   def find_retweet_connections_for_person(person,following = false,category = false)
     puts "Finding retweet connections with following:#{following} category:#{category}"
     values = []
@@ -244,16 +248,16 @@ class Project < ActiveRecord::Base
           #the person that retweets a user must follow that person to be valid
           if following
             if Person.find_by_username(retweet[:person]).friends_ids.include? person.twitter_id
-              values << [person.username, retweet[:person],1]
+              values << [retweet[:person],person.username,1]
             end
           else
             #Only count retweets that are between different categories
             if category
               if Person.find_by_username(retweet[:person]).category != person.category
-                values << [person.username, retweet[:person],1]
+                values << [retweet[:person], person.username,1]
               end
             else
-              values << [person.username, retweet[:person],1]
+              values << [retweet[:person],person.username,1]
             end
           end
         end
@@ -269,6 +273,7 @@ class Project < ActiveRecord::Base
   # it also checks if that is maybe a retweet of that person
   # This makes sure that we only get the @ communication without the RT.
   # Everytime we find somebody we set the value up.
+  # Tested in project spec
   def find_all_valued_connections(friend = true, follower = false, category = false)
     if category
       puts "COMPUTING CATEGORY only @ Interactions"
@@ -285,13 +290,13 @@ class Project < ActiveRecord::Base
             if category 
               if person.category != Person.find_by_username(tmp_user).category
                 if tweet.retweet_ids == []
-                  values << [tmp_user,person.username,1]  
+                  values << [person.username,tmp_user,1]  
                 end                             
               end
             else
               #if the tweet has not been retweeted hence is not a retweet
               if tweet.retweet_ids == []
-                values << [tmp_user,person.username,1]  
+                values << [person.username,tmp_user,1]  
               end             
             end
           end                  
@@ -301,6 +306,40 @@ class Project < ActiveRecord::Base
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}  
+  end
+  
+  def self.dump_net(net)
+    CSV::Writer.generate("NET_#{net.count}.csv") do |csv|
+      csv << ["DL n=100"]
+      csv << ["format = edgelist1"]
+      csv << ["labels embedded:"]
+      csv << ["data:"]
+      net.each do |entry|
+        csv << [entry[0], entry[1], entry[2]]
+      end
+    end    
+  end
+  
+  def  find_all_list_connections
+    values = []
+    self.lists.each do |list|
+      if list.name.include? self.keyword        
+        puts "#{values.count} Analyzing list members of list #{list.name}"
+        if list.members
+          membernames = list.members.collect{|l| l[:username]}
+          #Create couples of 2
+          membernames.combination(2).each do |couple|
+            values << [couple.first, couple.last]
+          end
+        end
+      end
+    end
+    listed_members = self.generate_new_project_from_most_listed_members
+    most_listed = listed_members.collect{|m| m[:username]}[0..100]
+    values.delete_if {|v| !most_listed.include?(v[0]) or !most_listed.include?(v[1]) }    
+    #Merge counted pairs
+    hash = values.group_by { |first, second| [first,second] }
+    return hash.map{|k,v| [k,v.count].flatten}
   end
 
   
@@ -360,7 +399,7 @@ class Project < ActiveRecord::Base
         friends_ids_hash = person.friends_ids_hash
         persons_ids.each do |person_id|
           if friends_ids_hash.include?(person_id)
-            values << [person.twitter_id,person_id]
+            values << [person_id, person.twitter_id]
           end
         end        
       end
@@ -369,7 +408,7 @@ class Project < ActiveRecord::Base
         follower_ids_hash = person.follower_ids_hash
         persons_ids.each do |person_id|
           if follower_ids_hash.include?(person_id)
-            values << [person_id, person.twitter_id]
+            values << [person.twitter_id, person_id]
           end
         end  
       end
@@ -389,5 +428,7 @@ class Project < ActiveRecord::Base
     end
     return r
   end
+  
+
   
 end

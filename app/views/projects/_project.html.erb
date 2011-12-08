@@ -35,7 +35,11 @@
     <%= link_to_remote 'Valued CT-only RT Network',
     :url => {:controller => "projects", :action => "export_retweet_cat_net_to_uci_net", :id => project.id},
     :confirm => 'Does the project consist of people of different categories? If not you will not get a different result than the normal valued RT network'
-    %>
+    %>|
+    <%= link_to_remote 'List Network',
+        :url => {:controller => "projects", :action => "export_list_net_to_uci_net", :id => project.id},
+        :confirm => 'Does the project have lists? If not you will get no results'
+    %> 
 </p>
 <p>
   <b>Export Stats: </b>
