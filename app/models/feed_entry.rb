@@ -35,11 +35,11 @@ class FeedEntry < ActiveRecord::Base
     while more_tweets_found
       begin
         puts "On page #{page}"
-        if @@twitter.rate_limit_status.remaining_hits > 20
+        #if @@twitter.rate_limit_status.remaining_hits > 20
           r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page, :include_rts => :true})         
-        else
-          sleep(120)
-        end          
+        #else
+        #  sleep(120)
+        #end          
         if r == []
           more_tweets_found = false
         else
