@@ -95,17 +95,17 @@ Rails::Initializer.run do |config|
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
   #config.gem "pauldix-feedzirra", :lib => "feedzirra", :source => "http://gems.github.com"
-  config.gem 'javan-whenever', :lib => false, :source => 'http://gems.github.com'
-  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'whenever', :lib => false, :source => 'http://gems.github.com'
+  config.gem 'will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
   config.gem 'grackle'
   config.gem 'twitter'
   config.gem 'ruby-debug'
   config.gem 'chronic'
   #config.gem 'ruby-graphviz'
-  config.gem 'gnuplot'
-  config.gem 'typhoeus'
-  config.gem 'ar-extensions'
-  config.gem 'simple-rss'
+  #config.gem 'gnuplot'
+  #config.gem 'typhoeus'
+  #config.gem 'ar-extensions'
+  #config.gem 'simple-rss'
   
   #config.gem 'rsruby'
   
