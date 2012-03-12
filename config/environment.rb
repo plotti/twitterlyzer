@@ -94,19 +94,25 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  #config.gem "pauldix-feedzirra", :lib => "feedzirra", :source => "http://gems.github.com"
-  config.gem 'whenever', :lib => false, :source => 'http://gems.github.com'
-  config.gem 'will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem 'grackle'
-  config.gem 'twitter'
-  config.gem 'ruby-debug'
-  config.gem 'chronic'
-  #config.gem 'ruby-graphviz'
-  #config.gem 'gnuplot'
-  #config.gem 'typhoeus'
-  #config.gem 'ar-extensions'
-  #config.gem 'simple-rss'
   
-  #config.gem 'rsruby'
+  #Rubygems needs to be downgraded to 1.4.2
+  #config.gem 'rubygems-update', :version => "1.4.2"  
+  #config.gem 'ruby-graphviz', :version => "1.0.5"
+  
+  config.gem 'whenever', :version => "0.7.3", :lib => false, :source => 'http://gems.github.com'
+  config.gem 'will_paginate', :version => "2.2.2", :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'grackle', :version => "0.1.10"
+  config.gem 'twitter', :version => "1.7.2"
+  config.gem 'ruby-debug', :version => "0.10.4"
+  config.gem 'chronic', :version => "0.6.7"
+  config.gem 'gnuplot', :version => "2.3.6"
+  config.gem 'typhoeus', :version => "0.3.3"
+  config.gem 'ar-extensions', :version => "0.9.5"
+  config.gem 'simple-rss', :version => "1.2.3"
+  config.gem 'factory_girl', :version => "1.3.3"
+  config.gem 'mongrel', :version => "1.1.5"
+  config.gem 'mysql', :version => "2.8.1"
+
+  config.gem "scrapi", :version => "1.2.0"
   
 end
