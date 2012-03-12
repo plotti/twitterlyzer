@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :path, '/home/thomas/socialyzer' 
+set :path, '/home/thomas/twitterlyzer' 
 
 every 30.minutes do
   #runner "SystemMessage.add_message('info', 'Test', 'Cronjob successfully fired.')", :environment => :production

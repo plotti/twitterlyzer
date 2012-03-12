@@ -1,9 +1,49 @@
-This is a RAILS Application that helps you to collect twitter data:
+## SHORT DESCRIPTION
+
+* This is a RAILS 2.3.7 based application that helps you to collect Twitter data.
+
+## HOWTO INSTALL
+
+* Checkout with git
+
+### Install RVM
+* Install rvm if you are not using it
+** http://beginrescueend.com/rvm/install/
+** rvm install 1.8.7
+
+### Setup Files
+* To get it running you will need to create a: 
+** twitter.yml that contains your twitter credentials
+** bitly.yml that contains your bitly credentials
+** database.yml containting the database credentials
+** see twitter.example.yml or bitly.example.yml for details
+** Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers
+
+### Install Gems Dependencies
+* The app is using 2.3.7 rails so all gems are chosen to match that framework
+* To install them first install: gem install rails_gem_install
+* RAILS_ENV=production rails_gem_install
+
+### Test
+** Test if the application works correctly by
+** spec spec
+
+### Get Delayed Jobs working
+** Create the necessare files with: script/generate delayed_job
+** To start collecting persons or feeds you need to start a couple of delayed job workers:
+*** To do so use the script "./script/delayed_job -n 4"
+*** The Benchmarks I measured are depending on the number of workers (n):
+**** Collecting Tweets: n 4: 40.000 tweets in 10min
+**** n 8: 90.000 tweets in 10min
+**** n 16: 180.000 tweets in 10 min (70% CPU usage)
+
+
+## FEATURES
 
 It does the following:
 
-	It uses Delayed Jobs to get things done.
-	The Twitter API is wrapped using grackle
+	It uses Delayed Jobs to get the collection done.
+	The Twitter API is wrapped using grackle and twitter gems
 	
 	Projects
 		Persons are organized in projects that contain a set of people
@@ -44,24 +84,4 @@ It does the following:
 		
 		It can compute some sentiment for german tweets 
 
-
-The rails app is totally in a beta stadium, has no test coverage!
-
-To get it running you will need to create a :
-
-twitter.yml that contains your twitter credentials
-bitly.yml that contains your bitly credentials
-
-see twitter.example.yml or bitly.example.yml for details
-
-Delayed Jobs:
-	To start collecting persons or feeds you need to start a couple of delayed job workers:
-	To do so use the script "./script/delayed_job -n 4"
-	The Benchmarks I measured are depending on the number of workers (n):
-		Collecting Tweets: n 4: 40.000 tweets in 10min
-				   n 8: 90.000 tweets in 10min
-				   n 16: 180.000 tweets in 10 min (70% CPU usage)
-
-		Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers.
-		TODO: Make the workers intelligent and make sure that they only take the job when there is enough API calls left.
 

@@ -30,7 +30,7 @@ task :collect_retweets do
     if found_pending_jobs == 0
       continue = false
     end
-    puts "waiting for #{found_pending_jobs} Collect Tweet Jobs to finish..."
+    puts "#{@@twitter.rate_limit_status.remaining_hits.to_s}. Waiting for #{found_pending_jobs} Collect Tweet Jobs to finish..."
     sleep(10)		
   end
   
@@ -64,7 +64,7 @@ task :report_success do
     if found_pending_jobs == 0
       continue = false
     end
-    puts "waiting for #{found_pending_jobs} Collect ReTweet Jobs to finish..."
+    puts "#{@@twitter.rate_limit_status.remaining_hits.to_s}. Waiting for #{found_pending_jobs} Collect ReTweet Jobs to finish..."
     sleep(120)		
   end
   @@log.info("Finished collection of Re-tweets at #{Time.now} for project_id: #{ENV["project_id"]}")

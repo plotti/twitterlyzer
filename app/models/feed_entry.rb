@@ -20,7 +20,7 @@ class FeedEntry < ActiveRecord::Base
                        
   
   #Sphinx
-  is_indexed :fields => ['text', 'author', 'url']
+  #is_indexed :fields => ['text', 'author', 'url']
     
   #Collects all possible rss entries from one person on twitter
   # Tested

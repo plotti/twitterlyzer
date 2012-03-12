@@ -1,5 +1,5 @@
-require 'spec_helper'
-require './spec/factories'
+#require 'spec_helper'
+#require './spec/factories'
 
 describe FeedEntry do
   
