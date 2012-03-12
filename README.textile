@@ -1,17 +1,23 @@
-## SHORT DESCRIPTION
+h1. Short Description
 
 * This is a RAILS 2.3.7 based application that helps you to collect Twitter data.
 
-## HOWTO INSTALL
+h2. How to Install
 
-* Checkout with git
+* Checkout with :
+<pre><code>
+  git clone git@github.com:plotti/twitterlyzer.git
+</code></pre>
 
-### Install RVM
-* Install rvm if you are not using it
-** http://beginrescueend.com/rvm/install/
-** rvm install 1.8.7
+h3. Install RVM
+* Install rvm if you are not using it (http://beginrescueend.com/rvm/install/)
+* The rvm spec file is already in the repo
+* Install ruby 1.8.7
+<pre><code>
+  rvm install 1.8.7
+</code></pre>
 
-### Setup Files
+h3. Setup Files
 * To get it running you will need to create a: 
 ** twitter.yml that contains your twitter credentials
 ** bitly.yml that contains your bitly credentials
@@ -19,26 +25,34 @@
 ** see twitter.example.yml or bitly.example.yml for details
 ** Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers
 
-### Install Gems Dependencies
+h3. Install Gems Dependencies
 * The app is using 2.3.7 rails so all gems are chosen to match that framework
 * To install them first install: gem install rails_gem_install
-* RAILS_ENV=production rails_gem_install
+<pre><code>
+RAILS_ENV=production rails_gem_install
+</code></pre>
 
-### Test
-** Test if the application works correctly by
-** spec spec
+h3. Test
+** Test if the application works correctly
+** You will need rspec/rspec-rails and factory girl to test it.
+<pre><code>
+spec spec
+</code></pre>
 
-### Get Delayed Jobs working
-** Create the necessare files with: script/generate delayed_job
-** To start collecting persons or feeds you need to start a couple of delayed job workers:
-*** To do so use the script "./script/delayed_job -n 4"
+h3. Get Delayed Jobs working
+** Create the necessary files with: script/generate delayed_job
+** To start collecting persons or feeds you need to start a couple of delayed job workers. To do so use the script
+<pre><code>
+"./script/delayed_job -n 4"
+</code></pre>
+
 *** The Benchmarks I measured are depending on the number of workers (n):
 **** Collecting Tweets: n 4: 40.000 tweets in 10min
 **** n 8: 90.000 tweets in 10min
 **** n 16: 180.000 tweets in 10 min (70% CPU usage)
 
 
-## FEATURES
+h2. FEATURES
 
 It does the following:
 
@@ -83,5 +97,3 @@ It does the following:
 			Wefollow
 		
 		It can compute some sentiment for german tweets 
-
-
