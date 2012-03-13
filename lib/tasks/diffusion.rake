@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require 'config/environment'
-@@log = Logger.new("collection.log")
+@@log = Logger.new("log/diffusion.log")
 
 task :collect_tweets do
   puts "COLLECTING TWEETS"

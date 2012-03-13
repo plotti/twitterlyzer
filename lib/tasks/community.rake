@@ -27,7 +27,7 @@ task :add_seed_people do
 end
 
 task :collect_lists do
-	puts "COLLECTING LISTS"
+	puts "COLLECTING LISTS of #{ENV['keyword']}"
 	project = Project.find(@@ID)
 	continue = true
 	while continue		
@@ -36,15 +36,15 @@ task :collect_lists do
 			if job.handler.include? "CollectPersonJob"
 				found_pending_jobs += 1
 			end
-			if job.attempts >= 4
-				puts "Deleting job with more than #{job.attempts} attempts."
+			if job.attempts >= 4				
+				puts"CL: #{Project.get_remaining_hits} calls left. Deleting job with more than #{job.attempts} attempts."		
 				job.delete				
 			end
 		end
 		if found_pending_jobs == 0
 			continue = false
 		end
-		puts "#{@@twitter.rate_limit_status.remaining_hits.to_s} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
+		puts"CL: #{Project.get_remaining_hits} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
 		sleep(10)		
 	end	
 	project.persons.each  do |person|
@@ -54,7 +54,7 @@ task :collect_lists do
 end
 
 task :collect_memberships do
-	puts "COLLECTING MEMBERSHIPS OF LISTS"
+	puts "COLLECTING MEMBERSHIPS OF LISTS of #{ENV['keyword']}"
 	project = Project.find(@@ID)
 	continue = true
 	while continue
@@ -64,14 +64,14 @@ task :collect_memberships do
 				found_pending_jobs += 1
 			end
 			if job.attempts >= 4
-				puts "Deleting job with more than #{job.attempts} attempts."
+				puts"CM: #{Project.get_remaining_hits} calls left. Deleting job with more than #{job.attempts} attempts."
 				job.delete				
 			end
 		end
 		if found_pending_jobs == 0
 			continue = false
 		end
-		puts "#{@@twitter.rate_limit_status.remaining_hits.to_s} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
+		puts"CM: #{Project.get_remaining_hits} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
 		sleep(10)
 	end
 	lists = project.lists
@@ -80,7 +80,7 @@ task :collect_memberships do
 	CSV::Writer.generate(outfile) do |csv|
 		lists.each do |list|
 			if list.name.include? project.keyword
-				csv << [list.id]
+				csv << [list.id,list.name]
 				Delayed::Job.enqueue(CollectListMembersJob.new(list.id))
 			end
 		end
@@ -90,7 +90,7 @@ task :collect_memberships do
 end
 
 task :create_project_with_most_listed_persons do
-	puts "CREATING PROJECT WITH MOST LISTED PERSONS"
+	puts "CREATING PROJECT WITH MOST LISTED PERSONS of #{ENV['keyword']}"
 	if ENV["id"] == nil
 		project = Project.find(@@ID)
 	else
@@ -104,14 +104,14 @@ task :create_project_with_most_listed_persons do
 				found_pending_jobs += 1
 			end
 			if job.attempts >= 4
-				puts "Deleting job with more than #{job.attempts} attempts."
+				puts"CP: #{Project.get_remaining_hits} calls left. Deleting job with more than #{job.attempts} attempts."
 				job.delete				
 			end
 		end
 		if found_pending_jobs == 0
 			continue = false
 		end
-		puts "#{@@twitter.rate_limit_status.remaining_hits.to_s} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
+		puts"CP: #{Project.get_remaining_hits} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
 		sleep(10)
 	end
 	persons = project.generate_new_project_from_most_listed_members
@@ -142,10 +142,12 @@ task :re_collect_community => [:find_project, :collect_lists, :collect_membershi
 end
 
 task :collect_communities do
-	@@communities = ["music","blogger","socialmedia","entrepreneur","tech","marketing","writer","sports","fashion","photographer","design","politics","artist","news","media","celebrity","movies","technology","entertainment","gaming","webdesign","business","comedy","food","shopping","funny","fitness","geek","christian","education","creative","internetmarketing","student","books","advertising","realestate","mom","humor","film","author","graphicdesign","football","seo","writing","gamer","twitter","reading","actor","journalist","publicrelations","developer","videogames","producer","family","singer","radio","computers","green","apple","wine","beauty","science","hiphop","model","gay","money","life","finance","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","golf","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","architecture","leadership","sustainability","beer","jewelry","dancing","software","theatre","conservative","guitar","party","communications","mother","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","publishing","illustrator","sales","charity","college","php","anime","travel","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","dance","crafts","poker","etsy","youtube","yoga","podcast"]
-	#@@communities = ["entrepreneur","design","media","movies","entertainment","webdesign","business","shopping","funny","fitness","geek","christian","education","creative","books","mom","humor","film","author","seo","gamer","reading","journalist","developer","videogames","producer","family","singer","computers","green","apple","love","science","hiphop","gay","money","life","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","leadership","beer","community","jewelry","software","theatre","conservative","guitar","party","communications","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","illustrator","sales","college","anime","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","crafts","poker","etsy","youtube","podcast"]
-        #@@communities = ["Accountants","Actors","Advertising","Airlines","AlternativeHealth","Architects","Artists","Astrology","Astronomy","Automotive","Banking","Basketball","Beauty","Biking","Bloggers","CatLover","Celebrities","CEO","Charity","CloudComputing","CloudSecurity","CoffeeLovers","Comedy","CoolBrands","Dancers","Dating","Doctors","DogLovers","Engineer","ExtremeSports","Fashion","Fathers","Finance","Food","Football","Gamblers","Gaming","Giveaways","Golf","Gossip","Grammys","GraphicDesign","Healthcare","Hiking","HomeBusiness","Hospitality","IBM","Intel","Investors","Jobs","Lawyer","Marketing","MediaMoguls","Models","MommyBloggers","Mothers","Motocross","MovieGoers","Musicians","News","Oracle","Parents","Photography","Podcasters","Politics","PopMusic","Publishing","Radio","RealEstate","Religion","Reporter","RoyalWedding","Sailing","Shopaholics","Socialmedia","Sport","Students","Surfing","Sustainability","Tech","Tennis","Trading","Travel","VIPMommies","Vloggers","WallSt","Weightlifting","WineLover"]
-		@@communities.each do |community|
+	#Communities in Reverse Order
+	@@communities = ["poker", "crafts", "dance", "cinema", "poetry", "reader", "history", "outdoors", "gadgets", "gardening", "rapper", "wordpress", "chicago", "handmade", "style", "travel", "anime", "php", "college", "charity", "sales", "illustrator", "publishing", "smallbusiness", "startup", "linux", "pets", "television", "happy", "coach", "restaurant", "baseball", "animals", "mother", "communications", "party", "guitar", "conservative", "theatre", "software", "dancing", "jewelry", "beer", "sustainability", "leadership", "architecture", "mobile", "spirituality", "programmer", "jobs", "culture", "rock", "speaker", "branding", "actress", "mac", "golf", "cycling", "wedding", "consultant", "comics", "onlinemarketing", "dogs", "innovation", "running", "inspiration", "soccer", "environment", "events", "songwriter", "cars", "finance", "life", "money", "gay", "model", "hiphop", "science", "beauty", "wine", "apple", "green", "computers", "radio", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "actor", "reading", "gamer", "writing", "seo", "football", "graphicdesign", "author", "film", "humor", "mom", "realestate", "advertising", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "food", "comedy", "business", "webdesign", "gaming", "entertainment", "technology", "movies", "celebrity", "media", "news", "artist", "politics", "design", "photographer", "fashion", "sports", "writer", "marketing", "tech", "entrepreneur", "socialmedia", "blogger", "music"]	
+	#@@communities = ["podcast", "yoga", "youtube", "etsy", "poker", "crafts", "dance", "cinema", "poetry", "reader", "history", "outdoors", "gadgets", "gardening", "rapper", "wordpress", "chicago", "handmade", "style", "travel", "anime", "php", "college", "charity", "sales", "illustrator", "publishing", "smallbusiness", "startup", "linux", "pets", "television", "happy", "coach", "restaurant", "baseball", "animals", "mother", "communications", "party", "guitar", "conservative", "theatre", "software", "dancing", "jewelry", "beer", "sustainability", "leadership", "architecture", "mobile", "spirituality", "programmer", "jobs", "culture", "rock", "speaker", "branding", "actress", "mac", "golf", "cycling", "wedding", "consultant", "comics", "onlinemarketing", "dogs", "innovation", "running", "inspiration", "soccer", "environment", "events", "songwriter", "cars", "finance", "life", "money", "gay", "model", "hiphop", "science", "beauty", "wine", "apple", "green", "computers", "radio", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "actor", "reading", "gamer", "writing", "seo", "football", "graphicdesign", "author", "film", "humor", "mom", "realestate", "advertising", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "food", "comedy", "business", "webdesign", "gaming", "entertainment", "technology", "movies", "celebrity", "media", "news", "artist", "politics", "design", "photographer", "fashion", "sports", "writer", "marketing", "tech", "entrepreneur", "socialmedia", "blogger", "music"]	
+	#Communities in Normal Order
+	#@@communities = ["music","blogger","socialmedia","entrepreneur","tech","marketing","writer","sports","fashion","photographer","design","politics","artist","news","media","celebrity","movies","technology","entertainment","gaming","webdesign","business","comedy","food","shopping","funny","fitness","geek","christian","education","creative","internetmarketing","student","books","advertising","realestate","mom","humor","film","author","graphicdesign","football","seo","writing","gamer","twitter","reading","actor","journalist","publicrelations","developer","videogames","producer","family","singer","radio","computers","green","apple","wine","beauty","science","hiphop","model","gay","money","life","finance","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","golf","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","architecture","leadership","sustainability","beer","jewelry","dancing","software","theatre","conservative","guitar","party","communications","mother","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","publishing","illustrator","sales","charity","college","php","anime","travel","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","dance","crafts","poker","etsy","youtube","yoga","podcast"]	
+	@@communities.each do |community|
 		ENV["keyword"] = community
 		Rake::Task['collect_community'].invoke
 	end
