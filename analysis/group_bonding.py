@@ -1,4 +1,6 @@
-for project in communities:
+import networkx as nx
+
+for project in projects:
     
     print ""
     print "############ Calculating Project %s ############### " % project

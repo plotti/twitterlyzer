@@ -12,6 +12,7 @@ CSV::Writer.generate(outfile) do |csv|
     project_lists = Project.find_by_name(projct.name+"lists")    
     private_persons = 0
     project_tweets = 0
+    project_retweets = 0
     persons_without_tweets = 0
     persons_deleted = 0
     
@@ -25,29 +26,23 @@ CSV::Writer.generate(outfile) do |csv|
       # Check Tweets
       project_tweets += person.feed_entries.count
       if person.feed_entries.count == 0
-        # For persons without tweets check if they are deleted
-        begin
-          person = @@twitter.user(person.username)
-        rescue
-          person = ""
-        end
-        if person != ""
-          persons_without_tweets += 1
+        if person.d2 == "deleted"
+          persons_deleted += 1          
         else
-          persons_deleted += 1
+          persons_without_tweets += 1
         end
         
       end
       
-      # Check Retweets
-      person_retweets = 0
-      person.feed_entries.each do |f|
-        person_retweets += f.retweet_ids.count
-      end
-      person.d1 = person_retweets
-      person.save!
+      # Add up Retweets
+      if person.d1 != nil
+        project_retweets += person.d1
+      else
+        project_retweets = "NaN"
+      end      
+
     end
-  csv << [project.id, project.name, project_lists.id, project_lists.name, project_lists.lists.count, project.persons.count, private_persons, ]
+  csv << [project.id, project.name, project_lists.id, project_lists.name, project_lists.lists.count, project.persons.count, private_persons, persons_deleted,persons_without_tweets, project_tweets, project_retweets]
   end
   
 end

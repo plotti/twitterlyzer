@@ -4,6 +4,9 @@ require 'grackle'
 require 'twitter'
 require 'rubygems'
 
+#Communities
+@@communities = [2,4,6,9]
+
 #Constants
 STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line| line.chomp}
 FRIENDS_IDS_PATH = RAILS_ROOT + "/friends_ids_data/"
