@@ -5,7 +5,7 @@ require 'twitter'
 require 'rubygems'
 
 #Communities
-@@communities = [2,4,6,9]
+@@communities = [2,4,6,9,13,15,17,19,21,23,25,27,29,31,33,35,37,39]
 
 #Constants
 STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line| line.chomp}

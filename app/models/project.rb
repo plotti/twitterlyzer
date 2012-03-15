@@ -34,8 +34,7 @@ class Project < ActiveRecord::Base
       g.add_edge(entry[0],entry[1])
       g.output( :output => "png", :use=> "fdp", :file => "#{project.name.gsub!(" ","_")}.png" )
     end
-  end
-  
+  end  
   
   def self.find_k_cores(project_id, core)
     project = Project.find(project_id)
@@ -320,6 +319,33 @@ class Project < ActiveRecord::Base
     end    
   end
   
+  def dump_FF_edgelist
+    net = find_all_persons_connections
+    File.open("#{RAILS_ROOT}/data/#{self.id}_FF.edgelist", "w+") do |file|
+      net.each do |row|
+        file.puts "#{row[0]} #{row[1]} 1" # Strength is always 1 in FF networks
+      end
+    end   
+  end
+  
+  def dump_AT_edgelist
+    net = self.find_all_valued_connections
+    File.open("#{RAILS_ROOT}/data/#{self.id}_FF.edgelist", "w+") do |file|
+      net.each do |row|
+        file.puts "#{row[0]} #{row[1]} #{row[2]}"
+      end
+    end        
+  end
+  
+  def dump_RT_edgelist
+    net = self.find_all_retweet_connections
+    File.open("#{RAILS_ROOT}/data/#{self.id}_RT.edgelist", "w+") do |file|
+      net.each do |row|
+        file.puts "#{row[0]} #{row[1]} #{row[2]}"
+      end
+    end    
+  end
+  
   def  find_all_list_connections
     values = []
     self.lists.each do |list|
@@ -343,7 +369,7 @@ class Project < ActiveRecord::Base
   end
 
   
-  #Analytic function that returns the amount of collected tweets vs. the
+  # Analytic function that returns the amount of collected tweets vs. the
   # amount of tweets that should have had been collected according to the statuses_count
   def get_tweet_delta
     puts "The delta are due to the 'include rts' function that filters out tweets not originating from that person"
