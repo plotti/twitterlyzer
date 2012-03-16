@@ -1,8 +1,10 @@
 require '../config/environment'
 require 'faster_csv'
 
-groups_for_import = ["musician","tech","marketing","sport","fashion","photography","politics","news","gaming","comedy","food","advertising","realestate","football","actor","radio","wine","beauty","finance","golf","sustainability","publishing","charity"]
+#First reimport of old listings
+#groups_for_import = ["musician","tech","marketing","sport","fashion","photography","politics","news","gaming","comedy","food","advertising","realestate","football","actor","radio","wine","beauty","finance","golf","sustainability","publishing","charity"]
 
+groups_for_import = ["accounting", "airlines", "astrology", "astronomy", "automotive", "basketball", "ceo", "dating", "healthcare", "hiking", "hospitality", "ibm", "intel", "investor", "java", "lawyer", "oracle", "perl", "python", "religion", "ruby", "sailing", "surfing", "tennis", "trading"]
 groups_for_import.each do |group|
   sorted_members  = FasterCSV.read("#{RAILS_ROOT}/data/old_lists/#{group}_sorted_members.csv")
   i = 0

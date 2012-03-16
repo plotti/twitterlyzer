@@ -457,10 +457,13 @@ class Project < ActiveRecord::Base
   
   def self.get_remaining_hits
     begin
-      r = @@twitter.rate_limit_status.remaining_hits.to_s
+      r = @@twitter.rate_limit_status.remaining_hits
+      if r < 1000
+        r = "timeout"
+      end
     rescue
-      r = "Timeout"
-    end
+      r = "timeout"
+    end    
     return r
   end
   

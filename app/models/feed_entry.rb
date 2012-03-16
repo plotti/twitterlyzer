@@ -26,10 +26,14 @@ class FeedEntry < ActiveRecord::Base
   # Tested
   def self.collect_all_entries(person)
     
+    while Project.get_remaining_hits == "timeout"
+      sleep(60) 
+    end
+    
     puts "Collecting Tweets for Person #{person.username}"
     feeds = []    
     page = 1
-    more_tweets_found = true
+    more_tweets_found = true    
     
     #Gather Feeds from Twitter
     while more_tweets_found
@@ -262,7 +266,7 @@ class FeedEntry < ActiveRecord::Base
  
   #Collects the retweets of a tweet
   #TESTED
-  def self.collect_retweet_ids_for_entry(entry)    
+  def self.collect_retweet_ids_for_entry(entry)
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
@@ -285,6 +289,9 @@ class FeedEntry < ActiveRecord::Base
   
   # For a erson for all its tweets collects the retweets  
   def self.collect_retweet_ids_for_person(person)
+    while Project.get_remaining_hits == "timeout"
+      sleep(60) 
+    end
     person.feed_entries.each do |entry|      
       FeedEntry.collect_retweet_ids_for_entry(entry)
     end

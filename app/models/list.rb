@@ -3,6 +3,11 @@ class List < ActiveRecord::Base
   belongs_to :project
   
   def self.collect_list_members(list_id)
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_list_members waiting..."
+      sleep(60) 
+    end
+    
     @list = List.find(list_id)
     result = @@twitter.list_members(@list.username, @list.guid, {:cursor => -1})    
     members = result["users"]

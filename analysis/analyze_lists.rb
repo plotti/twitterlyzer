@@ -14,8 +14,19 @@ CSV::Writer.generate(outfile) do |csv|
   @@communities.each do |community|
     
     project = Project.find(community)
-    lists = Project.find_by_name(project.name+"lists").lists
+    begin
+      lists = Project.find_by_name(project.name+"lists").lists
+      lists_count = lists.count
+    rescue
+      lists = "NaN"
+      lists_count = "NaN"
+    end
+    
     sorted_members  = FasterCSV.read("#{RAILS_ROOT}/data/#{project.name}_sorted_members.csv")
+    
+    
+    #TODO: Compute an overlap of members (How many members of this list can be found on other lists?)
+    
     
     #Ininitiate Sizes & Listings & Rankings
     rankings =  []
@@ -66,7 +77,7 @@ CSV::Writer.generate(outfile) do |csv|
       }
     }
     
-    csv  <<[ project.name, lists.count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[50], listings[100], listings[200], listings[1000]]  
+    csv  <<[ project.name, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[50], listings[100], listings[200], listings[1000]]  
   end
 end
 

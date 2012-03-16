@@ -9,7 +9,18 @@ end
 CSV::Writer.generate(outfile) do |csv|
   @@communities.each do |community|
     project = Project.find(community)
-    project_lists = Project.find_by_name(projct.name+"lists")    
+    begin
+      project_lists = Project.find_by_name(projct.name+"lists")
+      project_lists_id = project_lists.id
+      project_lists_name = project_lists.name
+      project_lists_count = project_lists.lists.count
+    rescue
+      project_lists = "NaN"
+      project_lists_id = "NaN"
+      project_lists_name = "NaN"
+      project_lists_count = "NaN"
+    end
+    
     private_persons = 0
     project_tweets = 0
     project_retweets = 0
@@ -42,7 +53,7 @@ CSV::Writer.generate(outfile) do |csv|
       end      
 
     end
-  csv << [project.id, project.name, project_lists.id, project_lists.name, project_lists.lists.count, project.persons.count, private_persons, persons_deleted,persons_without_tweets, project_tweets, project_retweets]
+  csv << [project.id, project.name, project_lists_id, project_lists_name, project_lists_count, project.persons.count, private_persons, persons_deleted,persons_without_tweets, project_tweets, project_retweets]
   end
   
 end

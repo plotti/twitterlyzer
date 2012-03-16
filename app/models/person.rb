@@ -91,7 +91,11 @@ class Person < ActiveRecord::Base
   
   #returns the lists in which the user is listed
   #Tested
-  def self.collect_list_memberships(username, project_id = "")    
+  def self.collect_list_memberships(username, project_id = "")
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_list_memberships waiting..."
+      sleep(60) 
+    end
     result = @@twitter.memberships(username, {:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
@@ -119,6 +123,10 @@ class Person < ActiveRecord::Base
   #returns the lists which have been created by the user
   #Tested
   def self.collect_own_lists(username)
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_own_lists waiting..."
+      sleep(60) 
+    end
     result = []
     result = @@twitter.lists(username, {:cursor => -1})
     lists = result["lists"]
@@ -141,7 +149,11 @@ class Person < ActiveRecord::Base
   
   #returns the lists that the user is following
   #Tested 
-  def self.collect_list_subscriptions(username)    
+  def self.collect_list_subscriptions(username)
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_list_subscriptions waiting..."
+      sleep(60) 
+    end
     result = @@twitter.subscriptions(username,{:cursor => -1})
     lists = result["lists"]
     next_cursor = result["next_cursor"]
@@ -163,7 +175,11 @@ class Person < ActiveRecord::Base
   
   #returns the members of a given list
   #Tested
-  def self.collect_list_members(username, list_id,project_id)    
+  def self.collect_list_members(username, list_id,project_id)
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_list_members waiting..."
+      sleep(60) 
+    end
     result = @@twitter.list_members(username, list_id, {:cursor => -1})    
     members = result["users"]
     next_cursor = result["next_cursor"]
@@ -185,6 +201,11 @@ class Person < ActiveRecord::Base
   #Collects a person and adds it to the database if not exisiting yet, otherwise retrieves it from the database
   #Tested  
   def self.collect_person(twitter_id, project_id, max_collection, category = "", friends = true, followers = false)                
+    while Project.get_remaining_hits == "timeout"
+      puts "collect_person waiting..."
+      sleep(60) 
+    end
+    
     # Check if we can find the user in the DB
     if twitter_id.is_a?(Numeric)
       person = Person.find_by_twitter_id(twitter_id)        

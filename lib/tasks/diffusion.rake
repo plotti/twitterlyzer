@@ -23,14 +23,14 @@ task :collect_retweets do
               found_pending_jobs += 1
       end
       if job.attempts >= 4
-              puts "Deleting job with more than #{job.attempts} attempts."
+              puts "#{Project.get_remaining_hits}. Deleting job with more than #{job.attempts} attempts."
               job.delete				
       end
     end
     if found_pending_jobs == 0
       continue = false
     end
-    puts "#{@@twitter.rate_limit_status.remaining_hits.to_s}. Waiting for #{found_pending_jobs} Collect Tweet Jobs to finish..."
+    puts "Tweet Collection: #{Project.get_remaining_hits}. Waiting for #{found_pending_jobs} Collect Tweet Jobs to finish..."
     sleep(10)		
   end
   
@@ -57,14 +57,14 @@ task :report_success do
               found_pending_jobs += 1
       end
       if job.attempts >= 4
-              puts "Deleting job with more than #{job.attempts} attempts."
+              puts "#{Project.get_remaining_hits}. Deleting job with more than #{job.attempts} attempts."
               job.delete				
       end
     end
     if found_pending_jobs == 0
       continue = false
     end
-    puts "#{@@twitter.rate_limit_status.remaining_hits.to_s}. Waiting for #{found_pending_jobs} Collect ReTweet Jobs to finish..."
+    puts "Retweet Collection: #{Project.get_remaining_hits}. Waiting for #{found_pending_jobs} Collect ReTweet Jobs to finish..."
     sleep(120)		
   end
   @@log.info("Finished collection of Re-tweets at #{Time.now} for project_id: #{ENV["project_id"]}")
@@ -76,8 +76,7 @@ task :collect_diffusion => [:collect_tweets, :collect_retweets, :report_success]
     Rake::Task['collect_diffusion'].reenable
 end
 
-task :collect_diffusions do
-  @@communities = [17]
+task :collect_diffusions do  
   @@communities.each do |community|
     ENV["project_id"] = community.to_s
     Rake::Task['collect_diffusion'].invoke
