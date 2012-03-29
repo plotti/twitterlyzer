@@ -179,7 +179,7 @@ class Project < ActiveRecord::Base
     persons.each do |person|      
       i = i+1
       if friend
-        logger.info("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for friend connections.")          
+        puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for friend connections.")          
         friends_ids_hash = person.friends_ids_hash
         persons_ids.each do |person_id|
           if friends_ids_hash.include?(person_id)
@@ -188,7 +188,7 @@ class Project < ActiveRecord::Base
         end        
       end
       if follower
-        logger.info("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for follower connections.")          
+        puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for follower connections.")          
         follower_ids_hash = person.follower_ids_hash
         persons_ids.each do |person_id|
           if follower_ids_hash.include?(person_id)
@@ -284,8 +284,10 @@ class Project < ActiveRecord::Base
       i += 1
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.")          
       person.feed_entries.each do |tweet|
+        #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
           if tweet.text.include?("@" + tmp_user + " ")            
+            #If we compute only persons from the same category.
             if category 
               if person.category != Person.find_by_username(tmp_user).category
                 if tweet.retweet_ids == []
@@ -320,8 +322,8 @@ class Project < ActiveRecord::Base
   end
   
   def dump_FF_edgelist
-    net = find_all_persons_connections
-    File.open("#{RAILS_ROOT}/data/#{self.id}_FF.edgelist", "w+") do |file|
+    net = self.find_all_connections
+    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_FF.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} 1" # Strength is always 1 in FF networks
       end
@@ -330,7 +332,7 @@ class Project < ActiveRecord::Base
   
   def dump_AT_edgelist
     net = self.find_all_valued_connections
-    File.open("#{RAILS_ROOT}/data/#{self.id}_FF.edgelist", "w+") do |file|
+    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_AT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
       end
@@ -339,11 +341,17 @@ class Project < ActiveRecord::Base
   
   def dump_RT_edgelist
     net = self.find_all_retweet_connections
-    File.open("#{RAILS_ROOT}/data/#{self.id}_RT.edgelist", "w+") do |file|
+    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_RT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
       end
     end    
+  end
+  
+  def dump_all_networks
+    self.dump_FF_edgelist
+    self.dump_AT_edgelist
+    self.dump_RT_edgelist
   end
   
   def  find_all_list_connections

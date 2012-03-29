@@ -273,16 +273,14 @@ class FeedEntry < ActiveRecord::Base
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
-      begin
-        if @@twitter.rate_limit_status.remaining_hits > 20
-          @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
-            entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
-          end    
-          entry.save!
-        else
-          puts "Waiting for 2 minutes since there are no API calls left."
-          sleep(120)
-        end
+      while Project.get_remaining_hits == "timeout"
+        sleep(60) 
+      end
+      begin        
+        @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
+          entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
+        end    
+        entry.save!        
       rescue
         puts "Couldnt't get retweets for id:#{entry.guid}"
       end
@@ -292,9 +290,6 @@ class FeedEntry < ActiveRecord::Base
   
   # For a erson for all its tweets collects the retweets  
   def self.collect_retweet_ids_for_person(person)
-    while Project.get_remaining_hits == "timeout"
-      sleep(60) 
-    end
     person.feed_entries.each do |entry|      
       FeedEntry.collect_retweet_ids_for_entry(entry)
     end
