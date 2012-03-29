@@ -11,10 +11,24 @@ h2. How to Install
 
 h3. Install RVM
 * Install rvm if you are not using it (http://beginrescueend.com/rvm/install/)
+<pre><code>
+ $ bash -s stable < <(curl -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer)
+ $ source ~/.bash_profile
+ $ rvm requirements
+</code></pre>
 * The rvm spec file is already in the repo
 * Install ruby 1.8.7
 <pre><code>
-  rvm install 1.8.7
+  $ rvm install 1.8.7
+</code></pre>
+* Create your gemset
+<pre><code>
+ rvm gemset create 'socializer' 
+</code></pre>
+*If you have permission problems try to create the gem dir:
+<pre><code>
+sudo mkdir ~/.gem/specs
+sudo chmod 777 ~/.gem/specs
 </code></pre>
 
 h3. Setup Files
@@ -27,9 +41,14 @@ h3. Setup Files
 
 h3. Install Gems Dependencies
 * The app is using 2.3.7 rails so all gems are chosen to match that framework
-* To install them first install: gem install rails_gem_install
 <pre><code>
-RAILS_ENV=production rails_gem_install
+gem install rails -v =2.3.7
+gem update --system 1.5.3
+</code></pre>
+* To install them first install:
+<pre><code>
+gem install rails_gem_install
+RAILS_ENV=development rails_gem_install
 </code></pre>
 
 h3. Test

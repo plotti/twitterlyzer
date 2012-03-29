@@ -1,0 +1,14 @@
+development:
+  adapter: mysql
+  database: communities_dev
+  username: 
+  password: 
+  reconnect: true
+
+test:
+  adapter: mysql
+  database: communities_test
+  username: 
+  password: 
+  reconnect: true
+
