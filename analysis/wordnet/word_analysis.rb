@@ -4,14 +4,16 @@ require 'nokogiri'
 require 'cgi'
 require 'open-uri'
 @toplevel = ["politics", "technology", "recreation", "medium", "entertainment", "education", "fashion", "business", "travel", "health"]
-words = ["yoga", "youtube", "etsy", "poker", "dance", "cinema", "poetry", "history", "outdoors", "gardening", "rapper", "handmade", "anime", "php", "college", "publishing", "linux", "restaurant", "baseball", "guitar", "theatre", "beer", "musician", "tech", "marketing", "sport", "fashion", "photography", "politics", "news", "gaming", "comedy", "food", "advertising", "realestate", "football"]
-words = words + @toplevel
-#words = []
-#File.readlines("groups.txt").each do |line|
-#	words << line.sub!(/\n/,"")
-#end
+words = []
+File.readlines("groups.txt").each do |line|
+	words << line.sub!(/\n/,"")
+end
+words += @toplevel
+
+
 @index = WordNet::NounIndex.instance
-@file = File.open("output.csv", "w+")
+@file = File.open("wordnet.csv", "w+")
+@log = File.new("wordnet.log", "w+")
 
 def get_tree(word, synset, get_height = false)
 		last_word = word
@@ -51,7 +53,7 @@ def get_best_synset(word,synsets)
                         r = site.css("#subform_ctrl div").children.last.content.to_s
                         r.gsub!("'","")
                         results = r.gsub(/[^0-9]/,"").to_i
-                        puts "Found #{results} for gloss #{short_gloss}"
+                        @log.puts "Found #{results} for gloss #{short_gloss}"
                         if results > max
                                 max = results
                                 best_synset = synset
@@ -74,3 +76,4 @@ words.each do |word|
 	end
 end
 @file.close
+@log.close
