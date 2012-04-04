@@ -58,7 +58,8 @@ Rails::Initializer.run do |config|
   config.gem "daemons", :version => "1.0.10" # delayed job needs this
   config.gem "delayed_job", :version => "2.0.7"
   config.gem "scrapi", :version => "1.2.0"
-  
+  config.gem "tidy_ffi"
+
   #Install for testing
   #config.gem 'factory_girl', :version => "1.3.3"
   #config.gem 'rspec-rails', :version => '1.3.2'
