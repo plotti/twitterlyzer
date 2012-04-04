@@ -5,6 +5,7 @@ require 'config/environment'
 #usage rake collect_communities #to collect a number of communities defined in the array below for further processing
 
 @@ID = nil
+@@log = Logger.new("log/community.log")
 
 task :new_project  do 
 	project = Project.new(:name => ENV["keyword"]+"lists", :keyword => ENV["keyword"])
@@ -27,6 +28,7 @@ task :add_seed_people do
 end
 
 task :collect_lists do
+	@@log.info("Started List collection at #{Time.now} for project_id: #{ENV["project_id"]}")
 	puts "COLLECTING LISTS of #{ENV['keyword']}"
 	project = Project.find(@@ID)
 	continue = true
@@ -54,6 +56,7 @@ task :collect_lists do
 end
 
 task :collect_memberships do
+	@@log.info("Started List membership collection at #{Time.now} for project: #{ENV['keyword']}")
 	puts "COLLECTING MEMBERSHIPS OF LISTS of #{ENV['keyword']}"
 	project = Project.find(@@ID)
 	continue = true
@@ -90,6 +93,7 @@ task :collect_memberships do
 end
 
 task :create_project_with_most_listed_persons do
+	@@log.info("Started creation of Project at #{Time.now} for project_id: #{ENV['keyword']}")
 	puts "CREATING PROJECT WITH MOST LISTED PERSONS of #{ENV['keyword']}"
 	if ENV["id"] == nil
 		project = Project.find(@@ID)
@@ -142,17 +146,24 @@ task :re_collect_community => [:find_project, :collect_lists, :collect_membershi
 end
 
 
-#VERY IMPORTANT
-#AFTER THIS PROCESS THE CHOSEN COMMUNITY IDs HAVE TO BE ADDED TO CONFIG/INITIALIZERS/TWITTERLYZER communities. After that the diffusions should be collected.
+# VERY IMPORTANT
+# After that the diffusions should be collected. (see diffusion.rake)
+# AFTER THIS PROCESS THE CHOSEN COMMUNITY IDs HAVE TO BE ADDED TO CONFIG/INITIALIZERS/TWITTERLYZER communities.
+
 task :collect_communities do
 	#Communities in Reverse Order
-	# Log:
-	# Skipped "travel" when computing biggest community	
+	#Log (28.03)
+	# Skipped "travel" when computing biggest community
 	# Removed a couple of communities that I have collected before (see phd/analysis/groups/lists) to save time after crash
-	@@communities = ["soccer", "environment", "events", "songwriter", "cars", "life", "money", "gay", "model", "hiphop", "science", "apple", "green", "computers", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "reading", "gamer", "writing", "seo", "graphicdesign", "author", "film", "humor", "mom", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "business", "webdesign", "entertainment", "movies", "celebrity", "media", "artist", "design", "writer", "entrepreneur", "socialmedia", "blogger"]	
-	#@@communities = ["podcast", "yoga", "youtube", "etsy", "poker", "crafts", "dance", "cinema", "poetry", "reader", "history", "outdoors", "gadgets", "gardening", "rapper", "wordpress", "chicago", "handmade", "style", "travel", "anime", "php", "college", "charity", "sales", "illustrator", "publishing", "smallbusiness", "startup", "linux", "pets", "television", "happy", "coach", "restaurant", "baseball", "animals", "mother", "communications", "party", "guitar", "conservative", "theatre", "software", "dancing", "jewelry", "beer", "sustainability", "leadership", "architecture", "mobile", "spirituality", "programmer", "jobs", "culture", "rock", "speaker", "branding", "actress", "mac", "golf", "cycling", "wedding", "consultant", "comics", "onlinemarketing", "dogs", "innovation", "running", "inspiration", "soccer", "environment", "events", "songwriter", "cars", "finance", "life", "money", "gay", "model", "hiphop", "science", "beauty", "wine", "apple", "green", "computers", "radio", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "actor", "reading", "gamer", "writing", "seo", "football", "graphicdesign", "author", "film", "humor", "mom", "realestate", "advertising", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "food", "comedy", "business", "webdesign", "gaming", "entertainment", "technology", "movies", "celebrity", "media", "news", "artist", "politics", "design", "photographer", "fashion", "sports", "writer", "marketing", "tech", "entrepreneur", "socialmedia", "blogger", "music"]	
-	#Communities in Normal Order
-	#@@communities = ["music","blogger","socialmedia","entrepreneur","tech","marketing","writer","sports","fashion","photographer","design","politics","artist","news","media","celebrity","movies","technology","entertainment","gaming","webdesign","business","comedy","food","shopping","funny","fitness","geek","christian","education","creative","internetmarketing","student","books","advertising","realestate","mom","humor","film","author","graphicdesign","football","seo","writing","gamer","twitter","reading","actor","journalist","publicrelations","developer","videogames","producer","family","singer","radio","computers","green","apple","wine","beauty","science","hiphop","model","gay","money","life","finance","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","golf","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","architecture","leadership","sustainability","beer","jewelry","dancing","software","theatre","conservative","guitar","party","communications","mother","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","publishing","illustrator","sales","charity","college","php","anime","travel","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","dance","crafts","poker","etsy","youtube","yoga","podcast"]	
+	# @@communities = ["soccer", "environment", "events", "songwriter", "cars", "life", "money", "gay", "model", "hiphop", "science", "apple", "green", "computers", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "reading", "gamer", "writing", "seo", "graphicdesign", "author", "film", "humor", "mom", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "business", "webdesign", "entertainment", "movies", "celebrity", "media", "artist", "design", "writer", "entrepreneur", "socialmedia", "blogger"]	
+	#Log (20.03)
+	# The whole community list sorted by frequency on wefollow in reverse order
+	# @@communities = ["podcast", "yoga", "youtube", "etsy", "poker", "crafts", "dance", "cinema", "poetry", "reader", "history", "outdoors", "gadgets", "gardening", "rapper", "wordpress", "chicago", "handmade", "style", "travel", "anime", "php", "college", "charity", "sales", "illustrator", "publishing", "smallbusiness", "startup", "linux", "pets", "television", "happy", "coach", "restaurant", "baseball", "animals", "mother", "communications", "party", "guitar", "conservative", "theatre", "software", "dancing", "jewelry", "beer", "sustainability", "leadership", "architecture", "mobile", "spirituality", "programmer", "jobs", "culture", "rock", "speaker", "branding", "actress", "mac", "golf", "cycling", "wedding", "consultant", "comics", "onlinemarketing", "dogs", "innovation", "running", "inspiration", "soccer", "environment", "events", "songwriter", "cars", "finance", "life", "money", "gay", "model", "hiphop", "science", "beauty", "wine", "apple", "green", "computers", "radio", "singer", "family", "producer", "videogames", "developer", "publicrelations", "journalist", "actor", "reading", "gamer", "writing", "seo", "football", "graphicdesign", "author", "film", "humor", "mom", "realestate", "advertising", "books", "student", "internetmarketing", "creative", "education", "christian", "geek", "fitness", "funny", "shopping", "food", "comedy", "business", "webdesign", "gaming", "entertainment", "technology", "movies", "celebrity", "media", "news", "artist", "politics", "design", "photographer", "fashion", "sports", "writer", "marketing", "tech", "entrepreneur", "socialmedia", "blogger", "music"]	
+	# Communities in Normal Order
+	# @@communities = ["music","blogger","socialmedia","entrepreneur","tech","marketing","writer","sports","fashion","photographer","design","politics","artist","news","media","celebrity","movies","technology","entertainment","gaming","webdesign","business","comedy","food","shopping","funny","fitness","geek","christian","education","creative","internetmarketing","student","books","advertising","realestate","mom","humor","film","author","graphicdesign","football","seo","writing","gamer","twitter","reading","actor","journalist","publicrelations","developer","videogames","producer","family","singer","radio","computers","green","apple","wine","beauty","science","hiphop","model","gay","money","life","finance","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","golf","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","architecture","leadership","sustainability","beer","jewelry","dancing","software","theatre","conservative","guitar","party","communications","mother","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","publishing","illustrator","sales","charity","college","php","anime","travel","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","dance","crafts","poker","etsy","youtube","yoga","podcast"]	
+	#Log: (04.04)
+	# Changed Plan to include communites according to yahoo, merged with the above communities if they were not too broad (see xomparison of yahoo vs. wefollow.xslx file)
+	@@communities = ["geography","columnist","linguistics","literacy","alternativehealth","dental","veteran","smartphone","seniors","html","diversity","sculpture","poverty","archaeology","database","neuroscience","army","filmfestival","sociology","chemistry","housing","justice","drums","ecology","mathematics","anthropology","collectibles","magician","drama","hacking","biology","marriage","nursing","mobilephones","activism","climbing","ipad","pharma","reporter","storage","physics","pregnancy","democrat","classicalmusic","banking","hollywood","homeschool","dining","genealogy","agriculture","piano","buddhism","realitytv","mentalhealth","toys","climatechange","documentary","islam","employment","boating","hunting","cancer","fantasy","gambling","theater","liberal","multimedia","jewish","romance","teaching","jokes","weather","engineering","legal","baking","newspaper","attorney","rugby","aviation","wrestling","composer","electronicmusic","greenliving","meditation","highered","peace","horror","philanthropy","racing","chef","screenwriter","humanrights","insurance","jazz","career","military","school","drinking","energy","father","painting","exercise","flash","construction","university","tvshows","motorcycle","vegetarian","skiing","recipes","opensource","animation","skateboarding","lesbian","medicine","management","director","nature","swimming","economics","magazine","children","fishing","weightloss","psychology","literature","hockey","philosophy","nutrition","parenting","blogs","iphone","cooking","beauty","wine","singer","developer","publicrelations","actor","writing","author","fitness","funny","shopping","gaming","fashion"]
 	@@communities.each do |community|
 		ENV["keyword"] = community
 		Rake::Task['collect_community'].invoke
