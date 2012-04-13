@@ -22,8 +22,19 @@ end
 task :add_seed_people do 
 	puts "ADDING SEED PEOPLE of #{ENV['keyword']}"
 	project = Project.find(@@ID)
-	#Collect 4 pages a 25 people = 100 people
-	project.add_people_from_wefollow(4)
+	
+	# Strategy A) Get people from wefollow
+	# Collect 4 pages a 25 people = 100 people
+	# puts "Using wefollow people for seed"
+	# project.add_people_from_wefollow(4)
+	
+	# Strategy B) Take the people we already collected in the last run
+	puts "Using Exisiting people for seed"
+	tmp_project = Project.find_by_name(ENV['keyword'].to_s)
+	tmp_project.persons.each do |person|
+		project.persons << person
+	end
+	project.save!
 	Rake::Task['add_seed_people'].reenable
 end
 
@@ -82,8 +93,13 @@ task :collect_memberships do
 	outfile = File.open("data/" + project.keyword + "_list.csv",'w')
 	CSV::Writer.generate(outfile) do |csv|
 		lists.each do |list|
-			if list.name.include? project.keyword
-				csv << [list.id,list.name]
+			begin
+				members = list.members.count
+			rescue
+				members = 0
+			end
+			csv << [list.id,list.uri,members]
+			if list.name.include? project.keyword				
 				Delayed::Job.enqueue(CollectListMembersJob.new(list.id))
 			end
 		end
@@ -118,7 +134,7 @@ task :create_project_with_most_listed_persons do
 		puts"CP: #{Project.get_remaining_hits} calls left. Waiting for #{found_pending_jobs} Jobs to finish..."
 		sleep(10)
 	end
-	persons = project.generate_new_project_from_most_listed_members
+	persons = project.generate_most_listed_members
 	new_project = Project.new(:name => ENV["keyword"], :keyword => ENV["keyword"])
 	new_project.save!
 	maxfriends = 10000
@@ -163,7 +179,11 @@ task :collect_communities do
 	# @@communities = ["music","blogger","socialmedia","entrepreneur","tech","marketing","writer","sports","fashion","photographer","design","politics","artist","news","media","celebrity","movies","technology","entertainment","gaming","webdesign","business","comedy","food","shopping","funny","fitness","geek","christian","education","creative","internetmarketing","student","books","advertising","realestate","mom","humor","film","author","graphicdesign","football","seo","writing","gamer","twitter","reading","actor","journalist","publicrelations","developer","videogames","producer","family","singer","radio","computers","green","apple","wine","beauty","science","hiphop","model","gay","money","life","finance","cars","songwriter","events","environment","soccer","inspiration","running","innovation","dogs","onlinemarketing","comics","consultant","wedding","cycling","golf","mac","actress","branding","speaker","rock","culture","jobs","programmer","spirituality","mobile","architecture","leadership","sustainability","beer","jewelry","dancing","software","theatre","conservative","guitar","party","communications","mother","animals","baseball","restaurant","coach","happy","television","pets","linux","startup","smallbusiness","publishing","illustrator","sales","charity","college","php","anime","travel","style","handmade","chicago","wordpress","rapper","gardening","gadgets","outdoors","history","reader","poetry","cinema","dance","crafts","poker","etsy","youtube","yoga","podcast"]	
 	#Log: (04.04)
 	# Changed Plan to include communites according to yahoo, merged with the above communities if they were not too broad (see xomparison of yahoo vs. wefollow.xslx file)
-	@@communities = ["geography","columnist","linguistics","literacy","alternativehealth","dental","veteran","smartphone","seniors","html","diversity","sculpture","poverty","archaeology","database","neuroscience","army","filmfestival","sociology","chemistry","housing","justice","drums","ecology","mathematics","anthropology","collectibles","magician","drama","hacking","biology","marriage","nursing","mobilephones","activism","climbing","ipad","pharma","reporter","storage","physics","pregnancy","democrat","classicalmusic","banking","hollywood","homeschool","dining","genealogy","agriculture","piano","buddhism","realitytv","mentalhealth","toys","climatechange","documentary","islam","employment","boating","hunting","cancer","fantasy","gambling","theater","liberal","multimedia","jewish","romance","teaching","jokes","weather","engineering","legal","baking","newspaper","attorney","rugby","aviation","wrestling","composer","electronicmusic","greenliving","meditation","highered","peace","horror","philanthropy","racing","chef","screenwriter","humanrights","insurance","jazz","career","military","school","drinking","energy","father","painting","exercise","flash","construction","university","tvshows","motorcycle","vegetarian","skiing","recipes","opensource","animation","skateboarding","lesbian","medicine","management","director","nature","swimming","economics","magazine","children","fishing","weightloss","psychology","literature","hockey","philosophy","nutrition","parenting","blogs","iphone","cooking","beauty","wine","singer","developer","publicrelations","actor","writing","author","fitness","funny","shopping","gaming","fashion"]
+	# @@communities = ["geography","columnist","linguistics","literacy","alternativehealth","dental","veteran","smartphone","seniors","html","diversity","sculpture","poverty","archaeology","database","neuroscience","army","filmfestival","sociology","chemistry","housing","justice","drums","ecology","mathematics","anthropology","collectibles","magician","drama","hacking","biology","marriage","nursing","mobilephones","activism","climbing","ipad","pharma","reporter","storage","physics","pregnancy","democrat","classicalmusic","banking","hollywood","homeschool","dining","genealogy","agriculture","piano","buddhism","realitytv","mentalhealth","toys","climatechange","documentary","islam","employment","boating","hunting","cancer","fantasy","gambling","theater","liberal","multimedia","jewish","romance","teaching","jokes","weather","engineering","legal","baking","newspaper","attorney","rugby","aviation","wrestling","composer","electronicmusic","greenliving","meditation","highered","peace","horror","philanthropy","racing","chef","screenwriter","humanrights","insurance","jazz","career","military","school","drinking","energy","father","painting","exercise","flash","construction","university","tvshows","motorcycle","vegetarian","skiing","recipes","opensource","animation","skateboarding","lesbian","medicine","management","director","nature","swimming","economics","magazine","children","fishing","weightloss","psychology","literature","hockey","philosophy","nutrition","parenting","blogs","iphone","cooking","beauty","wine","singer","developer","publicrelations","actor","writing","author","fitness","funny","shopping","gaming","fashion"]
+	# Finished collection 10.04
+	#Log 10.04
+	# Recollection of communities with only few lists
+	@@communities = ["mobilephones","drinking","columnist","drama","electronicmusic","greenliving","ecology","piano","father","collectibles","dining","sculpture","classicalmusic","realitytv","painting","seniors","html","army","boating","innovation","smartphone","diversity","teaching","geography","magician","hacking","tvshows","employment","gambling","composer","biology","attorney","weightloss","housing","mathematics","democrat","documentary","dental","mentalhealth","veteran","drums","hollywood","baking","school","lesbian","justice","liberal","meditation","screenwriter"]	
 	@@communities.each do |community|
 		ENV["keyword"] = community
 		Rake::Task['collect_community'].invoke

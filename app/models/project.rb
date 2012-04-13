@@ -105,33 +105,57 @@ class Project < ActiveRecord::Base
     #
   #end
   
-  #TODO CHANGE NAME INTO: CALCULATE MOST LISTED MEMBERS
-  def generate_new_project_from_most_listed_members
+  #TODO
+  #Break this function into a set of smaller ones since its hard to read and debug
+  def generate_most_listed_members
+      seen_lists = []
+      seen_membersets = []
       @tmp_persons = []
       self.persons.each do |person|
-        puts person.username
+        #puts person.username
         @tmp_persons << {:username => person.username, :list_count => 1,
           :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
           :friends => person.friends_count}
       end
       self.lists.each do |list|
-        if list.name.include? self.keyword        
-          puts "#{@tmp_persons.count} Analyzing list #{list.name}"
-          if list.members
-            list.members.each do |member|
-              tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]}
-              if tmp_user != nil
-                tmp_user[:list_count] += 1
-              else
-                @tmp_persons << {:username => member[:username], :list_count => 1,
-                  :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
-                  :friends => member[:friends_count]}
-              end
-            end
+        if list.name.include? self.keyword
+          if !seen_lists.include? list.uri #If we have not encountered a list with a similar uri before
+              if list.members
+                membernames = list.members.collect{|a| a[:username]} # Check if there are lists that contain the same people 
+                max = 0            
+                seen_membersets.each do |m|
+                  overlap = m & membernames              
+                  result = overlap.count.to_f/m.count
+                  if result > max
+                    max = result                
+                  end
+                end
+                if max < 0.99 # If there happens to be no lists that already have the same members 99% similarity
+                  puts "#{@tmp_persons.count} Analyzing list #{list.uri}. Overlap with memberset #{max}"
+                  list.members.each do |member|
+                    tmp_user = @tmp_persons.find{|i| i[:username] == member[:username]} # Look if that person is already on the list
+                    if tmp_user != nil
+                      tmp_user[:list_count] += 1
+                    else
+                      @tmp_persons << {:username => member[:username], :list_count => 1,
+                        :uri => "http://www.twitter.com/#{member[:username]}", :followers => member[:followers_count],
+                        :friends => member[:friends_count]}
+                    end
+                  end
+                else
+                  puts "List overlap for #{list.uri} with #{membernames.count} members"
+                end
+                seen_membersets << membernames        
+              end                            
+            seen_lists << list.uri     
           end
         end
       end      
+      
+      #Sort these persons according to their listings
       sorted = @tmp_persons.sort{|a,b| a[:list_count] <=> b[:list_count]}.reverse
+      
+      #Dump the results of this calculation to a csv file
       outfile = File.open("data/" + self.keyword + "_sorted_members.csv",'w')
       CSV::Writer.generate(outfile) do |csv|
         csv << ["Username", "Followers", "List Count", "URI"]
@@ -368,7 +392,7 @@ class Project < ActiveRecord::Base
         end
       end
     end
-    listed_members = self.generate_new_project_from_most_listed_members
+    listed_members = self.generate_most_listed_members
     most_listed = listed_members.collect{|m| m[:username]}[0..100]
     values.delete_if {|v| !most_listed.include?(v[0]) or !most_listed.include?(v[1]) }    
     #Merge counted pairs

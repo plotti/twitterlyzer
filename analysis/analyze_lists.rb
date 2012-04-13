@@ -2,20 +2,24 @@ require '../config/environment'
 require 'faster_csv'
 
 thresholds = [1000,100,10]
-positions =  [50,100,200,1000]
+positions =  [1,50,100,200,1000]
 
 outfile = File.open("#{RAILS_ROOT}/analysis/results/lists_stats.csv",'w')
 
+#@@communities = ["geography","columnist","linguistics","literacy","alternativehealth","dental","veteran","smartphone","seniors","html","diversity","sculpture","poverty","archaeology","database","neuroscience","army","filmfestival","sociology","chemistry","housing","justice","drums","ecology","mathematics","anthropology","collectibles","magician","drama","hacking","biology","marriage","nursing","mobilephones","activism","climbing","ipad","pharma","reporter","storage","physics","pregnancy","democrat","classicalmusic","banking","hollywood","homeschool","dining","genealogy","agriculture","piano","buddhism","realitytv","mentalhealth","toys","climatechange","documentary","islam","employment","boating","hunting","cancer","fantasy","gambling","theater","liberal","multimedia","jewish","romance","teaching","jokes","weather","engineering","legal","baking","newspaper","attorney","rugby","aviation","wrestling","composer","electronicmusic","greenliving","meditation","highered","peace","horror","philanthropy","racing","chef","screenwriter","humanrights","insurance","jazz","career","military","school","drinking","energy","father","painting","exercise","flash","construction","university","tvshows","motorcycle","vegetarian","skiing","recipes","opensource","animation","skateboarding","lesbian","medicine","management","director","nature","swimming","economics","magazine","children","fishing","weightloss","psychology","literature","hockey","philosophy","nutrition","parenting","blogs","iphone","cooking","beauty","wine","singer","developer","publicrelations","actor","writing","author","fitness","funny","shopping","gaming","fashion"]
+
+@@communities = [477]
 CSV::Writer.generate(outfile) do |csv|
-  csv << ["community name", "# lists", "total members on lists", "# members with threshold 1000", "# members with threshold 100", "# members with threshold 10", "#listings 50th member", "# listings for 100th member", "# listings for 200th member", "# listings for 1000th member"]
+  csv << ["community name", "# lists", "total members on lists", "# members with threshold 1000", "# members with threshold 100", "# members with threshold 10", "#listings 1st member", "# listings for 50th member", "# listings for 100th member", "# listings for 200th member", "# listings for 1000th member"]
 end
 
 CSV::Writer.generate(outfile) do |csv|
   @@communities.each do |community|
     
+    puts "Working on #{community}"
     project = Project.find(community)
     begin
-      lists = Project.find_by_name(project.name+"lists").lists
+      lists = Project.find_all_by_name(project.name+"lists").last.lists # if we happen to have two take the last one
       lists_count = lists.count
     rescue
       lists = "NaN"
@@ -29,7 +33,8 @@ CSV::Writer.generate(outfile) do |csv|
     
     
     #Ininitiate Sizes & Listings & Rankings
-    rankings =  []
+    rankings =  Array.new(1000,0)
+    unique_uris = 
     sizes  = {}
     listings = {}
     thresholds.each do |threshold|
@@ -37,7 +42,7 @@ CSV::Writer.generate(outfile) do |csv|
     end
         
     #Count
-    i = 0
+    i = -1 # skip header
     sorted_members.each do |member|
       i += 1
       
@@ -57,7 +62,7 @@ CSV::Writer.generate(outfile) do |csv|
       
       #Save the 1000 first ranks
       if i < 1000
-        rankings << member[2]
+        rankings[i-1] = member[2]          
       end
       
     end
@@ -77,7 +82,7 @@ CSV::Writer.generate(outfile) do |csv|
       }
     }
     
-    csv  <<[ project.name, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[50], listings[100], listings[200], listings[1000]]  
+    csv  <<[ project.name, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[1], listings[50], listings[100], listings[200], listings[1000]]  
   end
 end
 

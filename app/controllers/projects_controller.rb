@@ -584,7 +584,7 @@ class ProjectsController < ApplicationController
            else
              ' text/csv '
     end
-    @list_persons = @project.generate_new_project_from_most_listed_members
+    @list_persons = @project.generate_most_listed_members
     CSV::Writer.generate(output = "") do |csv|
       csv << ["Username", "Uri", "Followers", "Friends", "List Count"]              
       @list_persons.each do |person|

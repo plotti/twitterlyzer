@@ -92,32 +92,60 @@ class Person < ActiveRecord::Base
   #returns the lists in which the user is listed
   #Tested
   def self.collect_list_memberships(username, project_id = "")
+    page_size = LIST_PAGE_SIZE
+    attempts = 0
     while Project.get_remaining_hits == "timeout"
       puts "collect_list_memberships waiting..."
       sleep(60) 
     end
-    result = @@twitter.memberships(username, {:cursor => -1})
-    lists = result["lists"]
-    next_cursor = result["next_cursor"]
-    old_next_cursor = 0
-    @project = Project.find(project_id)
-    puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
-    while old_next_cursor != next_cursor and next_cursor != 0
-      old_next_cursor = next_cursor
-      result = @@twitter.memberships(username, {:cursor => next_cursor})
-      lists += result["lists"]
+    begin
+      result = @@twitter.memberships(username, {:cursor => -1, :count => page_size})
+      lists = result["lists"]
       next_cursor = result["next_cursor"]
-      puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
+      old_next_cursor = 0
+      @project = Project.find(project_id)
+      puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"
+    rescue
+      puts "Got an error on user #{username}. Retrying."
+      page_size = (page_size * 0.8).to_i
+      attempts += 1
+      retry
     end
+    while old_next_cursor != next_cursor and next_cursor != 0
+      begin
+        old_next_cursor = next_cursor      
+        result = @@twitter.memberships(username, {:cursor => next_cursor, :count => page_size})
+        lists += result["lists"]
+        next_cursor = result["next_cursor"]
+        puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"
+        page_size = (page_size * 1.05).to_i
+      rescue
+        puts "Got an error on user #{username}. Retrying."
+        page_size = (page_size * 0.8).to_i
+        attempts += 1
+        if page_size < 20 || lists.count > MAXIMUM_LISTS_PER_USER
+          next_cursor = 0
+          puts "Giving up on user #{username} with #{attempts} attempts and #{lists.count} lists."
+        end
+        retry  
+      end      
+    end
+    outfile = File.open("data/" + project_id.to_s + "_all_lists.csv",'a')	
+    seen_lists = []
     lists.each do |list|
+      outfile.puts "#{username};#{list['user']['screen_name']};#{list['name']};#{list['uri']};#{list['member_count']}"
       #It collects only the lists that match the project keyword
       if list["name"].include? @project.keyword
-        List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
-                    :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                    :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
-                    :project_id => project_id)
+        if !seen_lists.include? list.uri  # Only lists that we did not already collect
+          List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
+                      :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
+                      :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
+                      :project_id => project_id)
+        end
+        seen_lists << list.uri
       end
-    end    
+    end
+    outfile.close
   end
   
   #returns the lists which have been created by the user
@@ -175,7 +203,7 @@ class Person < ActiveRecord::Base
   
   #returns the members of a given list
   #Tested
-  def self.collect_list_members(username, list_id,project_id)
+  def self.collect_list_members(username, list_id,project_id)    
     while Project.get_remaining_hits == "timeout"
       puts "collect_list_members waiting..."
       sleep(60) 
@@ -187,7 +215,7 @@ class Person < ActiveRecord::Base
     
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = @@twitter.list_members(username, list_id, {:cursor => next_cursor})  
+      result = @@twitter.list_members(username, list_id, {:cursor => next_cursor })  
       members = members + result["users"]
       next_cursor = result["next_cursor"]
       puts "Member Count #{members.count} next cursor: #{next_cursor}"
