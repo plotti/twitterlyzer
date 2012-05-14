@@ -344,6 +344,100 @@ class Project < ActiveRecord::Base
       end
     end    
   end
+  def self.dump_aggregated_RT_connections(project_ids)
+    i= 0
+    values = []
+    project_twitter_ids = []
+    projects = []
+    
+    project_ids.each do |id|
+      projects << Project.find(id)
+    end
+    
+    projects.each do |project|      
+      twitter_ids = []    
+      project.persons.each do |person|
+        twitter_ids << person.twitter_id
+      end
+      project_twitter_ids << {:name => project.name, :ids => twitter_ids}
+    end
+    
+    projects.each do |project|
+      puts "Analyzing project #{project.name} for retweets from other projects."
+      retweets = []
+      project.persons.each do |person|
+        puts "Working on person #{person.username}"
+        person.feed_entries.each do |feed|
+          feed.retweet_ids.each do |retweet|
+            project_twitter_ids.each do |entry|
+              if entry[:name] != project.name
+                if entry[:ids].include? retweet[:id]
+                  values << [entry[:name], project.name, 1]
+                end
+              end
+            end   
+          end          
+        end
+      end
+    end
+    
+    hash = values.group_by { |first, second, third| [first,second]}
+    net = hash.map{|k,v| [k,v.count].flatten}
+    
+    #dump
+    File.open("#{RAILS_ROOT}/analysis/data/AGGREGATED_RT.edgelist", "w+") do |file|
+      net.each do |row|
+        file.puts "#{row[0]} #{row[1]} #{row[2]}" 
+      end
+    end
+    
+  end
+  
+  #There might be an error with the computation because i am not counting multiple follwings
+  def self.dump_aggregated_FF_connections(project_ids)
+    i= 0
+    values = []
+    project_twitter_ids = []
+    projects = []
+    
+    project_ids.each do |id|
+      projects << Project.find(id)
+    end
+    
+    projects.each do |project|      
+      twitter_ids = []    
+      project.persons.each do |person|
+        twitter_ids << person.twitter_id
+      end
+      project_twitter_ids << {:name => project.name, :ids => twitter_ids}
+    end
+    
+    projects.each do |project|
+      puts "Analyzing project #{project.name} for connections with other projects."
+      i = i+1
+      project.persons.each do |person|        
+        project_twitter_ids.each do |entry|
+          if entry[:name] != project.name
+            overlap = entry[:ids] & person.friends_ids            
+            if overlap.count != 0         
+              values << [entry[:name], project.name, overlap.count]
+            end                  
+          end                  
+        end         
+      end      
+    end
+    
+    hash = values.group_by { |first, second, third| [first,second]}
+    net = hash.map{|k,v| [k,v.count].flatten}
+    
+    #dump
+    File.open("#{RAILS_ROOT}/analysis/data/AGGREGATED_FF.edgelist", "w+") do |file|
+      net.each do |row|
+        file.puts "#{row[0]} #{row[1]} #{row[2]}" 
+      end
+    end
+    
+  end  
   
   def dump_FF_edgelist
     net = self.find_all_connections
