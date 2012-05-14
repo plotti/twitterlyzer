@@ -8,5 +8,14 @@ require '../config/environment'
 #323 segfault
 @@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
 
-#This doesnt work since we run out of mem space
-Project.dump_aggregated_RT_connections(@@communities)
+outfile = File.open("data/partitions.csv", "w+")
+
+CSV::Writer.generate(outfile) do |csv|
+  @@communities.each do |community|
+    project = Project.find(community)    
+    puts "Working on project id:  #{community}"
+    project.persons.each do |person|
+      csv << [person.username, project.name]
+    end    
+  end
+end
