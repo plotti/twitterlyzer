@@ -9,7 +9,7 @@ require 'faster_csv'
 #323 segfault
 @@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
 
-outfile = File.open("data/partitions.csv", "w+")
+outfile = File.open("data/partitions2.csv", "w+")
 
 sorted_members ={}
 @@communities.each do |community|  
@@ -27,7 +27,7 @@ CSV::Writer.generate(outfile) do |csv|
       if !seen_persons.include? person.username 
         list_count = 0
         membership = ""
-        person.project.each do |project_m|        
+        person.project.each do |project_m|
           if sorted_members[project_m.name] != nil
             sorted_members[project_m.name].each do |member|
               if member[0] == person.username
