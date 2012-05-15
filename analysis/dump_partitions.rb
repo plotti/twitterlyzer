@@ -1,4 +1,5 @@
 require '../config/environment'
+require 'faster_csv'
 
 #Log 04.04 Dumping first networks
 @@communities = [4, 6, 9, 13, 17, 19, 21, 25, 27, 31, 33, 39, 44, 46, 48, 56, 62, 70, 72, 82, 86, 94, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
@@ -10,12 +11,33 @@ require '../config/environment'
 
 outfile = File.open("data/partitions.csv", "w+")
 
+sorted_members ={}
+@@communities.each do |community|  
+  project = Project.find(community)
+  puts "Reading in project #{project.name}"
+  sorted_members[project.name] = FasterCSV.read("#{RAILS_ROOT}/data/#{project.name}_sorted_members.csv")
+end
+
 CSV::Writer.generate(outfile) do |csv|
   @@communities.each do |community|
     project = Project.find(community)    
-    puts "Working on project id:  #{community}"
+    puts "Working on project id: #{community}"
     project.persons.each do |person|
-      csv << [person.username, project.name]
-    end    
+      list_count = 0
+      membership = ""
+      person.project.each do |project_m|        
+        if sorted_members[project_m.name] != nil
+          sorted_members[project_m.name].each do |member|
+            if member[0] == person.username
+              if member[2].to_i > list_count
+                membership = project_m.name
+                list_count = member[2].to_i
+              end            
+            end
+          end
+        end
+      end
+      csv << [person.username, membership, list_count]    
+    end
   end
 end

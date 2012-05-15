@@ -10,4 +10,11 @@ require '../config/environment'
 
 
 #Dump the aggregated FF network
-p = Project.dump_aggregated_FF_connections(@@communities)
+temp_project = Project.new(:name => "temp_all")
+@@communities.each do |community|  
+  p = Project.find(community)
+  puts "Working on project id:  #{community}"
+  temp_project.persons << p.persons
+end
+temp_project.save!
+temp_project.dump_FF_edgelist
