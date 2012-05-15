@@ -2366,7 +2366,7 @@ joshuatopolsky,tech,877
 ZDNet,tech,860
 SAI,tech,838
 Macworld,tech,862
-hootsuite,,0
+hootsuite,tech,771
 gigaom,tech,823
 Ihnatko,tech,838
 Office,tech,819
@@ -2481,7 +2481,7 @@ NBA,basketball,2349
 SkySportsNews,football,801
 FIFAcom,football,1097
 rioferdy5,football,1761
-latimessports,,0
+latimessports,sport,369
 philmcnulty,football,1145
 OliverKayTimes,football,1408
 Olympics,sport,312
@@ -2655,7 +2655,7 @@ NicoleMillerNYC,fashion,161
 stefanogabbana,fashion,337
 ninagarcia,fashion,322
 susiebubble,fashion,373
-glamourdotcom,,0
+glamourdotcom,"",0
 Grazia_Live,fashion,314
 Fashion_Critic_,fashion,292
 alexa_chung,fashion,437
@@ -2759,7 +2759,7 @@ FlakPhoto,photography,1488
 TelegraphPics,photography,1480
 joeyldotcom,photography,1465
 _Photography,photography,1423
-creativeLIVE,,0
+creativeLIVE,photography,1485
 RoshSillars,photography,1537
 TheBigKlosowski,photography,1464
 BorrowLenses,photography,1360
@@ -3024,7 +3024,7 @@ IrrationalGames,gaming,49
 Treyarch,gaming,48
 idSoftware,gaming,73
 thevowel,gaming,64
-eurogamer_net,,0
+eurogamer_net,"",0
 AceyBongos,gaming,49
 GarnettLee,gaming,84
 mediamolecule,gaming,44
@@ -3158,7 +3158,7 @@ iamcolinquinn,comedy,686
 jupitusphillip,comedy,695
 TFLN,comedy,686
 Foodimentary,food,10066
-latimesfood,recipes,31
+latimesfood,food,8523
 Rick_Bayless,food,10802
 NoReservations,food,10273
 bittman,food,9414
@@ -3396,7 +3396,7 @@ JoshCantwell,realestate,130
 walidmrealtor,realestate,132
 TerranceDJones,realestate,143
 rjsellscheap,realestate,128
-CENTURY21,,0
+CENTURY21,realestate,127
 JasonLucchesi,realestate,120
 rosshair,realestate,118
 BHGRealEstate,realestate,124
@@ -3728,7 +3728,7 @@ wineportfolio,wine,317
 thewinehub,wine,166
 womenwine,wine,130
 KevinZraly,wine,168
-stsupery,wine,1
+stsupery,wine,175
 winecreator,wine,103
 Teusnerwine,wine,175
 Winepleasures,wine,168
@@ -4159,7 +4159,7 @@ SustainableComm,sustainability,222
 Greenpeace,sustainability,220
 PBCons,sustainability,220
 NRDC,sustainability,219
-USGBC,construction,13
+USGBC,sustainability,219
 AlexSteffen,sustainability,203
 WiserEarth,sustainability,219
 maxgladwell,sustainability,216
@@ -5373,7 +5373,7 @@ CopaAirlines,airlines,203
 AirTran,airlines,199
 AirCaribbean,airlines,197
 _Aeroflot_,airlines,197
-aerosvit,,0
+aerosvit,airlines,197
 easyJetCare,airlines,197
 AtlanticAir,airlines,196
 simpliflying,airlines,202
@@ -5612,7 +5612,7 @@ insideline_com,automotive,691
 autoobserver,automotive,695
 RoadandTrack,automotive,664
 Autosinsider,automotive,648
-kickingtires,,0
+kickingtires,automotive,621
 Hyundai,automotive,734
 MazdaUSA,automotive,737
 RalphPaglia,automotive,613
@@ -5667,7 +5667,7 @@ CarChickMWB,automotive,460
 MotorTorque,automotive,458
 AllWorldCars,automotive,446
 WindingRoadMag,automotive,450
-latimesautos,,0
+latimesautos,automotive,444
 CNETCarTech,automotive,435
 AutoCritic,automotive,443
 GMNewsUS,automotive,434
@@ -5757,13 +5757,13 @@ jadande,basketball,776
 SashaVujacic,basketball,773
 UKCoachCalipari,basketball,734
 Bucks,basketball,804
-bobcats,,0
+bobcats,basketball,773
 Matt_Barnes22,basketball,772
 SacramentoKings,basketball,758
 RealJayWilliams,basketball,766
 MNTimberwolves,basketball,772
 MagicJohnson,basketball,754
-Raptors,,0
+Raptors,basketball,726
 WashWizards,basketball,739
 memgrizz,basketball,728
 Sixers,basketball,755
@@ -5771,7 +5771,7 @@ TyLawson3,basketball,712
 rickyrubio9,basketball,720
 denvernuggets,basketball,706
 stephenasmith,basketball,702
-utah_jazz,,0
+utah_jazz,basketball,700
 StarburyMarbury,basketball,715
 GregAnthony50,basketball,689
 Pacers,basketball,698
@@ -6093,7 +6093,7 @@ trailblogs,hiking,70
 simplyhike,hiking,70
 simplespirit,hiking,69
 Lighthiker,hiking,69
-myhike,,0
+myhike,hiking,69
 HikingAZ,hiking,72
 hikebiketravel,hiking,69
 elevationout,hiking,68
@@ -6131,7 +6131,7 @@ RitzCarlton,hospitality,71
 FourSeasons,hospitality,72
 HotelTalk,hospitality,71
 TripAdvisor,hospitality,69
-FairmontHotels,,0
+FairmontHotels,hospitality,79
 barbdelollis,hospitality,73
 paulbarron,hospitality,67
 hotelcompete,hospitality,62
@@ -6179,7 +6179,7 @@ hsmailax,hospitality,44
 Hotelierportal,hospitality,45
 HotelMktgROI,hospitality,44
 dcraig,hospitality,45
-MGMGrand,,0
+MGMGrand,hospitality,45
 NRNonline,hospitality,45
 Loews_Hotels,hospitality,44
 HotelRevPAR,hospitality,43
@@ -6246,7 +6246,7 @@ georgezachary,investor,56
 robgo,investor,56
 paulg,investor,54
 RatioTrader,investor,58
-Rav,,0
+Rav,"",0
 SwingTrade,investor,57
 ceonyc,investor,54
 albertwenger,investor,53
@@ -6307,7 +6307,7 @@ JBossNews,java,114
 agoncal,java,97
 OpenJDK,java,98
 springrod,java,93
-SpringSource,,0
+SpringSource,java,93
 mreinhold,java,90
 arungupta,java,86
 mraible,java,85
@@ -6732,7 +6732,7 @@ ChristianCent,religion,134
 the_revealer,religion,120
 abcreligion,religion,130
 dangilgoffCNN,religion,128
-CatholicSpirit,,0
+CatholicSpirit,religion,112
 godgrrl,religion,109
 spulliam,religion,137
 BoldFaithType,religion,119
@@ -6758,7 +6758,7 @@ nannburke,religion,88
 ReligionUpdate,religion,133
 tedolsen,religion,89
 religionblogger,religion,87
-Relevantmag,,0
+Relevantmag,religion,76
 JTAnews,religion,88
 thecatholicsun,religion,87
 nathanairplane,religion,86
@@ -7238,7 +7238,7 @@ hedgefundinvest,trading,164
 terranovajoe,trading,156
 HoldBrosCapital,trading,156
 szaman,trading,155
-Johnwelshtrades,,0
+Johnwelshtrades,trading,152
 Street_Insider,trading,148
 optionsizzle,trading,147
 forecastall,trading,146
@@ -13241,7 +13241,7 @@ natechinen,jazz,22
 PatMethenyNews,jazz,22
 vortexjazz,jazz,23
 jazzwriterchick,jazz,21
-WBGO,,0
+WBGO,jazz,20
 nextbop,jazz,19
 mattwilsonjazz,jazz,20
 DianneReeves1,jazz,19

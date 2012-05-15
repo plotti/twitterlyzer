@@ -9,7 +9,7 @@ require 'faster_csv'
 #323 segfault
 @@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
 
-outfile = File.open("data/partitions2.csv", "w+")
+outfile = File.open("data/partitions.csv", "w+")
 
 sorted_members ={}
 @@communities.each do |community|  
@@ -27,15 +27,25 @@ CSV::Writer.generate(outfile) do |csv|
       if !seen_persons.include? person.username 
         list_count = 0
         membership = ""
-        person.project.each do |project_m|
-          if sorted_members[project_m.name] != nil
-            sorted_members[project_m.name].each do |member|
-              if member[0] == person.username
-                if member[2].to_i > list_count
-                  membership = project_m.name
-                  list_count = member[2].to_i
-                end            
-              end
+        # Get all the projects that the person might be listed in 
+        project_names = [] 
+        project_names << project.name
+        person.project.each do |project|
+          project_names << project.name
+        end
+        project_names.each do |project_name|
+          if sorted_members[project_name] != nil
+            sorted_members[project_name].each do |member|
+              begin
+                if member[0].downcase == person.username.downcase
+                  if member[2].to_i > list_count
+                    membership = project_name
+                    list_count = member[2].to_i
+                  end            
+                end
+              rescue
+                puts "Found a problem for project #{project_name} Member: #{member[0]} or person #{person.username}"
+              end              
             end
           end
         end
