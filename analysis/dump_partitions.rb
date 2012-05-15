@@ -19,25 +19,29 @@ sorted_members ={}
 end
 
 CSV::Writer.generate(outfile) do |csv|
+  seen_persons = []
   @@communities.each do |community|
     project = Project.find(community)    
     puts "Working on project id: #{community}"
     project.persons.each do |person|
-      list_count = 0
-      membership = ""
-      person.project.each do |project_m|        
-        if sorted_members[project_m.name] != nil
-          sorted_members[project_m.name].each do |member|
-            if member[0] == person.username
-              if member[2].to_i > list_count
-                membership = project_m.name
-                list_count = member[2].to_i
-              end            
+      if !seen_persons.include? person.username 
+        list_count = 0
+        membership = ""
+        person.project.each do |project_m|        
+          if sorted_members[project_m.name] != nil
+            sorted_members[project_m.name].each do |member|
+              if member[0] == person.username
+                if member[2].to_i > list_count
+                  membership = project_m.name
+                  list_count = member[2].to_i
+                end            
+              end
             end
           end
         end
-      end
-      csv << [person.username, membership, list_count]    
+        seen_persons << person.username
+        csv << [person.username, membership, list_count]
+      end      
     end
   end
 end
