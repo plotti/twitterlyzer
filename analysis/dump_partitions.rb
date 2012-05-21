@@ -27,30 +27,24 @@ CSV::Writer.generate(outfile) do |csv|
       if !seen_persons.include? person.username 
         list_count = 0
         membership = ""
-        # Get all the projects that the person might be listed in 
-        project_names = [] 
-        project_names << project.name
-        person.project.each do |project|
-          project_names << project.name
-        end
-        project_names.each do |project_name|
-          if sorted_members[project_name] != nil
-            sorted_members[project_name].each do |member|
-              begin
-                if member[0].downcase == person.username.downcase
-                  if member[2].to_i > list_count
-                    membership = project_name
-                    list_count = member[2].to_i
-                  end            
-                end
-              rescue
-                puts "Found a problem for project #{project_name} Member: #{member[0]} or person #{person.username}"
-              end              
-            end
+        memberships = []
+        sorted_members.each do |key,list|          
+          list.each do |member|
+            begin
+              if member[0].downcase == person.username.downcase
+                if member[2].to_i > list_count
+                  membership = key
+                  list_count = member[2].to_i
+                  memberships += [membership,list_count]
+                end            
+              end
+            rescue
+              puts "Found a problem for project #{key} Member: #{member[0]} or person #{person.username}"
+            end                        
           end
         end
         seen_persons << person.username
-        csv << [person.username, membership, list_count]
+        csv << [person.username, membership, list_count, memberships.count, memberships.join(",")]
       end      
     end
   end
