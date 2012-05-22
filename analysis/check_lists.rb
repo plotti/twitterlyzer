@@ -17,7 +17,7 @@ outfile = File.open("#{RAILS_ROOT}/analysis/results/lists_stats.csv",'w')
 @@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
 
 CSV::Writer.generate(outfile) do |csv|
-  csv << ["community name", "# lists", "total members on lists", "# members with threshold 1000", "# members with threshold 100", "# members with threshold 10", "#listings 1st member", "# listings for 50th member", "# listings for 100th member", "# listings for 200th member", "# listings for 1000th member"]
+  csv << ["community name", "community id", "# lists", "total members on lists", "# members with threshold 1000", "# members with threshold 100", "# members with threshold 10", "#listings 1st member", "# listings for 50th member", "# listings for 100th member", "# listings for 200th member", "# listings for 1000th member"]
 end
 
 CSV::Writer.generate(outfile) do |csv|
@@ -89,7 +89,7 @@ CSV::Writer.generate(outfile) do |csv|
       }
     }
     
-    csv  <<[ project.name, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[1], listings[50], listings[100], listings[200], listings[1000]]  
+    csv  <<[ project.name, community, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[1], listings[50], listings[100], listings[200], listings[1000]]  
   end
 end
 
