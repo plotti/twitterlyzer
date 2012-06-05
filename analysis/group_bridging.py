@@ -1,9 +1,12 @@
 import networkx as nx
 import csv
 from itertools import groupby
+from lib import structural_holes as sx
 
-csv_bonding_writer = csv.writer(open('results/group_bonding.csv', 'wb'))
+#csv_bonding_writer = csv.writer(open('results/group_bonding.csv', 'wb'))
 csv_bridging_writer = csv.write(open('results/group_bridging.csv' 'wb'))
+csv_bridging_writer.writerow(["Project ID", "Name", "FF_Nodes",
+"FF_betweeness"])
 
 def uniq(seq): 
    # order preserving
@@ -20,7 +23,7 @@ FF = nx.read_edgelist('data/%s_FF.edgelist' % project, nodetype=str, data=(('wei
 #RT = nx.read_edgelist('data/%s_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
 
 #Get the partition from a partition file 
-reader = csv.reader(open("data/partitions.csv", "rb"), delimiter=",")
+reader = csv.reader(open("data/partitions_memberships.csv", "rb"), delimiter=",")
 temp  = []
 partition = []
 for row in reader:
@@ -52,15 +55,26 @@ H_FF = nx.relabel_nodes(P_FF,mapping)
 #H_AT = nx.relabel_nodes(P_AT,mapping)
 #H_RT = nx.relabel_nodes(P_RT,mapping)
 
-#Write the blocked networks out to disk
+#Write the blocked network out to disk
 nx.write_pajek(H_FF,"results/networks/%s_grouped_FF.net" % project)
 #nx.write_pajek(P_AT,"results/%s_grouped_AT.net" % project)
 #nx.write_pajek(P_RT,"results/%s_grouped_RT.net" % project)
 
 #Get the internal densities of the networks
-FF_density = [node[1]["density"] for node in P_FF.nodes(data=True)]
+#FF_density = [node[1]["density"] for node in P_FF.nodes(data=True)]
 #AT_density = [node[1]["density"] for node in P_AT(data=True)]
 #RT_density = [node[1]["density"] for node in P_RT(data=True)]
+
+#Get the betweeness measures of the nodes
+FF_betweeness = nx.betweeness_centrality(H_FF)
+FF_closeness = nx.closeness_centrality(H_FF)
+FF_degree_centrality = nx.degree_centrality(H_FF)
+FF_eigenvector = nx.eigenvector_centrality(H_FF)
+
+#Compute the Structural Holes for the Actors
+FF_ego_density =sx.ego_density(H_FF,H_FF.nodes()[0]
+
+
 output = []
 
 #Arrange it in a list
