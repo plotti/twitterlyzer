@@ -1,12 +1,13 @@
 import networkx as nx
 import csv
 from itertools import groupby
-from lib import structural_holes as sx
+from lib import structural_holes2 as sx
 
 #csv_bonding_writer = csv.writer(open('results/group_bonding.csv', 'wb'))
-csv_bridging_writer = csv.write(open('results/group_bridging.csv' 'wb'))
-csv_bridging_writer.writerow(["Project ID", "Name", "FF_Nodes",
-"FF_betweeness"])
+csv_bridging_writer = csv.writer(open('results/group_bridging.csv', 'wb'))
+csv_bridging_writer.writerow(["Name", "FF_Nodes",
+"FF_betweeness","FF_closeness","FF_degree","FF_eigenvector",
+"FF_c_size","FF_c_density","FF_c_hierarchy","FF_c_index"])
 
 def uniq(seq): 
    # order preserving
@@ -45,6 +46,7 @@ P_FF = nx.blockmodel(FF,partition)
 #P_RT = nx.blockmodel(RT,partition)
 
 #Name the nodes in the network
+#How do I know that the names match?
 mapping = {}
 i = 0
 for group in groups:
@@ -60,30 +62,24 @@ nx.write_pajek(H_FF,"results/networks/%s_grouped_FF.net" % project)
 #nx.write_pajek(P_AT,"results/%s_grouped_AT.net" % project)
 #nx.write_pajek(P_RT,"results/%s_grouped_RT.net" % project)
 
-#Get the internal densities of the networks
-#FF_density = [node[1]["density"] for node in P_FF.nodes(data=True)]
-#AT_density = [node[1]["density"] for node in P_AT(data=True)]
-#RT_density = [node[1]["density"] for node in P_RT(data=True)]
+########## MEASURES ##############
+
+#Get the number of nodes in the aggregated networks
+FF_nodes = {}
+for node in H_FF.nodes(data=True):
+	FF_nodes[node[0]] = node[1]["nnodes"]
 
 #Get the betweeness measures of the nodes
-FF_betweeness = nx.betweeness_centrality(H_FF)
+FF_betweenness = nx.betweenness_centrality(H_FF)
 FF_closeness = nx.closeness_centrality(H_FF)
-FF_degree_centrality = nx.degree_centrality(H_FF)
+FF_degree = nx.degree_centrality(H_FF)
 FF_eigenvector = nx.eigenvector_centrality(H_FF)
 
 #Compute the Structural Holes for the Actors
-FF_ego_density =sx.ego_density(H_FF,H_FF.nodes()[0]
-
-
-output = []
+FF_struc = sx.structural_holes(H_FF)
 
 #Arrange it in a list
-for i in range(len(FF_density)):
-	output.append([i,FF_density[i]])
-#	output.append([i,FF_density[i],AT_density[i],RT_density[i]])
-
-#Write the output to a csv file
-for row in output:
-	csv_bonding_writer.writerow([row[0], row[1]])
-#	csv_writer.writerow([row[0], row[1], row[2], row[3]])
-
+for node in FF_betweenness.keys():
+	csv_bridging_writer.writerow([node,FF_nodes[node],
+	FF_betweenness[node],FF_closeness[node],FF_degree[node],FF_eigenvector[node],
+	FF_struc[node]['C-Size'],FF_struc[node]['C-Density'],FF_struc[node]['C-Hierarchy'],FF_struc[node]['C-Index']])
