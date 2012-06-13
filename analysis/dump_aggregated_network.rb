@@ -8,12 +8,19 @@ require '../config/environment'
 #@@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
 
 
-#Dump the aggregated FF network
 temp_project = Project.new(:name => "temp_all")
 @@communities.each do |community|  
   p = Project.find(community)
   puts "Working on project id:  #{community}"
   temp_project.persons << p.persons
 end
+
+#Dump the aggregated FF network
 temp_project.save!
 temp_project.dump_FF_edgelist
+
+#Dump the aggregated AT network
+temp_project.dump_AT_edgelist
+
+#Dump the aggreagted RT neworks
+temp_project.dump_RT_edgelist
