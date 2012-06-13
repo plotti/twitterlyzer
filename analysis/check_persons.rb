@@ -35,6 +35,8 @@ CSV::Writer.generate(outfile) do |csv|
       
       #Check Retweets
       if person.d1 == nil # Check only persons that we haven't checked before.
+        retweets = person.feed_entries.inject(0){|r,f| r+=f.retweet_ids.count}
+        retweet_count = person.feed_entries.inject(0){|r,f| r+=f.retweet_count.to_i}
         person.feed_entries.each do |entry|
           retweets += entry.retweet_ids.count
           retweet_count += entry.retweet_count.to_i

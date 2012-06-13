@@ -1,8 +1,9 @@
 ## STRAPPING ###
+require 'rubygems'
 require 'csv'
 require 'grackle'
 require 'twitter'
-require 'rubygems'
+require 'faster_csv'
 
 #Communities
 #@@communities = [4, 6, 9, 13, 17, 19, 21, 25, 27, 31, 33, 39, 44, 46, 48, 56, 62, 70, 72, 82, 86, 94, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
@@ -33,6 +34,9 @@ communities_with_not_enough_lists = [191, 477, 249, 485, 345, 493, 347, 495, 381
 spammed_keywords = [137,457]
 
 @@communities = keywords_from_wefollow + keywords_from_backup + keywords_after_yahoo  + recollected_lists_for_small_communities  - communities_with_not_enough_lists - replaced_communities
+
+#Blacklist
+BLACKLIST = FasterCSV.read("#{RAILS_ROOT}/config/blacklist.csv").flatten
 
 #Constants
 STOP_WORDS = File.new(RAILS_ROOT + "/public/stopwords.txt").readlines.map {|line| line.chomp}

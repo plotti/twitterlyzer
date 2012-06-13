@@ -116,7 +116,7 @@ class Project < ActiveRecord::Base
         @tmp_persons << {:username => person.username, :list_count => 1,
           :uri => "http://www.twitter.com/#{person.username}", :followers => person.followers_count,
           :friends => person.friends_count}
-      end
+      end 
       self.lists.each do |list|
         if list.name.include? self.keyword
           if !seen_lists.include? list.uri #If we have not encountered a list with a similar uri before

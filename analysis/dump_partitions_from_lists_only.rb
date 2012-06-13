@@ -5,13 +5,17 @@ require 'faster_csv'
 # It first unites categories that share a certain percentage x of members into one category
 # It then reassigns members to other lists, if they fit better 
 
+#Define how many people we want to have maximum in  a community
+PARTITION_MAX = 200
+
 #Define how many list places should be considered
-MAX = 200
+MAX = 400
 
 #Threshold: The threshold until which the categories should be merged (e.g. 0.2 = 20 % of members are shared)
-THRESHOLD = 0.2
+THRESHOLD = 0.05
 
-outfile = CSV.open("data/partitions#{MAX}_#{THRESHOLD}.csv", "wb")
+outfile = CSV.open("data/partitions_p#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
+final_partition = CSV.open("data/final_partitionsp#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
 outfile << ["Name","Original Category", "Original Category Place", "Assigned Category", "Assigned Category Place", "Competing Categories", "Details"]
 
 members ={}
@@ -22,7 +26,7 @@ members ={}
   i,r = 0,{}
   rows.each do |member|
     i += 1
-    r[member[0]] = {:rank => i, :count => member[2].to_i}
+    r[member[0]] = {:rank => i, :count => member[2].to_i} if !BLACKLIST.include?(member[0])
   end
   members[project.name] = r
 end
@@ -31,7 +35,7 @@ merged = {}
 #First step should be to unite partitions that have a high overlap of members
 @@communities.each do |community|
   project = Project.find(community)    
-  puts "Checking merge on project id: #{community}"
+  #puts "Checking merge on project id: #{community}"
   max_overlap_count,overlap_groups_count,overlap_groups,max_group = 0,0,[],""
   members.each do |key,value|
     if key != project.name && merged[project.name] == nil
@@ -41,23 +45,39 @@ merged = {}
       end
     end
   end
-  if max_overlap_count > MAX*THRESHOLD    
-    members[project.name].keys.each do |member|
-      if members[max_group][member] != nil        
-        members[project.name][member][:count] += members[max_group][member][:count]
-      end      
-    end    
-    #Recalculate the ranking for faster lookup
-    sorted_members = members[project.name].sort{|a,b| b[1][:count]<=>a[1][:count]}.collect{|a| a[0]}
-    members[project.name].keys.each do |member|
-      members[project.name][member][:rank] = sorted_members.index(member)+1
-    end
+  if max_overlap_count > MAX*THRESHOLD
     puts "Merged #{project.name} with #{max_group}"
-    members["#{project.name}_#{max_group}"] = members[project.name]
-    members.delete(project.name)
-    members.delete(max_group)
-    merged[project.name] = "#{project.name}_#{max_group}"
-    merged[max_group] = "#{project.name}_#{max_group}"   
+    merged_name = "#{project.name}_#{max_group}"
+    h = {}
+    
+    # Add the counts and merge the members
+    merged_members = (members[project.name].keys + members[max_group].keys).uniq
+    merged_members.each do |member|
+      count1 = members[project.name][member][:count] rescue 0
+      count2 = members[max_group][member][:count] rescue 0
+      h[member] = {:rank => 0 , :count => count1+count2}
+    end
+    members[merged_name] = h
+    
+    #Recalculate the ranking for faster lookup
+    sorted_members = members[merged_name].sort{|a,b| b[1][:count]<=>a[1][:count]}.collect{|a| a[0]}
+    members[merged_name].keys.each do |member|
+      members[merged_name][member][:rank] = sorted_members.index(member)+1
+    end
+    
+    #Take only the first x members since the categories will grow
+    members[merged_name] = Hash[members[merged_name].sort{|a,b| b[1][:count]<=>a[1][:count]}[0..MAX]]
+    
+    #Point where the merged group is stored
+    [project.name,max_group].each do |entry|
+      members.delete(entry)
+      merged[entry] = merged_name
+      merged.each do |key,value|
+        if value == entry
+          merged[key] = merged_name
+        end
+      end
+    end
   end
 end
 
@@ -68,38 +88,51 @@ end
 
 #Second step is to output the final partitions according to the ranking of the persons in their groups
 seen_persons = []
+final_candidates = {}
+seen_projects = []
 @@communities.each do |community|
-  project = Project.find(community)    
-  puts "Working on project name: #{project.name}"  
+  project = Project.find(community)      
   if merged[project.name] == nil
-    sorted_members = members[project.name].sort{|a,b| b[1][:count]<=>a[1][:count]}.collect{|a| a[0]}
+    project_members = members[project.name]
     project_name = project.name
-  else
-    sorted_members = members[merged[project.name]].sort{|a,b| b[1][:count]<=>a[1][:count]}.collect{|a| a[0]}
+  else    
+    project_members = members[merged[project.name]]
     project_name = merged[project.name]
+  end
+  if !seen_projects.include? project_name
+    puts "Computing places on project name: #{project_name}"
+    seen_projects << project_name
+  else
+    puts "Skippng #{project_name}"
+    next 
   end  
-  sorted_members.each do |person|      
-    if !seen_persons.include? person        
-      list_place,original_list_place,membership,memberships = 10000,0,"",[]       
+  project_members.each do |person|    
+    if !seen_persons.include? person[0]
+      #puts "Working on person #{person[0]}"
+      min_list_place,original_list_place,membership,memberships = 10000,0,"",[]                   
       members.each do |key,value|
         if merged[key] != nil
           next
         end
-        list = value.sort{|a,b| b[1][:count]<=>a[1][:count]}.collect{|a| a[0]}
-        i = 0
-        list.each do |member|            
-          i += 1
-          if member == person            
-            memberships += [key,i] # note the membership of the person and the place on the list            
-            original_list_place = i if key == project_name                   
-            membership, list_place= key,i if i < list_place                           
-          end
-        end
-      end
-      seen_persons << person
-      outfile << [person, project_name, original_list_place, membership, list_place, memberships.count/2, memberships.join(",")]
+        if value[person[0]] != nil # we have found a matching person in the lists
+          memberships += [key,value[person[0]][:rank]]
+          original_list_place = value[person[0]][:rank] if key == project_name
+          membership, min_list_place = key,value[person[0]][:rank] if value[person[0]][:rank] < min_list_place
+        end        
+      end      
+      seen_persons << person[0]
+      outfile << [person[0], project_name, original_list_place, membership, min_list_place, memberships.count/2, memberships.join(",")]
+      final_candidates[membership] ||= []
+      final_candidates[membership] << {:name => person[0], :rank => min_list_place, :competing_memberships => memberships.count/2}
     end      
-  end
+  end 
+end
+
+#Output the final partition
+final_candidates.each do |key,value|  
+  value.sort{|a,b| a[:rank]<=>b[:rank]}[0..PARTITION_MAX].each do |member|
+    final_partition << [member[:name],key,member[:rank],member[:competing_memberships]]
+  end   
 end
 
 outfile.close
