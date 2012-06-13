@@ -1,5 +1,6 @@
 require '../config/environment'
 require 'faster_csv'
+# deprecated since dump_partitions_from list optimizes the lists accoring to overlap
 
 MAX = 1000
 outfile = File.open("results/list_overlap#{MAX}.csv", "w+")

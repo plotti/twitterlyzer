@@ -1,6 +1,6 @@
 require '../config/environment'
 
-outfile = File.open("#{RAILS_ROOT}/analysis/results/person_stats.csv",'w')
+outfile = File.open("#{RAILS_ROOT}/analysis/results/stats/person_stats.csv",'w')
 
 CSV::Writer.generate(outfile) do |csv|
   csv << ["Person ID", "Person Name", "Private?", "Statuses Count", "Number of Tweets", "Number of Retweets", "Retweet Count", "Friends Count", "Friends_IDS", "Followers Count", ]  

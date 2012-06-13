@@ -1,3 +1,5 @@
+# This file is an experiment to see how many retweets certain tweets containing a certain word get
+
 require '../config/environment'
 #words = %w{useful helpful valuable informative practical convenient handy usable absorbing arresting consuming engaging engrossing enthralling fascinating gripping immersing intriguing involving riveting}
 #words = %w{funny entertaining hilarious amusing humorous}

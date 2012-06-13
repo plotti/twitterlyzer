@@ -2,6 +2,8 @@ require '../config/environment'
 require 'faster_csv'
 results = []
 
+#deprecated. This file was used for the re-import of old lists which came from the first system
+
 Dir.foreach("#{RAILS_ROOT}/data/old_lists") do |item|
   next if item == "graphs" or item == "." or item == ".."
   puts item.to_s

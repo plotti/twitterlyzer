@@ -1,3 +1,5 @@
+# the Original Idea to collect lists and its members as a prototype
+
 class List
   attr_accessor :persons, :categories, :lists, :keyword
   
@@ -8,10 +10,10 @@ class List
   require 'grackle'
 
   #Twitter Client
-  CONSUMER_KEY = "lPeEtUCou8uFFOBt94h3Q"
-  CONSUMER_SECRET = "iBFQqoV9a5qKCiAfitEXFzvkD7jcpSFupG8FBGWE"
-  ACCESS_TOKEN = "15533871-abkroGVmE7m1oJGzZ38L29c7o7vDyGGSevx6X25kA"
-  ACCESS_TOKEN_SECRET = "pAoyFeGQlHr53BiRSxpTUpVtQW0B0zMRKBHC3hm3s"
+  CONSUMER_KEY = ""
+  CONSUMER_SECRET = ""
+  ACCESS_TOKEN = ""
+  ACCESS_TOKEN_SECRET = ""
   BASE_URL = "http://twellow.com/category_users/cat_id/"
   TOTAL_PAGES = 5
   MAX_LIST_COUNTER = 200

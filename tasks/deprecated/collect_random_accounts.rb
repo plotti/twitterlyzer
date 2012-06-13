@@ -6,11 +6,13 @@ require 'json'
 require "base64"
 require 'csv'
 include Typhoeus
-  
+
+#Deprecated since Twitter uses another API
+
 class CollectRandomTwitterAccounts < Struct.new(:text)
  
-  TWITTER_USERNAME = "plotti"
-  TWITTER_PASSWORD = "wrzesz"
+  TWITTER_USERNAME = ""
+  TWITTER_PASSWORD = ""
   IDS = 50000000
   
   define_remote_method :twitter_user, :path => '/users/show.json',:headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"},

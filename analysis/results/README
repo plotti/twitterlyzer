@@ -1,0 +1,21 @@
+
+EXPLANATION OF DIRECTORIES
+
+    graphs #contains graphs of the distribution of the list rank
+    histograms #contains graphs of the distribution of the network tie strengths
+    network_graphs #contains network graphs of the FF/AT/RT Networks
+    networks #contains pajek and gephi readable networks of the whole network
+
+EXPLANATION OF FILES
+    
+    OUTPUTS OF CHECKING PROCEDURES
+    stats/person_stats
+    stats/partition_stats
+    
+    FILES FOR CALCULATION OF MEASURES
+    group_bonding.csv # Contains the output of the calculation of group bonding measures
+    group_bridging.csv # Contains the output of the calculation of group bridging measures
+    individual_bonding.csv # Contains the output of the calculation of individual bonding measures
+    individual_bridging.csv # Contains the output of the calculation of individual bridging measures
+    
+    

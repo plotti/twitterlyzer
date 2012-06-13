@@ -5,6 +5,8 @@ require 'faster_csv'
 #It also checks how many members remained in the categories after the re-assignment and finally
 #it checks how many double entries there are between categories (whcih should always be none)
 
+#DEPRECATED: Since the dump_partitions_from_list file takes care of this
+
 partitions = FasterCSV.read("data/partitions.csv")
 outfile = File.open("results/partition_stats.csv",'w')
 outfile.puts "Project Name, Members from List found in project, Members after re-assignment, Double Entries"

@@ -6,16 +6,16 @@ require 'faster_csv'
 # It then reassigns members to other lists, if they fit better 
 
 #Define how many people we want to have maximum in  a community
-PARTITION_MAX = 200
+PARTITION_MAX = 100
 
 #Define how many list places should be considered
-MAX = 400
+MAX = 200
 
 #Threshold: The threshold until which the categories should be merged (e.g. 0.2 = 20 % of members are shared)
-THRESHOLD = 0.05
+THRESHOLD = 0.2
 
-outfile = CSV.open("data/partitions_p#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
-final_partition = CSV.open("data/final_partitionsp#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
+outfile = CSV.open("data/paritions/partitions_p#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
+final_partition = CSV.open("data/partitions/final_partitions_p#{PARTITION_MAX}_#{MAX}_#{THRESHOLD}.csv", "wb")
 outfile << ["Name","Original Category", "Original Category Place", "Assigned Category", "Assigned Category Place", "Competing Categories", "Details"]
 
 members ={}

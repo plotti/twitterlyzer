@@ -1,0 +1,75 @@
+General Workflow
+
+Collect user interests:
+    Collect keywords from wefollow
+    Collect keywords from yahoo
+    Merge into one ontology --> In which file is this done?
+    Manual filtering according to criteria described in diss
+    OUTPUT: is a list of keywords that represent user interests
+
+Seed user collection:
+    INPUT: List of Keywords
+    For each user interest keyword collect 100 users from wefollow that are listed for this keyword
+    OUTPUT: 100 Persons in Database
+    
+List collection
+    INPUT: 100 Seed users
+    For each of those 100 users collect all the lists that they are listed on.    
+    For each of those lists only keep those that match the keyword    
+    OUTPUT: x Lists in Database matching a certain keyword
+
+Sorted members creation
+    INPUT: Lists matching a keyword x
+    From the lists that count how often a member is counted on the lists for this keyword
+    OUTPUT: data/keyword_sorted_members.csv
+
+Check Collected Lists
+    check_lists.rb #checks collected lists
+    Only keep those keywords that output lists that contain enough members and show a typical power law distribution
+    
+Keyword-merge-Procedure
+    INPUT1: data/keyword_sorted_members.csv
+    INPUT2: config/blacklist.csv # A file containing Twitter users that cannot be found on Twitter
+    For each keyword unite partitions that have a high overlap of members by merging those keywords that have an overlap of x percent
+    OUTPUT: In memory hash of united keywords and members
+    
+Re-Rank-procedure
+    INPUT: In memory hash of united keywords and members
+    For each keyword check if the member is listed amongh other keywords with a lower rank. If this is the case move this member to the other keyword.
+    The output are partitions of the network that do not have overlapping group membership
+    OUTPUT1: data/Partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv # Holds informative data on the networks
+    OUTPUT2: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv # Is used for next step and groups are limited to group_size
+    
+Check Final Paritions
+    find_collection_errors.rb
+    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv
+    For each member check if this person actually exists in database, and if the tweets and retweets have been collected.
+    OUTPUT1: data/missing_members.csv # A list of missing members
+    OUTPUT2: data/missing_feeds.csv # A list of existing members with no feeds
+    OUTPUT3: data/blacklist.csv # A list of members that could not be found
+    --> Repeat Keyword-merge-procedure if missing_members were found
+    
+Fix final Partitions
+    fix_collection_errors.rb Collects the missing members, their tweets and retweets
+    --> Repeat check final partitions after this step
+    
+Additional Checks
+    check_persons.rb # checks details of each person
+    check_communities.rb #checks all communities
+    check_lists.rb #checks collected lists
+    
+Dump Networks
+    dump_aggregated_network.rb
+    Unites the persons in one big project and dumps the FF/AT/RT Network to disk as an edgelistfile.
+    
+Check Networks
+    check_networks.py
+    Reads in the FF/AT/RT Networks and outputs descriptive data
+    
+Analyze Networks
+    group_bonding.py Calculates the internal density measures and outputs a csv file with measures for each keyword
+    group_bridging.py Blocks the members from each keyword into one node and then computes measures for each node, outputs a csv file
+    individual_bonding.py Partitions the network according to keyword, for each subnetwork compute the network measures for each member, output  a csv file of all computations
+    individual_bridging.py Combines 2 Networks into one subnetwork, computes betweeness measures, outputs a csv file
+    
+Further processing with SPSS/AMOS to describe latent social capital models

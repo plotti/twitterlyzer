@@ -9,7 +9,9 @@ require 'csv'
 require 'uri'
 require 'simple-rss'
 include Typhoeus
-  
+
+# Deprecated since Twitter has another API since 2010
+
 class CollectTwitterAccounts < Struct.new(:text)
   
   def self.get_urls (text)
@@ -43,10 +45,10 @@ class CollectTwitterAccounts < Struct.new(:text)
       return results
   end
  
-  TWITTER_USERNAME = "plotti"
-  TWITTER_PASSWORD = "wrzesz"
-  BITLY_LOGIN = "plotti"
-  BITLY_API_KEY = "R_fb1f65003bba56b566ed65be4a773741"
+  TWITTER_USERNAME = ""
+  TWITTER_PASSWORD = ""
+  BITLY_LOGIN = ""
+  BITLY_API_KEY = ""
   
   define_remote_method :twitter_user, :path => '/users/show.json',:headers => {"Authorization" => "Basic #{Base64.b64encode(TWITTER_USERNAME + ":" + TWITTER_PASSWORD)}"},
                        :on_success => lambda {|response| JSON.parse(response.body)},

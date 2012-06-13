@@ -1,6 +1,6 @@
 require '../config/environment'
 
-outfile = File.open("analysis/results/communities_stats.csv",'w')
+outfile = File.open("analysis/results/stats/communities_stats.csv",'w')
 
 CSV::Writer.generate(outfile) do |csv|
   csv << ["Community ID", "Name", "List ID", "List Name", "Number of Lists", "Number of Persons", "Number of Private Persons", "Number of deleted Persons", "Number of Persons without Tweets", "Number of Tweets", "Number of Retweets"]  

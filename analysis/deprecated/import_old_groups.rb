@@ -1,6 +1,7 @@
 require '../config/environment'
 require 'faster_csv'
 
+# Deprecated: This file was used to re-import the people that were listed on the old sorted_member lists from the old system
 #First reimport of old listings
 #groups_for_import = ["musician","tech","marketing","sport","fashion","photography","politics","news","gaming","comedy","food","advertising","realestate","football","actor","radio","wine","beauty","finance","golf","sustainability","publishing","charity"]
 

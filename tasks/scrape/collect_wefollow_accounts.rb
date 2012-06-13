@@ -1,3 +1,5 @@
+#Scrapes Wefollow according to a certain keyword
+
 class CollectTwitterAccounts < Struct.new(:text)
   require 'rubygems'  
   require 'scrapi'

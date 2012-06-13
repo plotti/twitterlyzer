@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+# A file used to ouput the volume of tweets containing a certain keyword
+
 require 'gnuplot'
 
 keyword = "maravilha"

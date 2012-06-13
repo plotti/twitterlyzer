@@ -1,5 +1,6 @@
 require '../config/environment'
 require 'faster_csv'
+# DEPRECATED: Replaced with dump_paritions_from_lists_only
 
 #Log 04.04 Dumping first networks
 #@@communities = [4, 6, 9, 13, 17, 19, 21, 25, 27, 31, 33, 39, 44, 46, 48, 56, 62, 70, 72, 82, 86, 94, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
