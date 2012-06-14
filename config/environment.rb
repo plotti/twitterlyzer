@@ -59,6 +59,7 @@ Rails::Initializer.run do |config|
   config.gem "delayed_job", :version => "2.0.7"
   config.gem "scrapi", :version => "1.2.0"
   config.gem "tidy_ffi"
+  config.gem 'sunspot_rails'
 
   #Install for testing
   #config.gem 'factory_girl', :version => "1.3.3"

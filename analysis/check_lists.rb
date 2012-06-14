@@ -1,94 +1,67 @@
+# This file outputs distribution graphs of the underlying lists
+
 require '../config/environment'
 require 'faster_csv'
 
 thresholds = [1000,100,10]
 positions =  [1,50,100,200,1000]
 
+#Decide on a final partition
+members = FasterCSV.read("#{RAILS_ROOT}/analysis/data/partitions/final_partitions_p100_200_0.2.csv")
+communities = members.collect{|m| m[1]}.uniq
+
 outfile = File.open("#{RAILS_ROOT}/analysis/results/stats/lists_stats.csv",'w')
 
-#Temporary calculations
-# @@communities = ["geography","columnist","linguistics","literacy","alternativehealth","dental","veteran","smartphone","seniors","html","diversity","sculpture","poverty","archaeology","database","neuroscience","army","filmfestival","sociology","chemistry","housing","justice","drums","ecology","mathematics","anthropology","collectibles","magician","drama","hacking","biology","marriage","nursing","mobilephones","activism","climbing","ipad","pharma","reporter","storage","physics","pregnancy","democrat","classicalmusic","banking","hollywood","homeschool","dining","genealogy","agriculture","piano","buddhism","realitytv","mentalhealth","toys","climatechange","documentary","islam","employment","boating","hunting","cancer","fantasy","gambling","theater","liberal","multimedia","jewish","romance","teaching","jokes","weather","engineering","legal","baking","newspaper","attorney","rugby","aviation","wrestling","composer","electronicmusic","greenliving","meditation","highered","peace","horror","philanthropy","racing","chef","screenwriter","humanrights","insurance","jazz","career","military","school","drinking","energy","father","painting","exercise","flash","construction","university","tvshows","motorcycle","vegetarian","skiing","recipes","opensource","animation","skateboarding","lesbian","medicine","management","director","nature","swimming","economics","magazine","children","fishing","weightloss","psychology","literature","hockey","philosophy","nutrition","parenting","blogs","iphone","cooking","beauty","wine","singer","developer","publicrelations","actor","writing","author","fitness","funny","shopping","gaming","fashion"]
-# @@communities = ["mobilephones","drinking","columnist","drama","electronicmusic","greenliving","ecology","piano","father","collectibles","dining","sculpture","classicalmusic","realitytv","painting","seniors","html","army","boating","innovation","smartphone","diversity","teaching","geography","magician","hacking","tvshows","employment","gambling","composer","biology","attorney","weightloss","housing","mathematics","democrat","documentary","dental","mentalhealth","veteran","drums","hollywood","baking","school","lesbian","justice","liberal","meditation","screenwriter"]
-#@@communities = [4, 6, 9, 13, 17, 19, 21, 25, 27, 31, 33, 39, 44, 46, 48, 56, 62, 70, 72, 82, 86, 94, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111]
-##Log 05.05 Dumping more networks
-#@@communities += [112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 123, 137, 141, 143, 145, 149, 153, 155, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 170, 171, 172, 174, 175, 176, 177, 178, 179, 180, 181, 187, 189, 207, 209, 211, 213, 217, 219, 221, 233, 245, 247, 251, 253, 255, 257, 259, 261, 263, 265, 271, 275, 279, 281, 285, 291, 293, 297, 303, 305, 307, 311, 315, 317, 319]
-##323 segfault
-#@@communities += [325, 327, 329, 333, 337, 339, 341, 351, 353, 355, 357, 359, 361, 365, 367, 369, 371, 373, 379, 385, 387, 389, 391, 395, 397, 399, 401, 403, 405, 407]
-
 CSV::Writer.generate(outfile) do |csv|
-  csv << ["community name", "community id", "# lists", "total members on lists", "# members with threshold 1000", "# members with threshold 100", "# members with threshold 10", "#listings 1st member", "# listings for 50th member", "# listings for 100th member", "# listings for 200th member", "# listings for 1000th member"]
+  csv << ["Community name", "Based on Projects", "# lists", "Total unique members on all lists"]
 end
 
 CSV::Writer.generate(outfile) do |csv|
-  @@communities.each do |community|
-    
-    puts "Working on #{community}"
-    project = Project.find(community)
-    begin
-      lists = Project.find_all_by_name(project.name+"lists").last.lists # if we happen to have two take the last one
-      lists_count = lists.count
-    rescue
-      lists = "NaN"
-      lists_count = "NaN"
-    end
-    
-    sorted_members  = FasterCSV.read("#{RAILS_ROOT}/data/#{project.name}_sorted_members.csv")
-    
-    
-    #TODO: Compute an overlap of members (How many members of this list can be found on other lists?)
-    #See partition list --> for each member it has been calculated how often he is on other lists
-    
-    #Ininitiate Sizes & Listings & Rankings
-    rankings =  Array.new(1000,0)
-    unique_uris = 
-    sizes  = {}
-    listings = {}
-    thresholds.each do |threshold|
-      sizes[threshold] = 0
-    end
-        
-    #Count
-    i = -1 # skip header
-    sorted_members.each do |member|
-      i += 1
+  communities.each do |community|
+    lists_count = []
+    total_members = 0
+    projects = []
+    community.split("_").each do |sub_community|
       
-      #Note # of listings 
-      positions.each do |position|
-        if i == position
-          listings[position] = member[2]
-        end         
-      end
+      puts "Working on #{sub_community}"
+      project = Project.find_by_name(sub_community)
+      projects << project.name
       
-      #Calculate community size based on threshold
-      thresholds.each do |threshold|
-        if member[2].to_i > threshold
-          sizes[threshold] += 1
-        end      
-      end
+      begin
+        lists = Project.find_all_by_name(project.name+"lists").last.lists # if we happen to have two take the last one
+        lists_count << lists.count
+      rescue        
+        lists_count << "NaN"
+      end      
       
-      #Save the 1000 first ranks
-      if i < 1000
-        rankings[i-1] = member[2]          
-      end
+      sorted_members  = FasterCSV.read("#{RAILS_ROOT}/data/#{project.name}_sorted_members.csv")
+      rankings =  Array.new(1000,0)
       
-    end
-          
-    #Plot the first 1000 # of Listings
-    Gnuplot.open { |gp|
-      Gnuplot::Plot.new( gp ) { |plot|
-        plot.terminal "png"
-        plot.output "#{RAILS_ROOT}/analysis/results/graphs/#{project.name}.png"
-        plot.title  "Listings for #{project.name}"
-        plot.ylabel "# of Listings"
-        plot.xlabel "Place"
-        plot.data << Gnuplot::DataSet.new( [(1..999).to_a, rankings]) { |ds|
-          ds.with = "lines"
-          ds.linewidth = 4
+      i = -1 # skip header
+      sorted_members.each do |member|
+        total_members << member[0]
+        i += 1
+        #Plot the first 1000 # of Listings
+        #Save the 1000 first ranks
+        if i < 1000
+          rankings[i-1] = member[2]          
+        end
+        Gnuplot.open { |gp|
+          Gnuplot::Plot.new( gp ) { |plot|
+            plot.terminal "png"
+            plot.output "#{RAILS_ROOT}/analysis/results/graphs/#{project.name}.png"
+            plot.title  "Listings for #{project.name}"
+            plot.ylabel "# of Listings"
+            plot.xlabel "Place"
+            plot.data << Gnuplot::DataSet.new([(1..999).to_a, rankings]) { |ds|
+              ds.with = "lines"
+              ds.linewidth = 4
+            }
+          }
         }
-      }
-    }
-    
-    csv  <<[ project.name, community, lists_count, sorted_members.size, sizes[1000], sizes[100], sizes[10], listings[1], listings[50], listings[100], listings[200], listings[1000]]  
+      end
+    end        
+    csv  <<[ community, projects.join(","), lists_count.join(","), total_members.uniq.count]
   end
 end
 

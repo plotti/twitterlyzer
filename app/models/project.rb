@@ -336,6 +336,28 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}  
   end
   
+  #Same as find all valued connections only trying to make it faster
+  def find_all_at_connections(friend = true, follower = false, category = false)
+    usernames = persons.collect{|p| p.username}
+    values = []
+    i = 0
+    persons.each do |person|
+      i += 1
+      puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.") 
+      person.feed_entries.each do |tweet|        
+        usernames.each do |tmp_user|
+          if tweet.retweet_ids == [] && tweet.text.include?("@#{tmp_user} ") && !tweet.text.include?("RT")
+            #puts tweet.text
+            values << [person.username,tmp_user,1]
+          end
+        end
+      end
+    end
+    #Merge counted pairs
+    hash = values.group_by { |first, second, third| [first,second] }
+    return hash.map{|k,v| [k,v.count].flatten}  
+  end
+  
   def self.dump_net(net)
     CSV::Writer.generate("NET_#{net.count}.csv") do |csv|
       csv << ["DL n=100"]

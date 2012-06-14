@@ -161,7 +161,6 @@ task :re_collect_community => [:find_project, :collect_lists, :collect_membershi
 	puts "Enqueued all necessary tasks. Please wait for remaining #{jobs} jobs to finish"
 end
 
-
 # VERY IMPORTANT
 # After that the diffusions should be collected. (see diffusion.rake)
 # AFTER THIS PROCESS THE CHOSEN COMMUNITY IDs HAVE TO BE ADDED TO CONFIG/INITIALIZERS/TWITTERLYZER communities.

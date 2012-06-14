@@ -47,7 +47,7 @@ Check Final Paritions
     OUTPUT1: data/missing_members.csv # A list of missing members
     OUTPUT2: data/missing_feeds.csv # A list of existing members with no feeds
     OUTPUT3: data/blacklist.csv # A list of members that could not be found
-    --> Repeat Keyword-merge-procedure if missing_members were found
+    --> Repeat Keyword-merge-procedure if blacklist members were found
     
 Fix final Partitions
     fix_collection_errors.rb Collects the missing members, their tweets and retweets
