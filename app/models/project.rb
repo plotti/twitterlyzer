@@ -378,6 +378,34 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}  
   end
   
+  def find_at_connections2
+    usernames = persons.collect{|p| p.username}
+    values = []
+    persons.each do |person|
+    	usernames.each do |username|
+    		if person.username != username
+			search = FeedEntry.search do
+			    	with(:person_id, person.id)
+	    			fulltext "@#{username} -RT"
+		    	end
+		    	if search.total != 0
+		    		search.results.each do |result|
+		    			#This is not a retweet
+			    		if result.retweet_ids == []
+				   	    	values << [person.username, username, search.total]
+				   	else
+				   		puts search.results.first.text
+			   		end
+			   	end
+		   	end
+		end
+    	end
+    end	
+    #Aggregate 
+    hash = values.group_by { |first, second, third| [first,second] }
+    return hash.map{|k,v| [k,v.count].flatten}
+  end
+
   def self.dump_net(net)
     CSV::Writer.generate("NET_#{net.count}.csv") do |csv|
       csv << ["DL n=100"]
