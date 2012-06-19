@@ -19,8 +19,12 @@ class FeedEntry < ActiveRecord::Base
                        :on_failure => lambda{|response| puts "error code: #{response.code}"}
                        
   
-  #Sphinx
-  #is_indexed :fields => ['text', 'author', 'url']
+  # Indexing the text field with solr
+  searchable do
+    text :text
+    integer :person_id
+    time :published_at
+  end
     
   #Collects all possible rss entries from one person on twitter
   # Tested

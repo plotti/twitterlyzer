@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  require "graphviz"
+  #require "graphviz"
   require "csv"
   require 'scrapi'
   #require 'igraph'
@@ -336,23 +336,43 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}  
   end
   
-  #Same as find all valued connections only trying to make it faster
-  def find_all_at_connections(friend = true, follower = false, category = false)
-    usernames = persons.collect{|p| p.username}
-    values = []
-    i = 0
-    persons.each do |person|
-      i += 1
-      puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.") 
+  def self.find_at_connections_for_person_and_project(person_id,project_id)
+    person = Person.find(person_id)
+    project = Project.find(project_id)
+    usernames = project.persons.collect{|p| p.username}
+    filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{project.id}_AT.edges"
+    if File.exists? filename
+      puts "Skipping person #{person.username}"
+    else
+      outfile = File.open(filename, "w+")
       person.feed_entries.each do |tweet|        
         usernames.each do |tmp_user|
-          if tweet.retweet_ids == [] && tweet.text.include?("@#{tmp_user} ") && !tweet.text.include?("RT")
-            #puts tweet.text
-            values << [person.username,tmp_user,1]
+          if tmp_user != person.username && tweet.retweet_ids == [] && tweet.text.include?("@#{tmp_user} ") && !tweet.text.include?("RT")
+            puts tweet.text
+            outfile.puts "#{person.username},#{tmp_user},#{1},#{tweet.id}"
           end
         end
       end
+      outfile.close
+    end      
+  end
+  
+  #Same as find all valued connections only trying to make it faster
+  def find_all_at_connections(friend = true, follower = false, category = false)            
+    persons.each do |person|
+      Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id))
+    end    
+    #return_all_at_connections
+  end
+    
+  def return_all_at_connections    
+    values = []
+    persons.each do |person|      
+      filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{self.id}_AT.edges"
+      puts "Working on #{filename}"
+      values += FasterCSV.read(filename)
     end
+    #system("rm *.edges")
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}  

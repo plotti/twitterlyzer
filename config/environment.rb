@@ -43,23 +43,6 @@ Rails::Initializer.run do |config|
   #config.gem 'rubygems-update', :version => "1.4.2"  
   
   #config.gem 'ruby-graphviz', :version => "1.0.5"  
-  config.gem 'whenever', :version => "0.7.3", :lib => false, :source => 'http://gems.github.com'
-  config.gem 'will_paginate', :version => "2.2.2", :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem 'grackle', :version => "0.1.10"
-  config.gem 'twitter', :version => "1.7.2"
-  config.gem 'ruby-debug', :version => "0.10.4"
-  config.gem 'chronic', :version => "0.6.7"
-  config.gem 'gnuplot', :version => "2.3.6"
-  config.gem 'typhoeus', :version => "0.3.3"
-  config.gem 'ar-extensions', :version => "0.9.5"
-  config.gem 'simple-rss', :version => "1.2.3"  
-  config.gem 'mongrel', :version => "1.1.5"
-  config.gem 'mysql', :version => "2.8.1"
-  config.gem "daemons", :version => "1.0.10" # delayed job needs this
-  config.gem "delayed_job", :version => "2.0.7"
-  config.gem "scrapi", :version => "1.2.0"
-  config.gem "tidy_ffi"
-  config.gem 'sunspot_rails'
 
   #Install for testing
   #config.gem 'factory_girl', :version => "1.3.3"
