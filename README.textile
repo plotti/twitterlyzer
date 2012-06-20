@@ -38,6 +38,7 @@ h3. Setup Files
 ** database.yml containting the database credentials
 ** see twitter.example.yml or bitly.example.yml for details
 ** Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers
+** create the directory "/data" under your rails root to store the lists
 
 h3. Install Gems Dependencies
 * The app is using 2.3.7 rails so all gems are chosen to match that framework

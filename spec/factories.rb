@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'factory_girl'
+#require 'factory_girl'
 
 Factory.define :project do |p|
   p.name  "Test project"
