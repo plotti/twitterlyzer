@@ -267,54 +267,44 @@ class Project < ActiveRecord::Base
   
   #For  a given project
   #For all persons tweets in the project check if they have been retweeted by other members in the community
-  #Tested in project spec
-  def find_all_retweet_connections(friend = true,follower = false,category = false)
-    values = []
-    i = 0
-    usernames = persons.collect{|p| p.username}.uniq
-    persons.each do |person|
-      t1 = Time.now
-      i += 1
-      result = find_retweet_connections_for_person(person,usernames, false, category)
-      values += result 
-      t2 = Time.now
-      puts("Analyzed ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " and found #{result.count} retweet connections. Time #{t2-t1}")      
-    end
-    #Merge counted pairs
-    hash = values.group_by { |first, second, third| [first,second] }
-    return hash.map{|k,v| [k,v.count].flatten}    
-  end
+  #def find_delayed_retweet_connections(friend = true,follower = false,category = false)    
+  #  usernames = persons.collect{|p| p.username}.uniq
+  #  
+  #  persons[0..1000].each do |person|
+  #    Delayed::Job.enqueue(AggregateRtConnectionsJob.new(person.id,self.id, usernames))
+  #  end
+  #  
+  #  wait_for_jobs("AggregateRtConnectionsJob")
+  #  return_rt_connections
+  #end
+  
+  #def return_rt_connections
+  #  values = []
+  #  persons[0..1000].each do |person|      
+  #    filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{self.id}_RT.edges"
+  #    puts "Working on #{filename}"
+  #    values += FasterCSV.read(filename)
+  #  end
+  #  
+  #  #Merge counted pairs
+  #  hash = values.group_by { |first, second, third| [first,second] }
+  #  return hash.map{|k,v| [k,v.count].flatten}
+  #end
   
   #Tested in Project spec
-  def find_retweet_connections_for_person(person,usernames = [],following = false,category = false)
-    #puts "Finding retweet connections with following:#{following} category:#{category}"
-    values = []
-    if usernames == []
-      usernames = persons.collect{|p| p.username}.uniq
-    end
-    person.feed_entries.each do |tweet|
-      tweet.retweet_ids.each do |retweet|          
-        if usernames.include? retweet[:person]
-          #the person that retweets a user must follow that person to be valid
-          if following
-            if Person.find_by_username(retweet[:person]).friends_ids.include? person.twitter_id
-              values << [retweet[:person],person.username,1]
-            end
-          else
-            #Only count retweets that are between different categories
-            if category
-              if Person.find_by_username(retweet[:person]).category != person.category
-                values << [retweet[:person], person.username,1]
-              end
-            else
-              values << [retweet[:person],person.username,1]
-            end
-          end
-        end
-      end
-    end
-    return values
-  end
+  #This is part of a delayed Job
+  #def self.find_delayed_retweet_connections_for_person(person_id, project_id, usernames = [])    
+  #  person = Person.find(person_id)
+  #  filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person_id}_project_#{project_id}_RT.edges"
+  #  outfile = File.open(filename, "w+")    
+  #  person.feed_entries.each do |tweet|
+  #    tweet.retweet_ids.each do |retweet|       
+  #      if usernames.include? retweet[:person]                    
+  #        outfile.puts "#{retweet[:person]},#{person.username},#{1}"
+  #      end
+  #    end
+  #  end    
+  #end
   
   # For a given project it:
   # Looks through the people contained in a project
