@@ -273,9 +273,12 @@ class Project < ActiveRecord::Base
     i = 0
     usernames = persons.collect{|p| p.username}.uniq
     persons.each do |person|
-    i += 1
-      puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for retweet connections.")
-      values += find_retweet_connections_for_person(person,false, category)
+      t1 = Time.now
+      i += 1
+      result = find_retweet_connections_for_person(person,usernames, false, category)
+      values += result 
+      t2 = Time.now
+      puts("Analyzed ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " and found #{result.count} retweet connections. Time #{t2-t1}")      
     end
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
@@ -284,9 +287,9 @@ class Project < ActiveRecord::Base
   
   #Tested in Project spec
   def find_retweet_connections_for_person(person,usernames = [],following = false,category = false)
-    puts "Finding retweet connections with following:#{following} category:#{category}"
+    #puts "Finding retweet connections with following:#{following} category:#{category}"
     values = []
-    if usernames ==[]
+    if usernames == []
       usernames = persons.collect{|p| p.username}.uniq
     end
     person.feed_entries.each do |tweet|
@@ -357,76 +360,83 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}  
   end
   
-  def self.find_at_connections_for_person_and_project(person_id,project_id,usernames)
-    person = Person.find(person_id)
-    project = Project.find(project_id)
-    filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{project.id}_AT.edges"
-    if File.exists? filename
-      puts "Skipping person #{person.username}"
-    else
-      outfile = File.open(filename, "w+")
-      person.feed_entries.each do |tweet|        
-        usernames.each do |tmp_user|
-          if tmp_user != person.username && tweet.retweet_ids == [] && tweet.text.include?("@#{tmp_user} ") && !tweet.text.include?("RT")
-            puts tweet.text
-            outfile.puts "#{person.username},#{tmp_user},#{1},#{tweet.id}"
-          end
-        end
-      end
-      outfile.close
-    end      
-  end
+  # A version that used delayed jobs to split the work among a lot of workers
+  # Deprecated because the bottleneck was querying the DB
+  #def self.find_at_connections_for_person_and_project(person_id,project_id,usernames)
+  #  person = Person.find(person_id)
+  #  project = Project.find(project_id)
+  #  filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{project.id}_AT.edges"
+  #  if File.exists? filename
+  #    puts "Skipping person #{person.username}"
+  #  else
+  #    outfile = File.open(filename, "w+")
+  #    person.feed_entries.each do |tweet|        
+  #      usernames.each do |tmp_user|
+  #        if tmp_user != person.username && tweet.retweet_ids == [] && tweet.text.include?("@#{tmp_user} ") && !tweet.text.include?("RT")
+  #          puts tweet.text
+  #          outfile.puts "#{person.username},#{tmp_user},#{1},#{tweet.id}"
+  #        end
+  #      end
+  #    end
+  #    outfile.close
+  #  end      
+  #end
+
   
-  #Same as find all valued connections only trying to make it faster
-  def find_all_at_connections(friend = true, follower = false, category = false)            
-    usernames = persons.collect{|p| p.username}
-    persons.each do |person|
-      Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id,usernames))
-    end    
-    wait_for_jobs("AggregateAtConnectionsJob")
-    self.return_all_at_connections
-  end
-    
-  def return_all_at_connections    
-    values = []
-    persons.each do |person|      
-      filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{self.id}_AT.edges"
-      puts "Working on #{filename}"
-      values += FasterCSV.read(filename)
-    end
-    #system("rm *.edges")
-    #Merge counted pairs
-    hash = values.group_by { |first, second, third| [first,second] }
-    return hash.map{|k,v| [k,v.count].flatten}  
-  end
-    
-  def find_at_connections2    
-    usernames = persons.collect{|p| p.username}
-    values = []    
-    persons.each do |person|
-      puts "Working on person  #{person.username}"
-      t1 = Time.now
-      usernames.each do |username|
-              if person.username != username # Dont collect self referentiations
-                      search = FeedEntry.search do
-                              with(:person_id, person.id)
-                              fulltext "@#{username}"                              
-                      end                      
-                      search.results.each do |result|
-                              #This is not a retweet
-                              if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{username} ")
-                                      values << [person.username, username, 1]
-                              end
-                      end
-              end
-      end
-      t2 = Time.now
-      puts "Time per person: #{t2- t1}."
-    end	
-    #Aggregate 
-    hash = values.group_by { |first, second, third| [first,second] }    
-    hash.map{|k,v| [k,v.count].flatten}    
-  end
+  # A version that used delayed jobs to split the work among a lot of workers
+  # Deprecated because the bottleneck was querying the DB
+  # Same as find all valued connections only trying to make it faster
+  #def find_all_at_connections(friend = true, follower = false, category = false)            
+  #  usernames = persons.collect{|p| p.username}
+  #  persons.each do |person|
+  #    Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id,usernames))
+  #  end    
+  #  wait_for_jobs("AggregateAtConnectionsJob")
+  #  self.return_all_at_connections
+  #end
+  #  
+  #def return_all_at_connections    
+  #  values = []
+  #  persons.each do |person|      
+  #    filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{self.id}_AT.edges"
+  #    puts "Working on #{filename}"
+  #    values += FasterCSV.read(filename)
+  #  end
+  #  #system("rm *.edges")
+  #  #Merge counted pairs
+  #  hash = values.group_by { |first, second, third| [first,second] }
+  #  return hash.map{|k,v| [k,v.count].flatten}  
+  #end
+  
+  # A version that used solr but was inefficiently querying the db
+  # Deprecated because of inefficient runtime
+  #def find_at_connections2    
+  #  usernames = persons.collect{|p| p.username}
+  #  values = []    
+  #  persons.each do |person|
+  #    puts "Working on person  #{person.username}"
+  #    t1 = Time.now
+  #    usernames.each do |username|
+  #            if person.username != username # Dont collect self referentiations
+  #                    search = FeedEntry.search do
+  #                            with(:person_id, person.id)
+  #                            fulltext "@#{username}"                              
+  #                    end                      
+  #                    search.results.each do |result|
+  #                            #This is not a retweet
+  #                            if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{username} ")
+  #                                    values << [person.username, username, 1]
+  #                            end
+  #                    end
+  #            end
+  #    end
+  #    t2 = Time.now
+  #    puts "Time per person: #{t2- t1}."
+  #  end	
+  #  #Aggregate 
+  #  hash = values.group_by { |first, second, third| [first,second] }    
+  #  hash.map{|k,v| [k,v.count].flatten}    
+  #end
   
   # Looks through the people contained in a project
   # and for each person it goes through its tweets and looks if that person
