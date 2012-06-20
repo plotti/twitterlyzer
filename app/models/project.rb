@@ -382,6 +382,7 @@ class Project < ActiveRecord::Base
     usernames = persons.collect{|p| p.username}
     values = []
     persons.each do |person|
+      puts "Working on person  #{person.username}"
     	usernames.each do |username|
     		if person.username != username
 			search = FeedEntry.search do
@@ -392,9 +393,9 @@ class Project < ActiveRecord::Base
 		    		search.results.each do |result|
 		    			#This is not a retweet
 			    		if result.retweet_ids == []
-				   	    	values << [person.username, username, search.total]
+				   	    	values << [person.username, username, 1]
 				   	else
-				   		puts search.results.first.text
+				   		#puts search.results.first.text
 			   		end
 			   	end
 		   	end
