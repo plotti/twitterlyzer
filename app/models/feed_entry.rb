@@ -24,6 +24,9 @@ class FeedEntry < ActiveRecord::Base
     text :text
     integer :person_id
     time :published_at
+    text :retweeters do 
+    	retweet_ids.collect{|retweet| retweet[:id]}
+    end
   end
     
   #Collects all possible rss entries from one person on twitter
