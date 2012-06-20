@@ -55,14 +55,14 @@ describe Project do
       end
     end
     FeedEntry.solr_index
-    result1 = project.find_all_valued_connections # Old slow implementation without solr
-    result2 = project.find_at_connections_fastest # New implementation using solr 
+    result1 = project.find_at_connections # Old slow implementation without solr
+    result2 = project.find_solr_at_connections # New implementation using solr 
     puts "Result1 #{result1}"
     puts "Result2 #{result2}"
     result2.include?(["plotti1","plotti2",1]).should == true
     result2.include?(["plotti1","plotti3",2]).should == true
     result2.include?(["plotti4","plotti1",1]).should == true
-    (result1.count == result2.count).should == true
+    (result1 - result2).should == []
   end
   
   it "should contain the RT connections" do
@@ -79,11 +79,14 @@ describe Project do
         FeedEntry.collect_retweet_ids_for_entry(f)
       end
     end
-    result = project.find_all_retweet_connections
-    puts result
-    result.include?(["plotti1","plotti2",1]).should == true
-    result.include?(["plotti3","plotti4",2]).should == true
-    result.include?(["plotti4","plotti3",1]).should == true
+    result1 = project.find_rt_connections #Old slow solution
+    result2 = project.find_solr_rt_connections #New solr solution
+    puts "Result1 #{result1}"
+    puts "Result2 #{result2}"
+    result2.include?(["plotti1","plotti2",1]).should == true
+    result2.include?(["plotti3","plotti4",2]).should == true
+    result2.include?(["plotti4","plotti3",1]).should == true
+    (result1 - result2).should == []
   end
   
   
