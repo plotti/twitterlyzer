@@ -436,7 +436,7 @@ class Project < ActiveRecord::Base
   # 2. It does not contain "RT"
   # 3. The person does not reference himself in his own tweets
   # Tested in project spec
-  def find_at_connections3
+  def find_at_connections_fastest
     users = {}    
     persons.each do |person|        
 	users[person.id] = person.username
@@ -490,7 +490,7 @@ class Project < ActiveRecord::Base
   end
   
   def dump_AT_edgelist
-    net = self.find_at_connections3
+    net = self.find_at_connections_fastest
     File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_AT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
