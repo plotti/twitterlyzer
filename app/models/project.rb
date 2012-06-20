@@ -466,7 +466,7 @@ class Project < ActiveRecord::Base
         if users.keys.include?(result.person_id) && result.person_id != person.id # No self @
           if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
             j += 1
-            values << [person.username, users[result.person_id], 1]
+            values << [users[result.person_id], person.username, 1]
           end
         end
       end
