@@ -429,17 +429,21 @@ class Project < ActiveRecord::Base
   end
   
   def find_at_connections3
-    usernames = persons.collect{|p| p.username}
+    users = {}
+    persons.each do |person|
+	users[person.id] = person.username
+    end
     values = []    
     persons.each do |person|
       t1 = Time.now
       search = FeedEntry.search do      
         fulltext "@#{person.username}" #Find those Feeds that mention this person
+	paginate :page => 1, :per_page => 10000
       end
       search.results.each do |result|
-        if usernames.include? result.author
+        if users.keys.include?(result.person_id) && result.person_id != person.id
           if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
-            values << [person.username, result.author, 1]
+            values << [person.username, users[result.person_id], 1]
           end
         end
       end

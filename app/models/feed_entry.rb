@@ -21,7 +21,7 @@ class FeedEntry < ActiveRecord::Base
   
   # Indexing the text field with solr
   searchable do
-    text :text
+    text :text, :stored  => true 
     integer :person_id
     time :published_at
   end
