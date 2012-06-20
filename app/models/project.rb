@@ -21,7 +21,28 @@ class Project < ActiveRecord::Base
     }    
     result :items
   end
-    
+  
+  def wait_for_jobs(jobname)
+  continue = true
+    while continue
+      found_pending_jobs = 0
+      Delayed::Job.all.each do |job|
+        if job.handler.include? jobname
+              found_pending_jobs += 1
+        end
+        if job.attempts >= 4
+              puts "#{Project.get_remaining_hits}. Deleting job with more than #{job.attempts} attempts."
+              job.delete
+        end
+      end
+      if found_pending_jobs == 0
+        continue = false
+      end
+        puts "Remaining API hits: #{Project.get_remaining_hits}. Waiting for #{found_pending_jobs} #{jobname} jobs to finish..."
+        sleep(10)
+    end
+  end
+
   def self.graph_net(project_id)  
     project = Project.find(project_id)
     persons = project.persons       
@@ -313,7 +334,7 @@ class Project < ActiveRecord::Base
       person.feed_entries.each do |tweet|
         #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
-          if tweet.text.include?("@" + tmp_user + " ")            
+          if tweet.text.include?("@" + tmp_user + " ") && !tweet.text.include?("RT")
             #If we compute only persons from the same category.
             if category 
               if person.category != Person.find_by_username(tmp_user).category
@@ -323,7 +344,7 @@ class Project < ActiveRecord::Base
               end
             else
               #if the tweet has not been retweeted hence is not a retweet
-              if tweet.retweet_ids == []
+              if tweet.retweet_ids == [] && person.username != tmp_user
                 values << [person.username,tmp_user,1]  
               end             
             end
@@ -362,7 +383,8 @@ class Project < ActiveRecord::Base
     persons.each do |person|
       Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id,usernames))
     end    
-    #return_all_at_connections
+    wait_for_jobs("AggregateAtConnectionsJob")
+    self.return_all_at_connections
   end
     
   def return_all_at_connections    
@@ -381,30 +403,31 @@ class Project < ActiveRecord::Base
   def find_at_connections2
     usernames = persons.collect{|p| p.username}
     values = []
+    output = []
     persons.each do |person|
       puts "Working on person  #{person.username}"
-    	usernames.each do |username|
-    		if person.username != username
-			search = FeedEntry.search do
-			    	with(:person_id, person.id)
-	    			fulltext "@#{username} -RT"
-		    	end
-		    	if search.total != 0
-		    		search.results.each do |result|
-		    			#This is not a retweet
-			    		if result.retweet_ids == []
-				   	    	values << [person.username, username, 1]
-				   	else
-				   		#puts search.results.first.text
-			   		end
-			   	end
-		   	end
-		end
-    	end
+      usernames.each do |username|
+              if person.username != username # Dont collect self loops
+                      search = FeedEntry.search do
+                              with(:person_id, person.id)
+                              fulltext '"@' + username + '"'
+                      end
+                      search.results.each do |result|
+                              #This is not a retweet
+                              if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{username} ")
+                                      #output << "#{username} #{result.text}"
+                                      values << [person.username, username, 1]
+                              else
+                                      #puts result.text
+                              end
+                      end
+              end
+      end
     end	
     #Aggregate 
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}
+    #return output
   end
 
   def self.dump_net(net)
