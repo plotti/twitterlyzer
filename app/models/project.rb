@@ -336,10 +336,9 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}  
   end
   
-  def self.find_at_connections_for_person_and_project(person_id,project_id)
+  def self.find_at_connections_for_person_and_project(person_id,project_id,usernames)
     person = Person.find(person_id)
     project = Project.find(project_id)
-    usernames = project.persons.collect{|p| p.username}
     filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{project.id}_AT.edges"
     if File.exists? filename
       puts "Skipping person #{person.username}"
@@ -359,8 +358,9 @@ class Project < ActiveRecord::Base
   
   #Same as find all valued connections only trying to make it faster
   def find_all_at_connections(friend = true, follower = false, category = false)            
+    usernames = persons.collect{|p| p.username}
     persons.each do |person|
-      Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id))
+      Delayed::Job.enqueue(AggregateAtConnectionsJob.new(person.id,self.id,usernames))
     end    
     #return_all_at_connections
   end
