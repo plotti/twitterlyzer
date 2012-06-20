@@ -427,6 +427,29 @@ class Project < ActiveRecord::Base
     hash = values.group_by { |first, second, third| [first,second] }    
     hash.map{|k,v| [k,v.count].flatten}    
   end
+  
+  def find_at_connections3
+    usernames = persons.collect{|p| p.username}
+    values = []    
+    persons.each do |person|
+      t1 = Time.now
+      search = FeedEntry.search do      
+        fulltext "@#{person.username}" #Find those Feeds that mention this person
+      end
+      search.results.each do |result|
+        if usernames.include? result.author
+          if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
+            values << [person.username, result.author, 1]
+          end
+        end
+      end
+      t2 = Time.now
+      puts "Time per person: #{t2- t1}."
+    end
+    #Aggregate 
+    hash = values.group_by { |first, second, third| [first,second] }    
+    hash.map{|k,v| [k,v.count].flatten}    
+  end
 
   def self.dump_net(net)
     CSV::Writer.generate("NET_#{net.count}.csv") do |csv|
