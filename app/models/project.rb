@@ -428,27 +428,40 @@ class Project < ActiveRecord::Base
     hash.map{|k,v| [k,v.count].flatten}    
   end
   
+  # Looks through the people contained in a project
+  # and for each person it goes through its tweets and looks if that person
+  # is mentioned in the project.
+  # An @ Edge is when:
+  # 1. It is not retweeted
+  # 2. It does not contain "RT"
+  # 3. The person does not reference himself in his own tweets
+  # Tested in project spec
   def find_at_connections3
-    users = {}
-    persons.each do |person|
+    users = {}    
+    persons.each do |person|        
 	users[person.id] = person.username
     end
-    values = []    
+    values = []
+    i = 0
     persons.each do |person|
+      i += 1
       t1 = Time.now
-      search = FeedEntry.search do      
-        fulltext "@#{person.username}" #Find those Feeds that mention this person
-	paginate :page => 1, :per_page => 10000
+      search = FeedEntry.search do        
+        without(:person_id,person.id)
+        fulltext "@#{person.username} -RT" #Find those Feeds that mention this person
+	paginate :page => 1, :per_page => 10000 #Make sure we dont paginate	
       end
+      j = 0
       search.results.each do |result|
-        if users.keys.include?(result.person_id) && result.person_id != person.id
+        if users.keys.include?(result.person_id) && result.person_id != person.id # No self @
           if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
+            j += 1
             values << [person.username, users[result.person_id], 1]
           end
         end
       end
-      t2 = Time.now
-      puts "Time per person: #{t2- t1}."
+      t2 = Time.now      
+      puts "Person #{i}. Time per person: #{t2- t1}. Total pages #{search.results.total_pages}. Total results #{search.total}. Filtered: #{j}"
     end
     #Aggregate 
     hash = values.group_by { |first, second, third| [first,second] }    
@@ -477,7 +490,7 @@ class Project < ActiveRecord::Base
   end
   
   def dump_AT_edgelist
-    net = self.find_all_valued_connections
+    net = self.find_at_connections3
     File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_AT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
