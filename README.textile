@@ -38,7 +38,7 @@ h3. Setup Files
 ** database.yml containting the database credentials
 ** see twitter.example.yml or bitly.example.yml for details
 ** Make sure when your Twitter account is NOT whitelisted that you dont use up your API limitations when using too many workers
-** create the directory "/data" under your rails root to store the lists
+** Create the directory "/data" under your rails root to store the lists
 
 h3. Install Gems Dependencies
 * The app is using 2.3.7 rails so all gems are chosen to match that framework
@@ -55,7 +55,9 @@ RAILS_ENV=development rails_gem_install
 h3. Test
 ** Test if the application works correctly
 ** You will need rspec/rspec-rails and factory girl to test it.
+** You will need to start solr in test mode
 <pre><code>
+RAILS_ENV=test rake sunspot:solr:start
 spec spec
 </code></pre>
 
@@ -65,11 +67,19 @@ h3. Get Delayed Jobs working
 <pre><code>
 "./script/delayed_job -n 4"
 </code></pre>
-
 *** The Benchmarks I measured are depending on the number of workers (n):
 **** Collecting Tweets: n 4: 40.000 tweets in 10min
 **** n 8: 90.000 tweets in 10min
 **** n 16: 180.000 tweets in 10 min (70% CPU usage)
+
+h3. Start Solr and Webserver
+** All of the tweets are indexed by a lucene solr server in the background
+** It uses sunspot and solr gems.
+** Before starting the server make sure to start solr.
+<pre><code>
+rake sunspot:solr:start 
+./script/server
+</code></pre>
 
 
 h2. FEATURES
