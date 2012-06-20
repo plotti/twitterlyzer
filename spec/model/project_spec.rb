@@ -2,6 +2,19 @@ require 'spec_helper'
 #require './spec/factories'
 
 describe Project do
+
+  before :all do
+    system("rake", "sunspot:solr:start")
+    begin
+      Sunspot.remove_all!
+    rescue Errno::ECONNREFUSED
+      sleep 2 && retry
+    end
+  end
+
+  after :all do 
+    system("rake", "sunspot:solr:stop")
+  end
   
   it "should contain 4 plottis with their connections" do
     project = Factory(:project)
@@ -41,13 +54,15 @@ describe Project do
         FeedEntry.collect_retweet_ids_for_entry(f)
       end
     end
+    FeedEntry.solr_index
     result1 = project.find_all_valued_connections # Old slow implementation without solr
-    result2 = project.find_at_connections_fastest
-    puts result
-    result.include?(["plotti1","plotti2",1]).should == true
-    result.include?(["plotti1","plotti3",2]).should == true
-    result.include?(["plotti4","plotti1",1]).should == true
-    (result1 == result).should == true
+    result2 = project.find_at_connections_fastest # New implementation using solr 
+    puts "Result1 #{result1}"
+    puts "Result2 #{result2}"
+    result2.include?(["plotti1","plotti2",1]).should == true
+    result2.include?(["plotti1","plotti3",2]).should == true
+    result2.include?(["plotti4","plotti1",1]).should == true
+    (result1.count == result2.count).should == true
   end
   
   it "should contain the RT connections" do

@@ -3,6 +3,19 @@ require 'spec_helper'
 
 describe FeedEntry do
   
+  before :all do
+    system("rake", "sunspot:solr:start")
+    begin
+      Sunspot.remove_all!
+    rescue Errno::ECONNREFUSED
+      sleep 2 && retry
+    end
+  end
+    
+  after :all do
+    system("rake", "sunspot:solr:stop")
+  end
+
   it "should collect almost all 3200 Tweets of a person with a lot of tweets" do    
     p = Factory(:person) 
     r = FeedEntry.collect_all_entries p

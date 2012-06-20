@@ -447,8 +447,8 @@ class Project < ActiveRecord::Base
       i += 1
       t1 = Time.now
       search = FeedEntry.search do        
-        without(:person_id,person.id)
-        fulltext "@#{person.username} -RT" #Find those Feeds that mention this person
+        without(:person_id,person.id) # No self referencing
+        fulltext "@#{person.username}" #Find those Feeds that mention this person
 	paginate :page => 1, :per_page => 10000 #Make sure we dont paginate	
       end
       j = 0
@@ -456,7 +456,7 @@ class Project < ActiveRecord::Base
         if users.keys.include?(result.person_id) && result.person_id != person.id # No self @
           if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
             j += 1
-            values << [person.username, users[result.person_id], 1]
+            values << [users[result.person_id], person.username, 1]
           end
         end
       end
@@ -466,6 +466,28 @@ class Project < ActiveRecord::Base
     #Aggregate 
     hash = values.group_by { |first, second, third| [first,second] }    
     hash.map{|k,v| [k,v.count].flatten}    
+  end
+
+  def find_rt_connections
+	users = {}
+	persons.each do |person|
+          users[person.id] = person.username
+        end
+  	values = []
+  	persons.each do |person|
+		puts "Working on person #{person.username}"
+  		search = FeedEntry.search do 
+  			fulltext "#{person.twitter_id}"
+  			paginate :page => 1, :per_page => 10000
+  		end
+  		search.results.each do |result|
+  			if users.keys.include? result.person_id
+  				values << [person.username, users[result.person_id], 1]
+  			end
+  		end
+  	end
+        hash = values.group_by { |first, second, third| [first,second] }
+        hash.map{|k,v| [k,v.count].flatten}
   end
 
   def self.dump_net(net)
