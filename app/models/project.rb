@@ -399,35 +399,33 @@ class Project < ActiveRecord::Base
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}  
   end
-  
-  def find_at_connections2
+    
+  def find_at_connections2    
     usernames = persons.collect{|p| p.username}
-    values = []
-    output = []
+    values = []    
     persons.each do |person|
       puts "Working on person  #{person.username}"
+      t1 = Time.now
       usernames.each do |username|
-              if person.username != username # Dont collect self loops
+              if person.username != username # Dont collect self referentiations
                       search = FeedEntry.search do
                               with(:person_id, person.id)
-                              fulltext '"@' + username + '"'
-                      end
+                              fulltext "@#{username}"                              
+                      end                      
                       search.results.each do |result|
                               #This is not a retweet
                               if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{username} ")
-                                      #output << "#{username} #{result.text}"
                                       values << [person.username, username, 1]
-                              else
-                                      #puts result.text
                               end
                       end
               end
       end
+      t2 = Time.now
+      puts "Time per person: #{t2- t1}."
     end	
     #Aggregate 
-    hash = values.group_by { |first, second, third| [first,second] }
-    return hash.map{|k,v| [k,v.count].flatten}
-    #return output
+    hash = values.group_by { |first, second, third| [first,second] }    
+    hash.map{|k,v| [k,v.count].flatten}    
   end
 
   def self.dump_net(net)
