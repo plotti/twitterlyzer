@@ -20,6 +20,8 @@ gem 'sunspot_rails',"1.2.1"
 gem 'sunspot_solr'
 gem "nokogiri", "1.5.4"
 gem "fastercsv"
+gem "minitar"
+gem "progress"
 
 # bundler requires these gems in all environments
 # gem "nokogiri", "1.4.2"
