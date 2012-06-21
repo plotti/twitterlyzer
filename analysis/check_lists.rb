@@ -3,9 +3,6 @@
 require '../config/environment'
 require 'faster_csv'
 
-thresholds = [1000,100,10]
-positions =  [1,50,100,200,1000]
-
 #Decide on a final partition
 members = FasterCSV.read("#{RAILS_ROOT}/analysis/data/partitions/final_partitions_p100_200_0.2.csv")
 communities = members.collect{|m| m[1]}.uniq

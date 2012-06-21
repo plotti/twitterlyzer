@@ -22,6 +22,7 @@ class Project < ActiveRecord::Base
     result :items
   end
   
+  # Helper method that is used when creating delayed jobs.
   def wait_for_jobs(jobname)
   continue = true
     while continue
@@ -214,7 +215,8 @@ class Project < ActiveRecord::Base
 
 ########## FF CONNECTIONS ################
 
-  #Tries to find all connections for a given project
+  # Tries to find all connections for a given project
+  # Tested in project spec
   def find_all_connections(friend = true, follower = false)
     i= 0
     values = []
@@ -247,6 +249,7 @@ class Project < ActiveRecord::Base
     return values 
   end
   
+  # TODO Is this method deprecated?
   def self.find_all_persons_connections(persons)
     i= 0
     values = []
@@ -266,7 +269,8 @@ class Project < ActiveRecord::Base
     end
     return values
   end
-
+  
+  # TODO Is this method deprecated?
   def find_all_id_connections(friend = true, follower = false)
     i= 0
     values = []
@@ -301,9 +305,9 @@ class Project < ActiveRecord::Base
     
 ################# RT CONNECTIONS #######################
 
-  #For  a given project
-  #For all persons tweets in the project check if they have been retweeted by other members in the community
-  #Tested in project spec
+  # Old method of finding retweets
+  # For all persons tweets in the project check if they have been retweeted by other members in the community
+  # Tested in project spec
   def find_rt_connections(friend = true,follower = false,category = false)
     values = []
     i = 0
@@ -321,7 +325,39 @@ class Project < ActiveRecord::Base
     return hash.map{|k,v| [k,v.count].flatten}
   end
   
+  # Tested in Project spec
+  def find_retweet_connections_for_person(person,usernames = [],following = false,category = false)
+    puts "Finding retweet connections with following:#{following} category:#{category}"
+    values = []
+    if usernames ==[]
+      usernames = persons.collect{|p| p.username}.uniq
+    end
+    person.feed_entries.each do |tweet|
+      tweet.retweet_ids.each do |retweet|          
+        if usernames.include? retweet[:person]
+          #the person that retweets a user must follow that person to be valid
+          if following
+            if Person.find_by_username(retweet[:person]).friends_ids.include? person.twitter_id
+              values << [retweet[:person],person.username,1]
+            end
+          else
+            #Only count retweets that are between different categories
+            if category
+              if Person.find_by_username(retweet[:person]).category != person.category
+                values << [retweet[:person], person.username,1]
+              end
+            else
+              values << [retweet[:person],person.username,1]
+            end
+          end
+        end
+      end
+    end
+    return values
+  end
+  
   # A solr solution based on the index on feedentries which is mandatory
+  # See feedentry model for solr fields
   def find_solr_rt_connections
 	users = {}
 	persons.each do |person|
@@ -347,12 +383,10 @@ class Project < ActiveRecord::Base
   #For  a given project
   #For all persons tweets in the project check if they have been retweeted by other members in the community
   def find_delayed_rt_connections(friend = true,follower = false,category = false)    
-    usernames = persons.collect{|p| p.username}.uniq
-    
+    usernames = persons.collect{|p| p.username}.uniq    
     persons[0..1000].each do |person|
       Delayed::Job.enqueue(AggregateRtConnectionsJob.new(person.id,self.id, usernames))
-    end
-    
+    end    
     wait_for_jobs("AggregateRtConnectionsJob")
     return_delayed_rt_connections
   end
@@ -364,8 +398,7 @@ class Project < ActiveRecord::Base
       filename = "#{RAILS_ROOT}/analysis/data/tmp/person_#{person.id}_project_#{self.id}_RT.edges"
       puts "Working on #{filename}"
       values += FasterCSV.read(filename)
-    end
-    
+    end    
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}
@@ -387,7 +420,7 @@ class Project < ActiveRecord::Base
 
 ################# AT CONNECTIONS #######################
 
-  # For a given project it:
+  # Old method of finding at connections, deprecated because it is too slow
   # Looks through the people contained in a project
   # and for each person it goes through its tweets and looks if that person
   # is mentioning a person in the project. If it finds a mention of the other person
@@ -517,39 +550,14 @@ class Project < ActiveRecord::Base
     end      
   end
   
-  # A version that used solr but was inefficiently querying the db
-  # Deprecated because of inefficient runtime
-  #def find_at_connections2    
-  #  usernames = persons.collect{|p| p.username}
-  #  values = []    
-  #  persons.each do |person|
-  #    puts "Working on person  #{person.username}"
-  #    t1 = Time.now
-  #    usernames.each do |username|
-  #            if person.username != username # Dont collect self referentiations
-  #                    search = FeedEntry.search do
-  #                            with(:person_id, person.id)
-  #                            fulltext "@#{username}"                              
-  #                    end                      
-  #                    search.results.each do |result|
-  #                            #This is not a retweet
-  #                            if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{username} ")
-  #                                    values << [person.username, username, 1]
-  #                            end
-  #                    end
-  #            end
-  #    end
-  #    t2 = Time.now
-  #    puts "Time per person: #{t2- t1}."
-  #  end	
-  #  #Aggregate 
-  #  hash = values.group_by { |first, second, third| [first,second] }    
-  #  hash.map{|k,v| [k,v.count].flatten}    
-  #end
 
 ############### CONNECTING PEOPLE THAT ARE ON THE SAME LISTS #########################
 
-def  find_all_list_connections
+
+  # Deprecated
+  # This method goes through all the lists of a project and connnectsthe members accordingly
+  # if they are on two lists. 
+  def  find_all_list_connections
     values = []
     self.lists.each do |list|
       if list.name.include? self.keyword        
@@ -587,7 +595,7 @@ def  find_all_list_connections
   
   def dump_FF_edgelist
     net = self.find_all_connections
-    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_FF.edgelist", "w+") do |file|
+    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_FF.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} 1" # Strength is always 1 in FF networks
       end
@@ -596,7 +604,7 @@ def  find_all_list_connections
   
   def dump_AT_edgelist
     net = self.find_at_connections_fastest
-    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_AT.edgelist", "w+") do |file|
+    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_AT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
       end
@@ -605,7 +613,7 @@ def  find_all_list_connections
   
   def dump_RT_edgelist
     net = self.find_all_retweet_connections
-    File.open("#{RAILS_ROOT}/analysis/data/#{self.id}_RT.edgelist", "w+") do |file|
+    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_RT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
       end

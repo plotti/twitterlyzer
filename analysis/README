@@ -4,36 +4,43 @@ Collect user interests:
     Collect keywords from wefollow
     Collect keywords from yahoo
     Merge into one ontology --> In which file is this done?
-    Manual filtering according to criteria described in diss
+    Manual filtering according to criteria described in dissertation document
     OUTPUT: is a list of keywords that represent user interests
 
 Seed user collection:
+    lib/tasks/collect_communities.rake
     INPUT: List of Keywords
     For each user interest keyword collect 100 users from wefollow that are listed for this keyword
     OUTPUT: 100 Persons in Database
     
 List collection
+    lib/tasks/collect_communities.rake
     INPUT: 100 Seed users
     For each of those 100 users collect all the lists that they are listed on.    
     For each of those lists only keep those that match the keyword    
     OUTPUT: x Lists in Database matching a certain keyword
 
 Sorted members creation
+    lib/tasks/collect_communities.rake
     INPUT: Lists matching a keyword x
     From the lists that count how often a member is counted on the lists for this keyword
     OUTPUT: data/keyword_sorted_members.csv
 
 Check Collected Lists
-    check_lists.rb #checks collected lists
-    Only keep those keywords that output lists that contain enough members and show a typical power law distribution
+    TODO: write file that automates this process
+    manual step
+    Only keep those keywords that output lists that contain enough members
+    Only keep those lists that show a typical power law distribution
     
 Keyword-merge-Procedure
+    dump_partitions_from_lists_only.rb
     INPUT1: data/keyword_sorted_members.csv
     INPUT2: config/blacklist.csv # A file containing Twitter users that cannot be found on Twitter
     For each keyword unite partitions that have a high overlap of members by merging those keywords that have an overlap of x percent
     OUTPUT: In memory hash of united keywords and members
     
 Re-Rank-procedure
+    dump_partitions_from_lists_only.rb
     INPUT: In memory hash of united keywords and members
     For each keyword check if the member is listed amongh other keywords with a lower rank. If this is the case move this member to the other keyword.
     The output are partitions of the network that do not have overlapping group membership
@@ -42,8 +49,8 @@ Re-Rank-procedure
     
 Check Final Paritions
     find_collection_errors.rb
-    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv
     For each member check if this person actually exists in database, and if the tweets and retweets have been collected.
+    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv    
     OUTPUT1: data/missing_members.csv # A list of missing members
     OUTPUT2: data/missing_feeds.csv # A list of existing members with no feeds
     OUTPUT3: data/blacklist.csv # A list of members that could not be found
@@ -51,16 +58,25 @@ Check Final Paritions
     
 Fix final Partitions
     fix_collection_errors.rb Collects the missing members, their tweets and retweets
+    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv    
     --> Repeat check final partitions after this step
     
 Additional Checks
-    check_persons.rb # checks details of each person
+    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv
+    check_persons.rb # outputs details of each person
+    OUPUT: results/stats/person_stats.csv
     check_communities.rb #checks all communities
-    check_lists.rb #checks collected lists
+    OUPUT: results/stats/community_stats.csv    
+    check_lists.rb #checks collected lists and output nice graphs showing voting distribution
+    OUPUT: results/stats/list_stats.csv
     
 Dump Networks
-    dump_aggregated_network.rb
+    dump_networks.rb    
     Unites the persons in one big project and dumps the FF/AT/RT Network to disk as an edgelistfile.
+    INPUT: data/final_partition_p_{SIZE_OF_GROUP}{SIZE_OF_CONSIDERED_PLACES_IN_SORTED_LIST}{THRESHOLD}.csv
+    OUTPUT1: data/networks/{Project_id}_FF.edgelist - The network containing the friends and follower ties
+    OUTPUT2: data/networks/{Project_id}_AT.edgelist - The network containing the @-interactions between people
+    OUTPUT3: data/networks/{Project_id}_RT.edgelist - The network containing the retweets between people
     
 Check Networks
     check_networks.py
