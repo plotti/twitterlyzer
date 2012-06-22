@@ -81,6 +81,15 @@ rake sunspot:solr:start
 ./script/server
 </code></pre>
 
+h3. Dumping the DB and restoring it
+* In order to exchange your results it contains a rake task that dumps the existing DB into /dump
+* It uses the dump plugin for Rails 2.3 https://github.com/toy/dump
+* There is a small example db in dump containing 57 persons in one project and ~ 100K Tweets inc. Retweets
+* You can use it to experiment on the data
+<pre><code>
+rake dump
+rake dump:restore # to restore a db
+</code></pre>
 
 h2. FEATURES
 
