@@ -368,7 +368,7 @@ class Project < ActiveRecord::Base
 		puts "Working on person #{person.username}"
   		search = FeedEntry.search do 
   			fulltext "#{person.twitter_id}"
-  			paginate :page => 1, :per_page => 10000
+  			paginate :page => 1, :per_page => 1000000
   		end
   		search.results.each do |result|
   			if users.keys.include? result.person_id
@@ -436,9 +436,9 @@ class Project < ActiveRecord::Base
     usernames = persons.collect{|p| p.username}
     i = 0
     persons.each do |person|
-      i += 1
-      puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections.")          
-      person.feed_entries.each do |tweet|
+      t1 = Time.now      
+      i += 1      
+      person.feed_entries.each do |tweet|        
         #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
           if tweet.text.include?("@" + tmp_user + " ") && !tweet.text.include?("RT")
@@ -455,9 +455,11 @@ class Project < ActiveRecord::Base
                 values << [person.username,tmp_user,1]  
               end             
             end
-          end                  
+          end
         end
-      end      
+      end
+      t2 = Time.now    
+      puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections. Time per person: #{t2- t1}")          
     end
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
@@ -485,7 +487,7 @@ class Project < ActiveRecord::Base
       search = FeedEntry.search do        
         without(:person_id,person.id) # No self referencing
         fulltext "@#{person.username}" #Find those Feeds that mention this person
-	paginate :page => 1, :per_page => 10000 #Make sure we dont paginate	
+	paginate :page => 1, :per_page => 1000000 #Make sure we dont paginate	
       end
       j = 0
       search.results.each do |result|
@@ -497,7 +499,7 @@ class Project < ActiveRecord::Base
         end
       end
       t2 = Time.now      
-      puts "Person #{i}. Time per person: #{t2- t1}. Total pages #{search.results.total_pages}. Total results #{search.total}. Filtered: #{j}"
+      puts "Person #{i} #{person.username}. Time per person: #{t2- t1}. Total pages #{search.results.total_pages}. Total results #{search.total}. Filtered: #{j}"
     end
     #Aggregate 
     hash = values.group_by { |first, second, third| [first,second] }    
@@ -603,7 +605,7 @@ class Project < ActiveRecord::Base
   end
   
   def dump_AT_edgelist
-    net = self.find_at_connections_fastest
+    net = self.find_solr_at_connections
     File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_AT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"
@@ -612,7 +614,7 @@ class Project < ActiveRecord::Base
   end
   
   def dump_RT_edgelist
-    net = self.find_all_retweet_connections
+    net = self.find_solr_rt_connections
     File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_RT.edgelist", "w+") do |file|
       net.each do |row|
         file.puts "#{row[0]} #{row[1]} #{row[2]}"

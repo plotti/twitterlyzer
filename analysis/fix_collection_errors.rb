@@ -23,7 +23,7 @@ def wait_for_jobs(jobname)
       continue = false
     end
     puts "Remaining API hits: #{Project.get_remaining_hits}. Waiting for #{found_pending_jobs} #{jobname} jobs to finish..."
-    sleep(60)
+    sleep(10)
   end
 end
 
