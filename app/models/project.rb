@@ -359,13 +359,16 @@ class Project < ActiveRecord::Base
   # A solr solution based on the index on feedentries which is mandatory
   # See feedentry model for solr fields
   def find_solr_rt_connections
+	outfile = CSV.open("#{RAILS_ROOT}/analysis/data/rt_connections.csv", "wb")
 	users = {}
 	persons.each do |person|
           users[person.id] = person.username
         end
   	values = []
+  	i= 0
   	persons.each do |person|
-		puts "Working on person #{person.username}"
+                i += 1
+		t1 = Time.now
   		search = FeedEntry.search do 
   			fulltext "#{person.twitter_id}"
   			paginate :page => 1, :per_page => 1000000
@@ -373,11 +376,15 @@ class Project < ActiveRecord::Base
   		search.results.each do |result|
   			if users.keys.include? result.person_id
   				values << [person.username, users[result.person_id], 1]
+ 				outfile<< [person.username, users[result.person_id], result.id, result.text]
   			end
   		end
+  		t2 = Time.now
+                puts("Analyzing #{i} #{person.username} for retweet connections. Time per person: #{t2- t1}. Results total: #{search.total}")          
   	end
+  	outfile.close
         hash = values.group_by { |first, second, third| [first,second] }
-        hash.map{|k,v| [k,v.count].flatten}
+        hash.map{|k,v| [k,v.count].flatten}        
   end
 
   #For  a given project
@@ -469,12 +476,12 @@ class Project < ActiveRecord::Base
   # Looks through the people contained in a project
   # and for each person it goes through its tweets and looks if that person
   # is mentioned in the project.
-  # An @ Edge is when:
-  # 1. It is not retweeted
-  # 2. It does not contain "RT"
-  # 3. The person does not reference himself in his own tweets
+  # An @ Edge is when:  
+  # It does not contain "RT"
+  # The person does not reference himself in his own tweets
   # Tested in project spec
   def find_solr_at_connections
+    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/at_connections.csv", "wb")
     users = {}    
     persons.each do |person|        
 	users[person.id] = person.username
@@ -485,22 +492,25 @@ class Project < ActiveRecord::Base
       i += 1
       t1 = Time.now
       search = FeedEntry.search do        
+        # with(:person_id,users.keys) doesn't work if there are more than 5k elements in that array
         without(:person_id,person.id) # No self referencing
-        fulltext "@#{person.username}" #Find those Feeds that mention this person
+        fulltext "@#{person.username} -RT" #Find those Feeds that mention this person
 	paginate :page => 1, :per_page => 1000000 #Make sure we dont paginate	
       end
       j = 0
       search.results.each do |result|
         if users.keys.include?(result.person_id) && result.person_id != person.id # No self @
-          if result.retweet_ids == [] && !result.text.include?("RT") && result.text.include?("@#{person.username} ")
-            j += 1
-            values << [users[result.person_id], person.username, 1]
-          end
+          # I originally assumed that result.retweet_ids == [] but this interaction is still valid in its original form
+          # !result.text.include?("RT")  is not a good way of checking see above (e.g. "ART".inlcude?"RT" is true)          
+          j += 1
+          values << [users[result.person_id], person.username, 1]
+          outfile<< [users[result.person_id], person.username, result.id, result.text, result.retweet_ids.count]
         end
       end
       t2 = Time.now      
       puts "Person #{i} #{person.username}. Time per person: #{t2- t1}. Total pages #{search.results.total_pages}. Total results #{search.total}. Filtered: #{j}"
     end
+    outfile.close
     #Aggregate 
     hash = values.group_by { |first, second, third| [first,second] }    
     hash.map{|k,v| [k,v.count].flatten}    
@@ -597,28 +607,40 @@ class Project < ActiveRecord::Base
   
   def dump_FF_edgelist
     net = self.find_all_connections
-    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_FF.edgelist", "w+") do |file|
-      net.each do |row|
-        file.puts "#{row[0]} #{row[1]} 1" # Strength is always 1 in FF networks
+    begin
+      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_FF.edgelist", "w+") do |file|
+        net.each do |row|
+          file.puts "#{row[0]} #{row[1]} 1" # Strength is always 1 in FF networks
+        end
       end
-    end   
+    rescue
+      puts "Got no network"
+    end
   end
   
   def dump_AT_edgelist
     net = self.find_solr_at_connections
-    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_AT.edgelist", "w+") do |file|
-      net.each do |row|
-        file.puts "#{row[0]} #{row[1]} #{row[2]}"
+    begin
+      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_AT.edgelist", "w+") do |file|
+        net.each do |row|
+          file.puts "#{row[0]} #{row[1]} #{row[2]}"
+        end
       end
-    end        
+    rescue
+      puts "Got no network"
+    end    
   end
   
   def dump_RT_edgelist
     net = self.find_solr_rt_connections
-    File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_RT.edgelist", "w+") do |file|
-      net.each do |row|
-        file.puts "#{row[0]} #{row[1]} #{row[2]}"
+    begin
+      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_RT.edgelist", "w+") do |file|
+        net.each do |row|
+          file.puts "#{row[0]} #{row[1]} #{row[2]}"
+        end
       end
+    rescue
+      puts "Got no network"
     end    
   end
   

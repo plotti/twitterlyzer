@@ -110,7 +110,7 @@ AdamBien,java,8,1
 OpenJDK,java,9,1
 agoncal,java,10,1
 springrod,java,11,1
-springsource,java,12,1
+SpringSource,java,12,1
 mreinhold,java,13,1
 arungupta,java,14,1
 mraible,java,15,1
@@ -1224,7 +1224,7 @@ StarwoodBuzz,hospitality,11,1
 hotelinteractiv,hospitality,12,1
 OmniHotels,hospitality,13,1
 hospitality_law,hospitality,14,2
-fairmonthotels,hospitality,15,1
+FairmontHotels,hospitality,15,1
 HyattConcierge,hospitality,16,1
 barbdelollis,hospitality,18,1
 FourSeasons,hospitality,19,1
@@ -1271,7 +1271,7 @@ HyattPR,hospitality,61,1
 Hospitality101,hospitality,62,2
 RenHotels,hospitality,63,1
 Hotelierportal,hospitality,65,1
-mgmgrand,hospitality,66,1
+MGMGrand,hospitality,66,1
 NRNonline,hospitality,68,2
 dcraig,hospitality,69,1
 Ianrlarmour,hospitality,70,1
@@ -1400,7 +1400,7 @@ euskir,jazz,86,1
 Jazz_Festival,jazz,87,1
 canadianjazz,jazz,88,1
 mattwilsonjazz,jazz,89,1
-wbgo,jazz,90,1
+WBGO,jazz,90,1
 ToddJazz,jazz,91,1
 JazzMusicFan,jazz,92,1
 mdonline,jazz,93,1
@@ -2489,7 +2489,7 @@ harrymccracken,tech,88,1
 SAI,tech,89,2
 gigaom,tech,92,2
 Office,tech,93,1
-HootSuite,tech,95,2
+hootsuite,tech,95,2
 ScienceChannel,tech,98,1
 LanceUlanoff,tech,100,1
 Yahoo,tech,101,1
@@ -3189,7 +3189,7 @@ terranovajoe,trading,66,1
 HoldBrosCapital,trading,67,1
 GuyAdami,trading,68,1
 szaman,trading,69,1
-johnwelshtrades,trading,70,1
+Johnwelshtrades,trading,70,1
 Street_Insider,trading,73,1
 optionsizzle,trading,74,1
 tradingpoints,trading,75,1
@@ -4364,7 +4364,7 @@ vinography,wine,22,1
 DebraMeiburgMW,wine,23,1
 1WineDude,wine,24,1
 wine90,wine,25,1
-StSupery,wine,27,1
+stsupery,wine,27,1
 Teusnerwine,wine,28,1
 TishWine,wine,29,1
 KevinZraly,wine,30,1
@@ -6336,7 +6336,7 @@ sergeysus,photography,75,1
 RodHarlan,photography,77,1
 nikonstuff,photography,78,1
 FlakPhoto,photography,79,1
-creativelive,photography,80,1
+creativeLIVE,photography,80,1
 TelegraphPics,photography,81,1
 joeyldotcom,photography,82,1
 TheBigKlosowski,photography,83,1
@@ -7657,7 +7657,7 @@ trailblogs,outdoors_hiking,83,1
 simplespirit,outdoors_hiking,84,1
 PhilOutdoors,outdoors_hiking,85,1
 hikebiketravel,outdoors_hiking,86,1
-MyHike,outdoors_hiking,87,1
+myhike,outdoors_hiking,87,1
 Lighthiker,outdoors_hiking,88,1
 oscHIKING,outdoors_hiking,89,1
 outboundfamily,outdoors_hiking,90,1
@@ -7852,7 +7852,7 @@ sportsguy33,basketball,77,3
 Bucks,basketball,78,1
 jadande,basketball,79,1
 SashaVujacic,basketball,80,1
-Bobcats,basketball,81,1
+bobcats,basketball,81,1
 Matt_Barnes22,basketball,82,1
 MNTimberwolves,basketball,83,1
 RealJayWilliams,basketball,84,1
@@ -7863,13 +7863,13 @@ MagicJohnson,basketball,88,1
 WashWizards,basketball,89,1
 UKCoachCalipari,basketball,90,1
 memgrizz,basketball,91,1
-raptors,basketball,92,1
+Raptors,basketball,92,1
 rickyrubio9,basketball,93,1
 StarburyMarbury,basketball,94,1
 TyLawson3,basketball,95,1
 denvernuggets,basketball,96,1
 stephenasmith,basketball,97,1
-Utah_Jazz,basketball,98,1
+utah_jazz,basketball,98,1
 Pacers,basketball,99,1
 GregAnthony50,basketball,100,1
 rudy5fernandez,basketball,101,1
@@ -7937,7 +7937,6 @@ sustainablemag,sustainability_ecology,73,1
 NRDC,sustainability_ecology,74,3
 SustainableComm,sustainability_ecology,75,1
 PBCons,sustainability_ecology,76,1
-usgbc,sustainability_ecology,77,1
 WiserEarth,sustainability_ecology,78,1
 chelseagreen,sustainability_ecology,79,2
 maxgladwell,sustainability_ecology,80,1
@@ -7974,7 +7973,7 @@ jamesfarrar,sustainability_ecology,119,1
 RnfrstAlliance,sustainability_ecology,120,1
 sustainableSAP,sustainability_ecology,122,1
 SocialEarth,sustainability_ecology,123,1
-UNEPandYou,sustainability_ecology,124,1
+unepandyou,sustainability_ecology,124,1
 greenoptions,sustainability_ecology,125,1
 jan_morgan,sustainability_ecology,126,1
 Homeschoolounge,homeschool_school,1,1
@@ -9432,7 +9431,7 @@ dartmouth,college,46,1
 CollegeGrazing,college,47,1
 winscholarships,college,48,1
 Ivan_Maisel,college,49,1
-Cornell_Univ,college,50,2
+cornell_univ,college,50,2
 CollegeGameDay,college,51,1
 Big12Conference,college,52,1
 ESPNHomeCourt,college,53,1
@@ -10444,7 +10443,7 @@ RuthieGledhill,religion,42,1
 RFreedomUSA,religion,43,1
 iwritereligion,religion,44,1
 houstonbelief,religion,45,1
-catholicspirit,religion,46,1
+CatholicSpirit,religion,46,1
 KtBuddha,religion,47,1
 godgrrl,religion,48,1
 RECO_Exchanges,religion,49,1
@@ -10470,7 +10469,7 @@ USCCB,religion,70,1
 interfaithing,religion,72,1
 baptistpress,religion,73,1
 catholictide,religion,74,1
-RELEVANTmag,religion,75,1
+Relevantmag,religion,75,1
 BibleAlsoSays,religion,76,1
 cnalive,religion,77,1
 faithandworks,religion,78,1
@@ -10598,7 +10597,7 @@ ATWOnline,airlines_aviation,93,1
 CopaAirlines,airlines_aviation,94,1
 eurocontrol,airlines_aviation,95,1
 AirTran,airlines_aviation,96,1
-Aerosvit,airlines_aviation,97,1
+aerosvit,airlines_aviation,97,1
 _Aeroflot_,airlines_aviation,98,1
 easyJetCare,airlines_aviation,99,1
 airwaysmagazine,airlines_aviation,100,1
@@ -10701,7 +10700,7 @@ SweetEdit,construction,104,1
 CT_mag,construction,105,1
 GreenBuildNews,construction,106,1
 ContractJournal,construction,107,1
-TXConstruction,construction,108,1
+txconstruction,construction,108,1
 BIASC,construction,109,1
 GoetzFitz,construction,110,1
 PRwise,publicrelations,1,2
@@ -13061,7 +13060,7 @@ insideline_com,automotive,31,1
 RoadandTrack,automotive,32,1
 Autosinsider,automotive,33,1
 ScottMonty,automotive,34,2
-KickingTires,automotive,35,1
+kickingtires,automotive,35,1
 NADAguides,automotive,36,1
 RalphPaglia,automotive,37,1
 driverside,automotive,38,1
@@ -13116,7 +13115,7 @@ AuctionDirect,automotive,86,1
 WindingRoadMag,automotive,87,1
 autocar,automotive,88,1
 AllWorldCars,automotive,89,1
-LATimesautos,automotive,90,1
+latimesautos,automotive,90,1
 AutoCritic,automotive,91,1
 TheAutoGuide,automotive,92,1
 CNETCarTech,automotive,93,1
@@ -13221,7 +13220,7 @@ Herring1967,comedy_funny,106,1
 natashaleggero,comedy_funny,108,1
 mrchrisaddison,comedy_funny,109,1
 RealMattLucas,comedy_funny,110,1
-edwardhelms,comedy_funny,115,1
+EdwardHelmS,comedy_funny,115,1
 morgan_murphy,comedy_funny,117,1
 wossy,comedy_funny,119,1
 ChelseaVPeretti,comedy_funny,121,1
@@ -13442,7 +13441,6 @@ bittman,food_chef,8,3
 bflay,food_chef,9,4
 GDeLaurentiis,food_chef,11,4
 epicurious,food_chef,12,4
-LATimesfood,food_chef,13,1
 bonappetitmag,food_chef,14,1
 fandw,food_chef,15,4
 ruthreichl,food_chef,16,1
@@ -13598,7 +13596,7 @@ doubledaypub,publishing_literature,73,1
 FaberBooks,publishing_literature,74,1
 HuffPostBooks,publishing_literature,75,1
 PublishingSpy,publishing_literature,77,1
-Borders,publishing_literature,78,1
+borders,publishing_literature,78,1
 KirkusReviews,publishing_literature,79,1
 ElectricLit,publishing_literature,81,1
 HarperCollins,publishing_literature,83,1
@@ -14699,7 +14697,7 @@ MScottShay,realestate,53,1
 JoshCantwell,realestate,54,1
 RealEstateHQ,realestate,55,1
 rjsellscheap,realestate,56,1
-Century21,realestate,57,1
+CENTURY21,realestate,57,1
 BHGRealEstate,realestate,58,1
 EagleStarNet,realestate,59,1
 JasonLucchesi,realestate,60,1
@@ -15527,7 +15525,7 @@ runnersworlduk,running,74,1
 nyrrmaryruns,running,75,1
 RunnerDude_,running,76,1
 lolojones,running,77,1
-sirisaac,running,78,1
+SirIsaac,running,78,1
 karagoucher,running,79,1
 coachjayjohnson,running,80,1
 Canadian_RUNner,running,81,1
@@ -15644,7 +15642,7 @@ lkaminoff,yoga,93,1
 bepresentinc,yoga,94,1
 JivamuktiNYC,yoga,95,1
 YogaLifeStyIe,yoga,96,1
-MCYogi108,yoga,97,1
+MCYOGI108,yoga,97,1
 OFFTHEMATYOGA,yoga,98,1
 jodim,yoga,99,1
 YoginiYates,yoga,100,1

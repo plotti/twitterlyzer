@@ -1,0 +1,543 @@
+*network branding_gambling
+*vertices 202
+1 "MarketLikeAChik" 0.0 0.0 ellipse
+2 "brandbison" 0.0 0.0 ellipse
+3 "juliasmola" 0.0 0.0 ellipse
+4 "rockstarbrands" 0.0 0.0 ellipse
+5 "martinjbishop" 0.0 0.0 ellipse
+6 "Brisnet" 0.0 0.0 ellipse
+7 "Turulillo" 0.0 0.0 ellipse
+8 "BetinternetLive" 0.0 0.0 ellipse
+9 "Straguzzi" 0.0 0.0 ellipse
+10 "vernonsnate" 0.0 0.0 ellipse
+11 "DanSchawbel" 0.0 0.0 ellipse
+12 "DocsSports" 0.0 0.0 ellipse
+13 "BettorFan" 0.0 0.0 ellipse
+14 "BetfairCanada" 0.0 0.0 ellipse
+15 "brandingdiva" 0.0 0.0 ellipse
+16 "GamblingComp" 0.0 0.0 ellipse
+17 "CFOCoach" 0.0 0.0 ellipse
+18 "pfake" 0.0 0.0 ellipse
+19 "insideigaming" 0.0 0.0 ellipse
+20 "Polledemaagt" 0.0 0.0 ellipse
+21 "casino" 0.0 0.0 ellipse
+22 "ChareeKlimek" 0.0 0.0 ellipse
+23 "antoifox" 0.0 0.0 ellipse
+24 "FootballJesus" 0.0 0.0 ellipse
+25 "RickBakas" 0.0 0.0 ellipse
+26 "SportsBetNation" 0.0 0.0 ellipse
+27 "thebrandbuilder" 0.0 0.0 ellipse
+28 "BillVick" 0.0 0.0 ellipse
+29 "evoklarry" 0.0 0.0 ellipse
+30 "TheSportsMarket" 0.0 0.0 ellipse
+31 "BMAColorado" 0.0 0.0 ellipse
+32 "teddy_covers" 0.0 0.0 ellipse
+33 "AccuScore" 0.0 0.0 ellipse
+34 "StealinHome" 0.0 0.0 ellipse
+35 "fionahumberston" 0.0 0.0 ellipse
+36 "pokerworks" 0.0 0.0 ellipse
+37 "chasl" 0.0 0.0 ellipse
+38 "kauf" 0.0 0.0 ellipse
+39 "keithferrazzi" 0.0 0.0 ellipse
+40 "blancheagency" 0.0 0.0 ellipse
+41 "davequintana" 0.0 0.0 ellipse
+42 "thebrandingfarm" 0.0 0.0 ellipse
+43 "pramitjnathan" 0.0 0.0 ellipse
+44 "GamingAffiliate" 0.0 0.0 ellipse
+45 "jefsmack" 0.0 0.0 ellipse
+46 "Sportsbook_com" 0.0 0.0 ellipse
+47 "mobilespreads" 0.0 0.0 ellipse
+48 "phillygodfather" 0.0 0.0 ellipse
+49 "AmyJoMartin" 0.0 0.0 ellipse
+50 "NYJetLife" 0.0 0.0 ellipse
+51 "Narrowthefield" 0.0 0.0 ellipse
+52 "PuroMarketing" 0.0 0.0 ellipse
+53 "puffaddering" 0.0 0.0 ellipse
+54 "SterlingBrands" 0.0 0.0 ellipse
+55 "JESS3" 0.0 0.0 ellipse
+56 "FreeMoneyCasino" 0.0 0.0 ellipse
+57 "MariusUrsache" 0.0 0.0 ellipse
+58 "sportspicks" 0.0 0.0 ellipse
+59 "Playoon" 0.0 0.0 ellipse
+60 "jeffreypjacobs" 0.0 0.0 ellipse
+61 "gracesmith" 0.0 0.0 ellipse
+62 "AnneFitzgerald" 0.0 0.0 ellipse
+63 "Casino_Links" 0.0 0.0 ellipse
+64 "mironescu" 0.0 0.0 ellipse
+65 "JamieCrager" 0.0 0.0 ellipse
+66 "AntHillMktg" 0.0 0.0 ellipse
+67 "CristianSaracco" 0.0 0.0 ellipse
+68 "landor_dot_com" 0.0 0.0 ellipse
+69 "beyondthebets" 0.0 0.0 ellipse
+70 "RaffleMansion" 0.0 0.0 ellipse
+71 "Bodog" 0.0 0.0 ellipse
+72 "Brandkarma" 0.0 0.0 ellipse
+73 "colindrummond" 0.0 0.0 ellipse
+74 "thesportswinner" 0.0 0.0 ellipse
+75 "SetUpMyBrand" 0.0 0.0 ellipse
+76 "wedoitallvegas" 0.0 0.0 ellipse
+77 "PeteHall" 0.0 0.0 ellipse
+78 "RASPicks" 0.0 0.0 ellipse
+79 "DarrenWMoody" 0.0 0.0 ellipse
+80 "SportsInsights" 0.0 0.0 ellipse
+81 "CocoaCasino" 0.0 0.0 ellipse
+82 "pokerpulse" 0.0 0.0 ellipse
+83 "tlloyd25" 0.0 0.0 ellipse
+84 "arronlock" 0.0 0.0 ellipse
+85 "CarolinaGambler" 0.0 0.0 ellipse
+86 "thepokerusablog" 0.0 0.0 ellipse
+87 "Brandyourself" 0.0 0.0 ellipse
+88 "RJinVegas" 0.0 0.0 ellipse
+89 "betsmartmedia" 0.0 0.0 ellipse
+90 "joegreenz" 0.0 0.0 ellipse
+91 "AddisCreson" 0.0 0.0 ellipse
+92 "peopledesign" 0.0 0.0 ellipse
+93 "brant_kelsey" 0.0 0.0 ellipse
+94 "PLBetExchange" 0.0 0.0 ellipse
+95 "oggs" 0.0 0.0 ellipse
+96 "bingobase" 0.0 0.0 ellipse
+97 "GamblingMag" 0.0 0.0 ellipse
+98 "sportsmemo" 0.0 0.0 ellipse
+99 "pamdyer" 0.0 0.0 ellipse
+100 "BrandOneCulture" 0.0 0.0 ellipse
+101 "SpiroDavis" 0.0 0.0 ellipse
+102 "db" 0.0 0.0 ellipse
+103 "USCasinoFinder" 0.0 0.0 ellipse
+104 "mobileodds" 0.0 0.0 ellipse
+105 "Betfair" 0.0 0.0 ellipse
+106 "damonroberts" 0.0 0.0 ellipse
+107 "upwardaction" 0.0 0.0 ellipse
+108 "servantofchaos" 0.0 0.0 ellipse
+109 "C3Brandworks" 0.0 0.0 ellipse
+110 "TrustBranding" 0.0 0.0 ellipse
+111 "ibranding" 0.0 0.0 ellipse
+112 "JimProGambler" 0.0 0.0 ellipse
+113 "sbwalsh" 0.0 0.0 ellipse
+114 "Gameon_Casino" 0.0 0.0 ellipse
+115 "lucasmelb" 0.0 0.0 ellipse
+116 "abcdesign_" 0.0 0.0 ellipse
+117 "betfirmsjack" 0.0 0.0 ellipse
+118 "OKCreative" 0.0 0.0 ellipse
+119 "cubedweller" 0.0 0.0 ellipse
+120 "LogoMotives" 0.0 0.0 ellipse
+121 "louislouna" 0.0 0.0 ellipse
+122 "zyngapoker" 0.0 0.0 ellipse
+123 "darbydarnit" 0.0 0.0 ellipse
+124 "MarketYourself" 0.0 0.0 ellipse
+125 "1gamblingcasino" 0.0 0.0 ellipse
+126 "williger" 0.0 0.0 ellipse
+127 "BridgetAyers" 0.0 0.0 ellipse
+128 "KathyHeasley" 0.0 0.0 ellipse
+129 "movingbrands" 0.0 0.0 ellipse
+130 "omalleypicks" 0.0 0.0 ellipse
+131 "smtmsports" 0.0 0.0 ellipse
+132 "point_spreads" 0.0 0.0 ellipse
+133 "Devoted2HR" 0.0 0.0 ellipse
+134 "Gameon_Bingo" 0.0 0.0 ellipse
+135 "TheDavid_A" 0.0 0.0 ellipse
+136 "stevejankowski" 0.0 0.0 ellipse
+137 "CoversSports" 0.0 0.0 ellipse
+138 "UGSportsconn" 0.0 0.0 ellipse
+139 "MagicSauceMedia" 0.0 0.0 ellipse
+140 "markseif" 0.0 0.0 ellipse
+141 "aaronparkinson" 0.0 0.0 ellipse
+142 "goBookmaker" 0.0 0.0 ellipse
+143 "PeterArceo" 0.0 0.0 ellipse
+144 "TwtPOKERdotcom" 0.0 0.0 ellipse
+145 "PrismCasino" 0.0 0.0 ellipse
+146 "NealSchaffer" 0.0 0.0 ellipse
+147 "BeterZ" 0.0 0.0 ellipse
+148 "VegasTonyD" 0.0 0.0 ellipse
+149 "gambling" 0.0 0.0 ellipse
+150 "denverpokerdude" 0.0 0.0 ellipse
+151 "AndrewMueller" 0.0 0.0 ellipse
+152 "BrandPoliceNYC" 0.0 0.0 ellipse
+153 "ThinkBusiness" 0.0 0.0 ellipse
+154 "So_Money_Sports" 0.0 0.0 ellipse
+155 "jimantonopoulos" 0.0 0.0 ellipse
+156 "statmyles" 0.0 0.0 ellipse
+157 "PartyPoker" 0.0 0.0 ellipse
+158 "TheNUNUS" 0.0 0.0 ellipse
+159 "skybingo" 0.0 0.0 ellipse
+160 "MartinRoll" 0.0 0.0 ellipse
+161 "BrandingAgency" 0.0 0.0 ellipse
+162 "maryvandewiel" 0.0 0.0 ellipse
+163 "Betfinder" 0.0 0.0 ellipse
+164 "stefanliute" 0.0 0.0 ellipse
+165 "love2wager" 0.0 0.0 ellipse
+166 "adwrighty" 0.0 0.0 ellipse
+167 "freemoneypoker" 0.0 0.0 ellipse
+168 "atommedia" 0.0 0.0 ellipse
+169 "I_Nelson_Rose" 0.0 0.0 ellipse
+170 "pworthington" 0.0 0.0 ellipse
+171 "mywinningbets" 0.0 0.0 ellipse
+172 "Bad_Beat_Moth" 0.0 0.0 ellipse
+173 "G2GBET" 0.0 0.0 ellipse
+174 "brandbucket" 0.0 0.0 ellipse
+175 "bingoblog" 0.0 0.0 ellipse
+176 "PhyllisShabad" 0.0 0.0 ellipse
+177 "gamblinghappy" 0.0 0.0 ellipse
+178 "GamingCounsel" 0.0 0.0 ellipse
+179 "WynnLasVegas" 0.0 0.0 ellipse
+180 "RobertPfeifer" 0.0 0.0 ellipse
+181 "SmokePoker" 0.0 0.0 ellipse
+182 "DenVan" 0.0 0.0 ellipse
+183 "robertomazzoni" 0.0 0.0 ellipse
+184 "GraemeCrossley" 0.0 0.0 ellipse
+185 "VegasRunner" 0.0 0.0 ellipse
+186 "chadmillman" 0.0 0.0 ellipse
+187 "BrandRanter" 0.0 0.0 ellipse
+188 "miketrap" 0.0 0.0 ellipse
+189 "ThePokerWord" 0.0 0.0 ellipse
+190 "Gaming_Alerts" 0.0 0.0 ellipse
+191 "weliketogamble" 0.0 0.0 ellipse
+192 "ToddFuhrman" 0.0 0.0 ellipse
+193 "AustralianBrand" 0.0 0.0 ellipse
+194 "socialmediamstr" 0.0 0.0 ellipse
+195 "vegasbedwards" 0.0 0.0 ellipse
+196 "brandexpression" 0.0 0.0 ellipse
+197 "casinotoday" 0.0 0.0 ellipse
+198 "beatingthebook" 0.0 0.0 ellipse
+199 "jeremywaite" 0.0 0.0 ellipse
+200 "ubergio" 0.0 0.0 ellipse
+201 "acjandler" 0.0 0.0 ellipse
+202 "joanjimenez" 0.0 0.0 ellipse
+*arcs
+1 27 5.0
+1 11 3.0
+2 119 1.0
+3 43 1.0
+3 196 7.0
+4 38 1.0
+4 196 3.0
+4 11 1.0
+5 68 1.0
+5 27 1.0
+5 196 6.0
+6 179 1.0
+6 185 1.0
+9 88 1.0
+9 24 1.0
+9 185 12.0
+9 148 4.0
+11 108 1.0
+11 87 1.0
+13 117 1.0
+13 24 1.0
+15 65 1.0
+16 178 16.0
+19 178 1.0
+22 27 3.0
+22 133 7.0
+22 28 1.0
+24 88 11.0
+24 192 1.0
+24 69 1.0
+24 130 1.0
+24 32 1.0
+24 137 1.0
+25 199 1.0
+26 171 1.0
+26 131 1.0
+26 117 1.0
+26 74 1.0
+26 104 1.0
+26 185 1.0
+26 34 1.0
+26 138 1.0
+26 24 3.0
+27 108 1.0
+27 151 20.0
+27 102 10.0
+27 60 16.0
+27 123 1.0
+28 29 1.0
+28 11 1.0
+29 150 1.0
+30 88 2.0
+30 192 34.0
+30 137 5.0
+30 195 1.0
+30 154 17.0
+30 186 1.0
+30 48 2.0
+30 198 7.0
+30 69 39.0
+31 102 1.0
+32 88 1.0
+32 98 38.0
+32 192 4.0
+32 137 1.0
+32 58 5.0
+32 186 4.0
+33 88 1.0
+34 88 3.0
+34 148 17.0
+34 130 30.0
+34 185 4.0
+34 186 1.0
+34 198 1.0
+34 24 11.0
+38 188 1.0
+38 4 1.0
+48 192 19.0
+48 69 21.0
+48 185 16.0
+48 154 20.0
+48 137 1.0
+48 156 1.0
+57 64 3.0
+57 164 1.0
+58 88 4.0
+58 98 1.0
+58 192 2.0
+58 195 2.0
+58 137 16.0
+58 32 3.0
+58 80 6.0
+58 154 9.0
+58 186 7.0
+58 69 24.0
+59 189 1.0
+59 150 1.0
+59 167 4.0
+60 182 2.0
+60 27 15.0
+64 68 1.0
+64 57 6.0
+64 90 1.0
+64 164 1.0
+65 146 1.0
+66 151 1.0
+66 93 1.0
+66 27 4.0
+66 120 1.0
+67 129 1.0
+67 42 2.0
+67 100 11.0
+67 4 2.0
+67 196 4.0
+67 68 1.0
+67 202 14.0
+69 88 14.0
+69 192 23.0
+69 137 16.0
+69 58 7.0
+69 32 1.0
+69 80 1.0
+69 185 4.0
+69 154 31.0
+69 186 1.0
+69 48 24.0
+69 198 4.0
+69 156 2.0
+71 69 1.0
+72 121 1.0
+72 22 1.0
+72 188 1.0
+73 196 1.0
+75 65 9.0
+75 179 1.0
+75 60 2.0
+75 126 1.0
+77 196 1.0
+78 192 8.0
+78 186 2.0
+78 30 3.0
+78 32 2.0
+78 137 5.0
+78 198 3.0
+78 69 19.0
+80 192 15.0
+80 186 5.0
+80 58 4.0
+80 185 2.0
+80 137 10.0
+80 69 1.0
+83 27 1.0
+83 188 1.0
+84 61 2.0
+88 69 33.0
+88 24 4.0
+88 192 22.0
+88 185 6.0
+88 186 1.0
+89 137 1.0
+93 27 3.0
+94 163 3.0
+94 97 2.0
+95 56 1.0
+97 71 1.0
+97 51 2.0
+98 186 1.0
+98 32 5.0
+99 65 9.0
+99 188 1.0
+100 160 2.0
+100 93 2.0
+102 27 10.0
+103 179 1.0
+103 143 2.0
+105 172 1.0
+105 51 1.0
+108 27 1.0
+110 183 1.0
+115 155 1.0
+117 69 2.0
+118 90 2.0
+120 54 1.0
+121 27 4.0
+121 100 3.0
+121 161 1.0
+121 67 1.0
+121 174 4.0
+121 196 1.0
+121 72 1.0
+122 157 1.0
+123 27 1.0
+128 67 3.0
+129 166 1.0
+130 46 1.0
+130 24 2.0
+130 148 1.0
+130 156 1.0
+131 24 5.0
+131 148 4.0
+133 22 34.0
+133 11 1.0
+135 27 3.0
+135 196 1.0
+135 75 1.0
+136 10 1.0
+138 104 1.0
+138 192 1.0
+138 150 2.0
+138 137 1.0
+140 178 1.0
+142 185 1.0
+144 62 1.0
+144 71 1.0
+144 140 1.0
+144 150 1.0
+146 65 1.0
+146 199 3.0
+146 87 2.0
+148 130 8.0
+148 131 4.0
+148 8 2.0
+148 9 4.0
+148 185 7.0
+148 34 9.0
+148 138 1.0
+148 198 4.0
+148 24 25.0
+151 182 2.0
+151 146 2.0
+151 27 31.0
+151 25 2.0
+154 69 51.0
+154 48 31.0
+154 192 28.0
+154 137 7.0
+154 156 18.0
+155 108 2.0
+155 115 2.0
+155 118 1.0
+156 192 34.0
+156 69 10.0
+156 58 1.0
+156 154 24.0
+156 137 9.0
+156 48 1.0
+160 187 13.0
+160 3 1.0
+160 100 3.0
+162 3 1.0
+162 182 2.0
+162 93 1.0
+162 196 9.0
+162 11 14.0
+162 87 1.0
+163 94 1.0
+163 97 1.0
+164 64 2.0
+164 57 1.0
+165 12 10.0
+165 33 9.0
+165 185 9.0
+165 137 15.0
+166 108 4.0
+166 129 1.0
+166 170 2.0
+166 196 4.0
+170 166 2.0
+171 24 22.0
+171 148 3.0
+172 105 2.0
+174 121 5.0
+174 102 1.0
+174 120 1.0
+174 87 1.0
+178 137 2.0
+178 16 4.0
+178 169 2.0
+179 25 2.0
+179 143 1.0
+180 102 1.0
+180 61 3.0
+182 151 4.0
+182 27 13.0
+182 60 4.0
+185 88 3.0
+185 192 6.0
+185 69 5.0
+185 154 2.0
+185 186 1.0
+185 48 11.0
+185 198 26.0
+186 137 1.0
+186 192 1.0
+186 32 2.0
+186 195 1.0
+187 182 1.0
+187 5 1.0
+187 160 15.0
+187 38 1.0
+187 4 1.0
+188 27 3.0
+188 83 2.0
+188 187 1.0
+188 164 2.0
+188 196 6.0
+192 105 1.0
+192 137 15.0
+192 185 3.0
+192 80 2.0
+192 154 24.0
+192 186 5.0
+192 48 9.0
+192 198 11.0
+192 156 6.0
+192 69 38.0
+194 102 1.0
+195 46 5.0
+195 186 1.0
+195 192 1.0
+196 27 1.0
+196 4 7.0
+196 182 1.0
+196 5 6.0
+196 67 1.0
+196 90 1.0
+196 166 1.0
+196 188 5.0
+198 192 15.0
+198 137 2.0
+198 30 6.0
+198 185 30.0
+198 46 1.0
+198 69 7.0
+198 156 1.0
+199 146 2.0
+199 25 1.0
+202 52 1.0

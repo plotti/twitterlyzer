@@ -1,0 +1,679 @@
+*network realestate_fishing
+*vertices 202
+1 "ines" 0.0 0.0 ellipse
+2 "huntingfishing" 0.0 0.0 ellipse
+3 "RETomato" 0.0 0.0 ellipse
+4 "ASusoeff" 0.0 0.0 ellipse
+5 "AndyKaufman" 0.0 0.0 ellipse
+6 "JasonLucchesi" 0.0 0.0 ellipse
+7 "KayakFishingMag" 0.0 0.0 ellipse
+8 "mayaREguru" 0.0 0.0 ellipse
+9 "simmsfishing" 0.0 0.0 ellipse
+10 "JoshCantwell" 0.0 0.0 ellipse
+11 "wpagent" 0.0 0.0 ellipse
+12 "rjsellscheap" 0.0 0.0 ellipse
+13 "RealEstate__" 0.0 0.0 ellipse
+14 "TroutUnlimited" 0.0 0.0 ellipse
+15 "fish_ladder" 0.0 0.0 ellipse
+16 "AwesomeFishing" 0.0 0.0 ellipse
+17 "Bigangler" 0.0 0.0 ellipse
+18 "OnLineFishermen" 0.0 0.0 ellipse
+19 "MarcoSantarelli" 0.0 0.0 ellipse
+20 "CaptJoeD" 0.0 0.0 ellipse
+21 "tcunderground" 0.0 0.0 ellipse
+22 "flyfishsage" 0.0 0.0 ellipse
+23 "gofishingnation" 0.0 0.0 ellipse
+24 "rosshair" 0.0 0.0 ellipse
+25 "BASS_nation" 0.0 0.0 ellipse
+26 "MScottShay" 0.0 0.0 ellipse
+27 "ReggieRPR" 0.0 0.0 ellipse
+28 "ThanMerrill" 0.0 0.0 ellipse
+29 "Swanepoel" 0.0 0.0 ellipse
+30 "bassmastermag" 0.0 0.0 ellipse
+31 "Moldychum" 0.0 0.0 ellipse
+32 "TackleStore" 0.0 0.0 ellipse
+33 "WSJRealEstate" 0.0 0.0 ellipse
+34 "getyourlinewet" 0.0 0.0 ellipse
+35 "FlyFishReporter" 0.0 0.0 ellipse
+36 "The_Fin" 0.0 0.0 ellipse
+37 "OrvisPodcast" 0.0 0.0 ellipse
+38 "Outdooress" 0.0 0.0 ellipse
+39 "Take_Me_Fishing" 0.0 0.0 ellipse
+40 "FishTwits" 0.0 0.0 ellipse
+41 "davidgoldstein" 0.0 0.0 ellipse
+42 "FlyFishPro" 0.0 0.0 ellipse
+43 "Johny_Fisherman" 0.0 0.0 ellipse
+44 "Real_Estate_123" 0.0 0.0 ellipse
+45 "REMarketingTips" 0.0 0.0 ellipse
+46 "erealestate_" 0.0 0.0 ellipse
+47 "propertytribe" 0.0 0.0 ellipse
+48 "proangler" 0.0 0.0 ellipse
+49 "shirley_wise" 0.0 0.0 ellipse
+50 "MSNRealEstate" 0.0 0.0 ellipse
+51 "fishingking80" 0.0 0.0 ellipse
+52 "NJfishing" 0.0 0.0 ellipse
+53 "OrvisFlyFishing" 0.0 0.0 ellipse
+54 "UltimateFishing" 0.0 0.0 ellipse
+55 "trulia" 0.0 0.0 ellipse
+56 "ProAnglers" 0.0 0.0 ellipse
+57 "katietarbox" 0.0 0.0 ellipse
+58 "swedal" 0.0 0.0 ellipse
+59 "InmanNews" 0.0 0.0 ellipse
+60 "propertychannel" 0.0 0.0 ellipse
+61 "drothamel" 0.0 0.0 ellipse
+62 "Chris_Smth" 0.0 0.0 ellipse
+63 "KWCareers" 0.0 0.0 ellipse
+64 "RussFilice" 0.0 0.0 ellipse
+65 "epicflyfishing" 0.0 0.0 ellipse
+66 "FishKeep" 0.0 0.0 ellipse
+67 "flyfishingtrout" 0.0 0.0 ellipse
+68 "CoachTomFerry" 0.0 0.0 ellipse
+69 "ReelReports" 0.0 0.0 ellipse
+70 "deneki" 0.0 0.0 ellipse
+71 "MontanaFlyFish" 0.0 0.0 ellipse
+72 "AndreaRealtor" 0.0 0.0 ellipse
+73 "MIrealestate" 0.0 0.0 ellipse
+74 "RIOProducts" 0.0 0.0 ellipse
+75 "411realty" 0.0 0.0 ellipse
+76 "MyBassLasso" 0.0 0.0 ellipse
+77 "nik_nik" 0.0 0.0 ellipse
+78 "Viciousfishing" 0.0 0.0 ellipse
+79 "SportFishingMag" 0.0 0.0 ellipse
+80 "somdfishing" 0.0 0.0 ellipse
+81 "BountyFishing" 0.0 0.0 ellipse
+82 "NAR_Research" 0.0 0.0 ellipse
+83 "HouseHitz" 0.0 0.0 ellipse
+84 "EagleStarNet" 0.0 0.0 ellipse
+85 "FactsofFishing" 0.0 0.0 ellipse
+86 "troutheadwaters" 0.0 0.0 ellipse
+87 "BassFishnTips" 0.0 0.0 ellipse
+88 "REALTORS" 0.0 0.0 ellipse
+89 "MontanaFlyCo" 0.0 0.0 ellipse
+90 "Frank_Cava" 0.0 0.0 ellipse
+91 "realtormag" 0.0 0.0 ellipse
+92 "FlySwinger" 0.0 0.0 ellipse
+93 "LadiesFishing" 0.0 0.0 ellipse
+94 "CMYates" 0.0 0.0 ellipse
+95 "mlsdonkey" 0.0 0.0 ellipse
+96 "ExpressSupport" 0.0 0.0 ellipse
+97 "mgaryhanson" 0.0 0.0 ellipse
+98 "Agentopolis" 0.0 0.0 ellipse
+99 "rose_realestate" 0.0 0.0 ellipse
+100 "ELITE_FISHING" 0.0 0.0 ellipse
+101 "gingerw" 0.0 0.0 ellipse
+102 "WFN" 0.0 0.0 ellipse
+103 "RealtorRyan" 0.0 0.0 ellipse
+104 "BHGRealEstate" 0.0 0.0 ellipse
+105 "FellowFishermen" 0.0 0.0 ellipse
+106 "GeraldSwindle" 0.0 0.0 ellipse
+107 "TomSadler" 0.0 0.0 ellipse
+108 "WendyAPatton" 0.0 0.0 ellipse
+109 "eRealEstateNet" 0.0 0.0 ellipse
+110 "Flygirl_Reba" 0.0 0.0 ellipse
+111 "TroutsInDenver" 0.0 0.0 ellipse
+112 "Eddie_Godshalk" 0.0 0.0 ellipse
+113 "TroutU" 0.0 0.0 ellipse
+114 "ProSportFishing" 0.0 0.0 ellipse
+115 "CENTURY21" 0.0 0.0 ellipse
+116 "ProfessionalOne" 0.0 0.0 ellipse
+117 "FethaStyx" 0.0 0.0 ellipse
+118 "BeHipUSA" 0.0 0.0 ellipse
+119 "rewebcoach" 0.0 0.0 ellipse
+120 "32fishing" 0.0 0.0 ellipse
+121 "flyfishmap" 0.0 0.0 ellipse
+122 "LegalRealEstate" 0.0 0.0 ellipse
+123 "hookflyfishing" 0.0 0.0 ellipse
+124 "seniorhousingfi" 0.0 0.0 ellipse
+125 "FishWithDan" 0.0 0.0 ellipse
+126 "AgentGenius" 0.0 0.0 ellipse
+127 "Louis_Batides" 0.0 0.0 ellipse
+128 "MikeMueller" 0.0 0.0 ellipse
+129 "Lennar" 0.0 0.0 ellipse
+130 "BigBassFishing" 0.0 0.0 ellipse
+131 "fishnut89" 0.0 0.0 ellipse
+132 "MattRaab" 0.0 0.0 ellipse
+133 "fishingmaven" 0.0 0.0 ellipse
+134 "DC_Short_Sales" 0.0 0.0 ellipse
+135 "the_fishinghole" 0.0 0.0 ellipse
+136 "BradAndersohn" 0.0 0.0 ellipse
+137 "housechick" 0.0 0.0 ellipse
+138 "realestatechick" 0.0 0.0 ellipse
+139 "Fishing_Network" 0.0 0.0 ellipse
+140 "RealEstateHQ" 0.0 0.0 ellipse
+141 "nathanjurewicz" 0.0 0.0 ellipse
+142 "BloodKnotMag" 0.0 0.0 ellipse
+143 "johnkunkle" 0.0 0.0 ellipse
+144 "Bass_Pro_Shops" 0.0 0.0 ellipse
+145 "simonwhite" 0.0 0.0 ellipse
+146 "PhxREguy" 0.0 0.0 ellipse
+147 "fishingbc" 0.0 0.0 ellipse
+148 "FishingMOZ" 0.0 0.0 ellipse
+149 "LelandFlyFish" 0.0 0.0 ellipse
+150 "FishingNetwork" 0.0 0.0 ellipse
+151 "TeegStouffer" 0.0 0.0 ellipse
+152 "FLWFishing" 0.0 0.0 ellipse
+153 "craighcollins" 0.0 0.0 ellipse
+154 "AGENTLabs" 0.0 0.0 ellipse
+155 "MidCurrent" 0.0 0.0 ellipse
+156 "Worldfishing" 0.0 0.0 ellipse
+157 "Vagabondangler" 0.0 0.0 ellipse
+158 "HousingReporter" 0.0 0.0 ellipse
+159 "StrikeKingLures" 0.0 0.0 ellipse
+160 "MichiganMoves" 0.0 0.0 ellipse
+161 "FLW_Magazine" 0.0 0.0 ellipse
+162 "Fish4Millions" 0.0 0.0 ellipse
+163 "zillow" 0.0 0.0 ellipse
+164 "comm_mortg" 0.0 0.0 ellipse
+165 "Wired2Fish" 0.0 0.0 ellipse
+166 "pesajian" 0.0 0.0 ellipse
+167 "DC_Fawcett" 0.0 0.0 ellipse
+168 "BassmasterReehm" 0.0 0.0 ellipse
+169 "aboutflyfishing" 0.0 0.0 ellipse
+170 "walidmrealtor" 0.0 0.0 ellipse
+171 "Westernfishing" 0.0 0.0 ellipse
+172 "drewmeyers" 0.0 0.0 ellipse
+173 "justgofishin" 0.0 0.0 ellipse
+174 "realtyflipper" 0.0 0.0 ellipse
+175 "FLNewHomes" 0.0 0.0 ellipse
+176 "RealEstate_Site" 0.0 0.0 ellipse
+177 "mylinedancer" 0.0 0.0 ellipse
+178 "whistlerflyfish" 0.0 0.0 ellipse
+179 "HawaiiRealty" 0.0 0.0 ellipse
+180 "TerranceDJones" 0.0 0.0 ellipse
+181 "kevincottrell" 0.0 0.0 ellipse
+182 "RabbiEE" 0.0 0.0 ellipse
+183 "jairmorsellis" 0.0 0.0 ellipse
+184 "flyfishmagazine" 0.0 0.0 ellipse
+185 "Fishingtweeter" 0.0 0.0 ellipse
+186 "TheFlyFishChick" 0.0 0.0 ellipse
+187 "timandjulie" 0.0 0.0 ellipse
+188 "DuncanWierman" 0.0 0.0 ellipse
+189 "RealEstateOwned" 0.0 0.0 ellipse
+190 "mclaughlinchris" 0.0 0.0 ellipse
+191 "CumberlandAgent" 0.0 0.0 ellipse
+192 "NBCSNFishing" 0.0 0.0 ellipse
+193 "profishingblog" 0.0 0.0 ellipse
+194 "2Lfishing" 0.0 0.0 ellipse
+195 "luxury_homes_" 0.0 0.0 ellipse
+196 "flybox" 0.0 0.0 ellipse
+197 "JeffAdamsREI" 0.0 0.0 ellipse
+198 "RealEstateBabbl" 0.0 0.0 ellipse
+199 "Leftyfly" 0.0 0.0 ellipse
+200 "geraldromine" 0.0 0.0 ellipse
+201 "JDEsajian" 0.0 0.0 ellipse
+202 "flyfishingfrenz" 0.0 0.0 ellipse
+*arcs
+1 5 2.0
+1 88 2.0
+1 146 2.0
+1 61 2.0
+1 172 2.0
+3 77 1.0
+5 101 7.0
+5 3 1.0
+5 61 2.0
+5 55 1.0
+6 12 2.0
+6 167 2.0
+6 134 1.0
+8 116 1.0
+8 91 1.0
+8 62 1.0
+8 88 1.0
+8 77 1.0
+8 27 1.0
+9 70 2.0
+9 178 1.0
+12 108 2.0
+12 190 1.0
+12 200 3.0
+12 188 1.0
+12 153 1.0
+12 201 2.0
+12 28 1.0
+14 31 1.0
+16 144 1.0
+18 85 121.0
+18 192 2.0
+18 144 5.0
+18 78 1.0
+18 152 21.0
+18 102 36.0
+18 69 1.0
+20 21 2.0
+20 39 1.0
+20 53 1.0
+20 37 1.0
+20 14 3.0
+21 184 1.0
+22 21 1.0
+22 142 1.0
+22 74 1.0
+22 155 2.0
+25 117 11.0
+25 85 21.0
+25 168 3.0
+25 144 1.0
+25 97 2.0
+25 159 2.0
+25 78 1.0
+25 106 3.0
+25 102 2.0
+25 39 1.0
+25 125 1.0
+25 165 9.0
+26 27 1.0
+27 116 1.0
+27 1 1.0
+27 91 5.0
+27 59 2.0
+27 77 13.0
+27 88 4.0
+27 146 1.0
+27 126 1.0
+28 201 1.0
+28 166 2.0
+29 108 1.0
+29 3 1.0
+29 59 1.0
+29 91 2.0
+29 72 4.0
+29 73 1.0
+29 62 1.0
+29 63 2.0
+29 160 1.0
+29 5 1.0
+29 116 2.0
+29 137 1.0
+29 77 1.0
+29 68 1.0
+30 106 1.0
+30 39 3.0
+30 85 2.0
+30 165 5.0
+35 38 1.0
+36 121 1.0
+36 92 2.0
+36 159 2.0
+36 165 6.0
+36 117 1.0
+36 168 2.0
+36 20 1.0
+36 21 5.0
+36 74 1.0
+36 14 2.0
+36 80 1.0
+36 86 3.0
+36 81 1.0
+36 178 2.0
+36 142 1.0
+36 125 2.0
+36 85 1.0
+36 130 1.0
+36 184 2.0
+36 31 2.0
+36 186 4.0
+36 39 1.0
+36 25 1.0
+36 42 1.0
+36 192 5.0
+36 144 3.0
+36 97 1.0
+36 196 1.0
+36 102 1.0
+36 151 1.0
+36 106 1.0
+37 21 1.0
+38 21 1.0
+38 70 2.0
+39 107 1.0
+39 110 1.0
+39 159 3.0
+39 113 1.0
+39 173 6.0
+39 165 3.0
+39 79 17.0
+39 117 12.0
+39 20 1.0
+39 120 3.0
+39 171 1.0
+39 14 9.0
+39 69 1.0
+39 86 2.0
+39 25 1.0
+39 125 2.0
+39 133 4.0
+39 85 2.0
+39 184 1.0
+39 131 2.0
+39 186 1.0
+39 89 6.0
+39 202 1.0
+39 192 1.0
+39 144 1.0
+39 97 3.0
+39 148 1.0
+39 102 2.0
+39 152 1.0
+39 51 2.0
+39 105 1.0
+39 53 2.0
+39 9 1.0
+42 70 1.0
+50 59 1.0
+50 82 1.0
+50 33 1.0
+53 107 1.0
+53 21 1.0
+53 37 3.0
+55 101 1.0
+55 63 1.0
+55 29 1.0
+57 88 4.0
+57 91 1.0
+61 137 2.0
+63 62 1.0
+65 86 2.0
+68 88 1.0
+68 59 1.0
+68 136 2.0
+68 163 1.0
+70 38 1.0
+70 178 3.0
+71 89 1.0
+71 9 1.0
+72 116 1.0
+72 59 2.0
+72 91 2.0
+72 73 2.0
+72 179 1.0
+72 62 2.0
+72 88 1.0
+72 101 1.0
+72 77 4.0
+72 8 1.0
+72 27 6.0
+72 82 3.0
+72 29 16.0
+73 116 1.0
+73 128 2.0
+73 91 1.0
+73 72 1.0
+73 62 1.0
+73 88 1.0
+73 146 1.0
+73 27 2.0
+73 126 1.0
+74 70 2.0
+74 71 1.0
+74 169 1.0
+74 22 1.0
+74 89 1.0
+74 102 1.0
+74 199 1.0
+74 142 2.0
+74 14 2.0
+75 88 2.0
+75 50 45.0
+75 82 6.0
+75 59 13.0
+76 156 68.0
+76 165 52.0
+77 27 3.0
+77 62 1.0
+78 39 1.0
+78 106 4.0
+78 159 2.0
+78 152 1.0
+79 39 1.0
+79 14 1.0
+80 113 1.0
+82 88 12.0
+82 91 2.0
+85 117 1.0
+85 131 1.0
+85 36 2.0
+85 81 1.0
+85 102 5.0
+85 25 9.0
+85 106 1.0
+86 117 2.0
+87 56 1.0
+88 61 1.0
+88 91 2.0
+89 20 1.0
+89 71 1.0
+91 82 1.0
+92 21 1.0
+92 186 1.0
+92 42 1.0
+92 199 1.0
+93 117 4.0
+93 31 1.0
+93 121 12.0
+93 144 8.0
+93 22 5.0
+93 74 12.0
+93 87 1.0
+93 196 2.0
+93 102 1.0
+93 9 6.0
+93 66 13.0
+93 38 1.0
+93 23 1.0
+93 142 3.0
+93 125 1.0
+93 110 1.0
+93 79 2.0
+93 113 3.0
+97 92 1.0
+98 55 1.0
+101 88 1.0
+102 85 6.0
+110 117 5.0
+110 70 3.0
+110 74 1.0
+110 89 4.0
+110 184 2.0
+110 31 1.0
+110 22 2.0
+110 186 2.0
+110 111 4.0
+110 144 1.0
+110 20 1.0
+110 21 1.0
+110 9 2.0
+110 199 1.0
+110 38 2.0
+110 123 1.0
+110 142 2.0
+110 14 5.0
+110 42 1.0
+110 155 2.0
+113 39 1.0
+113 133 1.0
+113 165 1.0
+113 202 1.0
+115 59 1.0
+116 61 1.0
+116 27 3.0
+117 70 1.0
+117 192 1.0
+117 121 2.0
+117 92 5.0
+117 21 1.0
+117 171 1.0
+117 14 3.0
+117 123 1.0
+117 89 2.0
+117 102 3.0
+117 151 2.0
+117 86 2.0
+117 178 1.0
+117 142 1.0
+117 125 3.0
+117 165 2.0
+117 131 1.0
+121 107 2.0
+121 117 1.0
+121 70 3.0
+121 20 1.0
+121 21 7.0
+121 22 1.0
+121 74 1.0
+121 9 3.0
+121 14 3.0
+121 89 1.0
+121 202 1.0
+121 86 3.0
+121 53 2.0
+121 93 2.0
+121 42 1.0
+121 151 2.0
+124 164 21.0
+125 117 43.0
+125 92 1.0
+125 97 4.0
+125 15 14.0
+125 121 2.0
+126 128 1.0
+126 91 1.0
+126 72 1.0
+126 101 1.0
+126 41 1.0
+126 136 1.0
+126 138 1.0
+126 140 5.0
+126 27 3.0
+126 82 10.0
+126 115 27.0
+126 29 2.0
+127 28 1.0
+127 188 1.0
+129 88 3.0
+129 50 2.0
+129 59 2.0
+129 115 3.0
+129 33 2.0
+131 159 1.0
+131 113 2.0
+131 114 2.0
+131 161 1.0
+131 69 5.0
+131 117 16.0
+131 17 4.0
+131 71 3.0
+131 21 2.0
+131 79 1.0
+131 80 1.0
+131 23 1.0
+131 130 1.0
+131 86 1.0
+131 133 1.0
+131 87 4.0
+131 202 1.0
+131 39 1.0
+131 40 1.0
+131 97 1.0
+131 102 1.0
+131 105 1.0
+136 115 1.0
+136 163 1.0
+138 3 1.0
+138 1 1.0
+138 128 2.0
+138 119 1.0
+138 5 1.0
+138 146 1.0
+138 8 1.0
+138 129 1.0
+138 29 1.0
+142 31 2.0
+142 21 2.0
+144 148 3.0
+144 192 1.0
+144 159 1.0
+146 59 1.0
+146 101 1.0
+146 61 2.0
+146 88 2.0
+146 137 2.0
+146 138 1.0
+149 31 2.0
+151 86 1.0
+151 70 1.0
+152 39 1.0
+152 192 1.0
+152 165 8.0
+152 159 2.0
+155 70 1.0
+155 22 1.0
+155 74 4.0
+155 89 4.0
+155 9 1.0
+155 14 1.0
+158 181 1.0
+158 19 3.0
+158 91 38.0
+158 98 3.0
+158 62 1.0
+158 33 4.0
+158 88 42.0
+158 50 43.0
+158 13 38.0
+158 49 1.0
+158 115 44.0
+163 59 1.0
+163 154 1.0
+163 136 8.0
+164 124 172.0
+165 192 1.0
+165 97 1.0
+165 159 4.0
+165 78 1.0
+165 151 1.0
+165 152 1.0
+165 102 1.0
+166 28 3.0
+168 20 1.0
+168 25 1.0
+169 86 1.0
+170 73 1.0
+170 188 1.0
+170 101 2.0
+170 136 1.0
+170 50 1.0
+170 33 1.0
+170 82 1.0
+172 116 1.0
+172 73 1.0
+172 5 2.0
+172 101 1.0
+172 136 2.0
+172 68 1.0
+174 46 1.0
+178 117 1.0
+178 70 6.0
+178 86 2.0
+178 9 1.0
+178 31 4.0
+178 65 2.0
+179 1 1.0
+179 62 1.0
+179 8 1.0
+184 31 1.0
+184 186 2.0
+184 89 2.0
+184 36 1.0
+184 21 2.0
+184 123 1.0
+184 67 1.0
+186 31 1.0
+186 70 1.0
+186 92 1.0
+186 86 1.0
+192 152 9.0
+197 132 4.0
+201 28 2.0
+201 166 2.0
+202 70 1.0

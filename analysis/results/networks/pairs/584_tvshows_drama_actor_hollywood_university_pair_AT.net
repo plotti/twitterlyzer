@@ -1,0 +1,458 @@
+*network tvshows_drama_actor_hollywood_university
+*vertices 202
+1 "EmWatson" 0.0 0.0 ellipse
+2 "UBCommunity" 0.0 0.0 ellipse
+3 "Yale" 0.0 0.0 ellipse
+4 "ActuallyNPH" 0.0 0.0 ellipse
+5 "timesdelphic" 0.0 0.0 ellipse
+6 "greggrunberg" 0.0 0.0 ellipse
+7 "yorkuniversity" 0.0 0.0 ellipse
+8 "David_Boreanaz" 0.0 0.0 ellipse
+9 "SheffieldSU" 0.0 0.0 ellipse
+10 "DundeeUniv" 0.0 0.0 ellipse
+11 "LSEpublicevents" 0.0 0.0 ellipse
+12 "BrandeisU" 0.0 0.0 ellipse
+13 "ninadobrev" 0.0 0.0 ellipse
+14 "warwickuni" 0.0 0.0 ellipse
+15 "AstonUniversity" 0.0 0.0 ellipse
+16 "ZooeyDeschanel" 0.0 0.0 ellipse
+17 "MITNews" 0.0 0.0 ellipse
+18 "UToledo" 0.0 0.0 ellipse
+19 "MarquetteU" 0.0 0.0 ellipse
+20 "CoryMonteith" 0.0 0.0 ellipse
+21 "RealHughJackman" 0.0 0.0 ellipse
+22 "UniStrathclyde" 0.0 0.0 ellipse
+23 "alecbaldwin" 0.0 0.0 ellipse
+24 "GUBLERNATION" 0.0 0.0 ellipse
+25 "EdwardNorton" 0.0 0.0 ellipse
+26 "ZacharyQuinto" 0.0 0.0 ellipse
+27 "chriscolfer" 0.0 0.0 ellipse
+28 "BrownUniversity" 0.0 0.0 ellipse
+29 "UA_magazine" 0.0 0.0 ellipse
+30 "MarkSalling" 0.0 0.0 ellipse
+31 "michaelsheen" 0.0 0.0 ellipse
+32 "LondonU" 0.0 0.0 ellipse
+33 "DrakeArts" 0.0 0.0 ellipse
+34 "DrakeAlumni" 0.0 0.0 ellipse
+35 "uniofbrighton" 0.0 0.0 ellipse
+36 "RedHourBen" 0.0 0.0 ellipse
+37 "feliciaday" 0.0 0.0 ellipse
+38 "peterfacinelli" 0.0 0.0 ellipse
+39 "channingtatum" 0.0 0.0 ellipse
+40 "DUBulldogs" 0.0 0.0 ellipse
+41 "UHManoa" 0.0 0.0 ellipse
+42 "UWMadison" 0.0 0.0 ellipse
+43 "aberdeenuni" 0.0 0.0 ellipse
+44 "INSEAD" 0.0 0.0 ellipse
+45 "cardiffuni" 0.0 0.0 ellipse
+46 "DavidBlue" 0.0 0.0 ellipse
+47 "kellanlutz" 0.0 0.0 ellipse
+48 "ElizabethBanks" 0.0 0.0 ellipse
+49 "UMNews" 0.0 0.0 ellipse
+50 "itsmeleighton" 0.0 0.0 ellipse
+51 "RMIT" 0.0 0.0 ellipse
+52 "livuni" 0.0 0.0 ellipse
+53 "WilliamShatner" 0.0 0.0 ellipse
+54 "takero_doi" 0.0 0.0 ellipse
+55 "Chris_Gorham" 0.0 0.0 ellipse
+56 "ColumbiaUP" 0.0 0.0 ellipse
+57 "LifeAtPurdue" 0.0 0.0 ellipse
+58 "BrentSpiner" 0.0 0.0 ellipse
+59 "MITOCW" 0.0 0.0 ellipse
+60 "justinchon" 0.0 0.0 ellipse
+61 "selenagomez" 0.0 0.0 ellipse
+62 "jessicaalba" 0.0 0.0 ellipse
+63 "EmilyOsment" 0.0 0.0 ellipse
+64 "CambridgeUP_NY" 0.0 0.0 ellipse
+65 "sheffielduni" 0.0 0.0 ellipse
+66 "BangorUni" 0.0 0.0 ellipse
+67 "jeremypiven" 0.0 0.0 ellipse
+68 "MillaJovovich" 0.0 0.0 ellipse
+69 "UniofOxford" 0.0 0.0 ellipse
+70 "THEworldunirank" 0.0 0.0 ellipse
+71 "jessetyler" 0.0 0.0 ellipse
+72 "JimCarrey" 0.0 0.0 ellipse
+73 "TuftsUniversity" 0.0 0.0 ellipse
+74 "MellyJHart" 0.0 0.0 ellipse
+75 "iansomerhalder" 0.0 0.0 ellipse
+76 "Stanford" 0.0 0.0 ellipse
+77 "SofiaVergara" 0.0 0.0 ellipse
+78 "Jamiebower" 0.0 0.0 ellipse
+79 "TowsonUNews" 0.0 0.0 ellipse
+80 "JohnStamos" 0.0 0.0 ellipse
+81 "rosemcgowan" 0.0 0.0 ellipse
+82 "cserratos" 0.0 0.0 ellipse
+83 "ASU" 0.0 0.0 ellipse
+84 "GlasgowUni" 0.0 0.0 ellipse
+85 "DeVryUniv" 0.0 0.0 ellipse
+86 "DavenportU" 0.0 0.0 ellipse
+87 "SethGreen" 0.0 0.0 ellipse
+88 "MaharishiU" 0.0 0.0 ellipse
+89 "johncusack" 0.0 0.0 ellipse
+90 "UCIrvine" 0.0 0.0 ellipse
+91 "alydenisof" 0.0 0.0 ellipse
+92 "uofdenver" 0.0 0.0 ellipse
+93 "BillCosby" 0.0 0.0 ellipse
+94 "UHWestOahu" 0.0 0.0 ellipse
+95 "lindsaylohan" 0.0 0.0 ellipse
+96 "TomFelton" 0.0 0.0 ellipse
+97 "LeewardCC" 0.0 0.0 ellipse
+98 "Alyssa_Milano" 0.0 0.0 ellipse
+99 "tomhanks" 0.0 0.0 ellipse
+100 "BerkeleyHaas" 0.0 0.0 ellipse
+101 "theUL" 0.0 0.0 ellipse
+102 "oliviawilde" 0.0 0.0 ellipse
+103 "MARLONLWAYANS" 0.0 0.0 ellipse
+104 "TAMU" 0.0 0.0 ellipse
+105 "Oprah" 0.0 0.0 ellipse
+106 "russellcrowe" 0.0 0.0 ellipse
+107 "KevinSpacey" 0.0 0.0 ellipse
+108 "DrakeSAB" 0.0 0.0 ellipse
+109 "DrakeUniversity" 0.0 0.0 ellipse
+110 "unibirmingham" 0.0 0.0 ellipse
+111 "UniOfSurrey" 0.0 0.0 ellipse
+112 "IMKristenBell" 0.0 0.0 ellipse
+113 "batemanjason" 0.0 0.0 ellipse
+114 "globecampus" 0.0 0.0 ellipse
+115 "kirstiealley" 0.0 0.0 ellipse
+116 "EvaLongoria" 0.0 0.0 ellipse
+117 "AshleyMGreene" 0.0 0.0 ellipse
+118 "jennettemccurdy" 0.0 0.0 ellipse
+119 "msleamichele" 0.0 0.0 ellipse
+120 "LancasterUni" 0.0 0.0 ellipse
+121 "ericstonestreet" 0.0 0.0 ellipse
+122 "queensu" 0.0 0.0 ellipse
+123 "UCLA" 0.0 0.0 ellipse
+124 "CUSUonline" 0.0 0.0 ellipse
+125 "JewelStaite" 0.0 0.0 ellipse
+126 "HofstraU" 0.0 0.0 ellipse
+127 "EdinburghNapier" 0.0 0.0 ellipse
+128 "mitpress" 0.0 0.0 ellipse
+129 "DannyDeVito" 0.0 0.0 ellipse
+130 "TheAlexMeraz" 0.0 0.0 ellipse
+131 "Kennedy_School" 0.0 0.0 ellipse
+132 "DENISE_RICHARDS" 0.0 0.0 ellipse
+133 "TomCruise" 0.0 0.0 ellipse
+134 "charliesheen" 0.0 0.0 ellipse
+135 "kevinpollak" 0.0 0.0 ellipse
+136 "Princeton" 0.0 0.0 ellipse
+137 "cambridgeunion" 0.0 0.0 ellipse
+138 "mrdannyglover" 0.0 0.0 ellipse
+139 "McGillU" 0.0 0.0 ellipse
+140 "Bristoluni" 0.0 0.0 ellipse
+141 "mrskutcher" 0.0 0.0 ellipse
+142 "aplusk" 0.0 0.0 ellipse
+143 "MITSloan" 0.0 0.0 ellipse
+144 "KaleyCuoco" 0.0 0.0 ellipse
+145 "gilbirmingham" 0.0 0.0 ellipse
+146 "Janefonda" 0.0 0.0 ellipse
+147 "KingstonUni" 0.0 0.0 ellipse
+148 "jenniegarth" 0.0 0.0 ellipse
+149 "Harvard_Press" 0.0 0.0 ellipse
+150 "OpenUniversity" 0.0 0.0 ellipse
+151 "billy_burke" 0.0 0.0 ellipse
+152 "mishacollins" 0.0 0.0 ellipse
+153 "techreview" 0.0 0.0 ellipse
+154 "DrakeDining" 0.0 0.0 ellipse
+155 "AuburnU" 0.0 0.0 ellipse
+156 "GarySinise" 0.0 0.0 ellipse
+157 "AnnaKendrick47" 0.0 0.0 ellipse
+158 "DrakeStuSenate" 0.0 0.0 ellipse
+159 "ashleytisdale" 0.0 0.0 ellipse
+160 "waynestate" 0.0 0.0 ellipse
+161 "iamedigathegi" 0.0 0.0 ellipse
+162 "Sydney_Uni" 0.0 0.0 ellipse
+163 "ZacharyLevi" 0.0 0.0 ellipse
+164 "DiannaAgron" 0.0 0.0 ellipse
+165 "websteru" 0.0 0.0 ellipse
+166 "UHawaiiNews" 0.0 0.0 ellipse
+167 "1capplegate" 0.0 0.0 ellipse
+168 "LeoDiCaprio" 0.0 0.0 ellipse
+169 "Jeffrey_Donovan" 0.0 0.0 ellipse
+170 "Cambridge_Uni" 0.0 0.0 ellipse
+171 "StMarysU" 0.0 0.0 ellipse
+172 "elizadushku" 0.0 0.0 ellipse
+173 "RobertsEmma" 0.0 0.0 ellipse
+174 "SalfordUni" 0.0 0.0 ellipse
+175 "MatthewPerry" 0.0 0.0 ellipse
+176 "TheRealNimoy" 0.0 0.0 ellipse
+177 "IAMQUEENLATIFAH" 0.0 0.0 ellipse
+178 "Harvard_Law" 0.0 0.0 ellipse
+179 "rosariodawson" 0.0 0.0 ellipse
+180 "BrockUniversity" 0.0 0.0 ellipse
+181 "UniofBath" 0.0 0.0 ellipse
+182 "hitRECordJoe" 0.0 0.0 ellipse
+183 "HarvardResearch" 0.0 0.0 ellipse
+184 "JLo" 0.0 0.0 ellipse
+185 "omarepps" 0.0 0.0 ellipse
+186 "SussexUni" 0.0 0.0 ellipse
+187 "druidDUDE" 0.0 0.0 ellipse
+188 "wilw" 0.0 0.0 ellipse
+189 "CarnegieMellon" 0.0 0.0 ellipse
+190 "oaklandu" 0.0 0.0 ellipse
+191 "RachelleLefevre" 0.0 0.0 ellipse
+192 "NYUpress" 0.0 0.0 ellipse
+193 "MonashUni" 0.0 0.0 ellipse
+194 "KeeleUniversity" 0.0 0.0 ellipse
+195 "SaintLeoUniv" 0.0 0.0 ellipse
+196 "NathanFillion" 0.0 0.0 ellipse
+197 "yalepress" 0.0 0.0 ellipse
+198 "Harvard" 0.0 0.0 ellipse
+199 "GWtweets" 0.0 0.0 ellipse
+200 "juliebenz" 0.0 0.0 ellipse
+201 "ohiou" 0.0 0.0 ellipse
+202 "CardiffIO" 0.0 0.0 ellipse
+*arcs
+2 198 2.0
+2 3 1.0
+2 57 1.0
+2 76 1.0
+4 71 1.0
+5 108 1.0
+5 40 16.0
+5 34 6.0
+5 158 12.0
+5 109 71.0
+6 37 1.0
+6 55 1.0
+6 135 1.0
+6 188 2.0
+9 65 6.0
+11 107 2.0
+11 76 1.0
+11 198 1.0
+13 75 1.0
+16 115 1.0
+17 198 2.0
+18 201 1.0
+19 42 24.0
+19 76 1.0
+20 27 1.0
+22 84 2.0
+23 89 1.0
+24 182 1.0
+26 6 2.0
+27 119 1.0
+29 139 5.0
+29 7 2.0
+29 122 1.0
+31 89 1.0
+32 150 1.0
+33 158 2.0
+33 5 1.0
+33 40 1.0
+33 67 1.0
+33 109 43.0
+33 34 6.0
+34 67 2.0
+34 5 1.0
+34 40 14.0
+34 108 1.0
+34 109 45.0
+34 33 2.0
+37 172 3.0
+37 91 1.0
+37 68 2.0
+37 196 1.0
+37 188 39.0
+37 46 2.0
+37 87 1.0
+38 141 1.0
+38 107 1.0
+38 145 1.0
+39 103 1.0
+40 33 1.0
+40 34 1.0
+42 14 1.0
+42 104 1.0
+42 19 46.0
+42 53 1.0
+42 201 1.0
+42 76 1.0
+46 37 24.0
+46 116 1.0
+46 163 2.0
+46 196 1.0
+46 55 11.0
+46 125 2.0
+46 87 2.0
+48 196 5.0
+48 71 9.0
+48 106 1.0
+48 39 1.0
+49 42 2.0
+53 37 1.0
+53 58 1.0
+53 188 3.0
+55 6 1.0
+55 27 1.0
+55 163 2.0
+55 98 1.0
+55 71 2.0
+55 46 3.0
+65 9 3.0
+65 14 1.0
+65 76 1.0
+68 37 1.0
+70 198 2.0
+71 77 14.0
+71 4 3.0
+71 27 1.0
+71 121 31.0
+71 55 2.0
+71 48 9.0
+71 74 2.0
+74 71 2.0
+76 59 1.0
+77 71 17.0
+77 121 7.0
+78 161 4.0
+80 107 1.0
+81 200 2.0
+81 98 1.0
+82 191 1.0
+82 161 29.0
+82 145 3.0
+82 60 1.0
+83 42 1.0
+86 190 1.0
+88 105 7.0
+89 138 2.0
+89 98 3.0
+91 172 1.0
+91 37 7.0
+95 50 1.0
+98 81 1.0
+101 124 1.0
+101 170 3.0
+102 161 1.0
+102 106 1.0
+103 185 8.0
+107 80 2.0
+108 40 3.0
+108 34 1.0
+108 158 4.0
+108 109 24.0
+108 5 6.0
+109 67 1.0
+109 5 2.0
+109 40 7.0
+109 108 3.0
+109 33 2.0
+109 34 36.0
+109 154 1.0
+110 194 1.0
+111 70 1.0
+112 6 1.0
+112 98 1.0
+112 13 1.0
+112 113 1.0
+113 98 1.0
+115 106 2.0
+115 132 1.0
+115 23 2.0
+116 196 1.0
+116 37 1.0
+116 55 1.0
+116 46 1.0
+121 77 9.0
+121 187 1.0
+121 179 1.0
+121 98 1.0
+121 55 3.0
+121 71 24.0
+121 48 1.0
+121 112 1.0
+123 142 1.0
+124 170 5.0
+125 196 2.0
+125 4 1.0
+127 15 1.0
+129 98 1.0
+129 74 8.0
+130 38 1.0
+131 198 11.0
+132 133 1.0
+132 134 2.0
+132 115 3.0
+132 81 1.0
+132 105 1.0
+133 184 1.0
+135 6 1.0
+136 76 1.0
+139 42 3.0
+139 153 1.0
+141 142 9.0
+141 115 2.0
+144 172 2.0
+144 98 3.0
+144 159 3.0
+145 38 1.0
+145 151 8.0
+146 142 2.0
+146 115 1.0
+149 198 2.0
+149 178 1.0
+149 197 3.0
+154 109 1.0
+156 98 2.0
+158 33 1.0
+158 108 3.0
+158 109 21.0
+158 5 3.0
+161 102 10.0
+161 62 1.0
+161 38 1.0
+161 82 33.0
+161 60 1.0
+161 78 2.0
+162 136 1.0
+166 94 3.0
+166 97 3.0
+166 41 3.0
+167 98 2.0
+170 101 2.0
+174 111 1.0
+174 140 1.0
+175 135 3.0
+176 26 1.0
+178 198 2.0
+178 131 2.0
+179 62 1.0
+185 102 3.0
+185 142 2.0
+185 103 7.0
+186 199 2.0
+187 71 2.0
+188 37 14.0
+188 98 3.0
+188 4 1.0
+188 135 1.0
+188 58 1.0
+189 42 1.0
+190 160 2.0
+191 31 1.0
+191 145 1.0
+191 151 1.0
+192 12 1.0
+193 14 2.0
+193 51 3.0
+193 199 1.0
+194 110 1.0
+196 102 1.0
+196 37 6.0
+196 38 1.0
+196 91 1.0
+196 6 1.0
+196 172 1.0
+196 98 1.0
+196 125 1.0
+196 48 1.0
+197 3 5.0
+197 149 4.0
+197 128 2.0
+198 178 1.0
+198 149 2.0
+200 191 1.0
+200 81 1.0
+202 45 2.0

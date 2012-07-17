@@ -1,0 +1,782 @@
+*network ipad_database
+*vertices 202
+1 "edlich" 0.0 0.0 ellipse
+2 "iPhoneAppBlog" 0.0 0.0 ellipse
+3 "News_MySQL" 0.0 0.0 ellipse
+4 "appsfire" 0.0 0.0 ellipse
+5 "rsim" 0.0 0.0 ellipse
+6 "markgunnels" 0.0 0.0 ellipse
+7 "iPadLinks" 0.0 0.0 ellipse
+8 "Superbad24" 0.0 0.0 ellipse
+9 "iPhoneLife" 0.0 0.0 ellipse
+10 "TwitterFon" 0.0 0.0 ellipse
+11 "iPhone_Games" 0.0 0.0 ellipse
+12 "danimal" 0.0 0.0 ellipse
+13 "peschkaj" 0.0 0.0 ellipse
+14 "tapbot_paul" 0.0 0.0 ellipse
+15 "mathias_mongo" 0.0 0.0 ellipse
+16 "DataMiningBlog" 0.0 0.0 ellipse
+17 "Oracle" 0.0 0.0 ellipse
+18 "fling" 0.0 0.0 ellipse
+19 "Infobright" 0.0 0.0 ellipse
+20 "bigdata" 0.0 0.0 ellipse
+21 "OracleDatabase" 0.0 0.0 ellipse
+22 "GenieDB" 0.0 0.0 ellipse
+23 "craigmullins" 0.0 0.0 ellipse
+24 "VoltDB" 0.0 0.0 ellipse
+25 "SmartDataCo" 0.0 0.0 ellipse
+26 "CouchDB" 0.0 0.0 ellipse
+27 "SQLServerIO" 0.0 0.0 ellipse
+28 "neo4j" 0.0 0.0 ellipse
+29 "MarlonRibunal" 0.0 0.0 ellipse
+30 "BISoftwareNews" 0.0 0.0 ellipse
+31 "DatabaseJournal" 0.0 0.0 ellipse
+32 "acangiano" 0.0 0.0 ellipse
+33 "way0utwest" 0.0 0.0 ellipse
+34 "148Apps" 0.0 0.0 ellipse
+35 "EverythingMySQL" 0.0 0.0 ellipse
+36 "MladenPrajdic" 0.0 0.0 ellipse
+37 "freeiphoneapps" 0.0 0.0 ellipse
+38 "freeverse" 0.0 0.0 ellipse
+39 "MySQL" 0.0 0.0 ellipse
+40 "birdhouseapp" 0.0 0.0 ellipse
+41 "fusion94" 0.0 0.0 ellipse
+42 "sqlmanager" 0.0 0.0 ellipse
+43 "AppStore" 0.0 0.0 ellipse
+44 "Pentaho" 0.0 0.0 ellipse
+45 "AppTheater" 0.0 0.0 ellipse
+46 "EnterpriseDB" 0.0 0.0 ellipse
+47 "ipad_buzz" 0.0 0.0 ellipse
+48 "SQLServer" 0.0 0.0 ellipse
+49 "ipadevice" 0.0 0.0 ellipse
+50 "MySQLatFacebook" 0.0 0.0 ellipse
+51 "timburks" 0.0 0.0 ellipse
+52 "zemanta" 0.0 0.0 ellipse
+53 "GeorgeTrujillo" 0.0 0.0 ellipse
+54 "toucharcade" 0.0 0.0 ellipse
+55 "WhatsOniPhone" 0.0 0.0 ellipse
+56 "gruber" 0.0 0.0 ellipse
+57 "Appsinreview" 0.0 0.0 ellipse
+58 "ipadnews" 0.0 0.0 ellipse
+59 "Ipad_Library" 0.0 0.0 ellipse
+60 "mysqlscott" 0.0 0.0 ellipse
+61 "TDWI" 0.0 0.0 ellipse
+62 "JustiPhoneBlog" 0.0 0.0 ellipse
+63 "iPhone_Reviews" 0.0 0.0 ellipse
+64 "DiAnnEisnor" 0.0 0.0 ellipse
+65 "taptivate" 0.0 0.0 ellipse
+66 "opencalais" 0.0 0.0 ellipse
+67 "SQLServerClub" 0.0 0.0 ellipse
+68 "siriZaac" 0.0 0.0 ellipse
+69 "mpopp75" 0.0 0.0 ellipse
+70 "DBArchitechs" 0.0 0.0 ellipse
+71 "AppVee" 0.0 0.0 ellipse
+72 "Firemint" 0.0 0.0 ellipse
+73 "clusterdb" 0.0 0.0 ellipse
+74 "TheRealLewisC" 0.0 0.0 ellipse
+75 "arnoldkim" 0.0 0.0 ellipse
+76 "iPhoneinCanada" 0.0 0.0 ellipse
+77 "sophiestication" 0.0 0.0 ellipse
+78 "iPhone_News" 0.0 0.0 ellipse
+79 "StrateSQL" 0.0 0.0 ellipse
+80 "ngmoco" 0.0 0.0 ellipse
+81 "dens" 0.0 0.0 ellipse
+82 "arjenlentz" 0.0 0.0 ellipse
+83 "dataengine" 0.0 0.0 ellipse
+84 "MySQLConf" 0.0 0.0 ellipse
+85 "PocketTweets" 0.0 0.0 ellipse
+86 "mysql_community" 0.0 0.0 ellipse
+87 "Flipboard" 0.0 0.0 ellipse
+88 "TheRealiPad" 0.0 0.0 ellipse
+89 "lorenb" 0.0 0.0 ellipse
+90 "TheAPPera" 0.0 0.0 ellipse
+91 "iPhoneDevCamp" 0.0 0.0 ellipse
+92 "SQLChicken" 0.0 0.0 ellipse
+93 "iPadTimes" 0.0 0.0 ellipse
+94 "SebastienPage" 0.0 0.0 ellipse
+95 "oraclemix" 0.0 0.0 ellipse
+96 "macrumorslive" 0.0 0.0 ellipse
+97 "mzarra" 0.0 0.0 ellipse
+98 "ipadshow" 0.0 0.0 ellipse
+99 "Teradata" 0.0 0.0 ellipse
+100 "SQLSoldier" 0.0 0.0 ellipse
+101 "iPhoneAlley" 0.0 0.0 ellipse
+102 "debasishg" 0.0 0.0 ellipse
+103 "DBA_MAN" 0.0 0.0 ellipse
+104 "AppleiPhoneNews" 0.0 0.0 ellipse
+105 "opensqlcamp" 0.0 0.0 ellipse
+106 "dnene" 0.0 0.0 ellipse
+107 "jtrainer" 0.0 0.0 ellipse
+108 "jdg" 0.0 0.0 ellipse
+109 "Oracle_Japan" 0.0 0.0 ellipse
+110 "lemire" 0.0 0.0 ellipse
+111 "phonegap" 0.0 0.0 ellipse
+112 "ncyoung" 0.0 0.0 ellipse
+113 "paulvallee" 0.0 0.0 ellipse
+114 "gowalla" 0.0 0.0 ellipse
+115 "jchris" 0.0 0.0 ellipse
+116 "thrudb" 0.0 0.0 ellipse
+117 "surj" 0.0 0.0 ellipse
+118 "TheAppWhisperer" 0.0 0.0 ellipse
+119 "GreenSQL" 0.0 0.0 ellipse
+120 "garrettmurray" 0.0 0.0 ellipse
+121 "mrgan" 0.0 0.0 ellipse
+122 "planetpostgres" 0.0 0.0 ellipse
+123 "postgresql" 0.0 0.0 ellipse
+124 "ianand" 0.0 0.0 ellipse
+125 "mysql_librarian" 0.0 0.0 ellipse
+126 "iPadBeyond" 0.0 0.0 ellipse
+127 "epicycle" 0.0 0.0 ellipse
+128 "oraclehomebr" 0.0 0.0 ellipse
+129 "iphonehackx" 0.0 0.0 ellipse
+130 "bxchen" 0.0 0.0 ellipse
+131 "taptaptap" 0.0 0.0 ellipse
+132 "hypertable" 0.0 0.0 ellipse
+133 "iPhone_NewsFeed" 0.0 0.0 ellipse
+134 "AppJmp" 0.0 0.0 ellipse
+135 "Database_Scene" 0.0 0.0 ellipse
+136 "razorianfly" 0.0 0.0 ellipse
+137 "iPadInsightBlog" 0.0 0.0 ellipse
+138 "DrizzleDB" 0.0 0.0 ellipse
+139 "infomgmt" 0.0 0.0 ellipse
+140 "big_words" 0.0 0.0 ellipse
+141 "Appmodo" 0.0 0.0 ellipse
+142 "Jury" 0.0 0.0 ellipse
+143 "buzz" 0.0 0.0 ellipse
+144 "BashoT" 0.0 0.0 ellipse
+145 "berkeleydb" 0.0 0.0 ellipse
+146 "IBM_DB2" 0.0 0.0 ellipse
+147 "damienstolarz" 0.0 0.0 ellipse
+148 "billkunz" 0.0 0.0 ellipse
+149 "SQLPoolBoy" 0.0 0.0 ellipse
+150 "oracleopenworld" 0.0 0.0 ellipse
+151 "drance" 0.0 0.0 ellipse
+152 "iphonetastic" 0.0 0.0 ellipse
+153 "sqlfool" 0.0 0.0 ellipse
+154 "pgsql_news" 0.0 0.0 ellipse
+155 "nnw_iPad" 0.0 0.0 ellipse
+156 "Sybase" 0.0 0.0 ellipse
+157 "openinfinidb" 0.0 0.0 ellipse
+158 "balanon" 0.0 0.0 ellipse
+159 "bsneed" 0.0 0.0 ellipse
+160 "iPadPro" 0.0 0.0 ellipse
+161 "datachick" 0.0 0.0 ellipse
+162 "markginnebaugh" 0.0 0.0 ellipse
+163 "luciuskwok" 0.0 0.0 ellipse
+164 "schwa" 0.0 0.0 ellipse
+165 "appshopper" 0.0 0.0 ellipse
+166 "timcourtney" 0.0 0.0 ellipse
+167 "scootdown" 0.0 0.0 ellipse
+168 "Percona" 0.0 0.0 ellipse
+169 "booksforipad" 0.0 0.0 ellipse
+170 "Top_iPad_Apps" 0.0 0.0 ellipse
+171 "cassandra" 0.0 0.0 ellipse
+172 "ziPhoneApps" 0.0 0.0 ellipse
+173 "MySQLExpert" 0.0 0.0 ellipse
+174 "datacenter" 0.0 0.0 ellipse
+175 "datacharmer" 0.0 0.0 ellipse
+176 "sql_joker" 0.0 0.0 ellipse
+177 "SamSchroeder" 0.0 0.0 ellipse
+178 "belkin" 0.0 0.0 ellipse
+179 "iPadNewsfeed" 0.0 0.0 ellipse
+180 "bluefintoro" 0.0 0.0 ellipse
+181 "iPadGuru" 0.0 0.0 ellipse
+182 "nosqlupdate" 0.0 0.0 ellipse
+183 "daniel_abadi" 0.0 0.0 ellipse
+184 "Vertica" 0.0 0.0 ellipse
+185 "iPadForums" 0.0 0.0 ellipse
+186 "BrentO" 0.0 0.0 ellipse
+187 "mongodb" 0.0 0.0 ellipse
+188 "oracletechnet" 0.0 0.0 ellipse
+189 "rolandbouman" 0.0 0.0 ellipse
+190 "dom" 0.0 0.0 ellipse
+191 "AJbigdata" 0.0 0.0 ellipse
+192 "mssqlserver" 0.0 0.0 ellipse
+193 "katsnelson" 0.0 0.0 ellipse
+194 "SQLvariant" 0.0 0.0 ellipse
+195 "iPadMaster" 0.0 0.0 ellipse
+196 "db2" 0.0 0.0 ellipse
+197 "pinaldave" 0.0 0.0 ellipse
+198 "ipadrumorsblog" 0.0 0.0 ellipse
+199 "thatjeffsmith" 0.0 0.0 ellipse
+200 "zacwhite" 0.0 0.0 ellipse
+201 "OpenSourceBI" 0.0 0.0 ellipse
+202 "planetmysql" 0.0 0.0 ellipse
+*arcs
+1 187 1.0
+4 62 1.0
+5 110 1.0
+8 38 2.0
+8 108 1.0
+8 90 64.0
+8 80 3.0
+8 63 1.0
+12 38 1.0
+12 43 2.0
+12 159 5.0
+12 80 9.0
+12 148 3.0
+12 163 3.0
+12 112 1.0
+12 164 2.0
+12 143 1.0
+13 153 1.0
+13 162 1.0
+13 33 1.0
+13 144 1.0
+13 186 6.0
+13 187 2.0
+13 46 4.0
+13 122 2.0
+14 151 1.0
+15 187 19.0
+17 188 15.0
+17 21 38.0
+17 150 83.0
+18 14 1.0
+18 158 1.0
+19 44 3.0
+19 24 1.0
+19 61 1.0
+19 168 2.0
+21 188 20.0
+21 150 6.0
+21 17 24.0
+22 168 1.0
+23 99 1.0
+23 161 1.0
+23 193 6.0
+23 146 1.0
+23 135 1.0
+23 24 1.0
+23 196 21.0
+24 19 1.0
+24 183 1.0
+24 168 2.0
+25 99 1.0
+26 115 21.0
+27 100 1.0
+27 194 2.0
+28 106 1.0
+29 153 5.0
+29 100 3.0
+29 31 1.0
+29 192 1.0
+29 23 3.0
+29 186 1.0
+29 92 3.0
+29 79 1.0
+29 162 10.0
+29 149 1.0
+29 48 8.0
+29 13 1.0
+29 27 2.0
+32 193 15.0
+32 196 3.0
+33 100 2.0
+33 29 2.0
+33 161 5.0
+33 42 1.0
+33 194 1.0
+33 186 3.0
+33 197 3.0
+33 79 1.0
+33 72 1.0
+33 48 5.0
+33 27 3.0
+34 54 1.0
+34 131 1.0
+34 137 2.0
+34 43 1.0
+35 86 1.0
+35 84 2.0
+35 113 1.0
+35 50 1.0
+38 180 1.0
+38 80 1.0
+38 54 1.0
+39 53 1.0
+39 175 1.0
+39 17 2.0
+41 148 1.0
+43 77 1.0
+44 19 1.0
+46 122 10.0
+46 123 1.0
+46 154 2.0
+46 50 1.0
+46 42 1.0
+48 153 2.0
+48 191 3.0
+48 33 1.0
+48 194 1.0
+48 186 1.0
+48 197 1.0
+48 162 3.0
+48 27 1.0
+51 190 4.0
+51 32 1.0
+51 56 1.0
+51 91 1.0
+51 187 1.0
+51 148 1.0
+53 39 6.0
+53 17 1.0
+53 175 3.0
+53 21 3.0
+53 35 1.0
+53 3 1.0
+53 188 3.0
+53 202 1.0
+54 75 3.0
+56 75 1.0
+56 151 2.0
+56 89 1.0
+56 120 1.0
+56 163 1.0
+56 164 3.0
+60 39 1.0
+60 188 1.0
+60 17 1.0
+61 99 2.0
+63 38 1.0
+66 52 1.0
+67 192 3.0
+67 48 1.0
+68 75 2.0
+69 86 5.0
+69 17 1.0
+69 39 8.0
+69 175 15.0
+69 3 4.0
+69 202 1.0
+72 54 6.0
+72 34 1.0
+72 90 1.0
+73 39 12.0
+73 202 2.0
+73 175 4.0
+73 86 1.0
+74 113 2.0
+74 17 4.0
+74 5 1.0
+74 175 1.0
+74 196 1.0
+74 21 3.0
+74 188 13.0
+74 150 14.0
+74 202 1.0
+75 54 4.0
+75 76 1.0
+75 130 2.0
+75 165 1.0
+75 56 1.0
+76 75 2.0
+76 131 1.0
+76 56 1.0
+76 43 3.0
+76 136 3.0
+76 137 1.0
+77 163 1.0
+77 120 1.0
+77 43 2.0
+79 153 5.0
+79 100 2.0
+79 161 1.0
+79 191 1.0
+79 194 5.0
+79 186 1.0
+79 92 6.0
+79 36 1.0
+79 162 1.0
+79 149 1.0
+79 48 6.0
+79 13 1.0
+80 38 5.0
+80 180 2.0
+80 43 1.0
+80 90 1.0
+80 187 1.0
+80 112 1.0
+81 130 1.0
+81 143 1.0
+82 175 1.0
+82 189 1.0
+83 105 1.0
+86 53 1.0
+86 39 2.0
+87 43 3.0
+90 87 1.0
+92 153 21.0
+92 189 1.0
+92 161 2.0
+92 65 1.0
+92 191 40.0
+92 31 2.0
+92 33 1.0
+92 100 5.0
+92 194 7.0
+92 23 3.0
+92 186 8.0
+92 29 22.0
+92 79 10.0
+92 162 24.0
+92 149 2.0
+92 48 40.0
+92 13 1.0
+92 27 6.0
+94 62 2.0
+95 53 1.0
+95 188 22.0
+95 150 5.0
+95 17 4.0
+95 145 1.0
+97 107 1.0
+97 108 1.0
+97 159 1.0
+98 34 1.0
+99 61 10.0
+99 25 8.0
+100 186 1.0
+101 14 1.0
+102 183 3.0
+102 115 1.0
+102 32 1.0
+102 20 3.0
+102 144 2.0
+102 106 4.0
+102 171 3.0
+102 187 7.0
+102 110 11.0
+102 24 1.0
+102 26 3.0
+102 28 3.0
+103 162 1.0
+106 188 1.0
+106 102 16.0
+107 158 1.0
+107 142 1.0
+108 159 1.0
+109 150 1.0
+111 115 2.0
+111 18 1.0
+113 23 1.0
+113 175 1.0
+113 150 2.0
+113 5 1.0
+114 43 1.0
+115 64 1.0
+115 111 1.0
+115 110 1.0
+115 26 6.0
+115 190 1.0
+120 18 1.0
+121 75 1.0
+121 143 4.0
+121 167 1.0
+121 148 1.0
+123 122 47.0
+123 46 12.0
+124 91 1.0
+128 188 1.0
+128 21 1.0
+128 74 1.0
+128 17 2.0
+129 75 1.0
+129 54 3.0
+130 75 2.0
+130 54 1.0
+131 54 1.0
+131 130 1.0
+131 43 3.0
+131 65 1.0
+132 182 1.0
+132 183 1.0
+136 158 3.0
+136 54 10.0
+136 104 1.0
+136 56 2.0
+136 37 2.0
+136 72 5.0
+136 62 15.0
+136 63 8.0
+136 14 4.0
+136 65 3.0
+136 101 6.0
+136 71 1.0
+136 75 8.0
+136 131 4.0
+136 76 1.0
+136 77 1.0
+136 80 6.0
+136 38 1.0
+136 87 5.0
+136 89 2.0
+136 43 6.0
+136 90 1.0
+136 94 1.0
+138 168 2.0
+142 14 2.0
+142 77 3.0
+142 43 1.0
+142 151 19.0
+142 56 1.0
+142 148 1.0
+142 164 1.0
+142 51 1.0
+143 121 1.0
+143 190 1.0
+146 23 1.0
+146 32 1.0
+146 193 3.0
+146 196 3.0
+148 12 1.0
+148 151 3.0
+148 164 1.0
+149 153 2.0
+149 48 1.0
+150 39 1.0
+150 188 6.0
+150 21 9.0
+150 17 15.0
+150 95 6.0
+151 14 1.0
+151 54 1.0
+151 130 1.0
+151 164 1.0
+151 190 1.0
+153 48 6.0
+156 31 1.0
+158 190 8.0
+158 89 1.0
+158 130 4.0
+158 131 1.0
+158 56 1.0
+158 136 1.0
+158 163 2.0
+158 97 1.0
+159 89 1.0
+159 115 1.0
+159 108 1.0
+159 148 1.0
+159 111 1.0
+159 164 1.0
+161 153 2.0
+161 100 5.0
+161 183 1.0
+161 74 2.0
+161 23 1.0
+161 32 2.0
+161 33 8.0
+161 189 3.0
+161 29 2.0
+161 149 2.0
+161 92 2.0
+161 36 1.0
+161 199 6.0
+161 48 8.0
+161 196 1.0
+161 27 1.0
+161 13 1.0
+162 100 1.0
+162 48 3.0
+163 142 1.0
+164 115 2.0
+164 151 1.0
+164 159 2.0
+165 54 3.0
+166 190 1.0
+167 190 2.0
+167 142 1.0
+167 91 1.0
+167 121 4.0
+167 54 1.0
+167 143 2.0
+168 19 1.0
+168 31 1.0
+168 189 1.0
+168 202 1.0
+168 138 1.0
+173 86 5.0
+173 39 2.0
+173 175 2.0
+173 84 2.0
+173 202 2.0
+173 69 1.0
+175 86 2.0
+175 189 2.0
+175 74 1.0
+175 69 1.0
+177 97 1.0
+180 112 6.0
+180 80 10.0
+183 20 1.0
+186 153 2.0
+186 33 1.0
+186 194 1.0
+186 92 1.0
+186 162 1.0
+186 23 1.0
+186 27 1.0
+188 39 2.0
+188 95 3.0
+188 17 4.0
+188 5 5.0
+188 175 2.0
+188 150 1.0
+188 21 2.0
+188 84 1.0
+189 153 2.0
+189 161 1.0
+189 20 2.0
+189 168 6.0
+189 86 1.0
+189 19 1.0
+189 175 8.0
+189 183 6.0
+189 138 1.0
+189 44 27.0
+189 187 1.0
+189 110 1.0
+189 3 1.0
+189 24 1.0
+189 84 6.0
+189 202 4.0
+189 50 6.0
+189 69 4.0
+190 99 1.0
+190 8 2.0
+190 9 1.0
+190 11 3.0
+190 12 2.0
+190 14 1.0
+190 17 9.0
+190 19 1.0
+190 44 2.0
+190 20 2.0
+190 21 6.0
+190 23 2.0
+190 25 2.0
+190 26 1.0
+190 27 1.0
+190 143 1.0
+190 161 1.0
+190 31 1.0
+190 32 1.0
+190 33 2.0
+190 34 1.0
+190 39 3.0
+190 41 1.0
+190 42 3.0
+190 67 1.0
+190 45 1.0
+190 46 1.0
+190 48 2.0
+190 49 6.0
+190 52 1.0
+190 54 1.0
+190 55 1.0
+190 58 2.0
+190 59 4.0
+190 61 2.0
+190 181 1.0
+190 63 1.0
+190 182 1.0
+190 65 2.0
+190 74 3.0
+190 76 1.0
+190 79 2.0
+190 80 1.0
+190 81 2.0
+190 82 4.0
+190 83 2.0
+190 86 1.0
+190 87 2.0
+190 150 1.0
+190 90 3.0
+190 91 7.0
+190 92 1.0
+190 94 1.0
+190 97 1.0
+190 98 1.0
+190 78 5.0
+190 102 2.0
+190 37 2.0
+190 112 1.0
+190 118 1.0
+190 124 1.0
+190 129 2.0
+190 130 3.0
+190 133 8.0
+190 134 36.0
+190 136 5.0
+190 137 2.0
+190 140 3.0
+190 141 1.0
+190 142 2.0
+190 148 1.0
+190 149 2.0
+190 28 3.0
+190 151 3.0
+190 152 3.0
+190 153 2.0
+190 154 2.0
+190 158 3.0
+190 159 1.0
+190 160 1.0
+190 29 1.0
+190 162 11.0
+190 163 1.0
+190 111 1.0
+190 169 1.0
+190 170 11.0
+190 71 2.0
+190 172 5.0
+190 174 5.0
+190 175 1.0
+190 176 2.0
+190 177 1.0
+190 179 5.0
+190 180 1.0
+190 66 3.0
+190 185 2.0
+190 187 2.0
+190 188 3.0
+190 190 3.0
+190 194 2.0
+190 196 3.0
+190 200 1.0
+191 153 1.0
+191 162 2.0
+193 32 6.0
+193 196 1.0
+194 100 6.0
+194 191 2.0
+194 33 1.0
+194 186 1.0
+194 92 2.0
+194 48 6.0
+194 27 1.0
+196 32 2.0
+197 153 2.0
+197 100 2.0
+197 192 6.0
+197 33 2.0
+197 186 7.0
+197 149 1.0
+197 48 9.0
+197 13 1.0
+199 153 4.0
+199 161 2.0
+199 74 15.0
+199 191 1.0
+199 31 1.0
+199 33 1.0
+199 23 3.0
+199 186 4.0
+199 21 6.0
+199 36 2.0
+199 149 1.0
+199 188 5.0
+199 13 2.0
+199 27 3.0

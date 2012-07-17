@@ -1,0 +1,735 @@
+*network guitar_meditation
+*vertices 202
+1 "bowlsounds" 0.0 0.0 ellipse
+2 "visityourself" 0.0 0.0 ellipse
+3 "greghoweguitar" 0.0 0.0 ellipse
+4 "BabaRamDass" 0.0 0.0 ellipse
+5 "MeditationBliss" 0.0 0.0 ellipse
+6 "SageMeditation" 0.0 0.0 ellipse
+7 "MindfullyChange" 0.0 0.0 ellipse
+8 "TaylorGuitars" 0.0 0.0 ellipse
+9 "washburnguitar" 0.0 0.0 ellipse
+10 "JBONAMASSA" 0.0 0.0 ellipse
+11 "TopOfGuitar" 0.0 0.0 ellipse
+12 "GuitarNews" 0.0 0.0 ellipse
+13 "Yoga_Hive" 0.0 0.0 ellipse
+14 "guitarteachrcom" 0.0 0.0 ellipse
+15 "cornerstonephx" 0.0 0.0 ellipse
+16 "guitarnoize" 0.0 0.0 ellipse
+17 "MartinGuitar" 0.0 0.0 ellipse
+18 "zenrev" 0.0 0.0 ellipse
+19 "GuitarWorld" 0.0 0.0 ellipse
+20 "TotalGuitar" 0.0 0.0 ellipse
+21 "michelemeiche" 0.0 0.0 ellipse
+22 "johnnytulku" 0.0 0.0 ellipse
+23 "agnusdei420" 0.0 0.0 ellipse
+24 "DiMarzioInc" 0.0 0.0 ellipse
+25 "gn_updates" 0.0 0.0 ellipse
+26 "PRSGuitar" 0.0 0.0 ellipse
+27 "rebelbuddha" 0.0 0.0 ellipse
+28 "eddievanhalen" 0.0 0.0 ellipse
+29 "shareyoga" 0.0 0.0 ellipse
+30 "GretschGuitars" 0.0 0.0 ellipse
+31 "Fender" 0.0 0.0 ellipse
+32 "effectsbay" 0.0 0.0 ellipse
+33 "jesseguitar" 0.0 0.0 ellipse
+34 "satori_zen" 0.0 0.0 ellipse
+35 "KoreanSecrets" 0.0 0.0 ellipse
+36 "FenderGBI" 0.0 0.0 ellipse
+37 "MJdonnery" 0.0 0.0 ellipse
+38 "guitarcenter" 0.0 0.0 ellipse
+39 "Gibson_Guitars" 0.0 0.0 ellipse
+40 "fretbase" 0.0 0.0 ellipse
+41 "guitarly" 0.0 0.0 ellipse
+42 "meditationdaily" 0.0 0.0 ellipse
+43 "MindfulOnline" 0.0 0.0 ellipse
+44 "thepedalnerd" 0.0 0.0 ellipse
+45 "Guitarist_Mag" 0.0 0.0 ellipse
+46 "DailyBuddhism" 0.0 0.0 ellipse
+47 "iheartguitar" 0.0 0.0 ellipse
+48 "guitaredge" 0.0 0.0 ellipse
+49 "TheMeditationC" 0.0 0.0 ellipse
+50 "ESPGuitarsUSA" 0.0 0.0 ellipse
+51 "BDGzendo" 0.0 0.0 ellipse
+52 "reginaldcuffee" 0.0 0.0 ellipse
+53 "ZakkWyldeBLS" 0.0 0.0 ellipse
+54 "Epiphone" 0.0 0.0 ellipse
+55 "JPetrucci" 0.0 0.0 ellipse
+56 "Schecter_Guitar" 0.0 0.0 ellipse
+57 "hokaisobol" 0.0 0.0 ellipse
+58 "ElixirStrings" 0.0 0.0 ellipse
+59 "MeditationRoom" 0.0 0.0 ellipse
+60 "4giv" 0.0 0.0 ellipse
+61 "MusicRadar" 0.0 0.0 ellipse
+62 "emptygatezen" 0.0 0.0 ellipse
+63 "achangeisasgood" 0.0 0.0 ellipse
+64 "OfficialBCRich" 0.0 0.0 ellipse
+65 "Peavey" 0.0 0.0 ellipse
+66 "DeepMeditation" 0.0 0.0 ellipse
+67 "genkitaichi" 0.0 0.0 ellipse
+68 "VOXamps" 0.0 0.0 ellipse
+69 "JacksonGuitars" 0.0 0.0 ellipse
+70 "Guitar_God" 0.0 0.0 ellipse
+71 "DaveMustaine" 0.0 0.0 ellipse
+72 "virginie68" 0.0 0.0 ellipse
+73 "blogofinnocence" 0.0 0.0 ellipse
+74 "Meditation_Hive" 0.0 0.0 ellipse
+75 "ghsstrings" 0.0 0.0 ellipse
+76 "chickenfootjoe" 0.0 0.0 ellipse
+77 "funguitarpickin" 0.0 0.0 ellipse
+78 "greenguitargod" 0.0 0.0 ellipse
+79 "AcousticGuitar_" 0.0 0.0 ellipse
+80 "TSandraSvensson" 0.0 0.0 ellipse
+81 "rayvberkel" 0.0 0.0 ellipse
+82 "_wildmind" 0.0 0.0 ellipse
+83 "CaitlinMowbray" 0.0 0.0 ellipse
+84 "bexband" 0.0 0.0 ellipse
+85 "p_yogananda" 0.0 0.0 ellipse
+86 "Cort_Guitars" 0.0 0.0 ellipse
+87 "MaharishiVideos" 0.0 0.0 ellipse
+88 "Slash" 0.0 0.0 ellipse
+89 "spiver" 0.0 0.0 ellipse
+90 "AccelerateMe" 0.0 0.0 ellipse
+91 "xewbe" 0.0 0.0 ellipse
+92 "jasonshadrick" 0.0 0.0 ellipse
+93 "premierguitar" 0.0 0.0 ellipse
+94 "SeymourDuncan" 0.0 0.0 ellipse
+95 "AriaaJaeger" 0.0 0.0 ellipse
+96 "meditation2all" 0.0 0.0 ellipse
+97 "GodinGuitars" 0.0 0.0 ellipse
+98 "TMmeditation" 0.0 0.0 ellipse
+99 "MeditationHelp" 0.0 0.0 ellipse
+100 "Fender_Guitars" 0.0 0.0 ellipse
+101 "jimdunlopusa" 0.0 0.0 ellipse
+102 "Mr_Meditation" 0.0 0.0 ellipse
+103 "KeeshaEwers" 0.0 0.0 ellipse
+104 "Guitarkadia" 0.0 0.0 ellipse
+105 "Apothecary_2012" 0.0 0.0 ellipse
+106 "stevelukather" 0.0 0.0 ellipse
+107 "MarshallAmpsUK" 0.0 0.0 ellipse
+108 "gibsonguitar" 0.0 0.0 ellipse
+109 "MindSpaceUK" 0.0 0.0 ellipse
+110 "TM_Canada" 0.0 0.0 ellipse
+111 "ibanezofficial" 0.0 0.0 ellipse
+112 "Magnetoguitars" 0.0 0.0 ellipse
+113 "JimKitzmiller" 0.0 0.0 ellipse
+114 "MichaelKellyGtr" 0.0 0.0 ellipse
+115 "Ibanez_USA" 0.0 0.0 ellipse
+116 "tmorello" 0.0 0.0 ellipse
+117 "stevevai" 0.0 0.0 ellipse
+118 "FlowerEssences" 0.0 0.0 ellipse
+119 "mattiasis" 0.0 0.0 ellipse
+120 "FernandesUSA" 0.0 0.0 ellipse
+121 "GuitarPlayerNow" 0.0 0.0 ellipse
+122 "Never2L8Guitar" 0.0 0.0 ellipse
+123 "meditationcentr" 0.0 0.0 ellipse
+124 "FrancisLucille" 0.0 0.0 ellipse
+125 "hoyerguitars" 0.0 0.0 ellipse
+126 "zen_habits" 0.0 0.0 ellipse
+127 "goddessnetwork2" 0.0 0.0 ellipse
+128 "darrenwilliger" 0.0 0.0 ellipse
+129 "MarshallAmps" 0.0 0.0 ellipse
+130 "duhism" 0.0 0.0 ellipse
+131 "gassho" 0.0 0.0 ellipse
+132 "meditationinfo" 0.0 0.0 ellipse
+133 "AngelaChenShui" 0.0 0.0 ellipse
+134 "pearible" 0.0 0.0 ellipse
+135 "ernieball" 0.0 0.0 ellipse
+136 "freemeditate" 0.0 0.0 ellipse
+137 "gearvault" 0.0 0.0 ellipse
+138 "GuitarPlayerZen" 0.0 0.0 ellipse
+139 "BeginWithin" 0.0 0.0 ellipse
+140 "DeanGuitars" 0.0 0.0 ellipse
+141 "MesaBoogie" 0.0 0.0 ellipse
+142 "prsguitars" 0.0 0.0 ellipse
+143 "chrisguitarguy" 0.0 0.0 ellipse
+144 "Daddariostrings" 0.0 0.0 ellipse
+145 "FenderCustom" 0.0 0.0 ellipse
+146 "guitardetails" 0.0 0.0 ellipse
+147 "yogahilife" 0.0 0.0 ellipse
+148 "parkerguitar" 0.0 0.0 ellipse
+149 "guitartweets" 0.0 0.0 ellipse
+150 "Rickbischoff" 0.0 0.0 ellipse
+151 "mindintention" 0.0 0.0 ellipse
+152 "Gtrintlmag" 0.0 0.0 ellipse
+153 "NailGuitar" 0.0 0.0 ellipse
+154 "Ylice" 0.0 0.0 ellipse
+155 "helpingtheearth" 0.0 0.0 ellipse
+156 "ProGuitarShop" 0.0 0.0 ellipse
+157 "johannalynn" 0.0 0.0 ellipse
+158 "mindfulness_now" 0.0 0.0 ellipse
+159 "YouRockGuitar" 0.0 0.0 ellipse
+160 "guitarlifestyle" 0.0 0.0 ellipse
+161 "TheGuitarWall" 0.0 0.0 ellipse
+162 "SoniaGallagher" 0.0 0.0 ellipse
+163 "simonarich" 0.0 0.0 ellipse
+164 "SuhrCustom" 0.0 0.0 ellipse
+165 "sunada" 0.0 0.0 ellipse
+166 "ChristopherWide" 0.0 0.0 ellipse
+167 "themeditation" 0.0 0.0 ellipse
+168 "tommyemmanuel" 0.0 0.0 ellipse
+169 "Meditationmagic" 0.0 0.0 ellipse
+170 "engelholt" 0.0 0.0 ellipse
+171 "aquietmind" 0.0 0.0 ellipse
+172 "kimvidya" 0.0 0.0 ellipse
+173 "GuitarGuruz" 0.0 0.0 ellipse
+174 "EasyGuitarRiff" 0.0 0.0 ellipse
+175 "yourlif2" 0.0 0.0 ellipse
+176 "soundstrue" 0.0 0.0 ellipse
+177 "NewYorkInsight" 0.0 0.0 ellipse
+178 "RumiQuotes" 0.0 0.0 ellipse
+179 "tollegroup" 0.0 0.0 ellipse
+180 "orianthi" 0.0 0.0 ellipse
+181 "ESPGuitars" 0.0 0.0 ellipse
+182 "DharmaTalks" 0.0 0.0 ellipse
+183 "NineTomatoes" 0.0 0.0 ellipse
+184 "ChrisHoff_" 0.0 0.0 ellipse
+185 "EHX" 0.0 0.0 ellipse
+186 "300guitars" 0.0 0.0 ellipse
+187 "Richie_Kotzen" 0.0 0.0 ellipse
+188 "TheRockHouse" 0.0 0.0 ellipse
+189 "JustinNorris" 0.0 0.0 ellipse
+190 "MacMcGoldrick" 0.0 0.0 ellipse
+191 "EckhartTolle" 0.0 0.0 ellipse
+192 "annieblawrence" 0.0 0.0 ellipse
+193 "flyssy" 0.0 0.0 ellipse
+194 "EMG_PICKUPS" 0.0 0.0 ellipse
+195 "Line6" 0.0 0.0 ellipse
+196 "MagsJoy" 0.0 0.0 ellipse
+197 "pfr" 0.0 0.0 ellipse
+198 "justsitthere" 0.0 0.0 ellipse
+199 "GibsonGuitarUK" 0.0 0.0 ellipse
+200 "justinpuravida" 0.0 0.0 ellipse
+201 "Dr_Rodney" 0.0 0.0 ellipse
+202 "YeyoungQigong" 0.0 0.0 ellipse
+*arcs
+3 16 9.0
+3 116 1.0
+3 76 2.0
+3 93 6.0
+3 47 5.0
+5 98 1.0
+5 87 1.0
+7 113 1.0
+7 42 1.0
+7 131 1.0
+7 196 2.0
+8 48 1.0
+8 58 1.0
+8 38 1.0
+8 16 5.0
+8 47 18.0
+8 19 1.0
+8 79 1.0
+8 160 1.0
+8 93 4.0
+10 106 2.0
+11 143 2.0
+11 47 1.0
+14 48 1.0
+16 3 1.0
+16 107 2.0
+16 156 1.0
+16 92 1.0
+16 10 1.0
+16 160 21.0
+16 115 1.0
+16 145 1.0
+16 8 18.0
+16 19 1.0
+16 76 3.0
+16 20 2.0
+16 28 8.0
+16 31 8.0
+16 187 2.0
+16 93 8.0
+16 141 2.0
+16 142 3.0
+16 58 2.0
+16 45 1.0
+16 47 124.0
+16 50 1.0
+16 101 5.0
+16 199 1.0
+17 152 1.0
+17 38 2.0
+17 108 1.0
+17 79 1.0
+18 89 1.0
+19 116 2.0
+19 69 1.0
+19 140 3.0
+19 71 1.0
+19 142 2.0
+19 17 1.0
+19 117 2.0
+19 31 1.0
+19 108 2.0
+19 65 1.0
+19 76 3.0
+19 9 1.0
+19 10 1.0
+19 38 1.0
+19 54 1.0
+20 69 1.0
+20 55 4.0
+20 71 2.0
+20 193 2.0
+20 56 1.0
+20 36 4.0
+20 31 2.0
+20 61 3.0
+20 88 2.0
+20 45 7.0
+20 16 7.0
+20 47 3.0
+20 65 1.0
+20 76 1.0
+20 185 2.0
+20 101 1.0
+20 199 4.0
+20 53 5.0
+20 54 3.0
+20 68 1.0
+21 150 1.0
+24 16 1.0
+24 11 1.0
+24 76 1.0
+24 93 1.0
+24 47 2.0
+29 171 1.0
+32 186 1.0
+32 47 1.0
+36 69 1.0
+36 31 12.0
+36 45 4.0
+36 61 5.0
+36 16 1.0
+36 145 1.0
+36 20 4.0
+37 126 1.0
+37 182 2.0
+37 150 6.0
+40 106 1.0
+40 143 1.0
+40 137 1.0
+40 121 1.0
+40 16 1.0
+40 47 3.0
+40 10 1.0
+40 160 2.0
+40 93 1.0
+40 54 1.0
+42 136 2.0
+43 89 1.0
+45 141 1.0
+45 142 1.0
+45 107 2.0
+45 195 1.0
+45 31 1.0
+45 61 4.0
+45 88 2.0
+45 16 5.0
+45 47 10.0
+45 20 15.0
+45 10 3.0
+46 90 1.0
+47 195 4.0
+47 55 1.0
+47 107 2.0
+47 92 3.0
+47 106 2.0
+47 115 9.0
+47 16 69.0
+47 19 1.0
+47 20 4.0
+47 24 1.0
+47 180 2.0
+47 31 9.0
+47 135 2.0
+47 8 6.0
+47 93 1.0
+47 140 2.0
+47 94 6.0
+47 144 1.0
+47 145 1.0
+47 50 1.0
+47 101 2.0
+47 53 9.0
+48 47 1.0
+48 137 1.0
+48 76 1.0
+48 92 3.0
+51 182 1.0
+53 47 1.0
+54 40 1.0
+54 19 1.0
+54 53 1.0
+54 93 1.0
+54 61 1.0
+56 47 1.0
+56 53 1.0
+57 89 2.0
+58 16 1.0
+58 8 8.0
+58 31 2.0
+58 141 1.0
+58 115 1.0
+61 106 1.0
+61 56 1.0
+61 107 1.0
+61 108 1.0
+61 65 2.0
+61 10 4.0
+61 160 1.0
+61 68 1.0
+61 116 1.0
+61 117 2.0
+61 111 1.0
+61 16 1.0
+61 76 1.0
+61 20 14.0
+61 69 1.0
+61 30 1.0
+61 31 9.0
+61 88 6.0
+61 36 3.0
+61 140 1.0
+61 141 1.0
+61 142 1.0
+61 195 1.0
+61 45 7.0
+61 47 1.0
+61 50 1.0
+61 199 1.0
+61 53 1.0
+61 54 2.0
+62 46 1.0
+64 69 1.0
+64 195 1.0
+64 108 1.0
+65 121 1.0
+65 45 1.0
+65 61 1.0
+65 16 2.0
+65 19 2.0
+65 93 1.0
+68 93 1.0
+70 47 1.0
+70 40 1.0
+75 180 2.0
+76 116 2.0
+76 106 4.0
+76 3 1.0
+76 117 1.0
+76 47 1.0
+76 10 1.0
+78 11 1.0
+84 176 1.0
+84 172 1.0
+84 192 1.0
+84 182 1.0
+85 99 3.0
+87 99 1.0
+90 46 3.0
+90 126 2.0
+92 48 14.0
+92 70 1.0
+92 142 2.0
+92 117 5.0
+92 143 35.0
+92 138 1.0
+92 188 2.0
+92 16 17.0
+92 47 40.0
+92 76 2.0
+92 8 1.0
+92 160 22.0
+92 93 35.0
+93 141 2.0
+93 142 1.0
+93 16 2.0
+93 47 1.0
+93 48 2.0
+93 135 1.0
+93 92 1.0
+93 160 4.0
+94 56 2.0
+94 86 1.0
+94 88 1.0
+94 97 1.0
+94 19 2.0
+94 156 2.0
+94 10 1.0
+98 87 2.0
+99 7 1.0
+99 95 6.0
+99 131 7.0
+99 87 2.0
+99 196 1.0
+101 16 1.0
+101 47 3.0
+101 19 1.0
+101 93 2.0
+101 88 2.0
+102 127 2.0
+104 106 3.0
+104 56 1.0
+104 3 2.0
+104 138 2.0
+104 152 2.0
+104 108 4.0
+104 168 1.0
+104 10 2.0
+104 160 13.0
+104 161 1.0
+104 69 1.0
+104 71 1.0
+104 117 3.0
+104 140 1.0
+104 122 4.0
+104 16 46.0
+104 75 1.0
+104 76 4.0
+104 20 1.0
+104 126 1.0
+104 19 2.0
+104 180 1.0
+104 181 1.0
+104 31 1.0
+104 40 8.0
+104 88 1.0
+104 114 1.0
+104 186 17.0
+104 92 10.0
+104 188 2.0
+104 93 2.0
+104 32 3.0
+104 142 1.0
+104 193 5.0
+104 143 46.0
+104 47 53.0
+104 146 1.0
+104 101 2.0
+104 54 1.0
+105 150 1.0
+106 10 10.0
+106 168 2.0
+106 76 1.0
+106 141 1.0
+106 117 1.0
+107 187 1.0
+107 76 1.0
+107 61 2.0
+107 88 4.0
+107 47 1.0
+109 21 1.0
+111 76 1.0
+115 16 1.0
+115 47 9.0
+115 93 1.0
+118 191 4.0
+118 130 1.0
+118 42 1.0
+118 131 1.0
+118 46 1.0
+118 136 1.0
+119 189 49.0
+120 47 5.0
+120 24 1.0
+121 145 1.0
+121 144 1.0
+121 31 3.0
+122 32 10.0
+122 193 1.0
+122 143 3.0
+122 16 9.0
+122 47 9.0
+122 101 1.0
+122 160 1.0
+127 102 1.0
+127 83 2.0
+131 172 1.0
+131 182 2.0
+131 139 9.0
+133 136 1.0
+133 191 1.0
+133 95 5.0
+133 150 1.0
+136 178 1.0
+136 42 2.0
+136 21 8.0
+136 133 4.0
+136 196 2.0
+136 118 1.0
+136 99 1.0
+136 150 2.0
+137 40 3.0
+137 12 2.0
+137 143 1.0
+137 16 3.0
+137 47 6.0
+137 48 1.0
+137 160 3.0
+137 93 1.0
+138 16 1.0
+138 143 2.0
+138 168 1.0
+138 3 1.0
+139 4 1.0
+139 172 1.0
+139 131 15.0
+139 182 7.0
+139 95 10.0
+140 71 1.0
+140 88 1.0
+140 47 3.0
+140 19 5.0
+140 53 1.0
+140 93 3.0
+141 19 2.0
+141 160 1.0
+141 93 1.0
+142 180 3.0
+142 38 2.0
+142 93 3.0
+143 137 1.0
+143 152 2.0
+143 108 5.0
+143 16 60.0
+143 47 27.0
+143 20 1.0
+143 186 1.0
+143 92 3.0
+143 160 31.0
+144 55 1.0
+144 141 1.0
+144 94 3.0
+144 195 5.0
+144 194 1.0
+144 76 2.0
+144 20 1.0
+144 185 2.0
+145 16 2.0
+145 31 1.0
+145 121 1.0
+145 156 1.0
+148 20 1.0
+150 21 5.0
+150 126 1.0
+152 32 1.0
+152 142 1.0
+152 143 4.0
+152 137 2.0
+152 44 1.0
+152 108 1.0
+152 16 6.0
+152 47 4.0
+152 186 2.0
+152 160 2.0
+153 76 1.0
+153 117 1.0
+155 162 1.0
+156 93 1.0
+158 7 1.0
+158 196 1.0
+159 12 1.0
+159 146 2.0
+159 78 1.0
+159 41 1.0
+160 108 2.0
+160 156 2.0
+160 92 20.0
+160 145 2.0
+160 137 1.0
+160 121 8.0
+160 122 2.0
+160 16 174.0
+160 20 1.0
+160 31 5.0
+160 135 1.0
+160 186 7.0
+160 8 2.0
+160 93 20.0
+160 32 1.0
+160 141 2.0
+160 142 4.0
+160 143 168.0
+160 47 49.0
+160 48 2.0
+160 101 4.0
+160 54 1.0
+161 69 1.0
+161 168 1.0
+164 16 1.0
+164 61 1.0
+165 89 8.0
+168 106 1.0
+170 46 1.0
+170 7 3.0
+170 126 1.0
+170 57 1.0
+171 29 1.0
+171 126 9.0
+171 131 1.0
+172 131 1.0
+173 121 1.0
+173 114 1.0
+176 4 1.0
+176 191 3.0
+176 82 1.0
+176 178 1.0
+180 142 1.0
+182 191 1.0
+182 131 2.0
+183 29 1.0
+183 131 16.0
+183 196 1.0
+184 57 1.0
+185 93 1.0
+186 16 2.0
+186 160 29.0
+186 32 54.0
+186 180 1.0
+186 112 24.0
+189 119 31.0
+189 196 2.0
+192 84 1.0
+192 191 1.0
+192 95 1.0
+192 89 1.0
+192 7 1.0
+193 20 1.0
+193 122 2.0
+194 53 19.0
+194 106 5.0
+194 93 1.0
+194 88 1.0
+195 69 1.0
+195 56 1.0
+195 121 1.0
+195 144 3.0
+195 31 1.0
+195 108 1.0
+195 16 1.0
+195 47 4.0
+195 93 3.0
+196 189 2.0
+196 95 22.0
+196 131 2.0
+196 182 2.0
+196 183 3.0
+196 7 1.0
+196 99 3.0
+196 113 1.0
+196 136 1.0
+196 158 2.0
+199 45 5.0
+199 88 6.0
+199 61 9.0
+199 16 1.0
+199 108 2.0
+199 20 6.0
+199 53 2.0
+199 54 46.0
+201 130 1.0

@@ -26,7 +26,7 @@ members ={}
   i,r = 0,{}
   rows.each do |member|
     i += 1
-    r[member[0]] = {:rank => i, :count => member[2].to_i} if !BLACKLIST.include?(member[0])
+    r[member[0].downcase] = {:rank => i, :count => member[2].to_i} if !BLACKLIST.include?(member[0])
   end
   members[project.name] = r
 end

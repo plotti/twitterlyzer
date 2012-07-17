@@ -3,16 +3,19 @@ production:
     hostname: localhost
     port: 8983
     log_level: WARNING
+    #max_memory: 1524M
 
 development:
   solr:
     hostname: localhost
     port: 8982
     log_level: INFO
+    #max_memory: 1524M
 
 test:
   solr:
     hostname: localhost
     port: 8981
     log_level: WARNING
+    #max_memory: 1524M
     

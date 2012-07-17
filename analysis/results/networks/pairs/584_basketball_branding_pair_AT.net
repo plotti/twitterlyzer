@@ -1,0 +1,848 @@
+*network basketball_branding
+*vertices 202
+1 "celtics" 0.0 0.0 ellipse
+2 "tysonchandler" 0.0 0.0 ellipse
+3 "jimantonopoulos" 0.0 0.0 ellipse
+4 "brandbison" 0.0 0.0 ellipse
+5 "juliasmola" 0.0 0.0 ellipse
+6 "rockstarbrands" 0.0 0.0 ellipse
+7 "martinjbishop" 0.0 0.0 ellipse
+8 "sportsguy33" 0.0 0.0 ellipse
+9 "alleniverson" 0.0 0.0 ellipse
+10 "RealJayWilliams" 0.0 0.0 ellipse
+11 "PhoenixSuns" 0.0 0.0 ellipse
+12 "InsideHoops" 0.0 0.0 ellipse
+13 "kaj33" 0.0 0.0 ellipse
+14 "DwightHoward" 0.0 0.0 ellipse
+15 "acjandler" 0.0 0.0 ellipse
+16 "DanSchawbel" 0.0 0.0 ellipse
+17 "okcthunder" 0.0 0.0 ellipse
+18 "brandingdiva" 0.0 0.0 ellipse
+19 "manuginobili" 0.0 0.0 ellipse
+20 "jasonterry31" 0.0 0.0 ellipse
+21 "SLAMonline" 0.0 0.0 ellipse
+22 "Chris_Broussard" 0.0 0.0 ellipse
+23 "Polledemaagt" 0.0 0.0 ellipse
+24 "chadfordinsider" 0.0 0.0 ellipse
+25 "SHAQ" 0.0 0.0 ellipse
+26 "ChareeKlimek" 0.0 0.0 ellipse
+27 "keithferrazzi" 0.0 0.0 ellipse
+28 "RickBakas" 0.0 0.0 ellipse
+29 "GregAnthony50" 0.0 0.0 ellipse
+30 "thebrandbuilder" 0.0 0.0 ellipse
+31 "BillVick" 0.0 0.0 ellipse
+32 "evoklarry" 0.0 0.0 ellipse
+33 "blancheagency" 0.0 0.0 ellipse
+34 "pdxtrailblazers" 0.0 0.0 ellipse
+35 "fionahumberston" 0.0 0.0 ellipse
+36 "WashWizards" 0.0 0.0 ellipse
+37 "utah_jazz" 0.0 0.0 ellipse
+38 "Orlando_Magic" 0.0 0.0 ellipse
+39 "kauf" 0.0 0.0 ellipse
+40 "HoustonRockets" 0.0 0.0 ellipse
+41 "MarketLikeAChik" 0.0 0.0 ellipse
+42 "rudygay22" 0.0 0.0 ellipse
+43 "usabasketball" 0.0 0.0 ellipse
+44 "thebrandingfarm" 0.0 0.0 ellipse
+45 "TyLawson3" 0.0 0.0 ellipse
+46 "pramitjnathan" 0.0 0.0 ellipse
+47 "cavs" 0.0 0.0 ellipse
+48 "davequintana" 0.0 0.0 ellipse
+49 "SetUpMyBrand" 0.0 0.0 ellipse
+50 "KingJames" 0.0 0.0 ellipse
+51 "AmyJoMartin" 0.0 0.0 ellipse
+52 "Sixers" 0.0 0.0 ellipse
+53 "PuroMarketing" 0.0 0.0 ellipse
+54 "realchriswebber" 0.0 0.0 ellipse
+55 "SterlingBrands" 0.0 0.0 ellipse
+56 "MariusUrsache" 0.0 0.0 ellipse
+57 "DeMar_DeRozan" 0.0 0.0 ellipse
+58 "TrueHoop" 0.0 0.0 ellipse
+59 "CP3" 0.0 0.0 ellipse
+60 "gracesmith" 0.0 0.0 ellipse
+61 "Amareisreal" 0.0 0.0 ellipse
+62 "C3Brandworks" 0.0 0.0 ellipse
+63 "mironescu" 0.0 0.0 ellipse
+64 "paulpierce34" 0.0 0.0 ellipse
+65 "jalenrose" 0.0 0.0 ellipse
+66 "JHarden13" 0.0 0.0 ellipse
+67 "chrisbosh" 0.0 0.0 ellipse
+68 "STEIN_LINE_HQ" 0.0 0.0 ellipse
+69 "AntHillMktg" 0.0 0.0 ellipse
+70 "NBA" 0.0 0.0 ellipse
+71 "spurs" 0.0 0.0 ellipse
+72 "RajonRondo" 0.0 0.0 ellipse
+73 "johnhollinger" 0.0 0.0 ellipse
+74 "matrix31" 0.0 0.0 ellipse
+75 "colindrummond" 0.0 0.0 ellipse
+76 "rudy5fernandez" 0.0 0.0 ellipse
+77 "derekfisher" 0.0 0.0 ellipse
+78 "PeteHall" 0.0 0.0 ellipse
+79 "dallasmavs" 0.0 0.0 ellipse
+80 "arronlock" 0.0 0.0 ellipse
+81 "Lakers" 0.0 0.0 ellipse
+82 "mrvincecarter15" 0.0 0.0 ellipse
+83 "tlloyd25" 0.0 0.0 ellipse
+84 "carmeloanthony" 0.0 0.0 ellipse
+85 "Baron_Davis" 0.0 0.0 ellipse
+86 "nate_robinson" 0.0 0.0 ellipse
+87 "Brandyourself" 0.0 0.0 ellipse
+88 "blakegriffin" 0.0 0.0 ellipse
+89 "TheJetOnTNT" 0.0 0.0 ellipse
+90 "Brandkarma" 0.0 0.0 ellipse
+91 "denvernuggets" 0.0 0.0 ellipse
+92 "joegreenz" 0.0 0.0 ellipse
+93 "mcuban" 0.0 0.0 ellipse
+94 "memgrizz" 0.0 0.0 ellipse
+95 "AddisCreson" 0.0 0.0 ellipse
+96 "peopledesign" 0.0 0.0 ellipse
+97 "nyknicks" 0.0 0.0 ellipse
+98 "brant_kelsey" 0.0 0.0 ellipse
+99 "williger" 0.0 0.0 ellipse
+100 "SethDavisHoops" 0.0 0.0 ellipse
+101 "stephenasmith" 0.0 0.0 ellipse
+102 "greenRAYn20" 0.0 0.0 ellipse
+103 "pamdyer" 0.0 0.0 ellipse
+104 "MiamiHEAT" 0.0 0.0 ellipse
+105 "BrandOneCulture" 0.0 0.0 ellipse
+106 "SpiroDavis" 0.0 0.0 ellipse
+107 "db" 0.0 0.0 ellipse
+108 "CV31" 0.0 0.0 ellipse
+109 "upwardaction" 0.0 0.0 ellipse
+110 "servantofchaos" 0.0 0.0 ellipse
+111 "MartinRoll" 0.0 0.0 ellipse
+112 "TrustBranding" 0.0 0.0 ellipse
+113 "ibranding" 0.0 0.0 ellipse
+114 "sbwalsh" 0.0 0.0 ellipse
+115 "lucasmelb" 0.0 0.0 ellipse
+116 "JaredDudley619" 0.0 0.0 ellipse
+117 "OKCreative" 0.0 0.0 ellipse
+118 "cubedweller" 0.0 0.0 ellipse
+119 "LogoMotives" 0.0 0.0 ellipse
+120 "louislouna" 0.0 0.0 ellipse
+121 "detroitpistons" 0.0 0.0 ellipse
+122 "swish41" 0.0 0.0 ellipse
+123 "darbydarnit" 0.0 0.0 ellipse
+124 "MarketYourself" 0.0 0.0 ellipse
+125 "Raptors" 0.0 0.0 ellipse
+126 "Matt_Barnes22" 0.0 0.0 ellipse
+127 "H00dFavorite" 0.0 0.0 ellipse
+128 "AndrewMBogut" 0.0 0.0 ellipse
+129 "BMAColorado" 0.0 0.0 ellipse
+130 "DwyaneWade" 0.0 0.0 ellipse
+131 "KathyHeasley" 0.0 0.0 ellipse
+132 "movingbrands" 0.0 0.0 ellipse
+133 "Devoted2HR" 0.0 0.0 ellipse
+134 "jeffreypjacobs" 0.0 0.0 ellipse
+135 "chicagobulls" 0.0 0.0 ellipse
+136 "daldridgetnt" 0.0 0.0 ellipse
+137 "TheDavid_A" 0.0 0.0 ellipse
+138 "MagicSauceMedia" 0.0 0.0 ellipse
+139 "russwest44" 0.0 0.0 ellipse
+140 "bobcats" 0.0 0.0 ellipse
+141 "NealSchaffer" 0.0 0.0 ellipse
+142 "chasl" 0.0 0.0 ellipse
+143 "NBAonESPN" 0.0 0.0 ellipse
+144 "jefsmack" 0.0 0.0 ellipse
+145 "AndrewMueller" 0.0 0.0 ellipse
+146 "JESS3" 0.0 0.0 ellipse
+147 "ThinkBusiness" 0.0 0.0 ellipse
+148 "SteveNash" 0.0 0.0 ellipse
+149 "BridgetAyers" 0.0 0.0 ellipse
+150 "RicBucher" 0.0 0.0 ellipse
+151 "landor_dot_com" 0.0 0.0 ellipse
+152 "DarrenWMoody" 0.0 0.0 ellipse
+153 "MagicJohnson" 0.0 0.0 ellipse
+154 "jadande" 0.0 0.0 ellipse
+155 "BrandingAgency" 0.0 0.0 ellipse
+156 "maryvandewiel" 0.0 0.0 ellipse
+157 "stefanliute" 0.0 0.0 ellipse
+158 "YaoMing" 0.0 0.0 ellipse
+159 "QRich" 0.0 0.0 ellipse
+160 "adwrighty" 0.0 0.0 ellipse
+161 "atommedia" 0.0 0.0 ellipse
+162 "ESPNAndyKatz" 0.0 0.0 ellipse
+163 "RealLamarOdom" 0.0 0.0 ellipse
+164 "abcdesign_" 0.0 0.0 ellipse
+165 "Pacers" 0.0 0.0 ellipse
+166 "MettaWorldPeace" 0.0 0.0 ellipse
+167 "CFOCoach" 0.0 0.0 ellipse
+168 "brandbucket" 0.0 0.0 ellipse
+169 "dgranger33" 0.0 0.0 ellipse
+170 "hoopshype" 0.0 0.0 ellipse
+171 "PhyllisShabad" 0.0 0.0 ellipse
+172 "SacramentoKings" 0.0 0.0 ellipse
+173 "rickyrubio9" 0.0 0.0 ellipse
+174 "MNTimberwolves" 0.0 0.0 ellipse
+175 "LAClippers" 0.0 0.0 ellipse
+176 "RobertPfeifer" 0.0 0.0 ellipse
+177 "JamieCrager" 0.0 0.0 ellipse
+178 "DenVan" 0.0 0.0 ellipse
+179 "robertomazzoni" 0.0 0.0 ellipse
+180 "GraemeCrossley" 0.0 0.0 ellipse
+181 "John_Wall" 0.0 0.0 ellipse
+182 "mogotti25" 0.0 0.0 ellipse
+183 "BrandRanter" 0.0 0.0 ellipse
+184 "StarburyMarbury" 0.0 0.0 ellipse
+185 "miketrap" 0.0 0.0 ellipse
+186 "jrich23" 0.0 0.0 ellipse
+187 "StephenCurry30" 0.0 0.0 ellipse
+188 "stevejankowski" 0.0 0.0 ellipse
+189 "pworthington" 0.0 0.0 ellipse
+190 "AustralianBrand" 0.0 0.0 ellipse
+191 "socialmediamstr" 0.0 0.0 ellipse
+192 "BrandPoliceNYC" 0.0 0.0 ellipse
+193 "UKCoachCalipari" 0.0 0.0 ellipse
+194 "KDTrey5" 0.0 0.0 ellipse
+195 "brandexpression" 0.0 0.0 ellipse
+196 "joanjimenez" 0.0 0.0 ellipse
+197 "SashaVujacic" 0.0 0.0 ellipse
+198 "jeremywaite" 0.0 0.0 ellipse
+199 "ubergio" 0.0 0.0 ellipse
+200 "Bucks" 0.0 0.0 ellipse
+201 "CristianSaracco" 0.0 0.0 ellipse
+202 "DickieV" 0.0 0.0 ellipse
+*arcs
+1 64 1.0
+2 42 1.0
+2 20 1.0
+2 8 1.0
+2 108 1.0
+2 65 2.0
+2 122 2.0
+2 97 1.0
+2 85 1.0
+2 74 4.0
+2 139 1.0
+3 110 2.0
+3 115 2.0
+3 117 1.0
+4 118 1.0
+5 46 1.0
+5 195 7.0
+6 39 1.0
+6 195 3.0
+6 16 1.0
+7 151 1.0
+7 30 1.0
+7 195 6.0
+8 68 1.0
+10 29 1.0
+10 43 1.0
+10 93 1.0
+10 170 2.0
+10 100 2.0
+10 126 1.0
+10 162 2.0
+10 139 1.0
+10 127 1.0
+10 202 5.0
+11 51 1.0
+11 148 2.0
+11 21 1.0
+11 116 2.0
+12 93 1.0
+12 153 1.0
+12 181 1.0
+12 21 1.0
+13 81 3.0
+13 12 2.0
+16 110 1.0
+16 67 1.0
+16 87 1.0
+18 177 1.0
+18 70 1.0
+19 71 1.0
+20 93 1.0
+20 79 1.0
+20 74 2.0
+22 136 1.0
+24 73 3.0
+24 67 1.0
+24 68 3.0
+24 8 8.0
+25 93 1.0
+25 12 1.0
+25 14 1.0
+26 30 3.0
+26 133 7.0
+26 31 1.0
+28 198 1.0
+29 1 1.0
+29 54 20.0
+29 88 1.0
+29 165 1.0
+29 104 1.0
+29 89 1.0
+29 194 1.0
+29 8 1.0
+29 148 1.0
+29 59 1.0
+29 65 1.0
+29 71 1.0
+29 25 1.0
+29 122 1.0
+29 202 1.0
+29 50 5.0
+29 97 3.0
+29 162 1.0
+29 172 1.0
+29 100 12.0
+29 64 1.0
+30 110 1.0
+30 145 20.0
+30 107 10.0
+30 134 16.0
+30 123 1.0
+31 32 1.0
+31 16 1.0
+32 65 1.0
+34 200 1.0
+34 165 1.0
+34 91 1.0
+34 11 2.0
+34 81 1.0
+34 17 1.0
+34 175 2.0
+36 70 2.0
+36 91 2.0
+36 181 3.0
+36 135 2.0
+36 47 2.0
+36 174 2.0
+36 175 1.0
+38 159 2.0
+38 14 4.0
+39 185 1.0
+39 6 1.0
+40 47 2.0
+40 79 1.0
+40 148 1.0
+40 158 3.0
+40 11 1.0
+40 170 1.0
+41 30 5.0
+41 16 3.0
+42 116 6.0
+42 70 1.0
+42 194 1.0
+42 181 1.0
+42 59 1.0
+42 159 1.0
+42 84 2.0
+42 108 2.0
+42 139 1.0
+42 187 1.0
+43 70 1.0
+43 59 1.0
+43 72 1.0
+45 29 1.0
+45 85 1.0
+45 66 1.0
+45 84 1.0
+45 194 2.0
+47 81 1.0
+47 70 2.0
+48 93 1.0
+49 177 9.0
+49 13 1.0
+49 134 2.0
+49 99 1.0
+51 1 1.0
+51 135 1.0
+51 70 9.0
+51 148 2.0
+51 93 2.0
+51 11 5.0
+51 25 4.0
+51 97 1.0
+51 85 5.0
+51 79 1.0
+52 136 1.0
+52 165 1.0
+54 29 1.0
+54 12 2.0
+56 63 3.0
+56 157 1.0
+58 54 1.0
+58 68 1.0
+58 154 1.0
+58 24 2.0
+58 8 1.0
+58 136 2.0
+58 73 12.0
+58 108 1.0
+59 42 5.0
+59 67 4.0
+59 68 1.0
+59 89 1.0
+59 45 1.0
+59 116 3.0
+59 84 1.0
+59 61 1.0
+59 159 6.0
+59 50 2.0
+59 85 1.0
+59 187 1.0
+61 154 1.0
+61 116 1.0
+61 65 2.0
+61 11 5.0
+61 12 1.0
+61 81 1.0
+61 38 1.0
+63 151 1.0
+63 56 6.0
+63 92 1.0
+63 157 1.0
+64 66 1.0
+65 74 1.0
+65 100 1.0
+65 202 2.0
+65 8 3.0
+66 45 1.0
+66 57 6.0
+66 139 3.0
+66 194 6.0
+66 181 1.0
+66 86 1.0
+67 2 2.0
+67 42 1.0
+67 116 3.0
+67 57 2.0
+67 70 2.0
+67 108 9.0
+67 65 2.0
+67 121 1.0
+67 14 10.0
+67 184 1.0
+67 85 3.0
+67 74 4.0
+67 163 1.0
+67 77 1.0
+69 145 1.0
+69 98 1.0
+69 30 4.0
+69 119 1.0
+70 81 1.0
+70 52 1.0
+70 175 1.0
+71 19 3.0
+71 81 1.0
+71 170 1.0
+73 58 6.0
+73 24 2.0
+73 170 1.0
+73 8 2.0
+73 154 4.0
+74 2 3.0
+74 20 2.0
+74 93 1.0
+74 159 1.0
+74 122 1.0
+74 202 2.0
+75 195 1.0
+76 170 1.0
+76 34 1.0
+77 81 1.0
+77 70 1.0
+78 195 1.0
+79 20 1.0
+80 60 2.0
+82 148 3.0
+82 202 1.0
+82 116 9.0
+83 30 1.0
+83 185 1.0
+84 85 1.0
+84 42 1.0
+85 2 1.0
+85 88 2.0
+85 66 3.0
+85 67 7.0
+85 116 2.0
+85 57 2.0
+85 148 1.0
+85 130 1.0
+85 65 2.0
+85 71 1.0
+85 121 1.0
+85 14 1.0
+85 184 1.0
+85 84 2.0
+85 51 4.0
+85 122 1.0
+85 108 1.0
+85 86 2.0
+85 175 1.0
+85 187 2.0
+86 126 1.0
+86 159 6.0
+86 66 1.0
+86 194 7.0
+88 85 1.0
+88 153 1.0
+88 66 1.0
+88 139 3.0
+89 154 3.0
+90 120 1.0
+90 26 1.0
+90 185 1.0
+91 76 1.0
+93 154 1.0
+93 116 8.0
+93 79 3.0
+93 8 2.0
+93 108 1.0
+93 73 1.0
+93 110 1.0
+93 74 8.0
+94 1 2.0
+94 42 10.0
+94 70 2.0
+94 194 1.0
+94 135 1.0
+94 71 3.0
+94 121 1.0
+94 79 1.0
+94 187 1.0
+97 61 1.0
+97 40 1.0
+97 200 1.0
+97 2 1.0
+98 93 1.0
+98 30 3.0
+100 65 2.0
+100 29 3.0
+100 162 1.0
+100 202 3.0
+101 65 3.0
+101 42 1.0
+101 89 1.0
+101 70 1.0
+101 93 1.0
+101 136 2.0
+101 25 1.0
+101 81 1.0
+103 177 9.0
+103 185 1.0
+104 36 1.0
+104 130 1.0
+104 50 1.0
+105 111 2.0
+105 98 2.0
+107 30 10.0
+108 2 3.0
+108 102 1.0
+108 13 1.0
+108 154 1.0
+108 58 1.0
+108 59 1.0
+108 9 2.0
+108 12 2.0
+108 14 9.0
+108 163 4.0
+108 173 1.0
+108 67 18.0
+108 68 1.0
+108 21 1.0
+108 70 7.0
+108 64 1.0
+108 121 3.0
+108 170 3.0
+108 73 1.0
+108 128 2.0
+108 77 1.0
+108 42 10.0
+108 184 1.0
+108 85 1.0
+108 186 1.0
+108 86 1.0
+108 88 2.0
+108 89 1.0
+108 65 5.0
+108 197 1.0
+108 50 1.0
+110 30 1.0
+111 183 13.0
+111 5 1.0
+111 105 3.0
+112 179 1.0
+115 3 1.0
+116 66 1.0
+116 153 1.0
+116 181 1.0
+116 59 1.0
+116 65 1.0
+116 82 1.0
+116 25 1.0
+116 122 1.0
+116 50 1.0
+116 139 1.0
+116 182 3.0
+116 187 1.0
+117 92 2.0
+119 55 1.0
+120 30 4.0
+120 105 3.0
+120 155 1.0
+120 201 1.0
+120 168 4.0
+120 195 1.0
+120 90 1.0
+121 70 1.0
+121 140 2.0
+121 200 1.0
+121 108 1.0
+123 30 1.0
+124 93 1.0
+125 70 1.0
+126 42 1.0
+126 116 3.0
+126 65 1.0
+126 82 3.0
+126 14 1.0
+126 85 1.0
+126 186 1.0
+126 86 3.0
+128 73 1.0
+128 12 2.0
+128 127 1.0
+128 170 2.0
+128 70 1.0
+129 107 1.0
+130 159 5.0
+130 74 2.0
+130 86 1.0
+131 201 3.0
+132 160 1.0
+133 1 1.0
+133 14 2.0
+133 26 34.0
+133 16 1.0
+134 178 2.0
+134 30 15.0
+136 88 1.0
+136 154 6.0
+136 70 1.0
+136 22 1.0
+136 194 1.0
+136 58 1.0
+136 150 1.0
+136 170 1.0
+136 84 1.0
+136 163 1.0
+136 100 1.0
+136 187 1.0
+137 186 1.0
+137 30 3.0
+137 195 1.0
+137 49 1.0
+137 8 1.0
+139 2 1.0
+139 42 1.0
+139 66 9.0
+139 116 2.0
+139 57 3.0
+139 194 4.0
+139 65 1.0
+139 85 3.0
+139 74 2.0
+139 86 2.0
+139 187 1.0
+140 1 13.0
+140 200 6.0
+140 70 2.0
+140 34 1.0
+140 135 2.0
+140 47 12.0
+140 71 3.0
+140 121 1.0
+140 36 1.0
+140 97 1.0
+140 104 5.0
+140 125 2.0
+140 52 5.0
+140 38 2.0
+140 17 12.0
+140 174 2.0
+140 40 7.0
+141 81 1.0
+141 177 1.0
+141 198 3.0
+141 153 1.0
+141 87 2.0
+145 178 2.0
+145 141 2.0
+145 30 31.0
+145 28 2.0
+148 67 2.0
+148 68 1.0
+148 154 1.0
+148 116 1.0
+148 70 1.0
+148 11 1.0
+150 68 2.0
+150 154 1.0
+150 45 1.0
+150 8 15.0
+150 184 1.0
+150 73 1.0
+150 85 1.0
+153 81 1.0
+153 202 2.0
+154 73 2.0
+154 136 4.0
+154 58 1.0
+154 68 1.0
+154 8 1.0
+156 5 1.0
+156 178 2.0
+156 98 1.0
+156 195 9.0
+156 16 14.0
+156 87 1.0
+157 63 2.0
+157 56 1.0
+159 89 1.0
+159 194 2.0
+159 82 1.0
+159 14 5.0
+159 74 3.0
+159 86 3.0
+159 130 2.0
+160 110 4.0
+160 132 1.0
+160 189 2.0
+160 195 4.0
+162 10 2.0
+163 81 1.0
+163 74 1.0
+163 184 1.0
+163 108 1.0
+165 70 2.0
+165 169 1.0
+165 8 1.0
+168 120 5.0
+168 107 1.0
+168 119 1.0
+168 87 1.0
+169 116 1.0
+170 19 1.0
+170 66 1.0
+170 154 1.0
+170 116 2.0
+170 194 1.0
+170 58 3.0
+170 8 2.0
+170 148 3.0
+170 158 1.0
+170 135 1.0
+170 24 1.0
+170 14 1.0
+170 184 2.0
+170 163 1.0
+170 76 3.0
+170 173 1.0
+172 54 1.0
+172 154 1.0
+173 76 2.0
+174 1 2.0
+174 148 1.0
+174 135 1.0
+174 11 1.0
+174 121 1.0
+174 81 1.0
+174 173 2.0
+175 1 1.0
+175 88 9.0
+175 94 4.0
+175 11 4.0
+175 79 4.0
+175 91 2.0
+175 52 1.0
+175 135 1.0
+175 47 2.0
+175 36 1.0
+175 104 1.0
+175 81 1.0
+175 85 3.0
+175 17 3.0
+175 174 3.0
+175 70 2.0
+175 40 4.0
+176 107 1.0
+176 60 3.0
+177 141 1.0
+178 145 4.0
+178 30 13.0
+178 134 4.0
+181 42 1.0
+181 66 1.0
+181 116 1.0
+181 127 1.0
+181 202 3.0
+181 187 2.0
+182 104 1.0
+183 178 1.0
+183 7 1.0
+183 111 15.0
+183 39 1.0
+183 6 1.0
+185 30 3.0
+185 83 2.0
+185 183 1.0
+185 157 2.0
+185 195 6.0
+186 65 2.0
+186 61 1.0
+186 116 10.0
+186 148 1.0
+186 54 1.0
+187 42 1.0
+187 57 1.0
+187 61 1.0
+187 186 1.0
+187 86 1.0
+187 202 1.0
+189 160 2.0
+191 107 1.0
+193 65 1.0
+193 202 1.0
+194 159 1.0
+194 66 5.0
+194 86 3.0
+194 187 1.0
+195 30 1.0
+195 6 7.0
+195 178 1.0
+195 7 6.0
+195 201 1.0
+195 92 1.0
+195 160 1.0
+195 185 5.0
+196 53 1.0
+198 141 2.0
+198 28 1.0
+200 181 1.0
+200 97 1.0
+200 50 1.0
+200 81 3.0
+200 52 2.0
+200 128 6.0
+201 132 1.0
+201 44 2.0
+201 105 11.0
+201 6 2.0
+201 195 4.0
+201 151 1.0
+201 196 14.0
+202 29 2.0
+202 193 1.0
+202 8 1.0
+202 10 3.0
+202 65 1.0
+202 61 1.0
+202 84 1.0
+202 74 2.0
+202 100 5.0

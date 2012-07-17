@@ -1,0 +1,646 @@
+*network baking_marketing
+*vertices 202
+1 "MarkRaganCEO" 0.0 0.0 ellipse
+2 "ShellyKramer" 0.0 0.0 ellipse
+3 "mylesbristowe" 0.0 0.0 ellipse
+4 "recessionipes" 0.0 0.0 ellipse
+5 "ThisIsSethsBlog" 0.0 0.0 ellipse
+6 "bakeforhope" 0.0 0.0 ellipse
+7 "mvolpe" 0.0 0.0 ellipse
+8 "avinash" 0.0 0.0 ellipse
+9 "bonappetit" 0.0 0.0 ellipse
+10 "MarketingB2B" 0.0 0.0 ellipse
+11 "cspenn" 0.0 0.0 ellipse
+12 "CupcakeWeek" 0.0 0.0 ellipse
+13 "nikhil_parekh" 0.0 0.0 ellipse
+14 "cakewrecks" 0.0 0.0 ellipse
+15 "PaulKirchoff" 0.0 0.0 ellipse
+16 "GBizzo" 0.0 0.0 ellipse
+17 "rbicakes" 0.0 0.0 ellipse
+18 "candyblog" 0.0 0.0 ellipse
+19 "FlourRose" 0.0 0.0 ellipse
+20 "fawsal" 0.0 0.0 ellipse
+21 "modernbaking" 0.0 0.0 ellipse
+22 "LarryWentz" 0.0 0.0 ellipse
+23 "sarahganly" 0.0 0.0 ellipse
+24 "bakeorbreak" 0.0 0.0 ellipse
+25 "CuriousChef" 0.0 0.0 ellipse
+26 "loveandoliveoil" 0.0 0.0 ellipse
+27 "hummingbbakery" 0.0 0.0 ellipse
+28 "randfish" 0.0 0.0 ellipse
+29 "BethHarte" 0.0 0.0 ellipse
+30 "RickM" 0.0 0.0 ellipse
+31 "MarketingSherpa" 0.0 0.0 ellipse
+32 "bakingbites" 0.0 0.0 ellipse
+33 "2morrowknight" 0.0 0.0 ellipse
+34 "smexaminer" 0.0 0.0 ellipse
+35 "mzuzuUK" 0.0 0.0 ellipse
+36 "JasonFalls" 0.0 0.0 ellipse
+37 "BakeryBits" 0.0 0.0 ellipse
+38 "Charm_CityCakes" 0.0 0.0 ellipse
+39 "AndyBeal" 0.0 0.0 ellipse
+40 "eMarketer" 0.0 0.0 ellipse
+41 "GlenGilmore" 0.0 0.0 ellipse
+42 "Mike_Stelzner" 0.0 0.0 ellipse
+43 "sweetpeabaking" 0.0 0.0 ellipse
+44 "smittenkitchen" 0.0 0.0 ellipse
+45 "socialmedia2day" 0.0 0.0 ellipse
+46 "petershankman" 0.0 0.0 ellipse
+47 "abakedcreation" 0.0 0.0 ellipse
+48 "cupcakecentral" 0.0 0.0 ellipse
+49 "bakingaddiction" 0.0 0.0 ellipse
+50 "sweetopia" 0.0 0.0 ellipse
+51 "plainjanetweets" 0.0 0.0 ellipse
+52 "bakingblog" 0.0 0.0 ellipse
+53 "KudosKitchen" 0.0 0.0 ellipse
+54 "jaybaer" 0.0 0.0 ellipse
+55 "BeautifulCakes" 0.0 0.0 ellipse
+56 "baking911" 0.0 0.0 ellipse
+57 "momof4keith" 0.0 0.0 ellipse
+58 "SweetSugarBelle" 0.0 0.0 ellipse
+59 "thepioneerwoman" 0.0 0.0 ellipse
+60 "jeffbullas" 0.0 0.0 ellipse
+61 "thefreshloaf" 0.0 0.0 ellipse
+62 "BrettGreene" 0.0 0.0 ellipse
+63 "JamesBlute" 0.0 0.0 ellipse
+64 "chrisbrogan" 0.0 0.0 ellipse
+65 "SeanMalarkey" 0.0 0.0 ellipse
+66 "dmscott" 0.0 0.0 ellipse
+67 "AskAaronLee" 0.0 0.0 ellipse
+68 "dominosugar" 0.0 0.0 ellipse
+69 "copyblogger" 0.0 0.0 ellipse
+70 "PinchMySalt" 0.0 0.0 ellipse
+71 "unmarketing" 0.0 0.0 ellipse
+72 "KISSmetrics" 0.0 0.0 ellipse
+73 "grassfedmedia" 0.0 0.0 ellipse
+74 "pinkcakebox" 0.0 0.0 ellipse
+75 "CupcakeRoyale" 0.0 0.0 ellipse
+76 "ducttape" 0.0 0.0 ellipse
+77 "FairCakeLondon" 0.0 0.0 ellipse
+78 "BakeItPretty" 0.0 0.0 ellipse
+79 "jasonyormark" 0.0 0.0 ellipse
+80 "KingArthurFlour" 0.0 0.0 ellipse
+81 "bsainsbury" 0.0 0.0 ellipse
+82 "breadexperience" 0.0 0.0 ellipse
+83 "bakerella" 0.0 0.0 ellipse
+84 "Econsultancy" 0.0 0.0 ellipse
+85 "onlinepro" 0.0 0.0 ellipse
+86 "SocialMedia411" 0.0 0.0 ellipse
+87 "HowellMarketing" 0.0 0.0 ellipse
+88 "cupcakeblog" 0.0 0.0 ellipse
+89 "CakeJournal" 0.0 0.0 ellipse
+90 "koskim" 0.0 0.0 ellipse
+91 "valeomarketing" 0.0 0.0 ellipse
+92 "PatrickStrother" 0.0 0.0 ellipse
+93 "smushyhippo" 0.0 0.0 ellipse
+94 "steverubel" 0.0 0.0 ellipse
+95 "JeffHerring" 0.0 0.0 ellipse
+96 "joelcomm" 0.0 0.0 ellipse
+97 "TheSocialCMO" 0.0 0.0 ellipse
+98 "Cookie_Madness" 0.0 0.0 ellipse
+99 "HeleneDujardin" 0.0 0.0 ellipse
+100 "MackCollier" 0.0 0.0 ellipse
+101 "Trus_" 0.0 0.0 ellipse
+102 "TheCupcakeBlog" 0.0 0.0 ellipse
+103 "brooklynbaker" 0.0 0.0 ellipse
+104 "verkoren" 0.0 0.0 ellipse
+105 "PastryChannel" 0.0 0.0 ellipse
+106 "PublicityGuru" 0.0 0.0 ellipse
+107 "treypennington" 0.0 0.0 ellipse
+108 "om_nomnomnivore" 0.0 0.0 ellipse
+109 "bakeanddestroy" 0.0 0.0 ellipse
+110 "armano" 0.0 0.0 ellipse
+111 "BakingInstitute" 0.0 0.0 ellipse
+112 "marketingwizdom" 0.0 0.0 ellipse
+113 "foodwinechickie" 0.0 0.0 ellipse
+114 "trophycupcakes" 0.0 0.0 ellipse
+115 "cakecentral" 0.0 0.0 ellipse
+116 "davepeck" 0.0 0.0 ellipse
+117 "fakeginger" 0.0 0.0 ellipse
+118 "TheGeekyGourmet" 0.0 0.0 ellipse
+119 "andressilvaa" 0.0 0.0 ellipse
+120 "zoebakes" 0.0 0.0 ellipse
+121 "HubSpot" 0.0 0.0 ellipse
+122 "usairambulance" 0.0 0.0 ellipse
+123 "hornedfroggy" 0.0 0.0 ellipse
+124 "ProfessorGary" 0.0 0.0 ellipse
+125 "AmberCadabra" 0.0 0.0 ellipse
+126 "lizstrauss" 0.0 0.0 ellipse
+127 "douglasi" 0.0 0.0 ellipse
+128 "BabyCakesNYC" 0.0 0.0 ellipse
+129 "iPlusMarketing" 0.0 0.0 ellipse
+130 "ConversationAge" 0.0 0.0 ellipse
+131 "socialmediamind" 0.0 0.0 ellipse
+132 "markwschaefer" 0.0 0.0 ellipse
+133 "israelwines" 0.0 0.0 ellipse
+134 "SprinkleBakes" 0.0 0.0 ellipse
+135 "SocialNetDaily" 0.0 0.0 ellipse
+136 "WiltonCakes" 0.0 0.0 ellipse
+137 "jowyang" 0.0 0.0 ellipse
+138 "cupcakeproject" 0.0 0.0 ellipse
+139 "iMeshella" 0.0 0.0 ellipse
+140 "danzarrella" 0.0 0.0 ellipse
+141 "katiskupcakes" 0.0 0.0 ellipse
+142 "sugardrama" 0.0 0.0 ellipse
+143 "RetroBakery" 0.0 0.0 ellipse
+144 "mitchjoel" 0.0 0.0 ellipse
+145 "BooCakes" 0.0 0.0 ellipse
+146 "123top10" 0.0 0.0 ellipse
+147 "bakeat350tweets" 0.0 0.0 ellipse
+148 "MarketingProfs" 0.0 0.0 ellipse
+149 "Coachforyou" 0.0 0.0 ellipse
+150 "beijinghaochi" 0.0 0.0 ellipse
+151 "SharonHayes" 0.0 0.0 ellipse
+152 "ArtoftheCookie" 0.0 0.0 ellipse
+153 "DannyBrown" 0.0 0.0 ellipse
+154 "finecooking" 0.0 0.0 ellipse
+155 "CupsCakesBakery" 0.0 0.0 ellipse
+156 "BitchBuzz" 0.0 0.0 ellipse
+157 "TheBoyWhoBakes" 0.0 0.0 ellipse
+158 "problogger" 0.0 0.0 ellipse
+159 "ckburgess" 0.0 0.0 ellipse
+160 "jacquestorres" 0.0 0.0 ellipse
+161 "dharmesh" 0.0 0.0 ellipse
+162 "CannelleVanille" 0.0 0.0 ellipse
+163 "toprank" 0.0 0.0 ellipse
+164 "MariSmith" 0.0 0.0 ellipse
+165 "ianbrodie" 0.0 0.0 ellipse
+166 "anitafiander" 0.0 0.0 ellipse
+167 "teedubya" 0.0 0.0 ellipse
+168 "marketstrategy" 0.0 0.0 ellipse
+169 "ClaireBrooksie" 0.0 0.0 ellipse
+170 "joythebaker" 0.0 0.0 ellipse
+171 "sprinkles" 0.0 0.0 ellipse
+172 "BeneaththeBrand" 0.0 0.0 ellipse
+173 "AlanSee" 0.0 0.0 ellipse
+174 "RealBread" 0.0 0.0 ellipse
+175 "KentHuffman" 0.0 0.0 ellipse
+176 "cakespy" 0.0 0.0 ellipse
+177 "MarketingUK" 0.0 0.0 ellipse
+178 "seo_tv" 0.0 0.0 ellipse
+179 "Phoebes_Bakery" 0.0 0.0 ellipse
+180 "whatsnewcupcake" 0.0 0.0 ellipse
+181 "dan_lepard" 0.0 0.0 ellipse
+182 "sugarcrafter" 0.0 0.0 ellipse
+183 "juntajoe" 0.0 0.0 ellipse
+184 "TinaCook" 0.0 0.0 ellipse
+185 "ronaldskelton" 0.0 0.0 ellipse
+186 "allcupcakes" 0.0 0.0 ellipse
+187 "chloeacbaker" 0.0 0.0 ellipse
+188 "ideas4rent" 0.0 0.0 ellipse
+189 "giornalista515" 0.0 0.0 ellipse
+190 "marketing_power" 0.0 0.0 ellipse
+191 "SEOmoz" 0.0 0.0 ellipse
+192 "JeffreyHayzlett" 0.0 0.0 ellipse
+193 "MarthaStewart" 0.0 0.0 ellipse
+194 "Bleeding_Heart" 0.0 0.0 ellipse
+195 "bakeourday" 0.0 0.0 ellipse
+196 "NicoWiekenberg" 0.0 0.0 ellipse
+197 "rohitbhargava" 0.0 0.0 ellipse
+198 "LaPhemmePhoodie" 0.0 0.0 ellipse
+199 "PamMktgNut" 0.0 0.0 ellipse
+200 "chefpaul9828" 0.0 0.0 ellipse
+201 "browneyedbaker" 0.0 0.0 ellipse
+202 "sengineland" 0.0 0.0 ellipse
+*arcs
+2 72 1.0
+2 130 1.0
+2 153 1.0
+2 197 2.0
+3 190 158.0
+3 66 12.0
+3 172 1.0
+3 175 6.0
+3 124 6.0
+3 159 1.0
+3 22 1.0
+7 66 1.0
+11 144 1.0
+11 148 1.0
+11 66 1.0
+11 46 1.0
+12 177 1.0
+12 186 3.0
+14 38 2.0
+17 193 1.0
+17 115 1.0
+17 160 7.0
+24 103 1.0
+24 68 1.0
+24 80 1.0
+24 70 1.0
+24 193 1.0
+24 98 1.0
+24 49 1.0
+27 156 1.0
+28 161 9.0
+28 8 1.0
+28 191 15.0
+28 121 1.0
+29 66 1.0
+29 130 1.0
+30 172 2.0
+31 66 1.0
+32 18 1.0
+32 98 1.0
+33 127 2.0
+33 193 1.0
+35 193 1.0
+36 140 2.0
+36 66 1.0
+36 69 3.0
+36 132 1.0
+36 94 1.0
+36 110 1.0
+36 137 2.0
+36 76 1.0
+37 174 1.0
+37 82 1.0
+38 14 1.0
+39 71 1.0
+42 144 1.0
+42 164 1.0
+42 183 1.0
+42 66 1.0
+42 34 1.0
+45 137 1.0
+45 76 1.0
+47 38 1.0
+47 103 2.0
+47 78 2.0
+49 50 1.0
+49 25 1.0
+49 123 1.0
+49 83 1.0
+49 201 12.0
+49 182 12.0
+49 78 2.0
+49 138 1.0
+50 83 1.0
+50 102 1.0
+50 89 1.0
+50 115 1.0
+50 49 1.0
+52 123 1.0
+53 50 7.0
+53 74 1.0
+53 147 2.0
+53 182 2.0
+53 59 1.0
+53 49 1.0
+54 144 2.0
+54 183 1.0
+54 66 1.0
+54 31 1.0
+55 180 2.0
+55 193 1.0
+55 136 1.0
+55 115 1.0
+55 186 1.0
+56 43 1.0
+56 193 1.0
+56 68 2.0
+56 30 1.0
+56 181 1.0
+58 83 1.0
+58 50 24.0
+58 142 5.0
+58 59 2.0
+58 136 2.0
+62 148 1.0
+62 110 1.0
+62 137 1.0
+62 46 1.0
+64 161 6.0
+64 66 7.0
+64 144 25.0
+64 132 1.0
+64 69 15.0
+64 7 1.0
+64 148 1.0
+64 116 1.0
+64 153 2.0
+64 11 18.0
+64 100 2.0
+64 76 23.0
+64 36 1.0
+66 163 1.0
+66 175 1.0
+69 183 2.0
+69 158 1.0
+69 54 1.0
+69 71 1.0
+69 46 1.0
+69 36 2.0
+70 52 1.0
+70 26 1.0
+70 99 1.0
+70 54 1.0
+70 80 2.0
+70 9 1.0
+70 32 1.0
+70 154 1.0
+70 181 1.0
+71 144 2.0
+71 140 1.0
+71 46 1.0
+71 36 1.0
+72 8 3.0
+75 176 2.0
+76 69 1.0
+76 66 1.0
+76 54 1.0
+76 190 1.0
+76 42 1.0
+78 134 1.0
+78 176 1.0
+81 202 1.0
+81 42 1.0
+81 100 1.0
+82 80 1.0
+83 44 1.0
+83 88 2.0
+83 176 4.0
+83 114 1.0
+83 26 1.0
+85 106 2.0
+88 114 2.0
+88 171 1.0
+88 68 1.0
+88 74 1.0
+88 12 1.0
+88 180 2.0
+88 52 1.0
+88 176 1.0
+92 173 2.0
+92 175 8.0
+92 132 1.0
+92 7 1.0
+92 124 1.0
+92 29 1.0
+92 159 1.0
+92 97 1.0
+94 1 1.0
+94 197 1.0
+94 40 3.0
+94 41 1.0
+94 8 2.0
+94 60 1.0
+94 76 1.0
+97 161 1.0
+97 158 1.0
+97 46 1.0
+97 87 1.0
+97 40 1.0
+97 144 2.0
+97 175 6.0
+97 41 2.0
+97 173 1.0
+97 107 4.0
+97 29 1.0
+97 159 2.0
+97 64 1.0
+100 183 4.0
+100 66 1.0
+100 130 4.0
+100 54 5.0
+100 69 2.0
+100 148 24.0
+100 199 1.0
+100 29 32.0
+100 97 1.0
+100 76 1.0
+100 36 2.0
+102 88 1.0
+103 176 1.0
+109 24 1.0
+109 88 1.0
+109 176 3.0
+109 83 1.0
+109 78 4.0
+109 193 1.0
+110 8 1.0
+110 94 1.0
+110 40 1.0
+112 165 1.0
+114 88 4.0
+114 176 9.0
+114 45 1.0
+116 110 1.0
+116 67 1.0
+116 126 2.0
+118 108 1.0
+119 190 1.0
+119 40 2.0
+119 173 1.0
+119 175 34.0
+119 92 2.0
+119 31 1.0
+119 33 1.0
+120 80 3.0
+120 99 1.0
+120 19 1.0
+120 59 2.0
+121 161 2.0
+121 140 2.0
+121 66 2.0
+121 40 1.0
+123 103 1.0
+124 190 2.0
+124 175 25.0
+124 119 2.0
+124 132 1.0
+124 92 3.0
+124 199 1.0
+124 135 1.0
+124 159 3.0
+124 33 1.0
+125 144 2.0
+125 110 1.0
+125 69 2.0
+125 36 1.0
+126 148 1.0
+126 110 2.0
+126 159 1.0
+127 33 2.0
+127 135 7.0
+127 41 1.0
+128 162 3.0
+130 144 1.0
+131 22 1.0
+132 54 2.0
+132 144 3.0
+132 175 1.0
+132 2 2.0
+132 41 4.0
+132 121 1.0
+132 8 1.0
+132 153 1.0
+132 34 2.0
+132 137 1.0
+132 42 1.0
+134 83 1.0
+134 142 2.0
+134 78 3.0
+134 147 1.0
+135 144 2.0
+137 66 1.0
+137 54 3.0
+137 84 1.0
+137 94 2.0
+137 110 3.0
+137 36 3.0
+138 201 1.0
+138 80 1.0
+139 151 1.0
+141 102 1.0
+141 14 1.0
+141 186 3.0
+141 88 10.0
+141 89 2.0
+141 176 1.0
+141 143 2.0
+141 180 13.0
+141 68 5.0
+141 38 7.0
+141 136 3.0
+141 48 1.0
+142 134 1.0
+142 201 2.0
+143 88 2.0
+143 141 1.0
+143 176 1.0
+144 8 2.0
+144 76 1.0
+146 196 1.0
+148 140 1.0
+148 183 3.0
+148 66 5.0
+148 125 1.0
+148 130 2.0
+148 144 1.0
+148 54 1.0
+148 163 2.0
+148 164 1.0
+148 29 1.0
+148 94 1.0
+148 161 1.0
+148 100 3.0
+148 137 1.0
+148 36 3.0
+149 127 4.0
+149 67 1.0
+149 196 23.0
+149 131 1.0
+149 41 2.0
+149 119 12.0
+149 146 21.0
+149 7 3.0
+149 164 2.0
+149 135 8.0
+149 45 1.0
+149 60 2.0
+149 33 1.0
+149 34 2.0
+149 22 1.0
+153 87 1.0
+153 40 1.0
+154 25 2.0
+157 37 1.0
+157 103 5.0
+157 70 1.0
+157 61 1.0
+157 181 2.0
+157 12 1.0
+158 69 2.0
+159 40 2.0
+159 173 2.0
+159 135 1.0
+159 175 70.0
+159 7 1.0
+159 107 3.0
+159 124 7.0
+159 33 5.0
+159 97 33.0
+159 137 1.0
+159 100 1.0
+160 193 1.0
+160 103 1.0
+160 9 1.0
+161 66 3.0
+161 39 1.0
+161 69 8.0
+161 121 1.0
+161 7 7.0
+161 71 1.0
+161 8 11.0
+161 76 5.0
+161 64 2.0
+162 83 1.0
+162 154 1.0
+162 176 1.0
+162 120 1.0
+162 147 1.0
+163 92 1.0
+163 183 2.0
+163 66 3.0
+163 54 1.0
+163 31 1.0
+164 34 9.0
+166 95 1.0
+167 158 1.0
+167 76 1.0
+173 92 2.0
+173 175 2.0
+173 124 1.0
+174 37 1.0
+174 181 2.0
+176 114 3.0
+176 103 3.0
+176 80 1.0
+176 75 1.0
+176 83 4.0
+176 9 1.0
+176 32 1.0
+176 138 1.0
+180 83 1.0
+180 88 1.0
+180 141 3.0
+180 176 1.0
+183 66 1.0
+183 54 2.0
+183 107 1.0
+183 34 1.0
+183 42 1.0
+183 76 1.0
+184 185 1.0
+185 190 1.0
+190 175 1.0
+191 28 1.0
+194 105 1.0
+194 141 1.0
+194 176 3.0
+194 55 1.0
+194 160 1.0
+196 146 1.0
+199 65 1.0
+199 87 6.0
+199 100 6.0
+199 39 2.0
+199 119 1.0
+199 5 1.0
+199 199 1.0
+199 148 1.0
+199 164 18.0
+199 72 1.0
+199 124 1.0
+199 45 17.0
+199 46 1.0
+199 127 1.0
+199 11 1.0
+199 135 6.0
+199 34 1.0
+199 137 1.0
+199 36 1.0
+202 148 1.0
+202 112 1.0

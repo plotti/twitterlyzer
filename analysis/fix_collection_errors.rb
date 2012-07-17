@@ -2,6 +2,7 @@ require '../config/environment'
 require 'faster_csv'
 
 missing_persons = FasterCSV.read("#{RAILS_ROOT}/analysis/data/missing_persons.csv")
+missing_friends = FasterCSV.read("#{RAILS_ROOT}/analysis/data/missing_friends.csv").flatten
 members = FasterCSV.read("#{RAILS_ROOT}/analysis/data/missing_feed_entries.csv").flatten
 maxfriends = 100000
 category = ""
@@ -36,6 +37,15 @@ missing_persons.each do |member|
 end
 
 wait_for_jobs("CollectPersonJob")
+
+################ Collect missing friends ids for persons ######################
+
+missing_friends.each do |member|
+  person = Person.find_by_username(member)
+  Delayed::Job.enqueue(CollectFriendsIdsJob.new(person.id))
+end
+
+wait_for_jobs("CollectFriendsIdsJob")
 
 ################ Collect feeds for persons ######################
 

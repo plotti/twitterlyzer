@@ -1,0 +1,668 @@
+*network children_mobile_smartphone
+*vertices 202
+1 "androidandme" 0.0 0.0 ellipse
+2 "SamsungMobileUS" 0.0 0.0 ellipse
+3 "SKIP_autism" 0.0 0.0 ellipse
+4 "lovelifelots_19" 0.0 0.0 ellipse
+5 "VoraciousReader" 0.0 0.0 ellipse
+6 "OviDeveloper" 0.0 0.0 ellipse
+7 "AZMuseum4Youth" 0.0 0.0 ellipse
+8 "Parentpages" 0.0 0.0 ellipse
+9 "mphillibert" 0.0 0.0 ellipse
+10 "HappyHeartsFund" 0.0 0.0 ellipse
+11 "androids" 0.0 0.0 ellipse
+12 "blackmaternal" 0.0 0.0 ellipse
+13 "ChildrensLA" 0.0 0.0 ellipse
+14 "windowsphone" 0.0 0.0 ellipse
+15 "AmazingMaisie" 0.0 0.0 ellipse
+16 "mobilitycompany" 0.0 0.0 ellipse
+17 "INQMobile" 0.0 0.0 ellipse
+18 "savechildrenaus" 0.0 0.0 ellipse
+19 "OKE_News" 0.0 0.0 ellipse
+20 "More4Kids" 0.0 0.0 ellipse
+21 "foursquare" 0.0 0.0 ellipse
+22 "mob4hire" 0.0 0.0 ellipse
+23 "FlurryMobile" 0.0 0.0 ellipse
+24 "AAS" 0.0 0.0 ellipse
+25 "KarriannGraf" 0.0 0.0 ellipse
+26 "Wireless_Watch" 0.0 0.0 ellipse
+27 "PPForums" 0.0 0.0 ellipse
+28 "BraveKidsVoices" 0.0 0.0 ellipse
+29 "mtrends" 0.0 0.0 ellipse
+30 "everyone_stc" 0.0 0.0 ellipse
+31 "gomonews" 0.0 0.0 ellipse
+32 "CrackBerry" 0.0 0.0 ellipse
+33 "googlemobileads" 0.0 0.0 ellipse
+34 "PuzzlinDotCom" 0.0 0.0 ellipse
+35 "marieosmond" 0.0 0.0 ellipse
+36 "savechildrenuk" 0.0 0.0 ellipse
+37 "MobileEntBiz" 0.0 0.0 ellipse
+38 "WK_Kellogg_Fdn" 0.0 0.0 ellipse
+39 "androinica" 0.0 0.0 ellipse
+40 "PLAYTHISWAY" 0.0 0.0 ellipse
+41 "BlackBerryDev" 0.0 0.0 ellipse
+42 "nokiadeveloper" 0.0 0.0 ellipse
+43 "DIGIKIDSChildID" 0.0 0.0 ellipse
+44 "KidfreshFoods" 0.0 0.0 ellipse
+45 "Brian_Howes" 0.0 0.0 ellipse
+46 "fring" 0.0 0.0 ellipse
+47 "palm" 0.0 0.0 ellipse
+48 "SaveChildrenNZ" 0.0 0.0 ellipse
+49 "TalkAndroid" 0.0 0.0 ellipse
+50 "ParentingHelp09" 0.0 0.0 ellipse
+51 "Androidheadline" 0.0 0.0 ellipse
+52 "sprint" 0.0 0.0 ellipse
+53 "childrenscancer" 0.0 0.0 ellipse
+54 "Julie_Tweeter" 0.0 0.0 ellipse
+55 "MobileCrunch" 0.0 0.0 ellipse
+56 "mashablemobile" 0.0 0.0 ellipse
+57 "mobileworldlive" 0.0 0.0 ellipse
+58 "kidsgoape" 0.0 0.0 ellipse
+59 "Hospital4Kids" 0.0 0.0 ellipse
+60 "childrensroom" 0.0 0.0 ellipse
+61 "AnnabelChaffer" 0.0 0.0 ellipse
+62 "ChildrensRights" 0.0 0.0 ellipse
+63 "DetroitNewMoms" 0.0 0.0 ellipse
+64 "htc_eu" 0.0 0.0 ellipse
+65 "everychilduk" 0.0 0.0 ellipse
+66 "CMNHospitals" 0.0 0.0 ellipse
+67 "visionmobile" 0.0 0.0 ellipse
+68 "mobclix" 0.0 0.0 ellipse
+69 "joannadolgoffmd" 0.0 0.0 ellipse
+70 "MoMoLondon" 0.0 0.0 ellipse
+71 "TMobile" 0.0 0.0 ellipse
+72 "motodev" 0.0 0.0 ellipse
+73 "WirelessWeek" 0.0 0.0 ellipse
+74 "peggyanne" 0.0 0.0 ellipse
+75 "ParentStream" 0.0 0.0 ellipse
+76 "Amanda_vdGulik" 0.0 0.0 ellipse
+77 "First5LA" 0.0 0.0 ellipse
+78 "MMAglobal" 0.0 0.0 ellipse
+79 "nokconv" 0.0 0.0 ellipse
+80 "EricssonLabs" 0.0 0.0 ellipse
+81 "wpcentral" 0.0 0.0 ellipse
+82 "KidsHealth" 0.0 0.0 ellipse
+83 "DavidWalliamsUK" 0.0 0.0 ellipse
+84 "Sleeplikeababy" 0.0 0.0 ellipse
+85 "Symbian" 0.0 0.0 ellipse
+86 "judygleeson" 0.0 0.0 ellipse
+87 "SavetheChildren" 0.0 0.0 ellipse
+88 "BGR" 0.0 0.0 ellipse
+89 "mobiadnews" 0.0 0.0 ellipse
+90 "ChildrensBoston" 0.0 0.0 ellipse
+91 "BlackBerry" 0.0 0.0 ellipse
+92 "newparentsnetwo" 0.0 0.0 ellipse
+93 "iamforkids" 0.0 0.0 ellipse
+94 "MobileBehavior" 0.0 0.0 ellipse
+95 "Ed_Palacios" 0.0 0.0 ellipse
+96 "kei_shimada" 0.0 0.0 ellipse
+97 "PhxChildrens" 0.0 0.0 ellipse
+98 "Ew4n" 0.0 0.0 ellipse
+99 "qtproject" 0.0 0.0 ellipse
+100 "StarEcoStation" 0.0 0.0 ellipse
+101 "htc" 0.0 0.0 ellipse
+102 "UNICEFnl" 0.0 0.0 ellipse
+103 "FoneArena" 0.0 0.0 ellipse
+104 "GoogleMobile" 0.0 0.0 ellipse
+105 "phandroid" 0.0 0.0 ellipse
+106 "LWFIndia" 0.0 0.0 ellipse
+107 "NaughtyDinosaur" 0.0 0.0 ellipse
+108 "nokiabetalabs" 0.0 0.0 ellipse
+109 "TheAndroidSite" 0.0 0.0 ellipse
+110 "mocoNews" 0.0 0.0 ellipse
+111 "ChildNutri" 0.0 0.0 ellipse
+112 "NCTC_ARTS" 0.0 0.0 ellipse
+113 "Appboy" 0.0 0.0 ellipse
+114 "MobileMktrDaily" 0.0 0.0 ellipse
+115 "PeachtreePub" 0.0 0.0 ellipse
+116 "ovibynokia" 0.0 0.0 ellipse
+117 "littlepinwheel" 0.0 0.0 ellipse
+118 "Ideasplash" 0.0 0.0 ellipse
+119 "artkids" 0.0 0.0 ellipse
+120 "gspiralyoga" 0.0 0.0 ellipse
+121 "mobileactive" 0.0 0.0 ellipse
+122 "pgolding" 0.0 0.0 ellipse
+123 "AngelynCheatham" 0.0 0.0 ellipse
+124 "androidcentral" 0.0 0.0 ellipse
+125 "michellebosch" 0.0 0.0 ellipse
+126 "chetansharma" 0.0 0.0 ellipse
+127 "googlenexus" 0.0 0.0 ellipse
+128 "MCommerceDaily" 0.0 0.0 ellipse
+129 "mobilezeitgeist" 0.0 0.0 ellipse
+130 "ChildrensTheOne" 0.0 0.0 ellipse
+131 "OnlyMobileNews" 0.0 0.0 ellipse
+132 "WhimsicalMom" 0.0 0.0 ellipse
+133 "googlemobileapp" 0.0 0.0 ellipse
+134 "gabbafriends" 0.0 0.0 ellipse
+135 "MobileSyrup" 0.0 0.0 ellipse
+136 "nokia" 0.0 0.0 ellipse
+137 "seattlechildren" 0.0 0.0 ellipse
+138 "AndroidDev" 0.0 0.0 ellipse
+139 "technokitten" 0.0 0.0 ellipse
+140 "symbianguru" 0.0 0.0 ellipse
+141 "Blackberry_News" 0.0 0.0 ellipse
+142 "xdadevelopers" 0.0 0.0 ellipse
+143 "cyanogen" 0.0 0.0 ellipse
+144 "markguim" 0.0 0.0 ellipse
+145 "russellbuckley" 0.0 0.0 ellipse
+146 "twittermobile" 0.0 0.0 ellipse
+147 "Childhelp" 0.0 0.0 ellipse
+148 "preschoolonline" 0.0 0.0 ellipse
+149 "kidmuseumnh" 0.0 0.0 ellipse
+150 "MakeAWishAZ" 0.0 0.0 ellipse
+151 "menacingpickle" 0.0 0.0 ellipse
+152 "kidsindanger" 0.0 0.0 ellipse
+153 "Imperfectmother" 0.0 0.0 ellipse
+154 "childrens_trust" 0.0 0.0 ellipse
+155 "thedroidguy" 0.0 0.0 ellipse
+156 "chicmommyusa" 0.0 0.0 ellipse
+157 "TriciaRichner" 0.0 0.0 ellipse
+158 "OneLouderApps" 0.0 0.0 ellipse
+159 "MobileMktg" 0.0 0.0 ellipse
+160 "MichelleReynoso" 0.0 0.0 ellipse
+161 "tomiahonen" 0.0 0.0 ellipse
+162 "SKIPPROGRAM" 0.0 0.0 ellipse
+163 "IntoMobile" 0.0 0.0 ellipse
+164 "engadgetmobile" 0.0 0.0 ellipse
+165 "CareForKids" 0.0 0.0 ellipse
+166 "pocketnowtweets" 0.0 0.0 ellipse
+167 "FierceWireless" 0.0 0.0 ellipse
+168 "JacquelineGreen" 0.0 0.0 ellipse
+169 "gretchenpritts" 0.0 0.0 ellipse
+170 "justCarmell" 0.0 0.0 ellipse
+171 "virginmobileus" 0.0 0.0 ellipse
+172 "noahkravitz" 0.0 0.0 ellipse
+173 "androidtips" 0.0 0.0 ellipse
+174 "BlackBerryHelp" 0.0 0.0 ellipse
+175 "nimbuzz" 0.0 0.0 ellipse
+176 "ATT" 0.0 0.0 ellipse
+177 "VUMCchildren" 0.0 0.0 ellipse
+178 "singlefather" 0.0 0.0 ellipse
+179 "iain2008" 0.0 0.0 ellipse
+180 "MillennialMedia" 0.0 0.0 ellipse
+181 "wp7dev" 0.0 0.0 ellipse
+182 "ChildrensColo" 0.0 0.0 ellipse
+183 "flirtybird" 0.0 0.0 ellipse
+184 "Chernobyl" 0.0 0.0 ellipse
+185 "MontessoriAcad" 0.0 0.0 ellipse
+186 "STLChildrens" 0.0 0.0 ellipse
+187 "AndroidGuys" 0.0 0.0 ellipse
+188 "diapersdotcom" 0.0 0.0 ellipse
+189 "MNChildMuseum" 0.0 0.0 ellipse
+190 "childhealthwi" 0.0 0.0 ellipse
+191 "WarChildUK" 0.0 0.0 ellipse
+192 "janole" 0.0 0.0 ellipse
+193 "Motorola" 0.0 0.0 ellipse
+194 "andreascon" 0.0 0.0 ellipse
+195 "SonyXperiaUS" 0.0 0.0 ellipse
+196 "mobileindustry" 0.0 0.0 ellipse
+197 "MobileMW" 0.0 0.0 ellipse
+198 "biguniverse" 0.0 0.0 ellipse
+199 "childrenshealth" 0.0 0.0 ellipse
+200 "portdiscovery" 0.0 0.0 ellipse
+201 "sos4children" 0.0 0.0 ellipse
+202 "MilesTheBear" 0.0 0.0 ellipse
+*arcs
+1 176 1.0
+1 2 1.0
+1 124 2.0
+1 71 3.0
+1 105 2.0
+1 187 2.0
+2 1 1.0
+2 176 5.0
+2 52 1.0
+2 155 1.0
+2 101 1.0
+2 71 2.0
+2 14 1.0
+2 187 1.0
+6 79 1.0
+7 189 1.0
+7 149 1.0
+13 165 2.0
+13 66 1.0
+13 90 1.0
+13 199 1.0
+13 77 1.0
+13 137 4.0
+14 176 8.0
+14 181 16.0
+14 136 1.0
+16 161 1.0
+16 55 1.0
+16 67 8.0
+16 23 1.0
+16 37 1.0
+17 139 1.0
+17 73 1.0
+18 36 2.0
+18 87 1.0
+18 48 2.0
+20 35 1.0
+20 186 1.0
+20 28 4.0
+20 199 1.0
+21 1 1.0
+21 192 1.0
+22 124 1.0
+22 145 1.0
+22 161 2.0
+22 74 1.0
+23 55 1.0
+24 136 3.0
+24 98 4.0
+24 79 1.0
+24 196 1.0
+24 116 1.0
+24 42 1.0
+24 161 3.0
+24 192 7.0
+26 96 3.0
+26 139 1.0
+26 74 1.0
+26 80 3.0
+26 126 2.0
+26 161 12.0
+26 164 2.0
+26 121 2.0
+28 147 1.0
+29 96 1.0
+29 31 1.0
+29 139 2.0
+29 22 1.0
+29 74 7.0
+29 80 1.0
+29 155 2.0
+29 126 6.0
+29 41 1.0
+29 161 13.0
+29 145 5.0
+29 121 1.0
+30 36 1.0
+30 18 5.0
+30 87 1.0
+30 48 1.0
+31 194 2.0
+31 122 1.0
+31 139 9.0
+31 33 1.0
+31 74 2.0
+31 67 1.0
+31 98 1.0
+31 129 3.0
+31 57 9.0
+31 161 1.0
+31 145 2.0
+31 29 2.0
+32 176 1.0
+32 124 5.0
+32 52 1.0
+32 91 8.0
+32 41 1.0
+32 174 1.0
+33 47 5.0
+33 110 1.0
+35 66 18.0
+36 87 1.0
+37 145 1.0
+39 1 4.0
+39 2 3.0
+39 124 2.0
+39 142 1.0
+39 21 1.0
+39 71 1.0
+39 172 7.0
+39 14 1.0
+39 187 5.0
+39 158 1.0
+39 143 1.0
+39 193 1.0
+41 174 79.0
+41 139 1.0
+42 192 9.0
+42 99 1.0
+42 24 1.0
+42 79 1.0
+42 67 2.0
+42 136 15.0
+42 108 1.0
+42 116 1.0
+46 85 1.0
+46 1 1.0
+46 192 1.0
+47 21 1.0
+48 30 2.0
+48 18 5.0
+50 76 1.0
+53 21 1.0
+53 150 2.0
+59 66 1.0
+65 36 2.0
+65 191 4.0
+66 59 1.0
+66 35 3.0
+66 177 1.0
+66 137 3.0
+67 194 16.0
+67 122 1.0
+67 80 4.0
+67 74 6.0
+67 24 1.0
+67 126 2.0
+67 136 1.0
+67 70 3.0
+67 192 4.0
+67 121 1.0
+68 55 2.0
+68 180 1.0
+68 21 1.0
+68 74 1.0
+70 122 1.0
+70 21 1.0
+70 139 8.0
+70 101 1.0
+70 67 2.0
+70 37 3.0
+70 145 2.0
+71 52 1.0
+71 176 2.0
+71 101 4.0
+72 1 6.0
+72 138 1.0
+72 21 4.0
+72 167 1.0
+72 22 1.0
+72 124 1.0
+72 23 1.0
+74 122 1.0
+74 176 1.0
+74 31 4.0
+74 139 12.0
+74 98 5.0
+74 180 29.0
+74 67 3.0
+74 126 19.0
+74 70 1.0
+74 129 1.0
+74 105 1.0
+74 161 48.0
+74 145 3.0
+74 78 1.0
+74 29 6.0
+78 197 1.0
+78 96 2.0
+78 114 13.0
+78 74 1.0
+78 180 11.0
+78 176 4.0
+78 73 7.0
+78 161 5.0
+78 145 2.0
+79 103 4.0
+79 140 2.0
+79 24 1.0
+79 192 2.0
+79 136 1.0
+80 161 1.0
+80 98 1.0
+80 139 4.0
+81 176 1.0
+81 181 1.0
+81 144 1.0
+85 24 1.0
+85 140 1.0
+87 179 1.0
+87 36 1.0
+87 176 1.0
+91 174 155.0
+91 41 10.0
+92 152 1.0
+94 114 1.0
+94 80 1.0
+94 21 2.0
+96 194 1.0
+96 139 4.0
+96 98 3.0
+96 161 7.0
+96 26 2.0
+96 145 1.0
+96 29 1.0
+97 21 1.0
+97 150 7.0
+97 53 3.0
+97 190 1.0
+97 13 5.0
+97 130 2.0
+97 199 2.0
+97 137 2.0
+98 32 1.0
+98 74 3.0
+98 196 2.0
+98 172 8.0
+98 161 22.0
+98 145 1.0
+98 192 9.0
+99 24 1.0
+99 79 1.0
+99 41 1.0
+99 42 1.0
+99 108 2.0
+99 136 1.0
+103 136 1.0
+105 124 1.0
+105 1 1.0
+105 57 1.0
+108 42 1.0
+108 79 1.0
+108 192 1.0
+108 140 2.0
+109 143 1.0
+109 127 1.0
+110 21 1.0
+113 175 1.0
+113 164 1.0
+113 136 1.0
+114 128 5.0
+116 24 1.0
+116 175 1.0
+116 192 1.0
+116 136 1.0
+118 40 1.0
+121 197 2.0
+122 194 3.0
+122 139 11.0
+122 98 1.0
+122 74 1.0
+122 80 1.0
+122 67 2.0
+122 126 2.0
+122 140 1.0
+122 129 1.0
+122 161 21.0
+122 145 2.0
+122 29 8.0
+124 24 1.0
+126 194 1.0
+126 110 1.0
+126 167 14.0
+126 74 6.0
+126 80 7.0
+126 52 1.0
+126 71 1.0
+126 161 26.0
+126 180 13.0
+126 29 1.0
+129 122 1.0
+129 139 1.0
+129 74 2.0
+129 80 1.0
+129 161 5.0
+129 145 1.0
+129 192 1.0
+129 29 1.0
+130 82 1.0
+130 186 1.0
+132 40 1.0
+136 42 6.0
+137 13 1.0
+137 186 1.0
+137 97 2.0
+139 98 2.0
+139 74 6.0
+139 180 1.0
+139 136 1.0
+139 24 1.0
+139 57 1.0
+139 161 21.0
+139 145 27.0
+139 174 2.0
+139 80 3.0
+140 85 2.0
+140 21 3.0
+140 24 1.0
+140 79 2.0
+140 192 6.0
+140 103 2.0
+140 161 1.0
+140 108 2.0
+140 175 4.0
+140 136 8.0
+143 124 1.0
+143 155 4.0
+143 71 3.0
+144 2 1.0
+144 101 2.0
+144 136 7.0
+144 71 1.0
+144 172 14.0
+144 14 4.0
+144 81 1.0
+144 192 1.0
+145 122 1.0
+145 139 24.0
+145 98 1.0
+145 74 6.0
+145 126 5.0
+145 129 1.0
+145 56 1.0
+145 161 44.0
+145 78 1.0
+145 29 5.0
+149 189 3.0
+150 97 11.0
+150 66 3.0
+150 53 5.0
+150 199 1.0
+150 201 1.0
+150 28 1.0
+150 147 1.0
+152 92 1.0
+155 52 2.0
+155 105 1.0
+155 101 1.0
+161 122 1.0
+161 139 1.0
+161 98 5.0
+161 74 1.0
+161 126 16.0
+161 145 5.0
+161 192 11.0
+163 195 1.0
+163 136 7.0
+163 193 1.0
+165 66 2.0
+168 28 2.0
+169 20 3.0
+171 167 1.0
+172 98 1.0
+172 2 2.0
+172 155 1.0
+172 144 1.0
+174 41 1.0
+175 14 1.0
+175 136 1.0
+176 21 1.0
+176 52 1.0
+176 14 1.0
+176 91 2.0
+177 13 3.0
+177 66 2.0
+177 97 2.0
+180 197 4.0
+180 31 4.0
+180 167 1.0
+180 89 1.0
+180 114 1.0
+180 74 42.0
+180 155 24.0
+180 67 1.0
+180 68 4.0
+180 37 4.0
+180 126 40.0
+180 128 1.0
+180 56 1.0
+180 105 2.0
+180 57 1.0
+180 145 1.0
+180 81 1.0
+180 78 1.0
+180 88 1.0
+180 193 1.0
+181 2 1.0
+181 166 1.0
+181 101 11.0
+181 81 2.0
+181 72 1.0
+181 136 1.0
+181 14 8.0
+182 66 1.0
+182 199 1.0
+182 137 1.0
+182 170 1.0
+186 130 1.0
+187 1 1.0
+187 2 1.0
+187 124 1.0
+187 39 1.0
+187 71 1.0
+187 163 1.0
+189 149 6.0
+189 200 1.0
+190 66 1.0
+190 90 1.0
+190 97 1.0
+191 36 1.0
+191 65 2.0
+192 98 1.0
+192 24 2.0
+192 161 9.0
+192 129 1.0
+192 144 1.0
+192 42 1.0
+192 163 1.0
+192 136 4.0
+192 14 1.0
+194 122 3.0
+194 101 1.0
+194 74 1.0
+194 80 4.0
+194 67 4.0
+194 126 2.0
+194 129 1.0
+194 161 2.0
+194 145 2.0
+194 29 2.0
+195 94 1.0
+195 176 7.0
+195 11 1.0
+195 103 1.0
+195 187 2.0
+195 131 1.0
+197 180 5.0
+197 68 1.0
+199 66 6.0
+199 90 1.0
+199 137 1.0
+200 130 1.0
+202 21 2.0

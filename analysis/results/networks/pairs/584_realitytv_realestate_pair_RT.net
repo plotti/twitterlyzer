@@ -1,0 +1,614 @@
+*network realitytv_realestate
+*vertices 202
+1 "IamSheree" 0.0 0.0 ellipse
+2 "ines" 0.0 0.0 ellipse
+3 "JENNIWOWW" 0.0 0.0 ellipse
+4 "VINNYGUADAGNINO" 0.0 0.0 ellipse
+5 "RETomato" 0.0 0.0 ellipse
+6 "ASusoeff" 0.0 0.0 ellipse
+7 "hollymadison" 0.0 0.0 ellipse
+8 "ShaunieONeal" 0.0 0.0 ellipse
+9 "AndyKaufman" 0.0 0.0 ellipse
+10 "JasonLucchesi" 0.0 0.0 ellipse
+11 "mayaREguru" 0.0 0.0 ellipse
+12 "trulia" 0.0 0.0 ellipse
+13 "JoshCantwell" 0.0 0.0 ellipse
+14 "wpagent" 0.0 0.0 ellipse
+15 "rjsellscheap" 0.0 0.0 ellipse
+16 "RealEstate__" 0.0 0.0 ellipse
+17 "KrisJenner" 0.0 0.0 ellipse
+18 "KennySantucci" 0.0 0.0 ellipse
+19 "BigBrotherLeak" 0.0 0.0 ellipse
+20 "MarcoSantarelli" 0.0 0.0 ellipse
+21 "ElleNavarro" 0.0 0.0 ellipse
+22 "gingerw" 0.0 0.0 ellipse
+23 "LisaVanderpump" 0.0 0.0 ellipse
+24 "danidONAT0" 0.0 0.0 ellipse
+25 "KhloeKardashian" 0.0 0.0 ellipse
+26 "rosshair" 0.0 0.0 ellipse
+27 "KourtneyKardash" 0.0 0.0 ellipse
+28 "Adrienne_Bailon" 0.0 0.0 ellipse
+29 "ReggieRPR" 0.0 0.0 ellipse
+30 "ThanMerrill" 0.0 0.0 ellipse
+31 "heidimontag" 0.0 0.0 ellipse
+32 "Swanepoel" 0.0 0.0 ellipse
+33 "MScottShay" 0.0 0.0 ellipse
+34 "Teresa_Giudice" 0.0 0.0 ellipse
+35 "WSJRealEstate" 0.0 0.0 ellipse
+36 "davidgoldstein" 0.0 0.0 ellipse
+37 "dinamanzo" 0.0 0.0 ellipse
+38 "KendallJenner" 0.0 0.0 ellipse
+39 "Real_Estate_123" 0.0 0.0 ellipse
+40 "REMarketingTips" 0.0 0.0 ellipse
+41 "erealestate_" 0.0 0.0 ellipse
+42 "propertytribe" 0.0 0.0 ellipse
+43 "AudrinaPatridge" 0.0 0.0 ellipse
+44 "shirley_wise" 0.0 0.0 ellipse
+45 "CBSBigBrother" 0.0 0.0 ellipse
+46 "MelissaRycroft" 0.0 0.0 ellipse
+47 "RobKardashian" 0.0 0.0 ellipse
+48 "missnatalienunn" 0.0 0.0 ellipse
+49 "AubreyODay" 0.0 0.0 ellipse
+50 "RealtorRyan" 0.0 0.0 ellipse
+51 "katietarbox" 0.0 0.0 ellipse
+52 "BigBrotherDish" 0.0 0.0 ellipse
+53 "swedal" 0.0 0.0 ellipse
+54 "InmanNews" 0.0 0.0 ellipse
+55 "JLJeffLewis" 0.0 0.0 ellipse
+56 "propertychannel" 0.0 0.0 ellipse
+57 "LaurenConrad" 0.0 0.0 ellipse
+58 "drothamel" 0.0 0.0 ellipse
+59 "Chris_Smth" 0.0 0.0 ellipse
+60 "Tara_Costa" 0.0 0.0 ellipse
+61 "Kandi" 0.0 0.0 ellipse
+62 "whitneyEVEport" 0.0 0.0 ellipse
+63 "PhxREguy" 0.0 0.0 ellipse
+64 "TheRealHoopz" 0.0 0.0 ellipse
+65 "RussFilice" 0.0 0.0 ellipse
+66 "RaganFox" 0.0 0.0 ellipse
+67 "ParisHilton" 0.0 0.0 ellipse
+68 "CoachTomFerry" 0.0 0.0 ellipse
+69 "Vh1sClarence" 0.0 0.0 ellipse
+70 "AndreaRealtor" 0.0 0.0 ellipse
+71 "MIrealestate" 0.0 0.0 ellipse
+72 "JeffProbst" 0.0 0.0 ellipse
+73 "EvelynLozada" 0.0 0.0 ellipse
+74 "411realty" 0.0 0.0 ellipse
+75 "dannygokey" 0.0 0.0 ellipse
+76 "nik_nik" 0.0 0.0 ellipse
+77 "stephaniepratt" 0.0 0.0 ellipse
+78 "BrodyJenner" 0.0 0.0 ellipse
+79 "snooki" 0.0 0.0 ellipse
+80 "NAR_Research" 0.0 0.0 ellipse
+81 "HouseHitz" 0.0 0.0 ellipse
+82 "EagleStarNet" 0.0 0.0 ellipse
+83 "KendraWilkinson" 0.0 0.0 ellipse
+84 "VH1" 0.0 0.0 ellipse
+85 "iamjennifer" 0.0 0.0 ellipse
+86 "HamsterDame" 0.0 0.0 ellipse
+87 "REALTORS" 0.0 0.0 ellipse
+88 "JacLaurita" 0.0 0.0 ellipse
+89 "BHGRealEstate" 0.0 0.0 ellipse
+90 "MSNRealEstate" 0.0 0.0 ellipse
+91 "realtormag" 0.0 0.0 ellipse
+92 "ramonasinger" 0.0 0.0 ellipse
+93 "CMYates" 0.0 0.0 ellipse
+94 "LoBosworth" 0.0 0.0 ellipse
+95 "Jillzarin" 0.0 0.0 ellipse
+96 "Agentopolis" 0.0 0.0 ellipse
+97 "rose_realestate" 0.0 0.0 ellipse
+98 "tristasutter" 0.0 0.0 ellipse
+99 "rewebcoach" 0.0 0.0 ellipse
+100 "Frank_Cava" 0.0 0.0 ellipse
+101 "jillianharris" 0.0 0.0 ellipse
+102 "WendyAPatton" 0.0 0.0 ellipse
+103 "KristinCav" 0.0 0.0 ellipse
+104 "eRealEstateNet" 0.0 0.0 ellipse
+105 "Bridget" 0.0 0.0 ellipse
+106 "OfficialKimora" 0.0 0.0 ellipse
+107 "KamilleLeai" 0.0 0.0 ellipse
+108 "VH1sPocahontas" 0.0 0.0 ellipse
+109 "JazMTV" 0.0 0.0 ellipse
+110 "AllisonCeglio" 0.0 0.0 ellipse
+111 "CENTURY21" 0.0 0.0 ellipse
+112 "ProfessionalOne" 0.0 0.0 ellipse
+113 "VH1CHANCE" 0.0 0.0 ellipse
+114 "TinyMajorMama" 0.0 0.0 ellipse
+115 "KWCareers" 0.0 0.0 ellipse
+116 "NeNeLeakes" 0.0 0.0 ellipse
+117 "mccordalex" 0.0 0.0 ellipse
+118 "DanGheesling" 0.0 0.0 ellipse
+119 "LegalRealEstate" 0.0 0.0 ellipse
+120 "tyrabanks" 0.0 0.0 ellipse
+121 "vh1Feisty" 0.0 0.0 ellipse
+122 "chrisbharrison" 0.0 0.0 ellipse
+123 "ConnieChris" 0.0 0.0 ellipse
+124 "GiulianaRancic" 0.0 0.0 ellipse
+125 "seniorhousingfi" 0.0 0.0 ellipse
+126 "AgentGenius" 0.0 0.0 ellipse
+127 "Louis_Batides" 0.0 0.0 ellipse
+128 "Roycelr" 0.0 0.0 ellipse
+129 "MikeMueller" 0.0 0.0 ellipse
+130 "Lennar" 0.0 0.0 ellipse
+131 "nicolerichie" 0.0 0.0 ellipse
+132 "mlsdonkey" 0.0 0.0 ellipse
+133 "MattRaab" 0.0 0.0 ellipse
+134 "DC_Short_Sales" 0.0 0.0 ellipse
+135 "BradAndersohn" 0.0 0.0 ellipse
+136 "DerekRW22" 0.0 0.0 ellipse
+137 "housechick" 0.0 0.0 ellipse
+138 "realestatechick" 0.0 0.0 ellipse
+139 "BunimMurray" 0.0 0.0 ellipse
+140 "HeadOfHOFFhold" 0.0 0.0 ellipse
+141 "RealEstateHQ" 0.0 0.0 ellipse
+142 "MichiganMoves" 0.0 0.0 ellipse
+143 "nathanjurewicz" 0.0 0.0 ellipse
+144 "KimKardashian" 0.0 0.0 ellipse
+145 "geraldromine" 0.0 0.0 ellipse
+146 "KyleRichards18" 0.0 0.0 ellipse
+147 "GretchenRossi" 0.0 0.0 ellipse
+148 "TheMarkLong" 0.0 0.0 ellipse
+149 "simonwhite" 0.0 0.0 ellipse
+150 "BBJordanLloyd" 0.0 0.0 ellipse
+151 "Candy_Richards" 0.0 0.0 ellipse
+152 "TamraBarney" 0.0 0.0 ellipse
+153 "eorlins" 0.0 0.0 ellipse
+154 "PaulaAbdul" 0.0 0.0 ellipse
+155 "IamThunderKat" 0.0 0.0 ellipse
+156 "craighcollins" 0.0 0.0 ellipse
+157 "AGENTLabs" 0.0 0.0 ellipse
+158 "BostonRob" 0.0 0.0 ellipse
+159 "Kimzolciak" 0.0 0.0 ellipse
+160 "ExpressSupport" 0.0 0.0 ellipse
+161 "torianddean" 0.0 0.0 ellipse
+162 "HousingReporter" 0.0 0.0 ellipse
+163 "vgunvalson" 0.0 0.0 ellipse
+164 "CarolineManzo" 0.0 0.0 ellipse
+165 "johnkunkle" 0.0 0.0 ellipse
+166 "zillow" 0.0 0.0 ellipse
+167 "comm_mortg" 0.0 0.0 ellipse
+168 "pesajian" 0.0 0.0 ellipse
+169 "kathygriffin" 0.0 0.0 ellipse
+170 "DC_Fawcett" 0.0 0.0 ellipse
+171 "SimonCowell" 0.0 0.0 ellipse
+172 "walidmrealtor" 0.0 0.0 ellipse
+173 "drewmeyers" 0.0 0.0 ellipse
+174 "realtyflipper" 0.0 0.0 ellipse
+175 "ItsTheSituation" 0.0 0.0 ellipse
+176 "JeffAdamsREI" 0.0 0.0 ellipse
+177 "FLNewHomes" 0.0 0.0 ellipse
+178 "RealEstate_Site" 0.0 0.0 ellipse
+179 "DJPaulyD" 0.0 0.0 ellipse
+180 "HawaiiRealty" 0.0 0.0 ellipse
+181 "TerranceDJones" 0.0 0.0 ellipse
+182 "kevincottrell" 0.0 0.0 ellipse
+183 "jeffschroeder23" 0.0 0.0 ellipse
+184 "jairmorsellis" 0.0 0.0 ellipse
+185 "DeAnnaPappas" 0.0 0.0 ellipse
+186 "timandjulie" 0.0 0.0 ellipse
+187 "MsPastorino" 0.0 0.0 ellipse
+188 "EvelDick" 0.0 0.0 ellipse
+189 "DuncanWierman" 0.0 0.0 ellipse
+190 "RealEstateOwned" 0.0 0.0 ellipse
+191 "Bethenny" 0.0 0.0 ellipse
+192 "mclaughlinchris" 0.0 0.0 ellipse
+193 "CumberlandAgent" 0.0 0.0 ellipse
+194 "CocktailJoJo" 0.0 0.0 ellipse
+195 "BillRancic" 0.0 0.0 ellipse
+196 "AdrienneMaloof" 0.0 0.0 ellipse
+197 "luxury_homes_" 0.0 0.0 ellipse
+198 "BravoAndy" 0.0 0.0 ellipse
+199 "RealEstateBabbl" 0.0 0.0 ellipse
+200 "MTVsammi" 0.0 0.0 ellipse
+201 "Eddie_Godshalk" 0.0 0.0 ellipse
+202 "JDEsajian" 0.0 0.0 ellipse
+*arcs
+1 159 5.0
+2 9 2.0
+2 87 2.0
+2 63 2.0
+2 58 2.0
+2 173 2.0
+3 79 2.0
+4 84 2.0
+4 3 2.0
+4 200 1.0
+5 76 1.0
+7 83 1.0
+7 131 1.0
+8 84 3.0
+9 22 7.0
+9 5 1.0
+9 58 2.0
+9 12 1.0
+10 15 2.0
+10 170 2.0
+10 134 1.0
+11 112 1.0
+11 91 1.0
+11 59 1.0
+11 87 1.0
+11 76 1.0
+11 29 1.0
+12 22 1.0
+12 115 1.0
+12 32 1.0
+15 102 2.0
+15 192 1.0
+15 145 3.0
+15 189 1.0
+15 156 1.0
+15 202 2.0
+15 30 1.0
+17 169 4.0
+17 144 10.0
+17 131 3.0
+17 38 5.0
+17 198 1.0
+17 124 1.0
+17 139 1.0
+17 27 12.0
+17 25 5.0
+18 109 3.0
+18 3 2.0
+18 175 1.0
+18 79 1.0
+19 52 1.0
+22 87 1.0
+23 146 1.0
+24 19 1.0
+25 144 8.0
+25 131 1.0
+25 38 4.0
+25 124 1.0
+25 139 1.0
+25 27 31.0
+25 17 12.0
+27 38 2.0
+27 17 3.0
+28 4 1.0
+29 112 1.0
+29 2 1.0
+29 91 5.0
+29 54 2.0
+29 76 13.0
+29 87 4.0
+29 63 1.0
+29 126 1.0
+30 202 1.0
+30 168 2.0
+31 67 1.0
+31 103 2.0
+31 3 1.0
+31 83 1.0
+32 102 1.0
+32 5 1.0
+32 54 1.0
+32 91 2.0
+32 70 4.0
+32 71 1.0
+32 59 1.0
+32 115 2.0
+32 142 1.0
+32 9 1.0
+32 112 2.0
+32 137 1.0
+32 76 1.0
+32 68 1.0
+33 29 1.0
+34 169 2.0
+34 146 1.0
+34 163 1.0
+34 196 1.0
+34 88 1.0
+34 198 1.0
+34 124 1.0
+34 49 5.0
+34 37 2.0
+37 92 2.0
+37 27 2.0
+38 27 3.0
+38 17 1.0
+45 161 1.0
+45 150 1.0
+45 183 3.0
+46 191 1.0
+48 169 1.0
+48 83 6.0
+48 131 1.0
+48 139 1.0
+48 151 8.0
+49 48 2.0
+49 159 1.0
+49 83 1.0
+49 84 1.0
+49 34 4.0
+51 87 4.0
+51 91 1.0
+57 94 1.0
+57 62 1.0
+58 137 2.0
+61 159 3.0
+61 114 4.0
+61 95 1.0
+61 116 1.0
+61 73 1.0
+61 34 1.0
+61 198 3.0
+61 92 1.0
+63 54 1.0
+63 22 1.0
+63 58 2.0
+63 87 2.0
+63 137 2.0
+63 138 1.0
+66 55 1.0
+66 169 1.0
+66 24 1.0
+66 140 4.0
+67 131 3.0
+67 31 1.0
+67 146 1.0
+67 62 1.0
+68 87 1.0
+68 54 1.0
+68 135 2.0
+68 166 1.0
+69 144 1.0
+69 78 1.0
+69 131 1.0
+69 43 1.0
+70 112 1.0
+70 54 2.0
+70 91 2.0
+70 71 2.0
+70 180 1.0
+70 59 2.0
+70 87 1.0
+70 22 1.0
+70 76 4.0
+70 11 1.0
+70 29 6.0
+70 80 3.0
+70 32 16.0
+71 112 1.0
+71 129 2.0
+71 91 1.0
+71 70 1.0
+71 59 1.0
+71 87 1.0
+71 63 1.0
+71 29 2.0
+71 126 1.0
+73 84 1.0
+73 8 1.0
+74 87 2.0
+74 90 45.0
+74 80 6.0
+74 54 13.0
+76 29 3.0
+76 59 1.0
+78 144 2.0
+79 3 3.0
+80 87 12.0
+80 91 2.0
+83 48 1.0
+83 49 3.0
+84 169 1.0
+84 114 2.0
+84 4 2.0
+84 57 1.0
+84 85 2.0
+84 8 2.0
+84 43 2.0
+84 120 2.0
+84 128 2.0
+84 179 2.0
+84 31 2.0
+85 84 2.0
+85 116 5.0
+86 19 10.0
+86 161 1.0
+86 183 4.0
+86 72 2.0
+86 150 4.0
+86 24 2.0
+86 45 1.0
+86 118 2.0
+87 58 1.0
+87 91 2.0
+88 169 1.0
+88 147 1.0
+88 164 9.0
+90 54 1.0
+90 80 1.0
+90 35 1.0
+91 80 1.0
+92 152 1.0
+92 163 1.0
+92 198 2.0
+92 146 1.0
+92 164 1.0
+94 57 9.0
+94 77 1.0
+95 163 1.0
+95 45 1.0
+95 159 1.0
+95 94 1.0
+95 116 1.0
+96 12 1.0
+98 122 1.0
+98 46 1.0
+101 185 1.0
+101 122 2.0
+101 195 1.0
+101 124 1.0
+101 46 1.0
+107 151 4.0
+109 136 2.0
+109 139 8.0
+110 121 3.0
+110 155 1.0
+110 144 1.0
+111 54 1.0
+112 58 1.0
+112 29 3.0
+114 92 1.0
+115 59 1.0
+118 188 2.0
+122 98 1.0
+123 116 1.0
+124 195 12.0
+125 167 21.0
+126 129 1.0
+126 91 1.0
+126 70 1.0
+126 22 1.0
+126 36 1.0
+126 135 1.0
+126 138 1.0
+126 141 5.0
+126 29 3.0
+126 80 10.0
+126 111 27.0
+126 32 2.0
+127 30 1.0
+127 189 1.0
+128 84 4.0
+130 87 3.0
+130 90 2.0
+130 54 2.0
+130 111 3.0
+130 35 2.0
+131 161 1.0
+135 111 1.0
+135 166 1.0
+136 139 4.0
+138 5 1.0
+138 2 1.0
+138 129 2.0
+138 99 1.0
+138 9 1.0
+138 63 1.0
+138 11 1.0
+138 130 1.0
+138 32 1.0
+139 18 1.0
+139 148 2.0
+139 136 3.0
+139 27 5.0
+139 109 2.0
+139 25 1.0
+139 17 2.0
+140 118 1.0
+140 153 1.0
+140 66 4.0
+140 188 1.0
+146 159 1.0
+146 161 1.0
+146 147 1.0
+146 116 3.0
+146 196 3.0
+146 23 1.0
+146 164 1.0
+146 67 9.0
+147 159 3.0
+147 198 1.0
+148 18 9.0
+148 19 2.0
+148 52 1.0
+148 120 1.0
+148 139 14.0
+148 188 4.0
+151 48 4.0
+152 147 1.0
+153 72 1.0
+153 158 1.0
+153 52 1.0
+153 122 1.0
+155 108 1.0
+162 182 1.0
+162 20 3.0
+162 91 38.0
+162 96 3.0
+162 59 1.0
+162 35 4.0
+162 87 42.0
+162 90 43.0
+162 16 38.0
+162 44 1.0
+162 111 44.0
+163 152 1.0
+163 198 1.0
+163 124 1.0
+164 169 3.0
+164 146 1.0
+164 116 1.0
+164 55 2.0
+164 163 1.0
+164 196 1.0
+164 61 1.0
+164 88 19.0
+164 198 1.0
+164 37 1.0
+166 54 1.0
+166 157 1.0
+166 135 8.0
+167 125 172.0
+168 30 3.0
+172 71 1.0
+172 189 1.0
+172 22 2.0
+172 135 1.0
+172 90 1.0
+172 35 1.0
+172 80 1.0
+173 112 1.0
+173 71 1.0
+173 9 2.0
+173 22 1.0
+173 135 2.0
+173 68 1.0
+174 41 1.0
+175 84 1.0
+176 133 4.0
+179 169 1.0
+179 84 1.0
+179 4 3.0
+180 2 1.0
+180 59 1.0
+180 11 1.0
+183 188 1.0
+183 150 1.0
+185 98 1.0
+185 122 3.0
+185 101 1.0
+188 19 3.0
+188 52 3.0
+188 45 2.0
+188 118 11.0
+188 24 2.0
+188 122 1.0
+188 153 1.0
+188 140 2.0
+191 169 1.0
+191 198 1.0
+194 21 2.0
+195 124 13.0
+196 198 2.0
+196 146 3.0
+198 169 1.0
+198 159 2.0
+198 146 2.0
+198 131 1.0
+198 191 4.0
+198 23 1.0
+198 61 1.0
+198 164 1.0
+198 34 1.0
+198 92 1.0
+198 37 1.0
+200 18 2.0
+200 3 1.0
+202 30 2.0
+202 168 2.0

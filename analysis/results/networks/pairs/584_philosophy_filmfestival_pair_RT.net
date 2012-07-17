@@ -1,0 +1,725 @@
+*network philosophy_filmfestival
+*vertices 202
+1 "nyfilmvideo" 0.0 0.0 ellipse
+2 "stbo" 0.0 0.0 ellipse
+3 "QWFF" 0.0 0.0 ellipse
+4 "BritHereNow" 0.0 0.0 ellipse
+5 "GreenFilmFest" 0.0 0.0 ellipse
+6 "oceanfilmfest" 0.0 0.0 ellipse
+7 "SIFFNYC" 0.0 0.0 ellipse
+8 "wyaerda" 0.0 0.0 ellipse
+9 "AnkaraFF" 0.0 0.0 ellipse
+10 "voxphilosophiae" 0.0 0.0 ellipse
+11 "jichikawa" 0.0 0.0 ellipse
+12 "oohlah" 0.0 0.0 ellipse
+13 "philoquotes" 0.0 0.0 ellipse
+14 "TelosPress" 0.0 0.0 ellipse
+15 "turingcop" 0.0 0.0 ellipse
+16 "sundancelive" 0.0 0.0 ellipse
+17 "oxfordfilmfest" 0.0 0.0 ellipse
+18 "chifilmfest" 0.0 0.0 ellipse
+19 "FirestartrFilms" 0.0 0.0 ellipse
+20 "l_powell" 0.0 0.0 ellipse
+21 "strixus" 0.0 0.0 ellipse
+22 "PhilosophersEye" 0.0 0.0 ellipse
+23 "PoliticalPhilo" 0.0 0.0 ellipse
+24 "TADFilmFest" 0.0 0.0 ellipse
+25 "SpeakingToGirls" 0.0 0.0 ellipse
+26 "fest21" 0.0 0.0 ellipse
+27 "MalibuFilmFest" 0.0 0.0 ellipse
+28 "AlllThatIs" 0.0 0.0 ellipse
+29 "SedonaFilmFest" 0.0 0.0 ellipse
+30 "xphilosopher" 0.0 0.0 ellipse
+31 "TribecaFilm" 0.0 0.0 ellipse
+32 "nzff" 0.0 0.0 ellipse
+33 "ABQFilmFestival" 0.0 0.0 ellipse
+34 "MiamiFilmFest" 0.0 0.0 ellipse
+35 "DamahFilmFest" 0.0 0.0 ellipse
+36 "Sainsha" 0.0 0.0 ellipse
+37 "LAFilmFest" 0.0 0.0 ellipse
+38 "Raindance" 0.0 0.0 ellipse
+39 "glossolalia_com" 0.0 0.0 ellipse
+40 "PlanetinFocus" 0.0 0.0 ellipse
+41 "tucsonfilmfest" 0.0 0.0 ellipse
+42 "SIFFNews" 0.0 0.0 ellipse
+43 "Routledge_Phil" 0.0 0.0 ellipse
+44 "ArchePhilosophy" 0.0 0.0 ellipse
+45 "cannes_2012" 0.0 0.0 ellipse
+46 "AdvaShaviv" 0.0 0.0 ellipse
+47 "CancunFilmFest" 0.0 0.0 ellipse
+48 "BendFilm" 0.0 0.0 ellipse
+49 "drangiehobbs" 0.0 0.0 ellipse
+50 "sundancefest" 0.0 0.0 ellipse
+51 "MSPFILMFEST" 0.0 0.0 ellipse
+52 "alphabetofbeing" 0.0 0.0 ellipse
+53 "FlywayFilmFest" 0.0 0.0 ellipse
+54 "TalkPhilosophy" 0.0 0.0 ellipse
+55 "PeterSinger" 0.0 0.0 ellipse
+56 "hollywoodfest" 0.0 0.0 ellipse
+57 "Pixelation" 0.0 0.0 ellipse
+58 "MindInNature" 0.0 0.0 ellipse
+59 "edmfilmfest" 0.0 0.0 ellipse
+60 "whisfilmfest" 0.0 0.0 ellipse
+61 "Slamdance" 0.0 0.0 ellipse
+62 "PeterSmith" 0.0 0.0 ellipse
+63 "ranilillanjum" 0.0 0.0 ellipse
+64 "tesselations" 0.0 0.0 ellipse
+65 "oslofilmfest" 0.0 0.0 ellipse
+66 "dwcongdon" 0.0 0.0 ellipse
+67 "lovephilosophy" 0.0 0.0 ellipse
+68 "PCFilmFest" 0.0 0.0 ellipse
+69 "SonomaFilmFest" 0.0 0.0 ellipse
+70 "HIFF" 0.0 0.0 ellipse
+71 "WittTweets" 0.0 0.0 ellipse
+72 "sleepmovies" 0.0 0.0 ellipse
+73 "truefalse" 0.0 0.0 ellipse
+74 "SunnyRainer" 0.0 0.0 ellipse
+75 "mindfulproduct" 0.0 0.0 ellipse
+76 "PhilosophyFeeds" 0.0 0.0 ellipse
+77 "SouthSideFilm" 0.0 0.0 ellipse
+78 "futuredirected" 0.0 0.0 ellipse
+79 "bathfilm" 0.0 0.0 ellipse
+80 "NietzscheSays" 0.0 0.0 ellipse
+81 "TribecaFilmFest" 0.0 0.0 ellipse
+82 "WJFF" 0.0 0.0 ellipse
+83 "filmfestlounge" 0.0 0.0 ellipse
+84 "atlfilm365" 0.0 0.0 ellipse
+85 "sexyfilmfest" 0.0 0.0 ellipse
+86 "_Philosophy_" 0.0 0.0 ellipse
+87 "BigBearFilmFest" 0.0 0.0 ellipse
+88 "AAFilmFest" 0.0 0.0 ellipse
+89 "philomag" 0.0 0.0 ellipse
+90 "ImagoFestival" 0.0 0.0 ellipse
+91 "Phiblogsopho" 0.0 0.0 ellipse
+92 "RooftopFilms" 0.0 0.0 ellipse
+93 "HWFilmFestival" 0.0 0.0 ellipse
+94 "GreeGreece" 0.0 0.0 ellipse
+95 "TOfilmfest" 0.0 0.0 ellipse
+96 "FilmFestLocarno" 0.0 0.0 ellipse
+97 "hollywoodshorts" 0.0 0.0 ellipse
+98 "philo_quotes" 0.0 0.0 ellipse
+99 "VIFFest" 0.0 0.0 ellipse
+100 "LogicalAnalysis" 0.0 0.0 ellipse
+101 "TheUnitedFest" 0.0 0.0 ellipse
+102 "jascharohr" 0.0 0.0 ellipse
+103 "microphilosophy" 0.0 0.0 ellipse
+104 "anibalmastobiza" 0.0 0.0 ellipse
+105 "zerofilmfest" 0.0 0.0 ellipse
+106 "kentfilmfest" 0.0 0.0 ellipse
+107 "andycullison" 0.0 0.0 ellipse
+108 "gpendergraft" 0.0 0.0 ellipse
+109 "sitgesfestival" 0.0 0.0 ellipse
+110 "bweatherson" 0.0 0.0 ellipse
+111 "thebestsophist" 0.0 0.0 ellipse
+112 "MartinHeidegger" 0.0 0.0 ellipse
+113 "johnbasl" 0.0 0.0 ellipse
+114 "Jimbo_Samps" 0.0 0.0 ellipse
+115 "FilmLinc" 0.0 0.0 ellipse
+116 "GarethSouthwell" 0.0 0.0 ellipse
+117 "bondifilmfest" 0.0 0.0 ellipse
+118 "EduFilmFestival" 0.0 0.0 ellipse
+119 "edmondsfilmfest" 0.0 0.0 ellipse
+120 "MrPhilosophy" 0.0 0.0 ellipse
+121 "philosoraptor" 0.0 0.0 ellipse
+122 "IvyFilmFestival" 0.0 0.0 ellipse
+123 "IndyFilmFest" 0.0 0.0 ellipse
+124 "PhilGeek" 0.0 0.0 ellipse
+125 "consequently" 0.0 0.0 ellipse
+126 "philosophybites" 0.0 0.0 ellipse
+127 "MUCKFilmFest" 0.0 0.0 ellipse
+128 "G0" 0.0 0.0 ellipse
+129 "filmfestexpert" 0.0 0.0 ellipse
+130 "FullFrame" 0.0 0.0 ellipse
+131 "mpigliucci" 0.0 0.0 ellipse
+132 "HC_Film_Fest" 0.0 0.0 ellipse
+133 "FloridaFilmFest" 0.0 0.0 ellipse
+134 "FirstGlanceFilm" 0.0 0.0 ellipse
+135 "sdv_duras" 0.0 0.0 ellipse
+136 "TerrorFilmFest" 0.0 0.0 ellipse
+137 "Philosophy_Now" 0.0 0.0 ellipse
+138 "IFFBoston" 0.0 0.0 ellipse
+139 "RnoFilmFestival" 0.0 0.0 ellipse
+140 "IF3" 0.0 0.0 ellipse
+141 "mhsteger" 0.0 0.0 ellipse
+142 "marfafilmfest" 0.0 0.0 ellipse
+143 "JohnRSearle" 0.0 0.0 ellipse
+144 "dtstrain" 0.0 0.0 ellipse
+145 "M_Barber" 0.0 0.0 ellipse
+146 "filosoof" 0.0 0.0 ellipse
+147 "philosophydan" 0.0 0.0 ellipse
+148 "garns" 0.0 0.0 ellipse
+149 "AllenStairs" 0.0 0.0 ellipse
+150 "keithfrankish" 0.0 0.0 ellipse
+151 "ValleyFilmFest" 0.0 0.0 ellipse
+152 "philosophersmag" 0.0 0.0 ellipse
+153 "arabfilmfest" 0.0 0.0 ellipse
+154 "BostonFilmFest" 0.0 0.0 ellipse
+155 "aljones15" 0.0 0.0 ellipse
+156 "aaiff" 0.0 0.0 ellipse
+157 "olehjortland" 0.0 0.0 ellipse
+158 "PhilosophyInfo" 0.0 0.0 ellipse
+159 "FeministPhils" 0.0 0.0 ellipse
+160 "GRFilmFestival" 0.0 0.0 ellipse
+161 "PhilosophyExp" 0.0 0.0 ellipse
+162 "jonathanwebber" 0.0 0.0 ellipse
+163 "ManhattanShort" 0.0 0.0 ellipse
+164 "ebenpagan" 0.0 0.0 ellipse
+165 "BelAirFilmFest" 0.0 0.0 ellipse
+166 "philosophytweet" 0.0 0.0 ellipse
+167 "keith_wilson" 0.0 0.0 ellipse
+168 "unfolding" 0.0 0.0 ellipse
+169 "TheGodLight" 0.0 0.0 ellipse
+170 "mifff" 0.0 0.0 ellipse
+171 "dubaifilm" 0.0 0.0 ellipse
+172 "ContinuumPhilos" 0.0 0.0 ellipse
+173 "wsiff" 0.0 0.0 ellipse
+174 "edfilmfest" 0.0 0.0 ellipse
+175 "LowellFilmFest" 0.0 0.0 ellipse
+176 "sydfilmfest" 0.0 0.0 ellipse
+177 "Philosophy_Talk" 0.0 0.0 ellipse
+178 "philosophyfound" 0.0 0.0 ellipse
+179 "PhilFacOx" 0.0 0.0 ellipse
+180 "SDMumford" 0.0 0.0 ellipse
+181 "DublinFilmFest" 0.0 0.0 ellipse
+182 "carriejenkins" 0.0 0.0 ellipse
+183 "MySFF" 0.0 0.0 ellipse
+184 "AYFILMFEST" 0.0 0.0 ellipse
+185 "philosophygeek" 0.0 0.0 ellipse
+186 "rachiestar" 0.0 0.0 ellipse
+187 "gilbertharman" 0.0 0.0 ellipse
+188 "gjarnling" 0.0 0.0 ellipse
+189 "shortfilmfest" 0.0 0.0 ellipse
+190 "DailyAtheist" 0.0 0.0 ellipse
+191 "AFIFEST" 0.0 0.0 ellipse
+192 "nbff" 0.0 0.0 ellipse
+193 "NiniBaseema" 0.0 0.0 ellipse
+194 "UnknownPhilosop" 0.0 0.0 ellipse
+195 "sxsw" 0.0 0.0 ellipse
+196 "VailFilmFest" 0.0 0.0 ellipse
+197 "camfilmfest" 0.0 0.0 ellipse
+198 "BuffaloFilmFest" 0.0 0.0 ellipse
+199 "alaindebotton" 0.0 0.0 ellipse
+200 "filmfest" 0.0 0.0 ellipse
+201 "DCFF" 0.0 0.0 ellipse
+202 "NietzscheQuotes" 0.0 0.0 ellipse
+*arcs
+2 126 1.0
+2 182 1.0
+4 110 1.0
+10 89 6.0
+11 110 3.0
+11 44 5.0
+11 125 1.0
+11 182 2.0
+12 30 2.0
+12 11 1.0
+12 71 6.0
+12 126 1.0
+14 126 1.0
+15 182 1.0
+15 148 1.0
+15 159 1.0
+15 126 4.0
+15 11 1.0
+15 178 1.0
+16 50 21.0
+16 61 8.0
+20 11 1.0
+21 49 2.0
+21 178 3.0
+21 111 8.0
+21 20 6.0
+21 57 7.0
+23 187 1.0
+23 152 1.0
+23 159 1.0
+23 126 2.0
+30 150 1.0
+30 159 1.0
+30 187 1.0
+30 161 2.0
+30 126 2.0
+30 11 1.0
+30 12 1.0
+30 104 1.0
+30 162 2.0
+31 92 4.0
+31 33 2.0
+31 81 35.0
+31 115 5.0
+31 50 2.0
+31 38 3.0
+31 130 1.0
+33 31 1.0
+34 83 1.0
+34 31 1.0
+36 126 1.0
+38 61 1.0
+43 182 1.0
+43 161 6.0
+43 125 1.0
+43 126 7.0
+43 103 1.0
+43 178 1.0
+44 157 1.0
+44 58 2.0
+49 182 2.0
+49 43 2.0
+49 161 1.0
+49 126 45.0
+49 103 2.0
+49 178 26.0
+53 133 1.0
+53 134 1.0
+53 31 1.0
+53 61 3.0
+53 38 1.0
+53 81 1.0
+58 110 1.0
+58 55 1.0
+58 44 2.0
+58 125 1.0
+59 191 1.0
+59 18 1.0
+60 56 1.0
+62 149 2.0
+62 124 1.0
+62 150 1.0
+62 126 2.0
+63 107 2.0
+63 108 1.0
+63 157 5.0
+63 57 3.0
+63 58 48.0
+63 55 5.0
+63 113 6.0
+63 158 8.0
+63 11 2.0
+63 116 3.0
+63 162 5.0
+63 15 7.0
+63 76 8.0
+63 124 1.0
+63 172 3.0
+63 20 3.0
+63 126 14.0
+63 23 3.0
+63 178 4.0
+63 179 1.0
+63 131 1.0
+63 125 9.0
+63 182 34.0
+63 30 2.0
+63 159 11.0
+63 36 3.0
+63 143 1.0
+63 145 2.0
+63 148 3.0
+63 149 1.0
+63 150 1.0
+63 43 49.0
+63 44 1.0
+63 62 3.0
+63 100 2.0
+63 180 15.0
+63 49 5.0
+63 167 2.0
+63 161 11.0
+64 13 1.0
+64 168 1.0
+69 31 1.0
+69 97 1.0
+70 18 1.0
+70 81 1.0
+74 169 12.0
+75 194 1.0
+79 38 5.0
+79 181 1.0
+81 31 33.0
+84 17 4.0
+84 133 1.0
+84 130 1.0
+84 138 1.0
+92 31 1.0
+92 130 1.0
+94 135 1.0
+94 78 1.0
+94 98 2.0
+94 126 1.0
+94 13 2.0
+94 193 1.0
+96 200 1.0
+97 53 1.0
+97 61 9.0
+97 115 1.0
+97 151 16.0
+97 88 3.0
+97 163 2.0
+97 69 1.0
+97 70 1.0
+97 123 1.0
+97 17 1.0
+97 170 1.0
+97 171 1.0
+97 130 1.0
+97 154 2.0
+97 27 1.0
+97 133 2.0
+97 134 2.0
+97 82 1.0
+97 174 1.0
+97 83 4.0
+97 31 2.0
+97 138 1.0
+97 34 1.0
+97 189 1.0
+97 37 3.0
+97 191 1.0
+97 38 3.0
+97 192 3.0
+97 42 1.0
+97 81 3.0
+97 200 1.0
+97 101 1.0
+97 48 1.0
+97 50 5.0
+99 48 1.0
+100 55 8.0
+100 157 1.0
+100 63 2.0
+100 111 7.0
+100 58 1.0
+100 113 2.0
+100 158 8.0
+100 11 4.0
+100 116 7.0
+100 71 12.0
+100 166 1.0
+100 167 3.0
+100 121 1.0
+100 76 14.0
+100 124 3.0
+100 22 1.0
+100 125 6.0
+100 126 16.0
+100 23 7.0
+100 180 3.0
+100 182 9.0
+100 177 1.0
+100 148 2.0
+100 149 16.0
+100 150 2.0
+100 43 3.0
+100 152 2.0
+100 62 17.0
+100 131 3.0
+100 103 4.0
+100 161 7.0
+103 161 1.0
+104 55 5.0
+104 187 1.0
+104 148 2.0
+104 43 2.0
+104 199 2.0
+104 22 3.0
+104 62 4.0
+104 126 21.0
+104 179 2.0
+107 111 1.0
+107 113 2.0
+107 182 1.0
+109 200 11.0
+110 55 5.0
+110 125 5.0
+110 71 1.0
+110 182 2.0
+110 157 5.0
+110 159 1.0
+110 187 4.0
+110 124 2.0
+110 161 1.0
+110 36 1.0
+110 126 1.0
+110 11 3.0
+110 44 1.0
+110 58 3.0
+110 62 1.0
+111 110 1.0
+111 167 2.0
+111 126 1.0
+111 150 2.0
+111 57 5.0
+111 159 1.0
+111 121 5.0
+111 62 1.0
+111 76 2.0
+111 107 1.0
+111 100 1.0
+111 161 3.0
+111 63 3.0
+111 11 3.0
+111 149 17.0
+111 148 7.0
+111 113 4.0
+113 107 7.0
+113 182 2.0
+113 148 1.0
+113 110 2.0
+113 57 1.0
+113 55 2.0
+116 103 1.0
+116 15 4.0
+116 180 1.0
+116 182 1.0
+121 149 1.0
+121 194 1.0
+121 166 2.0
+121 202 1.0
+121 57 2.0
+121 124 1.0
+121 113 1.0
+121 125 2.0
+121 158 1.0
+121 143 1.0
+123 133 2.0
+123 138 1.0
+123 34 1.0
+123 18 2.0
+123 191 1.0
+123 50 2.0
+124 187 3.0
+124 62 1.0
+124 125 1.0
+124 126 3.0
+124 162 2.0
+124 113 1.0
+125 55 4.0
+125 71 2.0
+125 182 4.0
+125 157 4.0
+125 149 1.0
+125 43 1.0
+125 187 1.0
+125 124 1.0
+125 62 3.0
+125 126 1.0
+125 44 1.0
+125 172 1.0
+125 110 1.0
+126 55 6.0
+126 182 2.0
+126 43 7.0
+126 152 1.0
+126 62 7.0
+126 23 2.0
+126 161 1.0
+126 89 1.0
+126 49 12.0
+126 103 8.0
+126 177 1.0
+126 178 3.0
+126 113 2.0
+130 92 3.0
+131 76 8.0
+131 126 5.0
+132 37 2.0
+134 198 2.0
+134 34 1.0
+134 53 3.0
+134 61 2.0
+134 97 2.0
+135 55 7.0
+135 71 1.0
+135 15 34.0
+135 149 2.0
+135 111 2.0
+135 159 13.0
+135 141 2.0
+135 22 1.0
+135 80 1.0
+135 172 2.0
+138 123 1.0
+140 95 1.0
+147 71 1.0
+147 182 1.0
+147 157 1.0
+147 148 1.0
+147 110 1.0
+147 4 1.0
+147 187 1.0
+148 182 1.0
+148 58 1.0
+148 113 2.0
+148 126 3.0
+148 11 1.0
+148 161 1.0
+149 107 1.0
+149 162 1.0
+149 182 2.0
+149 148 7.0
+149 111 2.0
+149 124 3.0
+149 113 1.0
+149 125 4.0
+149 11 3.0
+149 180 1.0
+150 149 1.0
+150 161 2.0
+150 182 1.0
+151 200 2.0
+151 97 3.0
+151 123 1.0
+151 26 2.0
+152 49 1.0
+152 161 176.0
+155 199 2.0
+155 141 1.0
+157 182 2.0
+157 43 1.0
+157 62 5.0
+157 125 6.0
+157 11 1.0
+157 113 1.0
+161 30 6.0
+161 152 11.0
+161 22 1.0
+161 126 2.0
+161 49 1.0
+161 131 1.0
+162 182 7.0
+162 30 2.0
+162 63 3.0
+162 43 2.0
+162 152 2.0
+162 187 6.0
+162 124 3.0
+162 22 2.0
+162 161 4.0
+162 126 2.0
+162 49 1.0
+162 103 3.0
+162 178 1.0
+162 11 1.0
+162 62 1.0
+163 50 2.0
+165 83 1.0
+166 194 265.0
+167 107 2.0
+167 2 2.0
+167 157 2.0
+167 110 3.0
+167 4 1.0
+167 57 2.0
+167 58 1.0
+167 113 6.0
+167 63 7.0
+167 11 7.0
+167 12 1.0
+167 162 21.0
+167 15 1.0
+167 121 3.0
+167 124 15.0
+167 20 2.0
+167 126 8.0
+167 177 1.0
+167 178 8.0
+167 179 1.0
+167 131 1.0
+167 182 10.0
+167 111 15.0
+167 187 1.0
+167 159 3.0
+167 36 4.0
+167 145 1.0
+167 149 7.0
+167 150 6.0
+167 43 3.0
+167 62 4.0
+167 199 1.0
+167 100 5.0
+167 49 15.0
+167 161 2.0
+168 104 1.0
+170 191 1.0
+170 42 86.0
+170 59 1.0
+170 99 1.0
+170 60 1.0
+170 109 6.0
+170 132 1.0
+170 24 2.0
+170 81 1.0
+172 107 1.0
+172 182 1.0
+172 15 1.0
+172 152 9.0
+172 179 1.0
+172 113 1.0
+172 125 1.0
+172 126 3.0
+172 49 1.0
+172 103 1.0
+172 23 2.0
+172 178 2.0
+172 177 1.0
+172 161 5.0
+176 81 1.0
+178 49 6.0
+178 103 1.0
+178 43 1.0
+178 126 9.0
+180 149 2.0
+180 108 1.0
+180 182 1.0
+180 125 2.0
+180 126 6.0
+180 111 1.0
+180 58 1.0
+180 121 1.0
+180 124 3.0
+180 100 1.0
+180 62 1.0
+180 36 1.0
+180 63 14.0
+180 22 1.0
+180 103 2.0
+180 116 3.0
+180 178 3.0
+180 162 8.0
+181 115 1.0
+182 145 1.0
+182 107 1.0
+182 108 1.0
+182 110 1.0
+182 4 1.0
+182 159 1.0
+182 125 2.0
+182 63 1.0
+182 11 16.0
+187 143 1.0
+191 97 1.0
+193 49 1.0
+193 103 1.0
+193 152 1.0
+193 194 1.0
+194 166 2.0
+198 176 1.0
+198 50 1.0
+198 31 1.0
+198 81 3.0
+198 26 2.0
+200 191 2.0
+200 195 4.0
+200 174 3.0
+200 37 1.0
+200 31 1.0
+200 42 1.0
+200 197 1.0
+200 33 1.0
+200 123 1.0
+200 48 1.0
+200 176 1.0
+200 115 2.0
+200 50 1.0
+200 171 1.0
+200 81 2.0

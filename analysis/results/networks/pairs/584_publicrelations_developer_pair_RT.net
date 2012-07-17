@@ -1,0 +1,795 @@
+*network publicrelations_developer
+*vertices 202
+1 "lazycoder" 0.0 0.0 ellipse
+2 "developerworks" 0.0 0.0 ellipse
+3 "kamichat" 0.0 0.0 ellipse
+4 "PPRA" 0.0 0.0 ellipse
+5 "PR4YOU" 0.0 0.0 ellipse
+6 "SaraJChipps" 0.0 0.0 ellipse
+7 "jonskeet" 0.0 0.0 ellipse
+8 "haacked" 0.0 0.0 ellipse
+9 "jeremywoolf" 0.0 0.0 ellipse
+10 "ValerieSimon" 0.0 0.0 ellipse
+11 "PRChannel" 0.0 0.0 ellipse
+12 "airfoilpr" 0.0 0.0 ellipse
+13 "destroytoday" 0.0 0.0 ellipse
+14 "PRwise" 0.0 0.0 ellipse
+15 "tabbiburwell" 0.0 0.0 ellipse
+16 "stroughtonsmith" 0.0 0.0 ellipse
+17 "tonyobregon" 0.0 0.0 ellipse
+18 "SRasmussen" 0.0 0.0 ellipse
+19 "MikeSchnoor" 0.0 0.0 ellipse
+20 "mollydotcom" 0.0 0.0 ellipse
+21 "RichQuigley" 0.0 0.0 ellipse
+22 "denverprblog" 0.0 0.0 ellipse
+23 "NVSPR" 0.0 0.0 ellipse
+24 "joehewitt" 0.0 0.0 ellipse
+25 "Encosia" 0.0 0.0 ellipse
+26 "mfeathers" 0.0 0.0 ellipse
+27 "BobPickard" 0.0 0.0 ellipse
+28 "EmLeary" 0.0 0.0 ellipse
+29 "davidwalshblog" 0.0 0.0 ellipse
+30 "osfoora" 0.0 0.0 ellipse
+31 "chillingo" 0.0 0.0 ellipse
+32 "jeff_lamarche" 0.0 0.0 ellipse
+33 "codinghorror" 0.0 0.0 ellipse
+34 "SohTanaka" 0.0 0.0 ellipse
+35 "scottgu" 0.0 0.0 ellipse
+36 "popcap" 0.0 0.0 ellipse
+37 "BeejiveIM" 0.0 0.0 ellipse
+38 "snookca" 0.0 0.0 ellipse
+39 "CandiceNicolePR" 0.0 0.0 ellipse
+40 "alanQuatermain" 0.0 0.0 ellipse
+41 "wilshipley" 0.0 0.0 ellipse
+42 "journalistics" 0.0 0.0 ellipse
+43 "giovanni" 0.0 0.0 ellipse
+44 "GinaRubel" 0.0 0.0 ellipse
+45 "RickStrahl" 0.0 0.0 ellipse
+46 "jessflynn" 0.0 0.0 ellipse
+47 "Tordf" 0.0 0.0 ellipse
+48 "BusinessWire" 0.0 0.0 ellipse
+49 "catswhocode" 0.0 0.0 ellipse
+50 "Appy" 0.0 0.0 ellipse
+51 "drewgerberpr" 0.0 0.0 ellipse
+52 "briansolis" 0.0 0.0 ellipse
+53 "davidalston" 0.0 0.0 ellipse
+54 "AaronHillegass" 0.0 0.0 ellipse
+55 "SourceBottle" 0.0 0.0 ellipse
+56 "WildKatPR" 0.0 0.0 ellipse
+57 "PR_Doktor" 0.0 0.0 ellipse
+58 "wearesocial" 0.0 0.0 ellipse
+59 "shanselman" 0.0 0.0 ellipse
+60 "leahculver" 0.0 0.0 ellipse
+61 "cubanalaf" 0.0 0.0 ellipse
+62 "chrisabraham" 0.0 0.0 ellipse
+63 "CouncilPRFirms" 0.0 0.0 ellipse
+64 "iTod" 0.0 0.0 ellipse
+65 "twitterapi" 0.0 0.0 ellipse
+66 "ParamountPR" 0.0 0.0 ellipse
+67 "nattylux" 0.0 0.0 ellipse
+68 "DenverPR" 0.0 0.0 ellipse
+69 "GetPubRelatJobs" 0.0 0.0 ellipse
+70 "alexpuig" 0.0 0.0 ellipse
+71 "ayende" 0.0 0.0 ellipse
+72 "KristK" 0.0 0.0 ellipse
+73 "PCC_Chicago" 0.0 0.0 ellipse
+74 "boagworld" 0.0 0.0 ellipse
+75 "PMGNicole" 0.0 0.0 ellipse
+76 "MomentoApp" 0.0 0.0 ellipse
+77 "AkitaOnRails" 0.0 0.0 ellipse
+78 "rworth" 0.0 0.0 ellipse
+79 "KentBeck" 0.0 0.0 ellipse
+80 "atebits" 0.0 0.0 ellipse
+81 "chrisspooner" 0.0 0.0 ellipse
+82 "corephp" 0.0 0.0 ellipse
+83 "hellogames" 0.0 0.0 ellipse
+84 "kellabyte" 0.0 0.0 ellipse
+85 "RTorossian5wpr" 0.0 0.0 ellipse
+86 "CathyWebSavvyPR" 0.0 0.0 ellipse
+87 "countUP" 0.0 0.0 ellipse
+88 "daveyarmon" 0.0 0.0 ellipse
+89 "WendyHartley" 0.0 0.0 ellipse
+90 "EONpr" 0.0 0.0 ellipse
+91 "ShannonPaul" 0.0 0.0 ellipse
+92 "brentsimmons" 0.0 0.0 ellipse
+93 "rockstarjen" 0.0 0.0 ellipse
+94 "juliebonnheath" 0.0 0.0 ellipse
+95 "gblock" 0.0 0.0 ellipse
+96 "addyosmani" 0.0 0.0 ellipse
+97 "reybango" 0.0 0.0 ellipse
+98 "simplebits" 0.0 0.0 ellipse
+99 "brandonuttley" 0.0 0.0 ellipse
+100 "OwenGoss" 0.0 0.0 ellipse
+101 "al3x" 0.0 0.0 ellipse
+102 "TiffanyPR" 0.0 0.0 ellipse
+103 "cdibona" 0.0 0.0 ellipse
+104 "JonathanCheban" 0.0 0.0 ellipse
+105 "googledevs" 0.0 0.0 ellipse
+106 "DenverPRguy" 0.0 0.0 ellipse
+107 "culturedcode" 0.0 0.0 ellipse
+108 "TiloBonow" 0.0 0.0 ellipse
+109 "PublicCityPR" 0.0 0.0 ellipse
+110 "dbreakenridge" 0.0 0.0 ellipse
+111 "PRVille" 0.0 0.0 ellipse
+112 "marcoarment" 0.0 0.0 ellipse
+113 "hhariri" 0.0 0.0 ellipse
+114 "vargasl" 0.0 0.0 ellipse
+115 "markjaquith" 0.0 0.0 ellipse
+116 "shauninman" 0.0 0.0 ellipse
+117 "TaylorHerringPR" 0.0 0.0 ellipse
+118 "mattgemmell" 0.0 0.0 ellipse
+119 "ydn" 0.0 0.0 ellipse
+120 "amberweinberg" 0.0 0.0 ellipse
+121 "noel_llopis" 0.0 0.0 ellipse
+122 "paultoo" 0.0 0.0 ellipse
+123 "Rick_Now" 0.0 0.0 ellipse
+124 "arikhanson" 0.0 0.0 ellipse
+125 "meyerweb" 0.0 0.0 ellipse
+126 "github" 0.0 0.0 ellipse
+127 "ShaunaCausey" 0.0 0.0 ellipse
+128 "LindaJacobson" 0.0 0.0 ellipse
+129 "envatowebdev" 0.0 0.0 ellipse
+130 "migueldeicaza" 0.0 0.0 ellipse
+131 "trevoryoung" 0.0 0.0 ellipse
+132 "PRKanzlei" 0.0 0.0 ellipse
+133 "jeremydmiller" 0.0 0.0 ellipse
+134 "DittoePR" 0.0 0.0 ellipse
+135 "unclebobmartin" 0.0 0.0 ellipse
+136 "jaywalk1" 0.0 0.0 ellipse
+137 "EYECANSEE" 0.0 0.0 ellipse
+138 "GuyHagen" 0.0 0.0 ellipse
+139 "pressreleases" 0.0 0.0 ellipse
+140 "jasonfried" 0.0 0.0 ellipse
+141 "sixrevisions" 0.0 0.0 ellipse
+142 "ppk" 0.0 0.0 ellipse
+143 "martinfowler" 0.0 0.0 ellipse
+144 "Woork" 0.0 0.0 ellipse
+145 "marshallmanson" 0.0 0.0 ellipse
+146 "leeodden" 0.0 0.0 ellipse
+147 "spolsky" 0.0 0.0 ellipse
+148 "markjardine" 0.0 0.0 ellipse
+149 "Narciso17" 0.0 0.0 ellipse
+150 "LeslyCardec" 0.0 0.0 ellipse
+151 "Cabel" 0.0 0.0 ellipse
+152 "StoryAssistant" 0.0 0.0 ellipse
+153 "MitchellMcKenna" 0.0 0.0 ellipse
+154 "ashleyloweCO" 0.0 0.0 ellipse
+155 "reederapp" 0.0 0.0 ellipse
+156 "identitypr" 0.0 0.0 ellipse
+157 "AngelaHernandez" 0.0 0.0 ellipse
+158 "prsarahevans" 0.0 0.0 ellipse
+159 "EvaKeiser" 0.0 0.0 ellipse
+160 "flyosity" 0.0 0.0 ellipse
+161 "jeresig" 0.0 0.0 ellipse
+162 "OdeToCode" 0.0 0.0 ellipse
+163 "NeonDrum" 0.0 0.0 ellipse
+164 "han_ma" 0.0 0.0 ellipse
+165 "bloisolson" 0.0 0.0 ellipse
+166 "PRjobs" 0.0 0.0 ellipse
+167 "GAMEVIL" 0.0 0.0 ellipse
+168 "aza" 0.0 0.0 ellipse
+169 "dorothycrenshaw" 0.0 0.0 ellipse
+170 "bjango" 0.0 0.0 ellipse
+171 "EAMobile" 0.0 0.0 ellipse
+172 "MyPRGenie" 0.0 0.0 ellipse
+173 "KeishaNYCPR" 0.0 0.0 ellipse
+174 "Frank_Strong" 0.0 0.0 ellipse
+175 "karlseguin" 0.0 0.0 ellipse
+176 "elijahmanor" 0.0 0.0 ellipse
+177 "mariansalzman" 0.0 0.0 ellipse
+178 "cssglobe" 0.0 0.0 ellipse
+179 "PRJessicaM" 0.0 0.0 ellipse
+180 "PRTweets" 0.0 0.0 ellipse
+181 "LenKendall" 0.0 0.0 ellipse
+182 "IdeaGrove" 0.0 0.0 ellipse
+183 "ID_AA_Carmack" 0.0 0.0 ellipse
+184 "ptrckevns" 0.0 0.0 ellipse
+185 "LaraK" 0.0 0.0 ellipse
+186 "tressalynne" 0.0 0.0 ellipse
+187 "jongalloway" 0.0 0.0 ellipse
+188 "Steveology" 0.0 0.0 ellipse
+189 "hopwood" 0.0 0.0 ellipse
+190 "tkenny" 0.0 0.0 ellipse
+191 "jbogard" 0.0 0.0 ellipse
+192 "Jesse" 0.0 0.0 ellipse
+193 "glumobile" 0.0 0.0 ellipse
+194 "thomasfuchs" 0.0 0.0 ellipse
+195 "bmf" 0.0 0.0 ellipse
+196 "jodykoehler" 0.0 0.0 ellipse
+197 "talkabout" 0.0 0.0 ellipse
+198 "dperry" 0.0 0.0 ellipse
+199 "rachelakay" 0.0 0.0 ellipse
+200 "kevindente" 0.0 0.0 ellipse
+201 "jprpublicity" 0.0 0.0 ellipse
+202 "RoyOsherove" 0.0 0.0 ellipse
+*arcs
+1 59 3.0
+1 6 2.0
+1 7 5.0
+1 8 2.0
+1 160 2.0
+1 142 1.0
+1 162 12.0
+1 71 1.0
+1 65 2.0
+1 67 1.0
+1 175 1.0
+1 24 1.0
+1 25 1.0
+1 26 1.0
+1 176 4.0
+1 133 1.0
+1 125 1.0
+1 129 1.0
+1 130 8.0
+1 183 5.0
+1 33 2.0
+1 35 8.0
+1 161 11.0
+1 135 2.0
+1 84 3.0
+1 191 1.0
+1 126 2.0
+1 45 2.0
+1 95 1.0
+1 97 1.0
+1 187 9.0
+1 200 17.0
+1 105 3.0
+1 202 3.0
+2 146 1.0
+4 44 1.0
+5 57 1.0
+6 59 1.0
+6 130 9.0
+6 194 2.0
+6 147 2.0
+6 97 1.0
+6 60 5.0
+6 33 4.0
+6 161 4.0
+6 187 2.0
+6 200 3.0
+6 41 1.0
+6 202 1.0
+6 191 1.0
+6 126 1.0
+7 147 2.0
+7 35 1.0
+8 71 4.0
+8 45 1.0
+8 143 2.0
+8 59 5.0
+8 130 8.0
+8 95 1.0
+8 25 1.0
+8 33 3.0
+8 35 19.0
+8 160 1.0
+8 161 3.0
+8 162 2.0
+8 187 13.0
+8 26 3.0
+8 135 2.0
+8 200 2.0
+8 147 1.0
+8 191 4.0
+8 126 9.0
+10 164 2.0
+10 169 2.0
+10 157 1.0
+12 156 1.0
+12 158 1.0
+12 52 1.0
+12 186 3.0
+12 10 1.0
+12 63 3.0
+12 42 1.0
+14 196 1.0
+14 42 2.0
+16 107 1.0
+16 33 1.0
+16 160 11.0
+16 13 1.0
+16 112 2.0
+16 80 1.0
+16 67 2.0
+16 118 16.0
+16 121 7.0
+16 24 4.0
+16 130 4.0
+16 183 3.0
+16 32 5.0
+16 36 1.0
+16 168 1.0
+16 40 2.0
+16 41 3.0
+16 126 1.0
+16 195 3.0
+16 148 1.0
+16 170 1.0
+16 54 1.0
+16 151 2.0
+17 53 1.0
+18 186 4.0
+18 22 2.0
+19 57 7.0
+19 87 1.0
+19 197 2.0
+20 59 1.0
+20 118 1.0
+20 119 1.0
+20 97 1.0
+20 142 1.0
+20 125 5.0
+21 158 2.0
+22 106 1.0
+22 18 1.0
+23 52 1.0
+24 142 1.0
+24 101 1.0
+24 64 1.0
+24 155 1.0
+25 97 1.0
+25 200 2.0
+25 176 1.0
+25 130 1.0
+26 143 3.0
+26 79 5.0
+26 130 1.0
+26 194 1.0
+26 8 1.0
+26 135 1.0
+26 202 1.0
+27 14 1.0
+27 169 13.0
+28 110 1.0
+29 142 2.0
+29 119 1.0
+29 24 2.0
+29 38 1.0
+30 65 24.0
+31 171 3.0
+32 195 1.0
+32 54 3.0
+32 40 2.0
+32 183 1.0
+32 160 1.0
+33 130 3.0
+33 183 3.0
+33 147 31.0
+33 7 3.0
+33 35 1.0
+33 161 1.0
+33 187 6.0
+33 200 3.0
+33 112 1.0
+33 41 3.0
+34 168 1.0
+34 140 1.0
+34 29 3.0
+34 49 1.0
+35 187 3.0
+35 59 2.0
+36 171 1.0
+38 119 1.0
+38 168 1.0
+38 29 1.0
+38 160 1.0
+40 67 4.0
+40 80 1.0
+40 168 1.0
+40 16 3.0
+40 118 13.0
+40 92 2.0
+40 32 1.0
+40 120 1.0
+40 33 1.0
+40 121 1.0
+40 24 3.0
+40 160 3.0
+40 195 7.0
+40 54 1.0
+40 26 1.0
+40 84 1.0
+40 200 1.0
+40 151 5.0
+40 140 3.0
+40 41 2.0
+40 126 1.0
+41 151 4.0
+41 118 1.0
+41 160 1.0
+42 88 1.0
+43 43 186.0
+44 4 1.0
+45 26 1.0
+45 95 1.0
+46 18 2.0
+48 156 1.0
+48 88 4.0
+48 52 1.0
+48 90 5.0
+52 123 1.0
+52 146 1.0
+53 146 1.0
+57 197 5.0
+57 188 4.0
+59 143 1.0
+59 79 2.0
+59 130 3.0
+59 194 1.0
+59 6 1.0
+59 127 1.0
+59 33 5.0
+59 8 1.0
+59 71 1.0
+59 187 1.0
+59 151 1.0
+59 35 5.0
+59 147 1.0
+59 30 1.0
+59 41 1.0
+59 202 1.0
+59 191 1.0
+60 126 4.0
+61 199 1.0
+62 110 2.0
+64 195 1.0
+67 116 1.0
+71 202 2.0
+71 35 1.0
+72 18 2.0
+72 110 1.0
+72 124 1.0
+74 98 2.0
+74 190 1.0
+75 53 1.0
+75 169 1.0
+75 10 1.0
+75 42 1.0
+77 79 1.0
+77 130 3.0
+77 194 2.0
+77 101 1.0
+77 26 6.0
+77 147 1.0
+77 126 2.0
+78 161 1.0
+82 96 3.0
+84 59 2.0
+84 6 3.0
+84 7 1.0
+84 33 2.0
+84 162 2.0
+84 71 1.0
+84 113 3.0
+84 24 1.0
+84 26 2.0
+84 60 4.0
+84 130 7.0
+84 183 1.0
+84 8 4.0
+84 35 18.0
+84 187 11.0
+84 135 4.0
+84 40 2.0
+84 191 8.0
+84 126 1.0
+84 143 2.0
+84 95 6.0
+84 101 1.0
+84 200 4.0
+86 4 3.0
+86 94 1.0
+86 146 4.0
+86 150 1.0
+86 110 1.0
+86 52 2.0
+86 158 4.0
+86 124 1.0
+86 42 1.0
+86 123 1.0
+87 5 2.0
+87 108 1.0
+87 132 17.0
+87 197 3.0
+87 137 1.0
+87 14 1.0
+89 42 2.0
+90 68 2.0
+90 48 31.0
+90 158 1.0
+90 14 1.0
+90 127 1.0
+90 42 2.0
+91 146 1.0
+92 54 1.0
+92 151 2.0
+93 48 1.0
+93 124 1.0
+95 1 1.0
+95 45 7.0
+95 143 1.0
+95 59 3.0
+95 130 2.0
+95 7 1.0
+95 8 3.0
+95 35 19.0
+95 71 2.0
+95 187 4.0
+95 26 1.0
+95 176 1.0
+95 84 2.0
+95 200 5.0
+95 113 3.0
+95 191 1.0
+97 194 1.0
+97 35 4.0
+97 161 6.0
+97 187 1.0
+97 38 1.0
+97 78 5.0
+98 112 1.0
+98 125 1.0
+98 116 1.0
+100 67 1.0
+100 121 3.0
+101 168 1.0
+101 151 1.0
+101 126 2.0
+102 146 1.0
+102 27 1.0
+105 103 1.0
+109 53 1.0
+109 158 2.0
+109 12 2.0
+109 156 2.0
+109 42 3.0
+110 48 1.0
+112 32 1.0
+112 80 1.0
+112 151 1.0
+112 118 1.0
+113 143 1.0
+113 79 1.0
+113 8 1.0
+113 71 2.0
+113 162 2.0
+113 135 1.0
+113 84 1.0
+113 147 1.0
+114 53 3.0
+114 3 3.0
+114 10 5.0
+114 146 2.0
+115 112 1.0
+115 60 2.0
+115 41 1.0
+115 116 1.0
+115 126 1.0
+116 112 1.0
+116 41 1.0
+116 98 1.0
+116 151 6.0
+118 92 1.0
+118 16 1.0
+118 80 1.0
+118 195 7.0
+118 33 1.0
+118 160 1.0
+118 32 1.0
+118 112 2.0
+120 190 1.0
+120 118 1.0
+120 49 1.0
+121 67 6.0
+121 183 1.0
+121 50 7.0
+121 198 3.0
+121 100 11.0
+121 112 1.0
+123 158 1.0
+125 142 2.0
+125 20 2.0
+125 116 1.0
+128 159 1.0
+128 10 1.0
+128 27 1.0
+129 161 7.0
+129 25 1.0
+129 176 6.0
+129 35 14.0
+129 29 1.0
+130 59 2.0
+130 183 1.0
+130 6 2.0
+130 7 1.0
+130 33 2.0
+130 35 12.0
+130 187 3.0
+130 24 16.0
+130 84 1.0
+130 200 1.0
+130 103 5.0
+130 147 5.0
+131 124 1.0
+131 52 1.0
+133 162 1.0
+133 187 1.0
+133 191 5.0
+133 126 1.0
+135 202 3.0
+136 52 1.0
+140 79 1.0
+140 151 1.0
+143 79 5.0
+143 26 1.0
+144 141 1.0
+144 153 1.0
+144 160 1.0
+146 58 1.0
+146 53 1.0
+146 3 2.0
+146 52 1.0
+147 7 1.0
+147 33 4.0
+148 170 1.0
+148 98 1.0
+153 176 1.0
+158 160 1.0
+160 80 1.0
+160 168 1.0
+160 118 1.0
+160 195 1.0
+160 24 1.0
+160 140 2.0
+160 161 3.0
+160 170 1.0
+160 98 1.0
+160 151 1.0
+160 64 1.0
+162 25 1.0
+164 131 1.0
+164 93 2.0
+164 146 2.0
+164 157 2.0
+164 199 1.0
+164 158 6.0
+164 51 1.0
+164 196 1.0
+164 173 1.0
+164 102 1.0
+164 10 7.0
+164 140 1.0
+164 186 11.0
+164 134 1.0
+164 52 2.0
+164 124 10.0
+164 21 1.0
+164 166 1.0
+164 90 1.0
+164 110 5.0
+164 48 1.0
+165 63 2.0
+165 52 1.0
+168 97 1.0
+169 63 1.0
+169 75 1.0
+169 27 6.0
+170 13 1.0
+170 118 1.0
+171 31 5.0
+171 36 4.0
+172 10 1.0
+173 158 1.0
+173 196 2.0
+173 10 1.0
+173 186 3.0
+173 102 1.0
+173 63 2.0
+173 42 1.0
+174 158 1.0
+174 52 2.0
+174 188 2.0
+174 146 1.0
+175 162 1.0
+176 129 14.0
+176 45 2.0
+176 59 3.0
+176 25 1.0
+176 194 2.0
+176 175 2.0
+176 29 2.0
+176 97 9.0
+176 7 1.0
+176 35 4.0
+176 96 2.0
+176 161 6.0
+176 162 1.0
+176 187 6.0
+176 191 1.0
+176 200 5.0
+176 113 2.0
+176 65 1.0
+176 78 4.0
+176 126 2.0
+180 14 1.0
+180 52 2.0
+181 123 10.0
+182 158 1.0
+182 3 3.0
+182 188 2.0
+182 128 1.0
+182 184 1.0
+184 140 1.0
+186 156 1.0
+186 110 1.0
+186 157 2.0
+187 1 4.0
+187 59 4.0
+187 6 2.0
+187 60 1.0
+187 8 10.0
+187 162 5.0
+187 112 1.0
+187 113 1.0
+187 65 1.0
+187 168 3.0
+187 175 2.0
+187 71 1.0
+187 25 1.0
+187 176 4.0
+187 147 5.0
+187 29 1.0
+187 130 14.0
+187 33 13.0
+187 35 26.0
+187 135 2.0
+187 84 1.0
+187 191 3.0
+187 126 1.0
+187 45 3.0
+187 143 2.0
+187 194 2.0
+187 95 1.0
+187 97 3.0
+187 200 26.0
+188 17 3.0
+188 9 1.0
+188 48 1.0
+188 146 1.0
+188 199 3.0
+188 10 1.0
+188 174 5.0
+188 186 2.0
+188 90 1.0
+189 156 1.0
+190 160 4.0
+190 118 3.0
+190 140 1.0
+191 126 1.0
+192 65 1.0
+192 24 1.0
+194 112 1.0
+194 141 1.0
+194 59 1.0
+195 41 2.0
+195 92 3.0
+195 54 6.0
+195 26 1.0
+195 118 4.0
+196 110 3.0
+196 52 1.0
+196 146 1.0
+196 27 2.0
+200 162 1.0
+200 187 2.0
+200 202 1.0
+200 176 1.0
+202 1 1.0
+202 195 1.0
+202 26 1.0
+202 135 1.0
+202 133 1.0
+202 191 2.0
