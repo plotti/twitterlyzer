@@ -5,7 +5,8 @@ EXPLANATION OF DIRECTORIES
     histograms #contains graphs of the distribution of the network tie strengths
     network_graphs #contains network graphs of the FF/AT/RT Networks
     networks #contains pajek and gephi readable networks of the whole network
-
+    spss # contains the results of the calculation they are further processed with spss
+    
 EXPLANATION OF FILES
     
     OUTPUTS OF CHECKING PROCEDURES
@@ -13,9 +14,9 @@ EXPLANATION OF FILES
     stats/partition_stats
     
     FILES FOR CALCULATION OF MEASURES
-    group_bonding.csv # Contains the output of the calculation of group bonding measures
-    group_bridging.csv # Contains the output of the calculation of group bridging measures
-    individual_bonding.csv # Contains the output of the calculation of individual bonding measures
-    individual_bridging.csv # Contains the output of the calculation of individual bridging measures
+    spss/group bonding/group_bonding.csv # Contains the output of the calculation of group bonding measures
+    spss/group bridging/group_bridging.csv # Contains the output of the calculation of group bridging measures
+    spss/individual bonding/individual_bonding.csv # Contains the output of the calculation of individual bonding measures
+    spss/individual bridging/individual_bridging.csv # Contains the output of the calculation of individual bridging measures
     
     
