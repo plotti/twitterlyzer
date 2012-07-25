@@ -308,7 +308,7 @@ class Project < ActiveRecord::Base
   # Old method of finding retweets
   # For all persons tweets in the project check if they have been retweeted by other members in the community
   # Tested in project spec
-  def find_rt_connections(friend = true,follower = false,category = false)
+  def find_rt_connections(friend = true,follower = false,category = false)    
     values = []
     i = 0
     usernames = persons.collect{|p| p.username}.uniq
@@ -359,7 +359,7 @@ class Project < ActiveRecord::Base
   # A solr solution based on the index on feedentries which is mandatory
   # See feedentry model for solr fields
   def find_solr_rt_connections
-	outfile = CSV.open("#{RAILS_ROOT}/analysis/data/rt_connections.csv", "wb")
+	outfile = CSV.open("#{RAILS_ROOT}/analysis/data/#{self.id}_rt_connections.csv", "wb")
 	users = {}
 	persons.each do |person|
           users[person.id] = person.username
@@ -373,14 +373,23 @@ class Project < ActiveRecord::Base
   			fulltext "#{person.twitter_id}"
   			paginate :page => 1, :per_page => 1000000
   		end
+  		id_only_in_tweet = 0
+  		not_in_set = 0
   		search.results.each do |result|
-  			if users.keys.include? result.person_id
+  			if users.keys.include? result.person_id # if this tweet has been retweeted by one of the persons of the project
+                          # For users like jack twitter id: 12 we must check if this is an actual retweet or simply the number 12 is in the tweet.                          
+                          if result.retweet_ids.collect{|r| r[:id]}.include?(person.twitter_id)
   				values << [person.username, users[result.person_id], 1]
  				outfile<< [person.username, users[result.person_id], result.id, result.text]
+                          else
+                            id_only_in_tweet += 1
+                          end                          
+  			else
+                          not_in_set += 1
   			end
   		end
   		t2 = Time.now
-                puts("Analyzing #{i} #{person.username} for retweet connections. Time per person: #{t2- t1}. Results total: #{search.total}")          
+                puts("Analyzing #{i} #{person.username} for retweets. Time : #{t2- t1}. Total: #{search.total}. IDs only in tweet: #{id_only_in_tweet}. Persons not in set: #{not_in_set}")          
   	end
   	outfile.close
         hash = values.group_by { |first, second, third| [first,second] }
@@ -448,7 +457,7 @@ class Project < ActiveRecord::Base
       person.feed_entries.each do |tweet|        
         #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
-          if tweet.text.include?("@" + tmp_user + " ") && !tweet.text.include?("RT")
+          if tweet.text.include?("@" + tmp_user ) && !tweet.text.include?("RT")
             #If we compute only persons from the same category.
             if category 
               if person.category != Person.find_by_username(tmp_user).category
@@ -458,7 +467,8 @@ class Project < ActiveRecord::Base
               end
             else
               #if the tweet has not been retweeted hence is not a retweet
-              if tweet.retweet_ids == [] && person.username != tmp_user
+              #if tweet.retweet_ids == [] &&
+              if person.username != tmp_user
                 values << [person.username,tmp_user,1]  
               end             
             end
@@ -481,7 +491,7 @@ class Project < ActiveRecord::Base
   # The person does not reference himself in his own tweets
   # Tested in project spec
   def find_solr_at_connections
-    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/at_connections.csv", "wb")
+    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/#{self.id}_at_connections.csv", "wb")
     users = {}    
     persons.each do |person|        
 	users[person.id] = person.username
@@ -618,10 +628,14 @@ class Project < ActiveRecord::Base
     end
   end
   
-  def dump_AT_edgelist
-    net = self.find_solr_at_connections
+  def dump_AT_edgelist(type="solr")
+    if type == "solr"
+          net = self.find_solr_at_connections
+    elsif type == "normal"
+      net = self.find_at_connections
+    end
     begin
-      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_AT.edgelist", "w+") do |file|
+      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_#{type}_AT.edgelist", "w+") do |file|
         net.each do |row|
           file.puts "#{row[0]} #{row[1]} #{row[2]}"
         end
@@ -631,10 +645,15 @@ class Project < ActiveRecord::Base
     end    
   end
   
-  def dump_RT_edgelist
-    net = self.find_solr_rt_connections
+  def dump_RT_edgelist(type="solr")
+    if type == "solr"
+      net = self.find_solr_rt_connections
+    elsif type == "normal"
+      net = self.find_rt_connections
+    end
+    
     begin
-      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_RT.edgelist", "w+") do |file|
+      File.open("#{RAILS_ROOT}/analysis/data/networks/#{self.id}_#{type}_RT.edgelist", "w+") do |file|
         net.each do |row|
           file.puts "#{row[0]} #{row[1]} #{row[2]}"
         end
@@ -646,8 +665,8 @@ class Project < ActiveRecord::Base
   
   def dump_all_networks
     self.dump_FF_edgelist
-    self.dump_AT_edgelist
-    self.dump_RT_edgelist
+    self.dump_AT_edgelist("solr")
+    self.dump_RT_edgelist("solr")
   end
 
 

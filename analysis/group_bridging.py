@@ -2,7 +2,6 @@ import networkx as nx
 import csv
 from lib import structural_holes2 as sx
 import helper as hp
-import sys
 import sys,getopt
 
 def main(argv):
@@ -119,7 +118,7 @@ def main(argv):
     FF_bin_betweenness = nx.betweenness_centrality(H_FF) # How often is the group between other groups
     FF_bin_closeness = nx.closeness_centrality(H_FF)
     FF_bin_eigenvector = nx.eigenvector_centrality(H_FF)
-    FF_bin_struc = sx.structural_holes(H_FF,True,True,True)
+    FF_bin_struc = sx.structural_holes(H_FF)
     
     # AT network measures of the nodes
     AT_bin_degree = nx.degree_centrality(H_AT)
@@ -142,8 +141,8 @@ def main(argv):
                                                 AT_bin_degree[node], AT_bin_in_degree[node], AT_bin_out_degree[node],
                                                 AT_bin_betweenness[node], AT_bin_closeness[node], AT_bin_eigenvector[node],
                                                 AT_bin_struc[node]['C-Size'],AT_bin_struc[node]['C-Density'],AT_bin_struc[node]['C-Hierarchy'],AT_bin_struc[node]['C-Index'],
-                                                AT.in_degree(node,weight="weight"), AT.out_degree(node,weight="weight"),
-                                                RT.in_degree(node,weight="weight"), RT.out_degree(node,weight="weight")
+                                                H_AT.in_degree(node,weight="weight"), H_AT.out_degree(node,weight="weight"),
+                                                H_RT.in_degree(node,weight="weight"), H_RT.out_degree(node,weight="weight")
                                             ])        
 if __name__ == "__main__":
    main(sys.argv[1:])                
