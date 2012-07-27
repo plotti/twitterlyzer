@@ -30,23 +30,29 @@ def main(argv):
     csv_writer.writerow(["Project", "Community", "Person_ID",
                          "Place_on_list",
                          "FF_bin_deg","FF_bin_in_deg","FF_bin_out_deg",
+                         "FF_vol_in", "FF_vol_out",
                          "FF_bin_close","FF_bin_page","FF_rec",
                          "AT_bin_deg","AT_bin_in_deg","AT_bin_out_deg",
                          "AT_bin_close","AT_bin_page","AT_rec","AT_avg",
                          "AT_vol_in", "AT_vol_out",                     
+                         "RT_bin_deg_in", "RT_bin_deg_out",
                          "RT_vol_in","RT_vol_out",
                          "RT_global_vol_in", "RT_global_vol_out"])
     
     #Read in the list-listings for individuals
     listings = {}
     indiv_reader = csv.reader(open(partitionfile))
-    for row in indiv_reader:        
-            listings[row[0]] = {"group":row[1],"place":int(row[2]), "competing_lists": int(row[3])}
+    i = 0
+    for row in indiv_reader:
+            i+= 1
+            listings[row[0]] = {"group":row[1],"place":i, "competing_lists": int(row[3])}
+            if i == 101: #Some of the original places have shifted because of the regrouping
+                i = 0
             
     #Read in Networks    
     FF_all = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
-    AT_all = nx.read_edgelist('data/networks/%s_AT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
-    RT_all = nx.read_edgelist('data/networks/%s_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
+    AT_all = nx.read_edgelist('data/networks/%s_solr_AT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
+    RT_all = nx.read_edgelist('data/networks/%s_solr_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
     
     # Read in the partitions
     tmp = hp.get_partition(partitionfile)
@@ -54,13 +60,21 @@ def main(argv):
     groups = tmp[1]
     
     # Add missing nodes
-    i = 0
-    for partition in partitions:
-        for node in partition:
-            FF_all.add_node(node, group =  groups[i])
-            AT_all.add_node(node, group =  groups[i])
-            RT_all.add_node(node, group =  groups[i])
-        i += 1
+    maximum_subset = []
+    for node in FF_all.nodes():
+        if AT_all.has_node(node) and RT_all.has_node(node):
+            maximum_subset.append(node)
+        else:
+            print node
+    print "Maximum Subset of nodes %s" % len(maximum_subset)
+    
+    #i = 0
+    #for partition in partitions:
+    #    for node in partition:
+    #        FF_all.add_node(node, group =  groups[i])
+    #        AT_all.add_node(node, group =  groups[i])
+    #        RT_all.add_node(node, group =  groups[i])
+    #    i += 1
         
     i = 0
     
@@ -104,23 +118,26 @@ def main(argv):
             
         #Dependent Variable see csv below        
         # Deprecated since in networkx centrality works only on binary edges
-        # dRT_in = nx.in_degree_centrality(RT) # Retweets that a person has received 
-        # dRT_out = nx.out_degree_centrality(RT) # Retweets that a person has made
+        dRT_in = nx.in_degree_centrality(RT) # At least once a retweets that a person has received 
+        dRT_out = nx.out_degree_centrality(RT) # At least one retweets that a person has made
         
         ############### Output ################
         for node in dFF_bin.keys():
-            csv_writer.writerow([project, project_name, node,
-                                 listings[node]["place"],
-                                 dFF_bin[node], dFF_bin_in[node], dFF_bin_out[node],
-                                 dFF_bin_closeness[node],dFF_bin_pagerank[node],
-                                 dFF_rec[node],
-                                 dAT_bin[node], dAT_bin_in[node], dAT_bin_out[node],
-                                 dAT_bin_closeness[node],dAT_bin_pagerank[node],
-                                 dAT_rec[node],dAT_avg_tie[node],
-                                 AT.in_degree(node,weight="weight"), AT.out_degree(node, weight="weight"),
-                                 RT.in_degree(node,weight="weight"), RT.out_degree(node, weight="weight"),
-                                 RT_all.in_degree(node,weight="weight"), RT_all.out_degree(node, weight="weight")
-                                 ])
+            if node in maximum_subset:
+                csv_writer.writerow([project, project_name, node,
+                                     listings[node]["place"],
+                                     dFF_bin[node], dFF_bin_in[node], dFF_bin_out[node],
+                                     FF.in_degree(node,weight="weight"), FF.out_degree(node,weight="weight"),
+                                     dFF_bin_closeness[node],dFF_bin_pagerank[node],
+                                     dFF_rec[node],
+                                     dAT_bin[node], dAT_bin_in[node], dAT_bin_out[node],
+                                     dAT_bin_closeness[node],dAT_bin_pagerank[node],
+                                     dAT_rec[node],dAT_avg_tie[node],
+                                     dRT_in[node],dRT_out[node],
+                                     AT.in_degree(node,weight="weight"), AT.out_degree(node, weight="weight"),
+                                     RT.in_degree(node,weight="weight"), RT.out_degree(node, weight="weight"),
+                                     RT_all.in_degree(node,weight="weight"), RT_all.out_degree(node, weight="weight")
+                                     ])
     
         i += 1
         

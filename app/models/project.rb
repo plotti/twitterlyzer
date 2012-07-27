@@ -311,22 +311,24 @@ class Project < ActiveRecord::Base
   def find_rt_connections(friend = true,follower = false,category = false)    
     values = []
     i = 0
+    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/normal_#{self.id}_rt_connections.csv", "wb")
     usernames = persons.collect{|p| p.username}.uniq
     persons.each do |person|
       t1 = Time.now
       i += 1
-      result = find_retweet_connections_for_person(person,usernames, false, category)
+      result = find_retweet_connections_for_person(person, outfile, usernames, false, category)
       values += result
       t2 = Time.now
       puts("Analyzed ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " and found #{result.count} retweet connections. Time #{t2-t1}")
     end
+    outfile.close
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}
   end
   
   # Tested in Project spec
-  def find_retweet_connections_for_person(person,usernames = [],following = false,category = false)
+  def find_retweet_connections_for_person(person, outfile, usernames = [],following = false, category = false)
     puts "Finding retweet connections with following:#{following} category:#{category}"
     values = []
     if usernames ==[]
@@ -344,10 +346,11 @@ class Project < ActiveRecord::Base
             #Only count retweets that are between different categories
             if category
               if Person.find_by_username(retweet[:person]).category != person.category
-                values << [retweet[:person], person.username,1]
+                values << [retweet[:person], person.username,1]                
               end
             else
               values << [retweet[:person],person.username,1]
+              outfile<< [retweet[:person],person.username, tweet.id, tweet.text]
             end
           end
         end
@@ -359,7 +362,7 @@ class Project < ActiveRecord::Base
   # A solr solution based on the index on feedentries which is mandatory
   # See feedentry model for solr fields
   def find_solr_rt_connections
-	outfile = CSV.open("#{RAILS_ROOT}/analysis/data/#{self.id}_rt_connections.csv", "wb")
+	outfile = CSV.open("#{RAILS_ROOT}/analysis/data/solr_#{self.id}_rt_connections.csv", "wb")
 	users = {}
 	persons.each do |person|
           users[person.id] = person.username
@@ -445,6 +448,7 @@ class Project < ActiveRecord::Base
   # Everytime we find somebody we set the value up.
   # Tested in project spec
   def find_at_connections(friend = true, follower = false, category = false)
+    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/normal_#{self.id}_at_connections.csv", "wb")
     if category
       puts "COMPUTING CATEGORY only @ Interactions"
     end
@@ -457,7 +461,9 @@ class Project < ActiveRecord::Base
       person.feed_entries.each do |tweet|        
         #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
-          if tweet.text.include?("@" + tmp_user ) && !tweet.text.include?("RT")
+          #Use downcase to find smallcase mentions but try to exclude tweets
+          tmp_user.downcase!
+          if tweet.text.downcase.include?("@" + tmp_user ) && !tweet.text.include?("RT @#{tmp_user}") && tweet.text.split.first != "RT" && result.text.split.first != "RT|"
             #If we compute only persons from the same category.
             if category 
               if person.category != Person.find_by_username(tmp_user).category
@@ -469,7 +475,8 @@ class Project < ActiveRecord::Base
               #if the tweet has not been retweeted hence is not a retweet
               #if tweet.retweet_ids == [] &&
               if person.username != tmp_user
-                values << [person.username,tmp_user,1]  
+                values << [person.username,tmp_user,1]
+                outfile<< [person.username, tmp_user, tweet.id, tweet.text, tweet.retweet_ids.count]
               end             
             end
           end
@@ -478,6 +485,7 @@ class Project < ActiveRecord::Base
       t2 = Time.now    
       puts("Analyzing ( " + i.to_s + "/" + persons.count.to_s + ") " + person.username + " for talk connections. Time per person: #{t2- t1}")          
     end
+    outfile.close
     #Merge counted pairs
     hash = values.group_by { |first, second, third| [first,second] }
     return hash.map{|k,v| [k,v.count].flatten}  
@@ -491,7 +499,7 @@ class Project < ActiveRecord::Base
   # The person does not reference himself in his own tweets
   # Tested in project spec
   def find_solr_at_connections
-    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/#{self.id}_at_connections.csv", "wb")
+    outfile = CSV.open("#{RAILS_ROOT}/analysis/data/solr_#{self.id}_at_connections.csv", "wb")
     users = {}    
     persons.each do |person|        
 	users[person.id] = person.username
@@ -499,22 +507,31 @@ class Project < ActiveRecord::Base
     values = []
     i = 0
     persons.each do |person|
+      #A number of common cases where the @sign was used wrongly
+      #Deprecated if we use another tokenizer
+      errors1 = "@#{person.username}\: @#{person.username}. @#{person.username}, @#{person.username}; “@#{person.username}: @#{person.username}”"
+      errors2 = ".@#{person.username} |@#{person.username} via@#{person.username}  w/@#{person.username} @#{person.username}\! @#{person.username}\?"      
+      errors3 = "@#{person.username}\) \(@#{person.username}\) \(@#{person.username}"
+      errors4 = "@#{person.username}' @#{person.username}'s @#{person.username}’s"
+      errors5 = "@#{person.username}\] \[@#{person.username}\] \[@#{person.username}"
       i += 1
       t1 = Time.now
       search = FeedEntry.search do        
         # with(:person_id,users.keys) doesn't work if there are more than 5k elements in that array
         without(:person_id,person.id) # No self referencing
-        fulltext "@#{person.username} -RT" #Find those Feeds that mention this person
+        #Find those Feeds that mention this person (including common errors)
+        fulltext "@#{person.username} #{errors1} #{errors2} #{errors3} #{errors4} #{errors5}", {:minimum_match => 0} 
 	paginate :page => 1, :per_page => 1000000 #Make sure we dont paginate	
       end
       j = 0
       search.results.each do |result|
-        if users.keys.include?(result.person_id) && result.person_id != person.id # No self @
+        if users.keys.include?(result.person_id) && result.person_id != person.id && # No self @
           # I originally assumed that result.retweet_ids == [] but this interaction is still valid in its original form
-          # !result.text.include?("RT")  is not a good way of checking see above (e.g. "ART".inlcude?"RT" is true)          
-          j += 1
-          values << [users[result.person_id], person.username, 1]
-          outfile<< [users[result.person_id], person.username, result.id, result.text, result.retweet_ids.count]
+          if !result.text.include?("RT @#{person.username}") && result.text.split.first != "RT" && result.text.split.first != "RT|"
+            j += 1
+            values << [users[result.person_id], person.username, 1]
+            outfile<< [users[result.person_id], person.username, result.id, result.text, result.retweet_ids.count]
+          end
         end
       end
       t2 = Time.now      
@@ -572,9 +589,7 @@ class Project < ActiveRecord::Base
     end      
   end
   
-
 ############### CONNECTING PEOPLE THAT ARE ON THE SAME LISTS #########################
-
 
   # Deprecated
   # This method goes through all the lists of a project and connnectsthe members accordingly

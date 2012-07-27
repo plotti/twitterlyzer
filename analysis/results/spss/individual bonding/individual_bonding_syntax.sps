@@ -56,27 +56,27 @@ COMPUTE LN_RT_vol_out=LN(RT_vol_out+1).
 * Output a histogram of the transformed *
 
 GRAPH
-  /HISTOGRAM=LN_FF_bin_deg.
+  /HISTOGRAM(NORMAL)=LN_FF_bin_deg.
 GRAPH
-  /HISTOGRAM=LN_FF_bin_in_deg.
+  /HISTOGRAM(NORMAL)=LN_FF_bin_in_deg.
 GRAPH
-  /HISTOGRAM=LN_FF_bin_out_deg.
+  /HISTOGRAM(NORMAL)=LN_FF_bin_out_deg.
 GRAPH
- /HISTOGRAM=LN_AT_bin_deg.
+ /HISTOGRAM(NORMAL)=LN_AT_bin_deg.
 GRAPH
-  /HISTOGRAM=LN_AT_bin_in_deg.
+  /HISTOGRAM(NORMAL)=LN_AT_bin_in_deg.
 GRAPH
-  /HISTOGRAM=LN_AT_bin_out_deg.
+  /HISTOGRAM(NORMAL)=LN_AT_bin_out_deg.
 GRAPH
-  /HISTOGRAM=LN_AT_avg.
+  /HISTOGRAM(NORMAL)=LN_AT_avg.
 GRAPH
-  /HISTOGRAM=LN_AT_vol_in.
+  /HISTOGRAM(NORMAL)=LN_AT_vol_in.
 GRAPH
-  /HISTOGRAM=LN_AT_vol_out.
+  /HISTOGRAM(NORMAL)=LN_AT_vol_out.
 GRAPH
-  /HISTOGRAM=LN_RT_vol_in.
+  /HISTOGRAM(NORMAL)=LN_RT_vol_in.
 GRAPH
-  /HISTOGRAM=LN_RT_vol_out.
+  /HISTOGRAM(NORMAL)=LN_RT_vol_out.
 
 * Perform a couple of regressions *
 
@@ -88,6 +88,7 @@ REGRESSION
   /DEPENDENT LN_RT_vol_in 
   /METHOD=BACKWARD LN_FF_bin_deg LN_FF_bin_in_deg LN_FF_bin_out_deg LN_AT_bin_deg LN_AT_bin_in_deg LN_AT_bin_out_deg LN_AT_avg LN_AT_vol_in LN_AT_vol_out
  /SCATTERPLOT=(*ZRESID ,*ZPRED)
+ /PARTIALPLOT ALL
   /RESIDUALS HISTOGRAM(ZRESID) NORMPROB(ZRESID)..
 
 REGRESSION 
@@ -98,4 +99,5 @@ REGRESSION
   /DEPENDENT LN_RT_vol_in 
   /METHOD=BACKWARD LN_FF_bin_in_deg LN_FF_bin_out_deg LN_AT_bin_in_deg LN_AT_vol_in LN_AT_vol_out
  /SCATTERPLOT=(*ZRESID ,*ZPRED)
+ /PARTIALPLOT ALL
   /RESIDUALS HISTOGRAM(ZRESID) NORMPROB(ZRESID).
