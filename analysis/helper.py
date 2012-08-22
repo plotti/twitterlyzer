@@ -6,6 +6,27 @@ import numpy as np
 from itertools import groupby
 import networkx as nx
 
+		
+# The min_threshold returns the highest possible weight threshold to filter out the graph but to remain one component
+def min_threshold(G):
+    max_weights = []
+    for node in G.nodes():
+	local_max = 0
+	for edge in G[node].values():        
+	    if edge["weight"] > local_max:
+		local_max = edge["weight"]
+	max_weights.append(local_max)
+    return min(max_weights)
+
+#Island method for filtering edges
+def trim_edges(g, weight=1):
+	g2=nx.DiGraph()
+	for f, to, edata in g.edges(data=True):
+		if edata['weight'] > weight:
+			g2.add_edge(f,to,edata)
+	return g2
+
+
 def uniq(seq): 
 	# order preserving
 	checked = []
@@ -85,11 +106,55 @@ def total_edge_weight(D):
 def average_tie_strength(D):
 	return float(total_edge_weight(D))/(len(D.nodes())*(len(D.nodes())-1))
 
+# Adds up all the incoming ties from a number of groups for an individual node
+def incoming_group_volume(G,node,groups):
+	total = {}
+	for group in groups:
+		total[group] = 0
+		
+	for edge in G.in_edges(node,data=True):		
+		for group in groups:
+			if G.node[edge[0]]['group'] == group:
+				total[group] += 1	
+	return total
+
+# Adds up all the outgoing ties to a number of groups for an individual node
+def outgoing_group_volume(G,node,groups):
+	total = {}
+	for group in groups:
+		total[group] = 0
+		
+	for edge in G.in_edges(node,data=True):		
+		for group in groups:
+			if G.node[edge[1]]['group'] == group:
+				total[group] += 1	
+	return total
+
+#Filters an array so that only the ties with a certain total strength towards a group are added up
+def filtered_group_volume(group_values, threshold):
+	result = 0
+        for value in group_values:
+		if value[1] > threshold:
+			result += 1
+	return result
+
+#def incoming_group_volume(G, groups):
+#	total = []
+#	for group in groups:
+#		total.append(individual_in_volume(G,group))
+#	return total
+#
+#def outgoing_group_volume(G, groups):
+#	total = []
+#	for group in groups:
+#		total.append(individual_out_volume(G,group))
+#	return total
+
 #Computes the volume of incoming ties according to some group
 #The ties are only counted if they come fromn a member of the named group
 def individual_in_volume(D,group):
 	output = {}
-	for node in D.nodes():
+	for node in D.nodes_iter():
 		weights = 0
 		for edge in D.in_edges(node,data=True):
 			if D.node[edge[0]]['group'] == group:
@@ -141,11 +206,16 @@ def individual_reciprocity(D):
 # Calculates the overal reciprocity in a graph
 # Is this my own algorithm or is it based on some considerations from theoretical literature?
 def reciprocity(D):
+	G = reciprocated_graph(D)
+	return float(len(G.edges()))/len(D.to_undirected().edges())
+
+def reciprocated_graph(D):
 	G=D.to_undirected() # copy 
 	for (u,v) in D.edges(): 
 		if not D.has_edge(v,u): 
-			G.remove_edge(u,v) 
-	return float(len(G.edges()))/len(D.to_undirected().edges())
+			G.remove_edge(u,v)
+	G.remove_nodes_from(nx.isolates(G))
+	return G
 
 def to_binary(D):
 	G = D.copy()
@@ -239,3 +309,6 @@ def create_example_network():
 
 def create_example_partitions():
 	return[["a1","a2","a3","a4","a5","a6","a7","a8"],["b1","b2","b3","b4","b5","b6","b7","b8"],["c1","c2","c3","c4","c5","c6","c7","c8"],["d1","d2","d3","d4","d5","d6","d7","d8"]]
+
+def create_groups():
+	return["a","b","c","d"]

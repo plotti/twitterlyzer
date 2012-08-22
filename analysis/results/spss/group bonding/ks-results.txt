@@ -1,0 +1,73 @@
+significant K-S results for distribution of LN_RT_vol_in acc to communities
+animation 0.03
+archaeology 0.03
+army_militia 0.07
+author 0.03
+baking 0.00
+blogs 0.00
+branding 0.00
+ceo 0.00
+children 0.00
+climatechan 0.00
+college 0.04
+comics 0.012
+database = 0.04
+dating = 0.018
+democrat = 0.003
+developer = 0.004
+director = 0.001 -- huge outlier!
+drums 0.026 
+engineering = 0.000
+etsy = 0.039
+exercise = 0.004 --huge outlier!
+filmfestival = 0.000
+finance_ceo = 0.0012
+food_chef = 0.028
+gambling = 0.000
+gaming = 0.004
+genealogy = 0.0034
+healthcare = 0.000
+history = 0.029
+horror = 0.033
+hospitality = 0.000 -- huge outlier
+html = 0.048
+insurance = 0.001
+investor = 0.000
+ipad = 0.000
+islam = 0.022
+jazz = 0.032
+jokes = 0.000
+lesbian = 0.001
+linux = 0.013
+mac_iphone = 0.000
+magazine = 0.000
+magician = 0.02
+management = 0.000
+marketing = 0.001 -- two huge outliers
+mathematics = 0.025 
+mediation = 0.000
+mobile_smartphones = 0.009
+musician = 0.000 -- punkte überlagert
+newspaper = 0.000 extrem verschoben
+nutrition = 0.000
+outdoor = 0.014
+perl = 0.027
+pharma = 0.01
+philisophy = 0.007
+photography = 0.006
+php = 0.003
+piano = 0.000
+poker = 0.033
+politics = 0.008
+publicrelations = 0.000 -- huge outlier
+publishing = 0.031
+radio = 0.000
+realestate = 0.001
+realitytv = 0.011
+recipes_cooking = 0.000
+reporter = 0.017
+restaurant = 0.000 -- punkte überlagert
+romance = 0.002
+rugby = 0.001
+running = 0.026
+skateboarding = 0.010

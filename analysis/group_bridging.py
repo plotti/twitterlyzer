@@ -31,12 +31,13 @@ def main(argv):
     edges_writer = csv.writer(open("results/%s_bridging_edges.csv" % project, "wb"))
     csv_bridging_writer = csv.writer(open('results/spss/group bridging/%s_group_bridging.csv' % project , 'wb'))
     
-    csv_bridging_writer.writerow(["Name", "FF_Nodes",
+    csv_bridging_writer.writerow(["Name",
                                 "FF_bin_degree", "FF_bin_in_degree", "FF_bin_out_degree",
-                                "FF_bin_betweeness","FF_bin_closeness","FF_bin_eigenvector",
+                                "FF_volume_in","FF_volume_out",
+                                "FF_bin_betweeness","FF_bin_closeness", "FF_bin_pagerank", #"FF_bin_eigenvector",
                                 "FF_bin_c_size","FF_bin_c_density","FF_bin_c_hierarchy","FF_bin_c_index",
                                 "AT_bin_degree", "AT_bin_in_degree", "AT_bin_out_degree",
-                                "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_eigenvector",                            
+                                "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_pagerank", #"AT_bin_eigenvector",                            
                                 "AT_bin_c_size","AT_bin_c_density","AT_bin_c_hierarchy","AT_bin_c_index",
                                 "AT_volume_in", "AT_volume_out",
                                 "RT_volume_in", "RT_volume_out"])    
@@ -79,9 +80,9 @@ def main(argv):
     
     #Outpt the networks to pajek if needed
     if to_pajek:
-        OUT_FF = nx.relabel_nodes(P_FF,mapping)
-        OUT_AT = nx.relabel_nodes(P_AT,mapping)
-        OUT_RT = nx.relabel_nodes(P_RT,mapping)
+        OUT_FF = nx.relabel_nodes(P_FF,mapping_pajek)
+        OUT_AT = nx.relabel_nodes(P_AT,mapping_pajek)
+        OUT_RT = nx.relabel_nodes(P_RT,mapping_pajek)
         
         #Write the blocked network out to disk
         nx.write_pajek(OUT_FF,"results/networks/%s_grouped_FF.net" % project)
@@ -101,14 +102,24 @@ def main(argv):
             else:
                 edges_writer.writerow([u,v,attrib["weight"]])
     
+    
+    ########## TRIM EDGES ################
+    # For meaningfull results we have to trim edges in the AT and FF network so the whole network just doesnt look like a blob            
+    # It is chosen this way so the network remains as one component
+    
+    THRESHOLD = min([hp.min_threshold(H_AT),hp.min_threshold(H_FF)])-1    
+    H_FF = hp.trim_edges(H_FF, THRESHOLD)
+    H_AT = hp.trim_edges(H_AT, THRESHOLD)    
+
     ########## MEASURES ##############
     
     #Get the number of nodes in the aggregated networks
-    FF_nodes = {}
-    for node in H_FF.nodes(data=True):
-            FF_nodes[node[0]] = node[1]["nnodes"]
+    #FF_nodes = {}
+    #for node in H_FF.nodes(data=True):
+    #        FF_nodes[node[0]] = node[1]["nnodes"]
     
     #TODO What about the internal densities of these groups
+    # This comparison of group bonding SC and group briding SC is part of the resulting question on both those SC
     
     #Get the FF network measures of the nodes
     # Works fine on binarized Data
@@ -116,8 +127,8 @@ def main(argv):
     FF_bin_in_degree = nx.in_degree_centrality(H_FF) # The attention paid towards this group
     FF_bin_out_degree = nx.out_degree_centrality(H_FF) # The attention that this group pays towards other people
     FF_bin_betweenness = nx.betweenness_centrality(H_FF) # How often is the group between other groups
-    FF_bin_closeness = nx.closeness_centrality(H_FF)
-    FF_bin_eigenvector = nx.eigenvector_centrality(H_FF)
+    FF_bin_closeness = nx.closeness_centrality(H_FF) #FF_bin_eigenvector = nx.eigenvector_centrality(H_FF)
+    FF_bin_pagerank = nx.pagerank(H_FF)        
     FF_bin_struc = sx.structural_holes(H_FF)
     
     # AT network measures of the nodes
@@ -125,21 +136,22 @@ def main(argv):
     AT_bin_in_degree = nx.in_degree_centrality(H_AT)
     AT_bin_out_degree = nx.out_degree_centrality(H_AT)
     AT_bin_betweenness = nx.betweenness_centrality(H_AT) 
-    AT_bin_closeness = nx.closeness_centrality(H_AT)
-    AT_bin_eigenvector = nx.eigenvector_centrality(H_AT) 
+    AT_bin_closeness = nx.closeness_centrality(H_AT) #AT_bin_eigenvector = nx.eigenvector_centrality(H_AT)
+    AT_bin_pagerank = nx.pagerank(H_AT)        
     AT_bin_struc = sx.structural_holes(H_AT)
     
     # Dependent Variable see csv
     # TODO A measure that calculates how often Tweets travel through this group: Eventually betweeness in the RT graph
     
     #Arrange it in a list and output
-    for node in FF_bin_degree.keys():
-                csv_bridging_writer.writerow([node,FF_nodes[node],
+    for node in FF_bin_degree.keys():                
+                csv_bridging_writer.writerow([node,
                                                 FF_bin_degree[node], FF_bin_in_degree[node], FF_bin_out_degree[node],
-                                                FF_bin_betweenness[node],FF_bin_closeness[node],FF_bin_eigenvector[node],
+                                                H_FF.in_degree(node,weight="weight"), H_FF.out_degree(node,weight="weight"),
+                                                FF_bin_betweenness[node],FF_bin_closeness[node],FF_bin_pagerank[node], #FF_bin_eigenvector[node],
                                                 FF_bin_struc[node]['C-Size'],FF_bin_struc[node]['C-Density'],FF_bin_struc[node]['C-Hierarchy'],FF_bin_struc[node]['C-Index'],
                                                 AT_bin_degree[node], AT_bin_in_degree[node], AT_bin_out_degree[node],
-                                                AT_bin_betweenness[node], AT_bin_closeness[node], AT_bin_eigenvector[node],
+                                                AT_bin_betweenness[node], AT_bin_closeness[node], AT_bin_pagerank[node], #AT_bin_eigenvector[node],
                                                 AT_bin_struc[node]['C-Size'],AT_bin_struc[node]['C-Density'],AT_bin_struc[node]['C-Hierarchy'],AT_bin_struc[node]['C-Index'],
                                                 H_AT.in_degree(node,weight="weight"), H_AT.out_degree(node,weight="weight"),
                                                 H_RT.in_degree(node,weight="weight"), H_RT.out_degree(node,weight="weight")

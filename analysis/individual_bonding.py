@@ -43,12 +43,14 @@ def main(argv):
     listings = {}
     indiv_reader = csv.reader(open(partitionfile))
     i = 0
-    for row in indiv_reader:
-            i+= 1
-            listings[row[0]] = {"group":row[1],"place":i, "competing_lists": int(row[3])}
+    for row in indiv_reader:        
+            if i > int(row[2]): # in case there are less than 101 entries for a group for some reason
+                i = 0
+            i+= 1        
+            listings[row[0]] = {"group":row[1],"place":i, "competing_lists": int(row[3]), "original_place": int(row[2])}
             if i == 101: #Some of the original places have shifted because of the regrouping
                 i = 0
-            
+                
     #Read in Networks    
     FF_all = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
     AT_all = nx.read_edgelist('data/networks/%s_solr_AT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
@@ -60,6 +62,7 @@ def main(argv):
     groups = tmp[1]
     
     # Add missing nodes
+    # We are limiting the analysis to only the maximal subset of nodes that are present in all networks
     maximum_subset = []
     for node in FF_all.nodes():
         if AT_all.has_node(node) and RT_all.has_node(node):
@@ -68,6 +71,7 @@ def main(argv):
             print node
     print "Maximum Subset of nodes %s" % len(maximum_subset)
     
+    # In this case we are not adding missing nodes to the network, to produce a smaller error in the final regressions, but use the subset method.
     #i = 0
     #for partition in partitions:
     #    for node in partition:
@@ -91,7 +95,7 @@ def main(argv):
         FF.name = "FF_%s " % project_name
         AT.name = "AT_%s " % project_name
         RT.name = "RT_%s " % project_name
-    
+                
         ############### Compute Individual measures ################
     
         #Compute FF Centralities
@@ -128,13 +132,11 @@ def main(argv):
                                      listings[node]["place"],
                                      dFF_bin[node], dFF_bin_in[node], dFF_bin_out[node],
                                      FF.in_degree(node,weight="weight"), FF.out_degree(node,weight="weight"),
-                                     dFF_bin_closeness[node],dFF_bin_pagerank[node],
-                                     dFF_rec[node],
+                                     dFF_bin_closeness[node],dFF_bin_pagerank[node],dFF_rec[node],
                                      dAT_bin[node], dAT_bin_in[node], dAT_bin_out[node],
-                                     dAT_bin_closeness[node],dAT_bin_pagerank[node],
-                                     dAT_rec[node],dAT_avg_tie[node],
-                                     dRT_in[node],dRT_out[node],
+                                     dAT_bin_closeness[node],dAT_bin_pagerank[node],dAT_rec[node],dAT_avg_tie[node],
                                      AT.in_degree(node,weight="weight"), AT.out_degree(node, weight="weight"),
+                                     dRT_in[node],dRT_out[node],                                     
                                      RT.in_degree(node,weight="weight"), RT.out_degree(node, weight="weight"),
                                      RT_all.in_degree(node,weight="weight"), RT_all.out_degree(node, weight="weight")
                                      ])

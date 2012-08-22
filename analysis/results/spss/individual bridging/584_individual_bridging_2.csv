@@ -1,0 +1,2 @@
+Project,Community,Person_ID,Competing_lists,FF_bin_degree,FF_bin_in_degree,FF_bin_out_degree,FF_vol_in,FF_vol_outFF_bin_betweeness,FF_bin_closeness,FF_bin_pagerank,AT_bin_degree,AT_bin_in_degree,AT_bin_out_degree,AT_vol_in,AT_vol_outAT_bin_betweeness,AT_bin_closeness,AT_bin_pagerank,RT_bin_in_degree,RT_bin_out_degree,RT_vol_in,RT_vol_out
+584,accounting,CPA_Trendlines,1,0.00300066014523,0.00240052811619,0.000600132029046,40.0,10.0,0.000480105623237,0.000300066014523,0.000180039608714,22.0,10.0,6.00132029046e-05,0.000660145231951,1.0,12.0

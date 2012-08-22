@@ -1,52 +1,42 @@
 $AmpVersion=6
-$DateTime1=2012-7-5-7-49-57-611
-$DateTime2=2012-7-5-7-49-57-611
-$DateTime3=2012-7-5-7-49-57-611
+$DateTime1=2012-7-31-15-38-31-448
+$DateTime2=2012-7-31-15-38-31-448
+$DateTime3=2012-7-31-15-37-55-743
 $group=Group number 1
 $group=Group number 1
 $vnames
-7
-AT_transitivity
-AT_avg_tie_strength
-FF_clustering
-RT_volume
-RT_density
-AT_reciprocity
-FF_density
+5
+FF_bin_avg_path_length
+AT_bin_clustering
+RT_total_volume
+LN_RT_density
+FF_reciprocity
 $allnames
-18
+14
 AT_SC
 FF_SC
 Information_Diffused
-AT_transitivity
-AT_avg_tie_strength
-FF_clustering
-RT_volume
-RT_density
-AT_reciprocity
-FF_density
+FF_bin_avg_path_length
+AT_bin_clustering
+RT_total_volume
+LN_RT_density
+FF_reciprocity
 Information_diffused_error
 at_trans_err
-ff_clust_error
 at_tie_err
 rt_volume_error
 RT_density_error
-AT_reciprocity_err
 FF_density_error
 $map
-18
+14
 1
 2
+9
+10
 11
 12
-14
 13
-15
-16
-17
-18
-0
-0
+14
 0
 0
 0
@@ -56,76 +46,62 @@ $map
 $model=Default model
 $Convergence=Minimum was achieved
 $ModelNote
-Chi-square = 40.123
-Probability level = 0.000
+Chi-square = 17.365
+Probability level = 0.001
 $EndNote
-$cmin=40.12271728
-$df=11
-$p=3.408672076e-005
+$cmin=17.36505075
+$df=3
+$p=0.000594488835
 $group=Group number 1
 $Regression Weights:
 $p
 Information_Diffused
 AT_SC
-0.12380074
-0.016530097
-7.489414
+-0.30251846
+0.11243199
+-2.6906796
 
 $p
 Information_Diffused
-FF_SC
-0.15676207
-0.015745369
-9.9560745
-
-$p
-FF_density
 FF_SC
 1
 
 
 
 $p
-RT_density
-Information_Diffused
-1
-
-
-
-$p
-AT_reciprocity
-AT_SC
-1
-
-
-
-$p
-FF_clustering
+FF_reciprocity
 FF_SC
-0.84310055
-0.04886274
-17.254467
+1
+
+
 
 $p
-AT_transitivity
-AT_SC
-1.145475
-0.055585147
-20.607574
-
-$p
-AT_avg_tie_strength
-AT_SC
-18.95606
-1.2761097
-14.854569
-
-$p
-RT_volume
+LN_RT_density
 Information_Diffused
-345.88911
-25.686734
-13.465671
+1
+
+
+
+$p
+FF_bin_avg_path_length
+AT_SC
+1
+
+
+
+$p
+AT_bin_clustering
+AT_SC
+-0.50245297
+0.068062635
+-7.3822145
+
+$p
+RT_total_volume
+Information_Diffused
+12473.612
+125.05549
+99.744616
 
 $x
 
@@ -138,63 +114,35 @@ $Standardized Regression Weights:
 $p
 Information_Diffused
 AT_SC
-0.38106046
+-0.38820807
 
 
 
 $p
+LN_RT_density
 Information_Diffused
-FF_SC
-0.52922466
+1.0179272
 
 
 
 $p
-FF_density
-FF_SC
-0.95429301
+FF_bin_avg_path_length
+AT_SC
+0.56802045
 
 
 
 $p
-RT_density
+AT_bin_clustering
+AT_SC
+-0.72603244
+
+
+
+$p
+RT_total_volume
 Information_Diffused
-1.066433
-
-
-
-$p
-AT_reciprocity
-AT_SC
-0.93677701
-
-
-
-$p
-FF_clustering
-FF_SC
-0.92684014
-
-
-
-$p
-AT_transitivity
-AT_SC
-0.93900943
-
-
-
-$p
-AT_avg_tie_strength
-AT_SC
-0.8089637
-
-
-
-$p
-RT_volume
-Information_Diffused
-0.79832816
+0.97947896
 
 
 
@@ -209,9 +157,9 @@ $Covariances:
 $p
 FF_SC
 AT_SC
-0.0030418814
-0.0011295539
-2.6929935
+-0.0087535191
+0.0022997382
+-3.8063111
 
 $x
 
@@ -221,13 +169,6 @@ $x
 
 
 $Correlations:
-$p
-FF_SC
-AT_SC
-0.22847031
-
-
-
 $x
 
 
@@ -239,72 +180,58 @@ $Variances:
 $p
 FF_SC
 
-0.014602961
-0.0018681808
-7.8166744
+-0.001938055
+0.0012353626
+-1.5688146
 
 $p
 AT_SC
 
-0.012139032
-0.0015503908
-7.82966
+0.02589978
+0.0070748664
+3.6608155
 
 $p
 Information_diffused_error
 
-0.00061829843
-9.5888341e-005
-6.4481086
+0.0099994711
+0.001657111
+6.0342795
 
 $p
 FF_density_error
 
-0.001432352
-0.00065045636
-2.2020723
-
-$p
-AT_reciprocity_err
-
-0.0016938162
-0.00039229742
-4.3176836
+0.018111112
+0.0020390087
+8.8823123
 
 $p
 RT_density_error
 
--0.00015466101
-6.4803532e-005
--2.3866138
+-0.00054910335
+0.00012314933
+-4.4588414
 
 $p
 rt_volume_error
 
-87.230393
-12.173401
-7.1656549
+103613.25
+20218.689
+5.1246277
 
 $p
 at_tie_err
 
-2.3033922
-0.28702418
-8.0250806
-
-$p
-ff_clust_error
-
-0.0017033682
-0.0004861869
-3.5035255
+0.0058657421
+0.00095558314
+6.1383901
 
 $p
 at_trans_err
 
-0.0021362792
-0.00051009479
-4.1880043
+0.054372969
+0.0066044598
+8.2327656
 
 $x
 
@@ -317,56 +244,42 @@ $Squared Multiple Correlations:
 $p
 Information_Diffused
 
-0.51743547
+0.36422082
 
 
 
 $p
-AT_transitivity
+FF_bin_avg_path_length
 
-0.88173871
-
-
-
-$p
-AT_avg_tie_strength
-
-0.65442227
+0.32264723
 
 
 
 $p
-FF_clustering
+AT_bin_clustering
 
-0.85903265
-
-
-
-$p
-RT_volume
-
-0.63732786
+0.5271231
 
 
 
 $p
-RT_density
+RT_total_volume
 
-1.1372794
-
-
-
-$p
-AT_reciprocity
-
-0.87755117
+0.95937903
 
 
 
 $p
-FF_density
+LN_RT_density
 
-0.91067515
+1.0361757
+
+
+
+$p
+FF_reciprocity
+
+-0.11983232
 
 
 
@@ -379,15 +292,10 @@ $x
 
 $ModelGroupNote
 The following variables have negative variances.
-        RT_density_error  (-0.000154661)
+        RT_density_error  (-0.000549103)
 $EndNote
 $Parameter Names
-17
-
-
-
-
-
+12
 
 
 
@@ -401,42 +309,42 @@ $Parameter Names
 
 
 $model=Default model
-$npar=17
-$cmin=40.12271728
-$df=11
-$p=3.408672076e-005
-$cmindf=3.647519753
+$npar=12
+$cmin=17.36505075
+$df=3
+$p=0.000594488835
+$cmindf=5.788350249
 $model=Saturated model
-$npar=28
+$npar=15
 $cmin=0
 $df=0
 $model=Independence model
-$npar=7
-$cmin=1057.954014
-$df=21
-$p=1.242718998e-210
-$cmindf=50.37876258
+$npar=5
+$cmin=1049.436937
+$df=10
+$p=4.173262227e-219
+$cmindf=104.9436937
 $model=Default model
-$rmr=0.6193874551
-$gfi=0.9376957809
-$agfi=0.8414074424
-$pgfi=0.3683804854
+$rmr=13.10284458
+$gfi=0.9597957834
+$agfi=0.7989789171
+$pgfi=0.1919591567
 $model=Saturated model
 $rmr=0
 $gfi=1
 $agfi=-1.797693135e+308
 $pgfi=-1.797693135e+308
 $model=Independence model
-$rmr=1.862229781
-$gfi=0.3749509682
-$agfi=0.166601291
-$pgfi=0.2812132262
+$rmr=71.09217073
+$gfi=0.5031909336
+$agfi=0.2547864004
+$pgfi=0.3354606224
 $model=Default model
-$nfi=0.9620751784
-$rfi=0.9275980678
-$ifi=0.9721833845
-$tli=0.9463834326
-$cfi=0.9719151314
+$nfi=0.9834529831
+$rfi=0.944843277
+$ifi=0.9862724162
+$tli=0.9539332298
+$cfi=0.986179969
 $model=Saturated model
 $nfi=1
 $rfi=-1.797693135e+308
@@ -450,9 +358,9 @@ $ifi=0
 $tli=0
 $cfi=0
 $model=Default model
-$pratio=0.5238095238
-$pnfi=0.5039441411
-$pcfi=0.5090984021
+$pratio=0.3
+$pnfi=0.2950358949
+$pcfi=0.2958539907
 $model=Saturated model
 $pratio=0
 $pnfi=0
@@ -462,76 +370,76 @@ $pratio=1
 $pnfi=0
 $pcfi=0
 $model=Default model
-$ncp=29.12271728
-$ncplo=13.42485809
-$ncphi=52.3950882
+$ncp=14.36505075
+$ncplo=4.804618835
+$ncphi=31.40723419
 $model=Saturated model
 $ncp=0
 $ncplo=0
 $ncphi=0
 $model=Independence model
-$ncp=1036.954014
-$ncplo=934.1388321
-$ncphi=1147.157204
+$ncp=1039.436937
+$ncplo=936.7755814
+$ncphi=1149.483833
 $model=Default model
-$fmin=0.2431679835
-$f0=0.1765013169
-$f0lo=0.08136277632
-$f0hi=0.3175459891
+$fmin=0.1052427318
+$f0=0.08706091362
+$f0lo=0.02911890203
+$f0hi=0.1903468739
 $model=Saturated model
 $fmin=0
 $f0=0
 $f0lo=0
 $f0hi=0
 $model=Independence model
-$fmin=6.411842511
-$f0=6.284569783
-$f0lo=5.661447467
-$f0hi=6.952467901
+$fmin=6.360223862
+$f0=6.299617801
+$f0lo=5.677427766
+$f0hi=6.966568687
 $model=Default model
-$rmsea=0.1266711264
-$rmsealo=0.08600358149
-$rmseahi=0.1699053183
-$pclose=0.00175034968
+$rmsea=0.1703534694
+$rmsealo=0.09852055967
+$rmseahi=0.2518907659
+$pclose=0.004502112276
 $model=Independence model
-$rmsea=0.5470513941
-$rmsealo=0.5192232049
-$rmseahi=0.5753867396
-$pclose=3.218811553e-006
+$rmsea=0.7937013167
+$rmsealo=0.7534870779
+$rmseahi=0.8346597323
+$pclose=1.864620109e-006
 $model=Default model
-$aic=74.12271728
-$bcc=75.85520136
-$bic=127.0265097
-$caic=144.0265097
+$aic=41.36505075
+$bcc=42.27071112
+$bic=78.70890421
+$caic=90.70890421
 $model=Saturated model
-$aic=56
-$bcc=58.85350318
-$bic=143.1356581
-$caic=171.1356581
+$aic=30
+$bcc=31.13207547
+$bic=76.67981683
+$caic=91.67981683
 $model=Independence model
-$aic=1071.954014
-$bcc=1072.66739
-$bic=1093.737929
-$caic=1100.737929
+$aic=1059.436937
+$bcc=1059.814296
+$bic=1074.996876
+$caic=1079.996876
 $model=Default model
-$ecvi=0.4492285896
-$ecvilo=0.3540900491
-$ecvihi=0.5902732618
-$mecvi=0.4597284931
+$ecvi=0.2506972773
+$ecvilo=0.1927552657
+$ecvihi=0.3539832375
+$mecvi=0.256186128
 $model=Saturated model
-$ecvi=0.3393939394
-$ecvilo=0.3393939394
-$ecvihi=0.3393939394
-$mecvi=0.3566878981
+$ecvi=0.1818181818
+$ecvilo=0.1818181818
+$ecvihi=0.1818181818
+$mecvi=0.1886792453
 $model=Independence model
-$ecvi=6.496690995
-$ecvilo=5.873568679
-$ecvihi=7.164589113
-$mecvi=6.501014485
+$ecvi=6.420829923
+$ecvilo=5.798639887
+$ecvihi=7.087780808
+$mecvi=6.423116944
 $model=Default model
-$hfive=81
-$hone=102
+$hfive=75
+$hone=108
 $model=Independence model
-$hfive=6
-$hone=7
+$hfive=3
+$hone=4
 $EndFile

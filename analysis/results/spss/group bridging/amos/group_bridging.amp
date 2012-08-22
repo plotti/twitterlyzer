@@ -1,0 +1,364 @@
+$AmpVersion=6
+$DateTime1=2012-8-9-11-12-56-782
+$DateTime2=2012-8-9-11-12-56-782
+$DateTime3=2012-8-9-11-12-56-782
+$group=Group number 1
+$group=Group number 1
+$vnames
+7
+LN_FF_bin_closeness
+LN_FF_bin_eigenvector
+EXP_FF_bin_betweeness
+AT_bin_betweeness
+AT_bin_closeness
+LN_AT_bin_eigenvector
+LN_RT_volume_in
+$allnames
+14
+LN_FF_bin_closeness
+LN_FF_bin_eigenvector
+EXP_FF_bin_betweeness
+AT_bin_betweeness
+AT_bin_closeness
+LN_AT_bin_eigenvector
+LN_RT_volume_in
+atbeterr
+atcloserr
+ateigerr
+ffbetwerr
+ffeigerr
+ffcloserr
+ln_rt_err
+$map
+14
+13
+12
+11
+8
+9
+10
+14
+0
+0
+0
+0
+0
+0
+0
+$model=Default model
+$Convergence=Minimum was achieved
+$ModelNote
+Chi-square = 911.727
+Probability level = 0.000
+$EndNote
+$cmin=911.7274606
+$df=15
+$p=1.089972371e-184
+$group=Group number 1
+$Regression Weights:
+$p
+LN_RT_volume_in
+LN_AT_bin_eigenvector
+11.843552
+1.3025091
+9.0928744
+
+$p
+LN_RT_volume_in
+AT_bin_closeness
+-3.2145865
+0.82501575
+-3.8963941
+
+$p
+LN_RT_volume_in
+AT_bin_betweeness
+535.11547
+63.073635
+8.4839802
+
+$p
+LN_RT_volume_in
+EXP_FF_bin_betweeness
+4909.5639
+563.11303
+8.7186117
+
+$p
+LN_RT_volume_in
+LN_FF_bin_eigenvector
+-8.6233057
+1.2218981
+-7.0573032
+
+$p
+LN_RT_volume_in
+LN_FF_bin_closeness
+-8.942604
+1.9743689
+-4.5293481
+
+$x
+
+
+
+
+
+
+$Standardized Regression Weights:
+$p
+LN_RT_volume_in
+LN_AT_bin_eigenvector
+0.41452403
+
+
+
+$p
+LN_RT_volume_in
+AT_bin_closeness
+-0.17762799
+
+
+
+$p
+LN_RT_volume_in
+AT_bin_betweeness
+0.3867659
+
+
+
+$p
+LN_RT_volume_in
+EXP_FF_bin_betweeness
+0.39746223
+
+
+
+$p
+LN_RT_volume_in
+LN_FF_bin_eigenvector
+-0.32172684
+
+
+
+$p
+LN_RT_volume_in
+LN_FF_bin_closeness
+-0.20648296
+
+
+
+$x
+
+
+
+
+
+
+$Variances:
+$p
+ffcloserr
+
+0.00090050048
+9.914184e-005
+9.0829511
+
+$p
+ffeigerr
+
+0.0023510969
+0.00025884725
+9.0829511
+
+$p
+ffbetwerr
+
+1.1070045e-008
+1.2187719e-009
+9.0829511
+
+$p
+ateigerr
+
+0.0020690882
+0.00022779911
+9.0829511
+
+$p
+atcloserr
+
+0.0051572249
+0.00056779177
+9.0829511
+
+$p
+atbeterr
+
+8.8235801e-007
+9.7144419e-008
+9.0829511
+
+$p
+ln_rt_err
+
+0.57919459
+0.063767225
+9.0829511
+
+$x
+
+
+
+
+
+
+$Parameter Names
+13
+
+
+
+
+
+
+
+
+
+
+
+
+
+$model=Default model
+$npar=13
+$cmin=911.7274606
+$df=15
+$p=1.089972371e-184
+$cmindf=60.78183071
+$model=Saturated model
+$npar=28
+$cmin=0
+$df=0
+$model=Independence model
+$npar=7
+$cmin=1034.759854
+$df=21
+$p=1.09556876e-205
+$cmindf=49.27427876
+$model=Default model
+$rmr=0.08932312515
+$gfi=0.3486785882
+$agfi=-0.2157999688
+$pgfi=0.1867921008
+$model=Saturated model
+$rmr=0
+$gfi=1
+$agfi=-1.797693135e+308
+$pgfi=-1.797693135e+308
+$model=Independence model
+$rmr=0.008888949726
+$gfi=0.3105427842
+$agfi=0.08072371231
+$pgfi=0.2329070882
+$model=Default model
+$nfi=0.1188994652
+$rfi=-0.2335407487
+$ifi=0.1206483986
+$tli=-0.2383785371
+$cfi=0.1154439021
+$model=Saturated model
+$nfi=1
+$rfi=-1.797693135e+308
+$ifi=1
+$tli=-1.797693135e+308
+$cfi=1
+$model=Independence model
+$nfi=0
+$rfi=0
+$ifi=0
+$tli=0
+$cfi=0
+$model=Default model
+$pratio=0.7142857143
+$pnfi=0.08492818946
+$pcfi=0.08245993004
+$model=Saturated model
+$pratio=0
+$pnfi=0
+$pcfi=0
+$model=Independence model
+$pratio=1
+$pnfi=0
+$pcfi=0
+$model=Default model
+$ncp=896.7274606
+$ncplo=801.4622726
+$ncphi=999.3853073
+$model=Saturated model
+$ncp=0
+$ncplo=0
+$ncphi=0
+$model=Independence model
+$ncp=1013.759854
+$ncplo=912.1297684
+$ncphi=1122.778221
+$model=Default model
+$fmin=5.525620973
+$f0=5.434711882
+$f0lo=4.857347107
+$f0hi=6.05688065
+$model=Saturated model
+$fmin=0
+$f0=0
+$f0lo=0
+$f0hi=0
+$model=Independence model
+$fmin=6.271271842
+$f0=6.143999114
+$f0lo=5.528059202
+$f0hi=6.804716492
+$model=Default model
+$rmsea=0.6019253488
+$rmsealo=0.5690546024
+$rmseahi=0.635446334
+$pclose=9.750439963e-007
+$model=Independence model
+$rmsea=0.540898684
+$rmsealo=0.5130700872
+$rmseahi=0.5692399482
+$pclose=3.218811553e-006
+$model=Default model
+$aic=937.7274606
+$bcc=939.0523013
+$bic=978.1833018
+$caic=991.1833018
+$model=Saturated model
+$aic=56
+$bcc=58.85350318
+$bic=143.1356581
+$caic=171.1356581
+$model=Independence model
+$aic=1048.759854
+$bcc=1049.47323
+$bic=1070.543768
+$caic=1077.543768
+$model=Default model
+$ecvi=5.683196731
+$ecvilo=5.105831955
+$ecvihi=6.305365499
+$mecvi=5.691226069
+$model=Saturated model
+$ecvi=0.3393939394
+$ecvilo=0.3393939394
+$ecvihi=0.3393939394
+$mecvi=0.3566878981
+$model=Independence model
+$ecvi=6.356120326
+$ecvilo=5.740180414
+$ecvihi=7.016837704
+$mecvi=6.360443816
+$model=Default model
+$hfive=5
+$hone=6
+$model=Independence model
+$hfive=6
+$hone=7
+$EndFile
