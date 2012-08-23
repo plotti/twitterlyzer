@@ -12,6 +12,6 @@ config/twitter.yml
 config/bitly.yml
 /graphs
 /graphs/*.*
-/analysis/data
+/analysis/data/*.*
 /analysis/data/tmp/*.*
 solr/data
