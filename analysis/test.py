@@ -8,8 +8,8 @@ THRESHOLD = 0.01
 T = hp.create_example_network()
 # The RT/FF/AT Networks are the same. Optimally we should also have slightly different ones
 nx.write_weighted_edgelist(T, "data/networks/test_FF.edgelist")
-nx.write_weighted_edgelist(T, "data/networks/test_AT.edgelist")
-nx.write_weighted_edgelist(T, "data/networks/test_RT.edgelist")
+nx.write_weighted_edgelist(T, "data/networks/test_solr_AT.edgelist")
+nx.write_weighted_edgelist(T, "data/networks/test_solr_RT.edgelist")
 
 #Provide parameters for the test
 partition = "data/partitions/test_partition.csv"
@@ -26,6 +26,7 @@ for row in indiv_reader:
     results[row[1]] = {"bin_density":float(row[6]),"density":float(row[7]), "avg_path_length": float(row[8]),
                        "clustering": float(row[10]),"reciprocity": float(row[12]), "transitivity": float(row[14]),
                        "total_volume":float(row[17])}    
+
 delta = abs(results["a"]["bin_density"] - 0.214) # 12 / (8.0 x 7)
 if  delta > THRESHOLD: print "DANGER: Binary Density group a is %s off" % delta # Density is computed in UCINET on the binarized version of A (A_GT_0)
 
@@ -98,6 +99,7 @@ for row in indiv_reader:
     results[row[2]] = {"degree_centrality":float(row[4]),"in_degree_centrality":float(row[5]), "out_degree_centrality": float(row[6]),
                        "closeness_centrality": float(row[7]),"eigenvector_centrality": float(row[8]), "reciprocity": float(row[9]),
                        "average_tie_strength":float(row[16]),"volume_in": float(row[17]), "volume_out": float(row[18])}    
+
 delta = abs(results["a2"]["degree_centrality"] -7.0 / 7)  # Due to the binarized nature weighted degrees are not computed therfore the indegree of 3.0 becomes 2.0 and 6.0 becomes 5.0
 if  delta > THRESHOLD: print "DANGER: Degree Centrality a2 is %s off" % delta # UCI Net doesnt norm it by n-1
 
@@ -128,7 +130,7 @@ if  delta > THRESHOLD: print "DANGER: Outdegree of a2 is %s off" % delta
 
 #TODO Eventually compute individual clustering for each actor
 
-############## Individual Bridging Test ##############
+############## Individual Bridging Test (Pairs of communities) ##############
 
 cmd = 'python individual_bridging.py -p %s -s %s' % (project, partition)
 os.system(cmd)
@@ -161,3 +163,43 @@ if  delta > THRESHOLD: print "DANGER: Own Group Outdegree b7bd is %s off" % delt
 
 delta = abs(results["b7bd"]["other_group_outdegree"] - 1) # Own calculation
 if  delta > THRESHOLD: print "DANGER: Other Group Outdegree b7bd is %s off" % delta
+
+############## Individual Bridging 2 Test (Whole Network) ##############
+
+cmd = 'python individual_bridging_3.py -p %s -s %s' % (project, partition)
+os.system(cmd)
+results = {}
+indiv_reader = csv.reader(open("results/spss/individual bridging/test_individual_bridging_3.csv"))
+indiv_reader.next()
+indiv_reader.next()
+for row in indiv_reader:        
+    results[row[2]] = {"competing_lists":float(row[3]),"degree_centrality":float(row[4]), "in_degree_centrality": float(row[5]), "out_degree_centrality": float(row[6]),
+                       "volume_in": float(row[7]),"volume_out": float(row[8]), "groups_in": float(row[9]), "groups_out": float(row[10]),
+                       "rec":float(row[11]),"strength_central_in": float(row[20])}
+
+delta = abs(results["a3"]["in_degree_centrality"] - 0) # 0 incoming ties from other groups
+if  delta > THRESHOLD: print "DANGER: in_degree_centrality is %s off" % delta    
+
+delta = abs(results["a3"]["out_degree_centrality"] - 2.0/24) # 2.0 outgoing ties and 24 remaining nodes
+if  delta > THRESHOLD: print "DANGER: out_degree_centrality is %s off" % delta
+
+delta = abs(results["a3"]["volume_out"] - 2.0) # 2x1.0 outgoing ties 
+if  delta > THRESHOLD: print "DANGER: volume_out is %s off" % delta
+
+delta = abs(results["b6"]["volume_out"] - 2.0) # 1x2.0 outgoing ties 
+if  delta > THRESHOLD: print "DANGER: volume_out is %s off" % delta
+
+delta = abs(results["c1"]["volume_in"] - 2.0) # 1x2.0 ingoing ties 
+if  delta > THRESHOLD: print "DANGER: volume_in is %s off" % delta
+
+delta = abs(results["b4"]["groups_in"] - 1.0) # only group a is incocoming
+if  delta > THRESHOLD: print "DANGER: groups_in is %s off" % delta
+
+delta = abs(results["b7"]["groups_out"] - 1.0) # only pointing to group d
+if  delta > THRESHOLD: print "DANGER: groups_in is %s off" % delta
+
+delta = abs(results["d2"]["rec"] - 1.0) # d2 is the only one of d to have reciprocal relations to a group
+if  delta > THRESHOLD: print "DANGER: rec is %s off" % delta
+
+delta = abs(results["c1"]["strength_central_in"] - 2*4/7.0) # c1 has an incoming tie with strength 2 and b6 4 incoming ties
+if  delta > THRESHOLD: print "DANGER: strength_central_in is %s off" % delta

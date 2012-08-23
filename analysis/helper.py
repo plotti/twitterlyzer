@@ -124,7 +124,7 @@ def outgoing_group_volume(G,node,groups):
 	for group in groups:
 		total[group] = 0
 		
-	for edge in G.in_edges(node,data=True):		
+	for edge in G.out_edges(node,data=True):		
 		for group in groups:
 			if G.node[edge[1]]['group'] == group:
 				total[group] += 1	
@@ -133,8 +133,8 @@ def outgoing_group_volume(G,node,groups):
 #Filters an array so that only the ties with a certain total strength towards a group are added up
 def filtered_group_volume(group_values, threshold):
 	result = 0
-        for value in group_values:
-		if value[1] > threshold:
+        for k,v in group_values.items():
+		if v > threshold:
 			result += 1
 	return result
 
@@ -188,9 +188,13 @@ def individual_average_tie_strength(D):
 	return output
 
 #Calculates how many ties of an individual are reciprocated
-def individual_reciprocity(D):
+def individual_reciprocity(D,node=None):
 	output = {}
-	for node in D.nodes():
+	if node == None:
+		nodes = D.nodes()
+	else:
+		nodes = [node]
+	for node in nodes:
 		reciprocated = 0
 		unreciprocated = 0
 		for (u,v) in D.in_edges(node):
@@ -202,7 +206,7 @@ def individual_reciprocity(D):
 		else:
 			output[node] = 0
 	return output
-
+	
 # Calculates the overal reciprocity in a graph
 # Is this my own algorithm or is it based on some considerations from theoretical literature?
 def reciprocity(D):

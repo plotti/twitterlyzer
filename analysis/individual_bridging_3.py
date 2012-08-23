@@ -28,15 +28,21 @@ def main(argv):
    print "Project %s " % project
    print "Partition %s" % partitionfile
    
-   csv_bridging_writer = csv.writer(open('results/spss/individual bridging/%s_individual_bridging_2.csv' % project, 'wb'))
+   csv_bridging_writer = csv.writer(open('results/spss/individual bridging/%s_individual_bridging_3.csv' % project, 'wb'))
    csv_bridging_writer.writerow(["Project", "Community", "Person_ID",
                                  "Competing_lists",
                                  "FF_bin_degree", "FF_bin_in_degree", "FF_bin_out_degree",
-                                 "FF_vol_in", "FF_vol_out"
-                                 "FF_bin_betweeness", "FF_bin_closeness", "FF_bin_pagerank",                                 
+                                 "FF_vol_in", "FF_vol_out",
+                                 "FF_groups_in", "FF_groups_out",
+                                 "FF_rec",
+                                 #"FF_bin_betweeness", "FF_bin_closeness", "FF_bin_pagerank",
+                                 # FF_c_size, FF_c_density, FF_c_hierarchy, FF_c_index,
                                  "AT_bin_degree", "AT_bin_in_degree", "AT_bin_out_degree",
-                                 "AT_vol_in", "AT_vol_out"                                 
-                                 "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_pagerank",
+                                 "AT_vol_in", "AT_vol_out",
+                                 "AT_groups_in", "AT_groups_out",
+                                 "AT_rec","AT_strength_centrality_in",
+                                 # "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_pagerank",
+                                 # FF_c_size, FF_c_density, FF_c_hierarchy, FF_c_index,
                                  "RT_bin_in_degree", "RT_bin_out_degree",
                                  "RT_vol_in", "RT_vol_out"])
    
@@ -45,7 +51,13 @@ def main(argv):
    indiv_reader = csv.reader(open(partitionfile))
    for row in indiv_reader:        
            listings[row[0]] = {"group":row[1],"place":int(row[2]), "competing_lists": int(row[3])}
-       
+   
+   # Read in the centralities of nodes in their corresponding community
+   centralities = {}
+   centrality_reader = csv.reader(open('results/spss/individual bonding/%s_individual_bonding.csv' % project))
+   for row in centrality_reader:
+      centralities[row[2]] = {"ff_in_degree":row[5]}
+   
    # Read in the partition
    tmp = hp.get_partition(partitionfile)
    partitions = tmp[0]
@@ -76,49 +88,69 @@ def main(argv):
    i = 0
    for partition in partitions:      
       project_name = groups[i]
+      
+      #Determine the groups that are not in the partition
       all_other_groups = groups[:]
       group = groups[i]
       all_other_groups.remove(group)
+      
+      # Get all the partitions without the current partition
+      partitions_without_partition = partitions[:]
+      partitions_without_partition.remove(partition)
+      
+      #Remove the nodes that are in this partition
+      remaining_nodes = [item for sublist in partitions for item in sublist] #flatlist of all nodes
+      for nodes_to_be_deleted in partition:
+         remaining_nodes.remove(nodes_to_be_deleted)
+      
+      #Create Subgraphs that contain all nodes except the ones that are in the partition
+      S_FF = FF_all.subgraph(remaining_nodes)
+      S_AT = AT_all.subgraph(remaining_nodes)
+      S_RT = RT_all.subgraph(remaining_nodes)
+      
       i += 1
       for node in partition:
-         if node in maximum_subset:
+         if node in maximum_subset:            
+            t0 = time.time() 
             
-            t0 = time.time()
-            temp = partition[:] #create a copy
-            temp.remove(node)
-            
-            #S_FF = FF_all.copy()
-            #S_AT = AT_all.copy()
-            #S_RT = RT_all.copy()
-            #
-            #S_FF.remove_nodes_from(temp)
-            #S_AT.remove_nodes_from(temp)
-            #S_RT.remove_nodes_from(temp)
-            
-            remaining_nodes = [item for sublist in partitions for item in sublist]
-            for temp_node in temp:      
-               remaining_nodes.remove(temp_node)
-            
-            # Make temporary copies of the networks that contain all but the nodes from the group
-            S_FF = FF_all.subgraph(remaining_nodes)
-            S_AT = AT_all.subgraph(remaining_nodes)
-            S_RT = RT_all.subgraph(remaining_nodes)            
+            #Add FF nodes and edges
+            S_FF.add_node(node, group = group)            
+            S_FF.add_edges_from(FF_all.in_edges(node,data=True)) # in edges 
+            S_FF.add_edges_from(FF_all.out_edges(node,data=True)) #out edges               
+            # Delete the nodes that we again accidentally added by importing all of the node's edges
+            for tmp_node in partition:
+               if tmp_node != node and tmp_node in S_FF:
+                  S_FF.remove_node(tmp_node)
+                        
+            # Add AT nodes and edges
+            S_AT.add_node(node, group = group)
+            S_AT.add_edges_from(AT_all.in_edges(node,data=True)) # in edges 
+            S_AT.add_edges_from(AT_all.out_edges(node,data=True)) #out edges
+            # Delete the nodes that we again accidentally added by importing all of the node's edges
+            for tmp_node in partition:
+               if tmp_node != node and tmp_node in S_AT:
+                  S_AT.remove_node(tmp_node)
+                  
+            S_RT.add_node(node, group = group)
+            S_RT.add_edges_from(RT_all.in_edges(node,data=True)) # in edges 
+            S_RT.add_edges_from(RT_all.out_edges(node,data=True)) #out edges   
+            # Delete the nodes that we again accidentally added by importing all of the node's edges
+            for tmp_node in partition:
+               if tmp_node != node and tmp_node in S_RT:
+                  S_RT.remove_node(tmp_node)
+                  
             print "Done creating Subgraphs"
             
             ## FF measures
             dFF_bin = nx.degree_centrality(S_FF)
             dFF_bin_in = nx.in_degree_centrality(S_FF)
-            dFF_bin_out = nx.out_degree_centrality(S_FF)
-            print "Done Indegrees"
+            dFF_bin_out = nx.out_degree_centrality(S_FF)            
             #dFF_bin_betweeness = nx.betweenness_centrality(S_FF, k=100) #nx.load_centrality(S_FF,v=node, weight="weight")
             #dFF_bin_closeness = nx.closeness_centrality(S_FF,v=node)
-            #dFF_bin_pagerank = nx.pagerank(S_FF, weight="weight")
-            print "Done Pagerank"
+            #dFF_bin_pagerank = nx.pagerank(S_FF, weight="weight")            
             dFF_total_in_groups = hp.filtered_group_volume(hp.incoming_group_volume(S_FF,node,all_other_groups),0)
-            dFF_total_out_groups = hp.filtered_group_volume(hp.outgoing_group_volume(S_FF,node,all_other_groups),0)
-            print "Done IN/OUT Groups"
-            dFF_rec = hp.individual_reciprocity(S_FF,node)   #number of reciprocated ties
-            print "Done Reciprocity"
+            dFF_total_out_groups = hp.filtered_group_volume(hp.outgoing_group_volume(S_FF,node,all_other_groups),0)            
+            dFF_rec = hp.individual_reciprocity(S_FF,node)   #number of reciprocated ties            
             
             ## AT Measures
             dAT_bin = nx.degree_centrality(S_AT)
@@ -131,6 +163,12 @@ def main(argv):
             dAT_total_out_groups = hp.filtered_group_volume(hp.outgoing_group_volume(S_AT,node,all_other_groups),0)
             dAT_rec = hp.individual_reciprocity(S_AT,node)   #number of @reciprocated ties
             
+            #Compute a combined measure which multiplies the strength of incoming ties times the centrality of that person
+            dAT_strength_centrality = 0
+            for edge in S_AT.in_edges(node,data=True):
+               if edge[0] in maximum_subset:
+                  dAT_strength_centrality += edge[2]["weight"]*float(centralities[edge[0]]["ff_in_degree"]) #get the centrality of the node that the tie is incoming from
+            
             ############### DEPENDENT VARIABLES ###########
             
             dRT_in = nx.in_degree_centrality(S_RT) # At least once a retweets that a person has received 
@@ -141,23 +179,26 @@ def main(argv):
                                           listings[node]["competing_lists"],
                                           dFF_bin[node], dFF_bin_in[node], dFF_bin_out[node],
                                           S_FF.in_degree(node,weight="weight"), S_FF.out_degree(node,weight="weight"),
-                                          #dFF_bin_betweeness[node],dFF_bin_closeness[node],
-                                          #dFF_bin_pagerank[node],
+                                          #dFF_bin_betweeness[node],dFF_bin_closeness[node],dFF_bin_pagerank[node],
                                           #dFF_struc[node]['C-Size'],dFF_struc[node]['C-Density'],dFF_struc[node]['C-Hierarchy'],dFF_struc[node]['C-Index'],
                                           dFF_total_in_groups, dFF_total_out_groups,
                                           dFF_rec[node],
                                           dAT_bin[node], dAT_bin_in[node], dAT_bin_out[node],
                                           S_AT.in_degree(node,weight="weight"), S_AT.out_degree(node, weight="weight"),
-                                          #dAT_bin_betweeness[node],dAT_bin_closeness[node],
-                                          #dAT_bin_pagerank[node],                                       
-                                          #dAT_struc[node]['C-Size'],dAT_struc[node]['C-Density'],dAT_struc[node]['C-Hierarchy'],dAT_struc[node]['C-Index'],
                                           dAT_total_in_groups, dAT_total_out_groups,
-                                          dAT_rec[node],
+                                          dAT_rec[node],dAT_strength_centrality,
+                                          #dAT_bin_betweeness[node],dAT_bin_closeness[node], dAT_bin_pagerank[node],                                       
+                                          #dAT_struc[node]['C-Size'],dAT_struc[node]['C-Density'],dAT_struc[node]['C-Hierarchy'],dAT_struc[node]['C-Index'],                                          
                                           dRT_in[node],dRT_out[node],   
                                           S_RT.in_degree(node,weight="weight"), S_RT.out_degree(node,weight="weight")
                                          ])
             t_delta = (time.time() - t0)
             print "Count: %s Node: %s Time: %s" % (i,node,t_delta)
+            
+            #Remove the nodes again
+            S_FF.remove_node(node)
+            S_AT.remove_node(node)
+            S_RT.remove_node(node)
         
 if __name__ == "__main__":
     main(sys.argv[1:])         

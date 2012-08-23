@@ -14,7 +14,7 @@ csv_bridging_writer = csv.writer(open('results/spss/individual bridging/%s_indiv
 csv_bridging_writer.writerow(["Project", "Project-Name", "Node",
                   "G_degree", "G_in_degree", "G_out_degree",
                   "G_volume_in", "G_volume_out",
-                  "G_total_group_in_volume", "G_total_group_out_volume"])
+                  "G_total_in_groups", "G_total_out_groups"])
                   
 i = 0
 for partition in partitions:
