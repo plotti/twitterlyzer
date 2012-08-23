@@ -69,6 +69,12 @@ def main(argv):
    RT_all = nx.read_edgelist('data/networks/%s_solr_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
    print "Done reading in Networks"
    
+   #Determine the Maximum subset of nodes present in all Networks   
+   maximum_subset = []
+   for node in FF_all.nodes():
+      if AT_all.has_node(node) and RT_all.has_node(node):
+         maximum_subset.append(node)
+   
    i = 0
    for partition in partitions:
        for node in partition:
@@ -76,14 +82,6 @@ def main(argv):
            AT_all.add_node(node, group =  groups[i])
            RT_all.add_node(node, group =  groups[i])
        i += 1
-
-   #Determine the Maximum subset of nodes present in all Networks   
-   maximum_subset = []
-   for node in FF_all.nodes():
-      if AT_all.has_node(node) and RT_all.has_node(node):
-         maximum_subset.append(node)
-      else:
-         print node
 
    i = 0
    for partition in partitions:      
