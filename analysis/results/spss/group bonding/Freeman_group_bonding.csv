@@ -1,0 +1,2 @@
+Project,Name,Member_count,FF_Nodes,AT_Nodes,RT_Nodes,FF_Edges,AT_Edges,RT_Edges,FF_bin_density,AT_density,FF_bin_avg_path_length,AT_bin_avg_path_length,FF_bin_clustering,AT_bin_clustering,FF_reciprocity,AT_reciprocity,FF_bin_transitivity,AT_bin_transitivity,RT_density,RT_total_volume
+Freeman,a,10,32,32,32,460,460,460,0.463709677419,15.6391129032,1.55947580645,1.55947580645,0.803180304354,0.803180304354,0.678321678322,0.678321678322,0.535106134826,0.535106134826,15.6391129032,15514.0

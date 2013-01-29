@@ -1,0 +1,2 @@
+Project,Name,Member_count,FF_Nodes,AT_Nodes,RT_Nodes,FF_Edges,AT_Edges,RT_Edges,FF_bin_density,AT_density,FF_bin_avg_path_length,AT_bin_avg_path_length,FF_bin_clustering,AT_bin_clustering,FF_reciprocity,AT_reciprocity,FF_bin_transitivity,AT_bin_transitivity,RT_density,RT_total_volume
+Opsahl,a,10,1899,1899,1899,20296,20296,20296,0.00563104867461,0.0166009951441,2.19846541559,2.19846541559,0.180808143079,0.109745671631,0.466685937274,0.466685937274,0.0361923693863,0.0361923693863,0.0166009951441,59835.0

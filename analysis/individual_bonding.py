@@ -95,7 +95,11 @@ def main(argv):
         FF.name = "FF_%s " % project_name
         AT.name = "AT_%s " % project_name
         RT.name = "RT_%s " % project_name
-                
+        
+        #hp.draw_graph(FF)
+        #hp.draw_graph(AT)
+        #hp.draw_graph(RT)
+        
         ############### Compute Individual measures ################
     
         #Compute FF Centralities
@@ -103,17 +107,35 @@ def main(argv):
         dFF_bin = nx.degree_centrality(FF)
         dFF_bin_in = nx.in_degree_centrality(FF)  #People that follow me in the network
         dFF_bin_out = nx.out_degree_centrality(FF) #People that I follow in the network
-        dFF_bin_closeness = nx.closeness_centrality(FF) 
-        dFF_bin_pagerank = nx.pagerank(FF)        
+        dFF_bin_closeness = nx.closeness_centrality(FF)        
+        dFF_bin_pagerank = nx.pagerank(FF)
+        try:
+            dFF_bin_eigenvector = nx.eigenvector_centrality(FF,10000)
+        except:
+            print "Failed to compute for FF %s " % FF.name
+            
+        #if len(nx.weakly_connected_components(FF)) > 1:            
+        #    FF_comp = FF.subgraph(nx.weakly_connected_components(FF)[0])
+        #    dFF_bin_eigenvector = nx.eigenvector_centrality(FF_comp)
+        #else:
+            
         
         #Compute AT Centralities
         # Centralities are problematic on weighted data, since we are losing all the information    
         dAT_bin = nx.degree_centrality(AT) # binary
         dAT_bin_in = nx.in_degree_centrality(AT) #binary
         dAT_bin_out = nx.out_degree_centrality(AT) #binary
-        dAT_bin_closeness = nx.closeness_centrality(AT) #binary
-        #dAT_eigenvector = nx.eigenvector_centrality(AT.to_undirected()) #fails to converge too often what to do?
+        dAT_bin_closeness = nx.closeness_centrality(AT) #binary        
         dAT_bin_pagerank = nx.pagerank(AT)
+        try:
+            dAT_bin_eigenvector = nx.eigenvector_centrality(AT,10000)
+        except:
+            print "Failed to compute for AT %s " % AT.name
+        #if len(nx.weakly_connected_components(AT)) > 1:            
+        #    AT_comp = AT.subgraph(nx.weakly_connected_components(AT)[0])
+        #    dFF_bin_eigenvector = nx.eigenvector_centrality(AT_comp)
+        #else:
+        #              
         
         # Tie strengths
         dAT_avg_tie = hp.individual_average_tie_strength(AT)

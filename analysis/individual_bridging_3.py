@@ -3,6 +3,7 @@ import csv
 import helper as hp
 import sys
 from lib import structural_holes2 as sx
+from lib import structural_holes as sx1
 import sys,getopt
 import time
 
@@ -35,14 +36,15 @@ def main(argv):
                                  "FF_vol_in", "FF_vol_out",
                                  "FF_groups_in", "FF_groups_out",
                                  "FF_rec",
-                                 #"FF_bin_betweeness", "FF_bin_closeness", "FF_bin_pagerank",
-                                 # FF_c_size, FF_c_density, FF_c_hierarchy, FF_c_index,
+                                 "FF_bin_betweeness", #"FF_bin_closeness", "FF_bin_pagerank",
+                                  #"FF_c_size", "FF_c_density", "FF_c_hierarchy", "FF_c_index",
                                  "AT_bin_degree", "AT_bin_in_degree", "AT_bin_out_degree",
                                  "AT_vol_in", "AT_vol_out",
                                  "AT_groups_in", "AT_groups_out",
-                                 "AT_rec","AT_strength_centrality_in",
-                                 # "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_pagerank",
+                                 "AT_rec",
+                                 "AT_bin_betweeness",#, "AT_bin_closeness", "AT_bin_pagerank",
                                  # FF_c_size, FF_c_density, FF_c_hierarchy, FF_c_index,
+                                 "AT_avg_tie_strength","AT_strength_centrality_in",
                                  "RT_bin_in_degree", "RT_bin_out_degree",
                                  "RT_vol_in", "RT_vol_out"])
    
@@ -84,6 +86,16 @@ def main(argv):
        i += 1
 
    i = 0
+   
+   #These measures are computed only once on the graph (we are making an error since the internal group structure is considered to load up those values)
+   if len(maximum_subset) < 1000:
+      scaling_k = len(maximum_subset)
+   else:
+      scaling_k = len(maximum_subset)/100
+   dFF_bin_betweeness = nx.betweenness_centrality(FF_all,k=scaling_k)
+   dAT_bin_betweeness = nx.betweenness_centrality(AT_all,k=scaling_k)
+   #dFF_struc = sx.structural_holes(FF_all)
+   
    for partition in partitions:      
       project_name = groups[i]
       
@@ -143,7 +155,7 @@ def main(argv):
             dFF_bin = nx.degree_centrality(S_FF)
             dFF_bin_in = nx.in_degree_centrality(S_FF)
             dFF_bin_out = nx.out_degree_centrality(S_FF)            
-            #dFF_bin_betweeness = nx.betweenness_centrality(S_FF, k=100) #nx.load_centrality(S_FF,v=node, weight="weight")
+            #nx.load_centrality(S_FF,v=node, weight="weight")
             #dFF_bin_closeness = nx.closeness_centrality(S_FF,v=node)
             #dFF_bin_pagerank = nx.pagerank(S_FF, weight="weight")            
             dFF_total_in_groups = hp.filtered_group_volume(hp.incoming_group_volume(S_FF,node,all_other_groups),0)
@@ -160,6 +172,7 @@ def main(argv):
             dAT_total_in_groups = hp.filtered_group_volume(hp.incoming_group_volume(S_AT,node,all_other_groups),0)
             dAT_total_out_groups = hp.filtered_group_volume(hp.outgoing_group_volume(S_AT,node,all_other_groups),0)
             dAT_rec = hp.individual_reciprocity(S_AT,node)   #number of @reciprocated ties
+            dAT_avg_tie = hp.individual_average_tie_strength(S_AT,node)
             
             #Compute a combined measure which multiplies the strength of incoming ties times the centrality of that person
             dAT_strength_centrality = 0
@@ -173,20 +186,32 @@ def main(argv):
             dRT_out = nx.out_degree_centrality(S_RT) # At least one retweets that a person has made            
             print "Done computing Measures"
             
+            try:
+               c_size = dFF_struc[node]['C-Size']
+               c_dens = dFF_struc[node]['C-Density']
+               c_hierarch = dFF_struc[node]['C-Hierarchy']
+               c_index = dFF_struc[node]['C-Index']
+            except:
+               c_size = "NaN"
+               c_dens = "NaN"
+               c_hierarch = "NaN"
+               c_index = "NaN"
+               
             csv_bridging_writer.writerow([project, project_name, node, 
                                           listings[node]["competing_lists"],
                                           dFF_bin[node], dFF_bin_in[node], dFF_bin_out[node],
                                           S_FF.in_degree(node,weight="weight"), S_FF.out_degree(node,weight="weight"),
-                                          #dFF_bin_betweeness[node],dFF_bin_closeness[node],dFF_bin_pagerank[node],
-                                          #dFF_struc[node]['C-Size'],dFF_struc[node]['C-Density'],dFF_struc[node]['C-Hierarchy'],dFF_struc[node]['C-Index'],
                                           dFF_total_in_groups, dFF_total_out_groups,
                                           dFF_rec[node],
+                                          dFF_bin_betweeness[node],#dFF_bin_closeness[node],dFF_bin_pagerank[node],                                                                                    
+                                          #c_size,c_dens,c_hierarch,c_index,                                                                                    
                                           dAT_bin[node], dAT_bin_in[node], dAT_bin_out[node],
                                           S_AT.in_degree(node,weight="weight"), S_AT.out_degree(node, weight="weight"),
                                           dAT_total_in_groups, dAT_total_out_groups,
-                                          dAT_rec[node],dAT_strength_centrality,
-                                          #dAT_bin_betweeness[node],dAT_bin_closeness[node], dAT_bin_pagerank[node],                                       
+                                          dAT_rec[node],
+                                          dAT_bin_betweeness[node],#dAT_bin_closeness[node], dAT_bin_pagerank[node],                                       
                                           #dAT_struc[node]['C-Size'],dAT_struc[node]['C-Density'],dAT_struc[node]['C-Hierarchy'],dAT_struc[node]['C-Index'],                                          
+                                          dAT_avg_tie[node],dAT_strength_centrality,
                                           dRT_in[node],dRT_out[node],   
                                           S_RT.in_degree(node,weight="weight"), S_RT.out_degree(node,weight="weight")
                                          ])

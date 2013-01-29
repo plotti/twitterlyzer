@@ -1,0 +1,2 @@
+Project,Name,Member_count,FF_Nodes,AT_Nodes,RT_Nodes,FF_Edges,AT_Edges,RT_Edges,FF_bin_density,AT_density,FF_bin_avg_path_length,AT_bin_avg_path_length,FF_bin_clustering,AT_bin_clustering,FF_reciprocity,AT_reciprocity,FF_bin_transitivity,AT_bin_transitivity,RT_density,RT_total_volume
+Cross_Parker,a,10,46,46,46,879,879,879,0.424637681159,0.951690821256,1.49275362319,1.49275362319,0.800882751234,0.800882751234,0.596014492754,0.596014492754,0.577734853482,0.577734853482,0.951690821256,1970.0

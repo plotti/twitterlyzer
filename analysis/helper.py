@@ -70,7 +70,7 @@ def draw_graph(D):
 	plot.figure(figsize=(16,16))
 	nx.draw_spring(D,
 			node_color=[float(D.degree(v)) for v in D],
-			edge_color=[np.log(D[e1][e2]["weight"]+1) for e1,e2 in D.edges()],
+			#edge_color=[np.log(D[e1][e2]["weight"]+1) for e1,e2 in D.edges()],
 			width=3,
 			edge_cmap=plot.cm.Reds,			
 			with_labels=True,
@@ -175,9 +175,13 @@ def individual_out_volume(D,group):
 	return output
 
 # Calculates the average tie strength for each person in the graph
-def individual_average_tie_strength(D):
-	output = {}	
-	for node in D.nodes():
+def individual_average_tie_strength(D,node=None):
+	output = {}
+	if node == None:
+		nodes = D.nodes()
+	else:
+		nodes = [node]
+	for node in nodes:
 		weights = D.in_degree(node,weight="weight") + D.out_degree(node,weight="weight")
 		total_edges = len(D.in_edges(node)+D.out_edges(node))
 		if  total_edges != 0:

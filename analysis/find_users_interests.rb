@@ -9,19 +9,52 @@ end
 project = Project.last
 ids = project.persons.collect{|p| p.twitter_id}
 
-name = "arnicas"
-Person.collect_person(name,2,100000)
-person = Person.find_by_username(name)
+name = "burnedshop"
+Person.collect_person(name,2,100000,"",true,true)
+origin = Person.find_by_username(name)
+origin.follower_ids.each do |friend|
+  puts "Collecting #{friend}"
+  if Person.find_by_twitter_id(friend) == nil
+    Person.collect_person(friend,2,100000)  
+  end
+end
+
+names = {}
+i = 0
+ids.each do |id|
+  i+=1
+  puts i 
+  names[id] = Person.find_by_twitter_id(id).username
+end
 
 out = []
-person.friends_ids.each do |id|
-    if ids.include? id
-        out << id
+out2 = []
+i = 0
+origin.follower_ids.each do |id|    
+    person = Person.find_by_twitter_id(id)
+    i += 1
+    puts i
+    person.friends_ids.each do |id|
+      if ids.include? id        
+        out << [names[id],interests[names[id]][:category]] #id
+        out2 << id
+      end      
     end
 end
 
+##### Individual output #######
+
+outfile = File.open("#{RAILS_ROOT}/analysis/results/#{name}_single_interests.csv", 'wb')
+CSV::Writer.generate(outfile) do |csv|  
+  out.each do |row|
+    csv << [row[0],row[1]]  
+  end
+end
+
+#### Aggreagted output ########
+
 personal_interests = {}
-out.each do |id|
+out2.each do |id|  
   interest = interests[Person.find_by_twitter_id(id).username]
   if interest != nil
     if personal_interests[interest[:category]] == nil
@@ -34,5 +67,10 @@ out.each do |id|
   end
 end
 
-#personal_interests.sort{|a,b| b[1][:count] <=> a[1][:count]}
-puts "Name: #{name} Interests: #{personal_interests.collect{|p| [p[0],p[1][:count]]}.sort{|a,b| b[1]<=>a[1]}.join(" ")}"
+personal_interests.sort{|a,b| b[1][:count] <=> a[1][:count]}
+outfile = File.open("#{RAILS_ROOT}/analysis/results/interests/#{name}_grouped_interests.csv", 'wb')
+CSV::Writer.generate(outfile) do |csv|  
+  personal_interests.collect{|p| [p[0],p[1][:count]]}.sort{|a,b| b[1]<=>a[1]}.each do |k,v|
+    csv << [k,v]  
+  end
+end

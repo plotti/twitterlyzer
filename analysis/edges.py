@@ -127,7 +127,8 @@ def main(argv):
         i += 1
         
     print "Total Bonding Edges %s" % total_bonding_edges
-    print "Total Bridging Edges %s" % total_bridging_edges    
+    print "Total Bridging Edges %s" % total_bridging_edges
+    
     ##################BONDING: Influence of AT strengths on bonding retweets ##############################
     bonding_flow = defaultdict(list)
     for rt_strength,retweets in rt_bonding_edges.iteritems():             
@@ -187,7 +188,6 @@ def main(argv):
                     else:
                         value = at_bridging_edges[retweet[0]][retweet[1]] #Same direction
                         del at_bridging_edges[retweet[0]][retweet[1]] # delete that entry same direction                    
-                    bridging_flow[value].append(rt_strength)                                                        
                 except:
                     ""
                 if value == None:  #If the AT Network led to no diffusion ONLY then check the FF network                
@@ -224,8 +224,8 @@ def main(argv):
 
     ###########################  Output ###########################
     
-    bridging_csv_writer.writerow(["bridging_at_strength","bridging_retweets", "bridging_no_retweets", "bridging_retweets/no_retweets", "std"])
-    bonding_csv_writer.writerow(["bonding_at_strength","bonding_retweets", "bonding_no_retweets", "bonding_retweets/no_retweets", "std"])
+    bridging_csv_writer.writerow(["bridging_at_strength","bridging_retweets", "bridging_no_retweets", "bridging_retweets/no_retweets", "average","std"])
+    bonding_csv_writer.writerow(["bonding_at_strength","bonding_retweets", "bonding_no_retweets", "bonding_retweets/no_retweets", "average", "std"])
 
     bridging_tie_strengths = []
     bridging_rt_ratios = []
@@ -234,9 +234,6 @@ def main(argv):
     bonding_tie_strengths = []
     bonding_rt_ratios = []
     bonding_stds = []
-    
-    dich_tie_strengths = []
-    dich_tie_values = []    
     
     #BRIDGING TIES
     for k,v in bridging_flow.iteritems():        
@@ -247,21 +244,11 @@ def main(argv):
             if is_number(k):
                 bridging_tie_strengths.append(k)
                 bridging_rt_ratios.append(ratio)
-                bridging_stds.append(std)
-            else:
-                dich_tie_strengths.append("bonding_" + k)
-                result = []
-                for value in bridging_flow[k]:
-                    a = value / bridging_no_flow[k]
-                    if value < average:
-                        result.append(ratio-a)
-                    else:
-                        result.append(ratio+a)
-                dich_tie_values.append(result)                
-            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),bridging_no_flow[k],ratio,std])
+                bridging_stds.append(std)                    
+            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),bridging_no_flow[k],ratio,average,std])
         if k == "no_tie":
             std = np.std(bridging_flow[k])
-            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),0,0,std])
+            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),0,0,0,std])
     
     #BONDING TIES
     for k,v in bonding_flow.iteritems():    
@@ -272,34 +259,14 @@ def main(argv):
             if is_number(k):
                 bonding_tie_strengths.append(k)
                 bonding_rt_ratios.append(ratio)
-                bonding_stds.append(std)
-            else:
-                dich_tie_strengths.append("bridging_" + k)
-                result = []
-                for value in bonding_flow[k]:
-                    a = value / bonding_no_flow[k]
-                    if value < average:
-                        result.append(ratio-a)
-                    else:
-                        result.append(ratio+a)
-                dich_tie_values.append(result)                  
-            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),bonding_no_flow[k],ratio,std])
+                bonding_stds.append(std)  
+            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),bonding_no_flow[k],ratio,average,std])
         if k == "no_tie":
             std = np.std(bonding_flow[k])
-            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),0,0,std])
+            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),0,0,0,std])
+      
     
-    #Plot dichtomous Bonding Plots
-    fig = plt.figure(figsize=(42.67, 32.0))
-    number_of_ticks = np.arange(1,len(dich_tie_strengths)+1,1)
-    plt.xticks(number_of_ticks,dich_tie_strengths)
-    plt.boxplot(dich_tie_values)        
-    if reverse:
-        plt.savefig("results/boxplot_reverse_dich_edges.png")
-    else:        
-        plt.savefig("results/boxplot_dich_edges.png")
-    
-    
-    #Plot Boxplots
+    #Plot Errorplots
     fig = plt.figure(figsize=(42.67, 32.0))
     plt.errorbar(bridging_tie_strengths, bridging_rt_ratios, bridging_stds,ls="-",color="g", label='Bridging RT/No_RT percentage through ties with strength x')
     plt.errorbar(bonding_tie_strengths, bonding_rt_ratios, bonding_stds,ls="-",color="b", label='Bonding RT/No_RT percentage through ties with strength x')

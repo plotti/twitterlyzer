@@ -28,10 +28,13 @@ def main(argv):
     print "Project %s " % project
     print "Partition %s" % partitionfile
     
-    edges_writer = csv.writer(open("results/%s_bridging_edges.csv" % project, "wb"))
+    ff_edges_writer = csv.writer(open("results/%s_ff_bridging_edges.csv" % project, "wb"))
+    at_edges_writer = csv.writer(open("results/%s_at_bridging_edges.csv" % project, "wb"))
+    rt_edges_writer = csv.writer(open("results/%s_rt_bridging_edges.csv" % project, "wb"))
+    
     csv_bridging_writer = csv.writer(open('results/spss/group bridging/%s_group_bridging.csv' % project , 'wb'))
     
-    csv_bridging_writer.writerow(["Name",
+    csv_bridging_writer.writerow(["Project", "Name", "Member_count", "Competing_Lists",
                                 "FF_bin_degree", "FF_bin_in_degree", "FF_bin_out_degree",
                                 "FF_volume_in","FF_volume_out",
                                 "FF_bin_betweeness","FF_bin_closeness", "FF_bin_pagerank", #"FF_bin_eigenvector",
@@ -40,7 +43,8 @@ def main(argv):
                                 "AT_bin_betweeness", "AT_bin_closeness", "AT_bin_pagerank", #"AT_bin_eigenvector",                            
                                 "AT_bin_c_size","AT_bin_c_density","AT_bin_c_hierarchy","AT_bin_c_index",
                                 "AT_volume_in", "AT_volume_out",
-                                "RT_volume_in", "RT_volume_out"])    
+                                "RT_volume_in", "RT_volume_out",
+                                "FF_rec", "AT_rec", "AT_avg", "FF_avg"])    
     
     # Get the overall network from disk    
     FF = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
@@ -52,6 +56,22 @@ def main(argv):
     partitions = tmp[0]
     groups = tmp[1]
     
+    #Read in members count for each project
+    reader = csv.reader(open("results/stats/%s_lists_stats.csv" % project, "rb"), delimiter=",")
+    temp  = {}
+    reader.next() # Skip first row
+    for row in reader:        
+            temp[row[0]] = {"name":row[0],"member_count":int(row[3])}
+    
+    #Read in the list-listings for individuals
+    listings = {}
+    indiv_reader = csv.reader(open(partitionfile))
+    for row in indiv_reader:                
+            if listings.has_key(row[1]):
+                listings[row[1]]["competing_lists"] += int(row[3])
+            else:
+                listings[row[1]] = {"competing_lists": int(row[3])}                            
+           
     # Add dummy nodes if they are missing in the networks
     for partition in partitions:
             for node in partition:
@@ -92,16 +112,37 @@ def main(argv):
     ########## Output the Edges between groups to csv ##############
     # Needed for the computation of individual bridging
     # Edges in both directions between the groups are addded up
+    
     processed_edges = []
     for (u,v,attrib) in H_FF.edges(data=True):
         if "%s%s" %(u,v)  not in processed_edges:
             processed_edges.append("%s%s" % (u,v))            
             if H_FF.has_edge(v,u):
                 processed_edges.append("%s%s" % (v,u))
-                edges_writer.writerow([u,v,attrib["weight"]+H_FF[v][u]["weight"]])
+                ff_edges_writer.writerow([u,v,attrib["weight"]+H_FF[v][u]["weight"]])
             else:
-                edges_writer.writerow([u,v,attrib["weight"]])
-    
+                ff_edges_writer.writerow([u,v,attrib["weight"]])
+                
+    processed_edges = []
+    for (u,v,attrib) in H_AT.edges(data=True):
+        if "%s%s" %(u,v)  not in processed_edges:
+            processed_edges.append("%s%s" % (u,v))            
+            if H_AT.has_edge(v,u):
+                processed_edges.append("%s%s" % (v,u))
+                at_edges_writer.writerow([u,v,attrib["weight"]+H_AT[v][u]["weight"]])
+            else:
+                at_edges_writer.writerow([u,v,attrib["weight"]])
+                    
+    processed_edges = []
+    for (u,v,attrib) in H_RT.edges(data=True):
+        if "%s%s" %(u,v)  not in processed_edges:
+            processed_edges.append("%s%s" % (u,v))            
+            if H_RT.has_edge(v,u):
+                processed_edges.append("%s%s" % (v,u))
+                rt_edges_writer.writerow([u,v,attrib["weight"]+H_RT[v][u]["weight"]])
+            else:
+                rt_edges_writer.writerow([u,v,attrib["weight"]])                
+
     
     ########## TRIM EDGES ################
     # For meaningfull results we have to trim edges in the AT and FF network so the whole network just doesnt look like a blob            
@@ -118,15 +159,13 @@ def main(argv):
     #for node in H_FF.nodes(data=True):
     #        FF_nodes[node[0]] = node[1]["nnodes"]
     
-    #TODO What about the internal densities of these groups
-    # This comparison of group bonding SC and group briding SC is part of the resulting question on both those SC
     
     #Get the FF network measures of the nodes
     # Works fine on binarized Data
     FF_bin_degree = nx.degree_centrality(H_FF) 
     FF_bin_in_degree = nx.in_degree_centrality(H_FF) # The attention paid towards this group
     FF_bin_out_degree = nx.out_degree_centrality(H_FF) # The attention that this group pays towards other people
-    FF_bin_betweenness = nx.betweenness_centrality(H_FF) # How often is the group between other groups
+    FF_bin_betweenness = nx.betweenness_centrality(H_FF,weight="weight") # How often is the group between other groups
     FF_bin_closeness = nx.closeness_centrality(H_FF) #FF_bin_eigenvector = nx.eigenvector_centrality(H_FF)
     FF_bin_pagerank = nx.pagerank(H_FF)        
     FF_bin_struc = sx.structural_holes(H_FF)
@@ -135,17 +174,23 @@ def main(argv):
     AT_bin_degree = nx.degree_centrality(H_AT)
     AT_bin_in_degree = nx.in_degree_centrality(H_AT)
     AT_bin_out_degree = nx.out_degree_centrality(H_AT)
-    AT_bin_betweenness = nx.betweenness_centrality(H_AT) 
+    AT_bin_betweenness = nx.betweenness_centrality(H_AT,weight="weight") 
     AT_bin_closeness = nx.closeness_centrality(H_AT) #AT_bin_eigenvector = nx.eigenvector_centrality(H_AT)
     AT_bin_pagerank = nx.pagerank(H_AT)        
     AT_bin_struc = sx.structural_holes(H_AT)
+    
+    # Tie strengths
+    dAT_avg_tie = hp.individual_average_tie_strength(H_AT)
+    dFF_avg_tie = hp.individual_average_tie_strength(H_FF)
+    dAT_rec = hp.individual_reciprocity(H_AT)    
+    dFF_rec = hp.individual_reciprocity(H_FF)
     
     # Dependent Variable see csv
     # TODO A measure that calculates how often Tweets travel through this group: Eventually betweeness in the RT graph
     
     #Arrange it in a list and output
     for node in FF_bin_degree.keys():                
-                csv_bridging_writer.writerow([node,
+                csv_bridging_writer.writerow([project, node, int(temp[node]["member_count"]), listings[node]["competing_lists"],
                                                 FF_bin_degree[node], FF_bin_in_degree[node], FF_bin_out_degree[node],
                                                 H_FF.in_degree(node,weight="weight"), H_FF.out_degree(node,weight="weight"),
                                                 FF_bin_betweenness[node],FF_bin_closeness[node],FF_bin_pagerank[node], #FF_bin_eigenvector[node],
@@ -154,7 +199,8 @@ def main(argv):
                                                 AT_bin_betweenness[node], AT_bin_closeness[node], AT_bin_pagerank[node], #AT_bin_eigenvector[node],
                                                 AT_bin_struc[node]['C-Size'],AT_bin_struc[node]['C-Density'],AT_bin_struc[node]['C-Hierarchy'],AT_bin_struc[node]['C-Index'],
                                                 H_AT.in_degree(node,weight="weight"), H_AT.out_degree(node,weight="weight"),
-                                                H_RT.in_degree(node,weight="weight"), H_RT.out_degree(node,weight="weight")
+                                                H_RT.in_degree(node,weight="weight"), H_RT.out_degree(node,weight="weight"),
+                                                dFF_rec[node],dAT_rec[node],dAT_avg_tie[node],dFF_avg_tie[node]
                                             ])        
 if __name__ == "__main__":
    main(sys.argv[1:])                

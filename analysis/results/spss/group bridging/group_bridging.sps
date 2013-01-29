@@ -9,7 +9,10 @@ GET DATA
   /FIRSTCASE=2 
   /IMPORTCASE=ALL 
   /VARIABLES= 
+  Project F3.0 
   Name A29 
+  Member_count F6.0 
+  Competing_Lists F3.0 
   FF_bin_degree F15.13 
   FF_bin_in_degree F16.14 
   FF_bin_out_degree F16.14 
@@ -35,9 +38,12 @@ GET DATA
   AT_volume_in F7.1 
   AT_volume_out F7.1 
   RT_volume_in F6.1 
-  RT_volume_out F7.1. 
-CACHE. 
-EXECUTE.
+  RT_volume_out F7.1 
+  FF_rec F15.13 
+  AT_rec F15.13 
+  AT_avg F13.9 
+  FF_avg F13.9. 
+CACHE.
 
 * Graph all Distributions *
 
@@ -91,54 +97,74 @@ GRAPH
 	/HISTOGRAM(NORMAL)=RT_volume_in.
 GRAPH
 	/HISTOGRAM(NORMAL)=RT_volume_out.
+GRAPH
+	/HISTOGRAM(NORMAL)=LN_AT_avg.
+GRAPH
+	/HISTOGRAM(NORMAL)=LN_FF_avg.
+GRAPH
+	/HISTOGRAM(NORMAL)=FF_rec.
+GRAPH
+	/HISTOGRAM(NORMAL)=AT_rec.
+
 
 * Examine the IVs and DVs *
+DESCRIPTIVES  VARIABLES=Competing_Lists  LN_FF_volume_in FF_bin_betweeness FF_bin_closeness FF_bin_pagerank
+LN_AT_volume_in AT_bin_betweeness AT_bin_closeness AT_bin_pagerank    
+ RT_volume_in RT_volume_out 
+/STATISTICS=MEAN STDDEV MIN MAX.
 
-EXAMINE VARIABLES= FF_bin_degree FF_bin_in_degree FF_bin_out_degree FF_bin_betweeness FF_bin_closeness FF_bin_eigenvector 
-FF_volume_in FF_volume_out
-FF_bin_c_size FF_bin_c_density FF_bin_c_hierarchy FF_bin_c_index AT_bin_degree AT_bin_in_degree AT_bin_out_degree AT_bin_betweeness 
-AT_bin_closeness AT_bin_eigenvector AT_bin_c_size AT_bin_c_density AT_bin_c_hierarchy AT_bin_c_index AT_volume_in AT_volume_out RT_volume_in RT_volume_out
+*Normality distrib
+EXAMINE VARIABLES= Competing_Lists  FF_volume_in FF_bin_betweeness FF_bin_closeness FF_bin_pagerank
+AT_volume_in AT_bin_betweeness AT_bin_closeness AT_bin_pagerank    
+ RT_volume_in RT_volume_out 
   /PLOT NPPLOT  
   /STATISTICS DESCRIPTIVES.
 
 * Transform the problematic ones *
 
-COMPUTE EXP_FF_bin_degree=EXP(FF_bin_degree).
-COMPUTE EXP_FF_bin_in_degree=EXP(FF_bin_in_degree).
-COMPUTE EXP_FF_bin_out_degree=EXP(FF_bin_out_degree).
+COMPUTE LN_Member_count=LN(Member_count+1).
+
 COMPUTE LN_FF_volume_in=LN(FF_volume_in+1).
 COMPUTE LN_FF_volume_out=LN(FF_volume_out+1).
-COMPUTE EXP_FF_bin_betweeness=EXP(FF_bin_betweeness).
-COMPUTE EXP_FF_bin_closeness=EXP(FF_bin_closeness). 
+COMPUTE LN_FF_bin_betweeness=LN(FF_bin_betweeness+1).
 COMPUTE LN_FF_bin_pagerank=LN(FF_bin_pagerank+1).
+
 COMPUTE LN_FF_bin_c_size=LN(FF_bin_c_size+1).
 COMPUTE LN_FF_bin_c_density=LN(FF_bin_c_density+1).
 COMPUTE LN_FF_bin_c_hierarchy=LN(FF_bin_c_hierarchy+1).
 COMPUTE LN_FF_bin_c_index=LN(FF_bin_c_index+1).
-COMPUTE EXP_AT_bin_in_degree=EXP(AT_bin_in_degree).
+
+COMPUTE LN_AT_volume_in=LN(AT_volume_in+1).
+COMPUTE LN_AT_volume_out=LN(AT_volume_out+1).
+COMPUTE LN_AT_bin_betweeness=LN(AT_bin_betweeness+1).
 COMPUTE LN_AT_bin_pagerank=LN(AT_bin_pagerank+1).
+
 COMPUTE LN_AT_bin_c_size=LN(AT_bin_c_size+1).
 COMPUTE LN_AT_bin_c_density=LN(AT_bin_c_density+1).
 COMPUTE LN_AT_bin_c_hierarchy=LN(AT_bin_c_hierarchy+1).
 COMPUTE LN_AT_bin_c_index=LN(AT_bin_c_index+1).
-COMPUTE LN_AT_volume_in=LN(AT_volume_in+1).
-COMPUTE LN_AT_volume_out=LN(AT_volume_out+1).
+
 COMPUTE LN_RT_volume_in=LN(RT_volume_in+1).
 COMPUTE LN_RT_volume_out=LN(RT_volume_out+1).
 
+COMPUTE LN_AT_avg=LN(AT_avg+1).
+COMPUTE LN_FF_avg=LN(FF_avg+1).
 
 * Output examination of the transformed variables *
 
-EXAMINE VARIABLES EXP_FF_bin_degree EXP_FF_bin_in_degree EXP_FF_bin_out_degree LN_FF_volume_in LN_FF_volume_out EXP_FF_bin_betweeness EXP_FF_bin_closeness LN_FF_bin_pagerank
-LN_FF_bin_c_size LN_FF_bin_c_density LN_FF_bin_c_hierarchy LN_FF_bin_c_index
-EXP_AT_bin_in_degree LN_AT_bin_pagerank LN_AT_bin_c_size LN_AT_bin_c_density LN_AT_bin_c_hierarchy LN_AT_bin_c_index
-LN_AT_volume_in LN_AT_volume_out LN_RT_volume_in LN_RT_volume_out
+DESCRIPTIVES  VARIABLES=  RT_volume_in Competing_Lists Member_count
+                      FF_volume_in  AT_volume_in  FF_bin_betweeness AT_bin_betweeness FF_bin_closeness AT_bin_closeness FF_bin_pagerank AT_bin_pagerank   
+                      FF_rec  AT_rec  FF_avg AT_avg                      
+/STATISTICS=MEAN STDDEV MIN MAX.
+
+EXAMINE VARIABLES RT_volume_in Competing_Lists Member_count
+                      FF_volume_in  AT_volume_in  FF_bin_betweeness AT_bin_betweeness FF_bin_closeness AT_bin_closeness FF_bin_pagerank AT_bin_pagerank   
+                      FF_rec  AT_rec  FF_avg AT_avg                       
   /PLOT NPPLOT  
   /STATISTICS DESCRIPTIVES.
 
 *Test for multicolinearity * 
 * Shift the IVs factors  around and note the results. VIF score should be smaller than 10, but not higher. We see that a number of variables are multicollinear especially with the volume ins for at and ff
-
 REGRESSION 
   /MISSING LISTWISE 
   /STATISTICS COLLIN TOL 
@@ -149,20 +175,22 @@ REGRESSION
 .
 * ###########FACTOR#############
 
-/* Possible IVs
-/* FF_bin_in_degre AT_bin_in_degre
-/* FF_bin_c_index  AT_bin_c_index 
-/* FF_bin_betweeness AT_bin_betweeness
-/* FF_bin_closeness AT_bin_closeness 
-/* AT_bin_pagerank FF_bin_pagerank
-
-
-/* Exploratory factor analysis checking the possible dimensions and nice to see correlations 
+* Possible IVs
+* FF_bin_in_degre AT_bin_in_degre
+* FF_bin_c_index  AT_bin_c_index 
+* FF_bin_betweeness AT_bin_betweeness
+* FF_bin_closeness AT_bin_closeness 
+* AT_bin_pagerank FF_bin_pagerank
+* Exploratory factor analysis checking the possible dimensions and nice to see correlations 
 
 FACTOR 
-  /VARIABLES  LN_FF_volume_in  LN_AT_volume_in LN_AT_volume_out LN_FF_volume_out FF_bin_closeness AT_bin_closeness AT_bin_pagerank FF_bin_pagerank FF_bin_betweeness AT_bin_betweeness  FF_bin_c_index  AT_bin_c_index 
+  /VARIABLES  LN_RT_volume_in Competing_Lists Member_count
+                      LN_FF_volume_in  LN_AT_volume_in  LN_FF_bin_betweeness LN_AT_bin_betweeness FF_bin_closeness AT_bin_closeness LN_FF_bin_pagerank LN_AT_bin_pagerank   
+                      FF_rec  AT_rec  LN_FF_avg LN_AT_avg        
   /MISSING LISTWISE 
-  /ANALYSIS LN_FF_volume_in  LN_AT_volume_in LN_AT_volume_out LN_FF_volume_out FF_bin_closeness AT_bin_closeness AT_bin_pagerank FF_bin_pagerank FF_bin_betweeness AT_bin_betweeness FF_bin_c_index  AT_bin_c_index 
+  /ANALYSIS  LN_RT_volume_in Competing_Lists Member_count
+                      LN_FF_volume_in  LN_AT_volume_in  LN_FF_bin_betweeness LN_AT_bin_betweeness FF_bin_closeness AT_bin_closeness LN_FF_bin_pagerank LN_AT_bin_pagerank   
+                      FF_rec  AT_rec  LN_FF_avg LN_AT_avg        
   /PRINT UNIVARIATE INITIAL CORRELATION SIG DET KMO INV REPR AIC EXTRACTION ROTATION 
   /FORMAT SORT BLANK(.4) 
   /PLOT EIGEN ROTATION 
@@ -172,8 +200,7 @@ FACTOR
   /ROTATION VARIMAX  /*   OBLIMIN VARIMAX
   /METHOD=CORRELATION.
 
-/* IMPORTANT: Component analysis analyzing the resulting two factors AT and FF *
-
+* IMPORTANT: Component analysis analyzing the resulting two factors AT and FF *
 FACTOR 
   /VARIABLES  LN_FF_volume_in  LN_AT_volume_in LN_AT_volume_out LN_FF_volume_out FF_bin_closeness AT_bin_closeness 
   /MISSING LISTWISE 
@@ -190,7 +217,6 @@ FACTOR
 *###################### REGRESSIONS ##################################*
 
 * Perform a exploratory regressions using BACKWARD method with DV: RT_volume_in*
-
 REGRESSION 
   /MISSING LISTWISE 
   /STATISTICS COEFF OUTS R ANOVA 
@@ -208,7 +234,6 @@ LN_AT_volume_in LN_AT_volume_out  LN_RT_volume_out
 
 *The influence of the indegrees on retweets*
 * RESULT: It seems that taking into account volume in and out for ff and at is the best model (also according to factors)
-
 REGRESSION 
   /MISSING LISTWISE 
   /STATISTICS COEFF OUTS CI(95) R ANOVA COLLIN TOL 
@@ -228,17 +253,33 @@ REGRESSION
 
 REGRESSION 
   /MISSING LISTWISE 
-  /STATISTICS COEFF OUTS CI(95) R ANOVA COLLIN TOL 
+  /STATISTICS COEFF OUTS CI(95) R ANOVA COLLIN TOL CHANGE
   /CRITERIA=PIN(.05) POUT(.10) 
   /NOORIGIN 
   /DEPENDENT LN_RT_volume_in 
+ /METHOD=ENTER Competing_Lists Member_count
   /METHOD=ENTER LN_FF_volume_in LN_AT_volume_in 
- /METHOD=ENTER LN_AT_volume_out LN_FF_volume_out
- /METHOD=ENTER LN_AT_volume_out LN_FF_volume_out
- /METHOD=ENTER FF_bin_c_index  AT_bin_c_index 
- /METHOD=ENTER FF_bin_betweeness AT_bin_betweeness
+ /METHOD=ENTER LN_FF_bin_betweeness LN_AT_bin_betweeness
  /METHOD=ENTER FF_bin_closeness AT_bin_closeness 
- /METHOD=ENTER AT_bin_pagerank FF_bin_pagerank
+ /METHOD=ENTER LN_AT_bin_pagerank LN_FF_bin_pagerank
+/METHOD=ENTER  FF_rec  AT_rec  LN_FF_avg LN_AT_avg  
   /SCATTERPLOT=(*ZPRED ,*ZRESID) 
   /RESIDUALS DURBIN HISTOGRAM(ZRESID) NORMPROB(ZRESID)
   /PARTIALPLOT ALL.
+
+* Model with the best breed predictors
+
+REGRESSION 
+  /MISSING LISTWISE 
+  /STATISTICS COEFF OUTS CI(95) R ANOVA COLLIN TOL  CHANGE
+  /CRITERIA=PIN(.05) POUT(.10) 
+  /NOORIGIN 
+  /DEPENDENT LN_RT_volume_in 
+ /METHOD=ENTER Competing_Lists
+  /METHOD=ENTER  LN_AT_volume_in 
+ /METHOD=ENTER  AT_bin_closeness 
+ /METHOD=ENTER  LN_FF_avg    
+  /SCATTERPLOT=(*ZPRED ,*ZRESID) 
+  /RESIDUALS DURBIN HISTOGRAM(ZRESID) NORMPROB(ZRESID) 
+  /PARTIALPLOT ALL.
+

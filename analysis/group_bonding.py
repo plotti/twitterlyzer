@@ -30,14 +30,26 @@ def main(argv):
     
     csv_writer = csv.writer(open('results/spss/group bonding/%s_group_bonding.csv' % project, 'wb'))
     
-    csv_writer.writerow(["Project", "Name", "Member_count",
-                        "FF_Nodes", "AT_Nodes", "RT_Nodes", 
+    csv_writer.writerow(["Project", "Name", "Member_count", "Competing_Lists",
+                        "FF_Nodes", "AT_Nodes", "RT_Nodes",
+                        "FF_Edges","AT_Edges", "RT_Edges",
                         "FF_bin_density", "AT_density",
                         "FF_bin_avg_path_length", "AT_bin_avg_path_length", 
                         "FF_bin_clustering", "AT_bin_clustering",
                         "FF_reciprocity", "AT_reciprocity",
                         "FF_bin_transitivity", "AT_bin_transitivity",                    
-                        "RT_density", "RT_total_volume"])
+                        "RT_density", "RT_total_volume"
+                        ])    
+    
+    # Read in the networks    
+    FF_all = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
+    AT_all = nx.read_edgelist('data/networks/%s_solr_AT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
+    RT_all = nx.read_edgelist('data/networks/%s_solr_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
+    
+    # Read in the partition
+    tmp = hp.get_partition(partitionfile)
+    partitions = tmp[0]
+    groups = tmp[1]
     
     #Read in members count for each project
     reader = csv.reader(open("results/stats/%s_lists_stats.csv" % project, "rb"), delimiter=",")
@@ -46,16 +58,15 @@ def main(argv):
     for row in reader:        
             temp[row[0]] = {"name":row[0],"member_count":int(row[3])}
     
-    # Read in the partition
-    tmp = hp.get_partition(partitionfile)
-    partitions = tmp[0]
-    groups = tmp[1]
-    
-    # Read in the networks    
-    FF_all = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
-    AT_all = nx.read_edgelist('data/networks/%s_solr_AT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
-    RT_all = nx.read_edgelist('data/networks/%s_solr_RT.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph())
-    
+    #Read in the list-listings for individuals
+    listings = {}
+    indiv_reader = csv.reader(open(partitionfile))
+    for row in indiv_reader:                
+            if listings.has_key(row[1]):
+                listings[row[1]]["competing_lists"] += int(row[3])
+            else:
+                listings[row[1]] = {"competing_lists": int(row[3])}
+                
     i = 0
     for partition in partitions:
         for node in partition:
@@ -123,8 +134,9 @@ def main(argv):
     
         ############### Output ################
     
-        csv_writer.writerow([project, project_name, member_count,
-                             len(FF.nodes()), len(AT.nodes()), len(RT.nodes()), 
+        csv_writer.writerow([project, project_name, member_count, listings[project_name]["competing_lists"],
+                             len(FF.nodes()), len(AT.nodes()), len(RT.nodes()),
+                             len(FF.edges()), len(AT.edges()), len(RT.edges()),
                             FF_bin_density, AT_density,
                             FF_bin_avg_path_length, AT_bin_avg_path_length,
                             FF_bin_clustering, AT_bin_clustering,
