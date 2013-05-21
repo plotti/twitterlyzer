@@ -3,8 +3,8 @@ General Workflow
 Collect user interests:
     Collect keywords from wefollow
     Collect keywords from yahoo
-    Merge into one ontology --> This is done by hand.
-    Manual filtering according to criteria described in dissertation document
+    Merge into one ontology --> This is done partially by hand.
+    Filtering according to criteria described in dissertation document
     OUTPUT: is a list of keywords that represent user interests
 
 Seed user collection:
@@ -27,7 +27,6 @@ Sorted members creation
     OUTPUT: data/keyword_sorted_members.csv
 
 Check Collected Lists
-    TODO: write file that automates this process
     Manual step
     Only keep those keywords that output lists that contain enough members (more than 10 lists)
     Only keep those lists that show a typical power law distribution (to avoid spam)
@@ -36,7 +35,7 @@ Keyword-merge-Procedure
     dump_partitions_from_lists_only.rb
     INPUT1: data/keyword_sorted_members.csv
     INPUT2: config/blacklist.csv # A file containing Twitter users that cannot be found on Twitter
-    For each keyword unite partitions that have a high overlap of members by merging those keywords that have an overlap of x percent
+    For each keyword unite partitions that have a high overlap of members by merging those keywords that have an overlap of x percent (see config)
     OUTPUT: In memory hash of united keywords and members
     
 Re-Rank-procedure
@@ -88,4 +87,4 @@ Analyze Networks
     individual_bonding.py Partitions the network according to keyword, for each subnetwork compute the network measures for each member, output  a csv file of all computations
     individual_bridging.py Combines 2 Networks into one subnetwork, computes betweeness measures, outputs a csv file
     
-Further processing with SPSS/AMOS to describe latent social capital models
+Further processing with SPSS to describe social capital models
