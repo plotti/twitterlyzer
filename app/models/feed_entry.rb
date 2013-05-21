@@ -29,7 +29,7 @@ class FeedEntry < ActiveRecord::Base
     end
   end
     
-  #Collects all possible rss entries from one person on twitter
+  # Collects all possible rss entries from one person on twitter
   # Tested
   def self.collect_all_entries(person)
     

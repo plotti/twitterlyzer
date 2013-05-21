@@ -104,14 +104,17 @@ class Person < ActiveRecord::Base
       next_cursor = result["next_cursor"]
       old_next_cursor = 0
       @project = Project.find(project_id)
-      puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"
+      puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"    
     rescue
       puts "Got an error on user #{username}. Retrying."
       page_size = (page_size * 0.8).to_i
       attempts += 1
-      retry
+      if attempts < 10
+        retry
+      end      
     end
     while old_next_cursor != next_cursor and next_cursor != 0
+      puts "been here"
       begin
         old_next_cursor = next_cursor      
         result = @@twitter.memberships(username, {:cursor => next_cursor, :count => page_size})

@@ -22,6 +22,7 @@ gem "nokogiri", "1.5.4"
 gem "fastercsv"
 gem "minitar"
 gem "progress"
+gem "statsample"
 
 # bundler requires these gems in all environments
 # gem "nokogiri", "1.4.2"

@@ -1,0 +1,2656 @@
+accounting:
+- !!python/tuple
+  - finance_economics
+  - {weight: 699.0}
+- !!python/tuple
+  - lawyer_legal
+  - {weight: 451.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 411.0}
+- !!python/tuple
+  - youtube
+  - {weight: 221.0}
+- !!python/tuple
+  - marketing
+  - {weight: 205.0}
+advertising:
+- !!python/tuple
+  - marketing
+  - {weight: 1178.0}
+- !!python/tuple
+  - tech
+  - {weight: 1074.0}
+- !!python/tuple
+  - innovation
+  - {weight: 670.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 655.0}
+- !!python/tuple
+  - blogs
+  - {weight: 646.0}
+agriculture:
+- !!python/tuple
+  - finance_economics
+  - {weight: 923.0}
+- !!python/tuple
+  - tech
+  - {weight: 505.0}
+- !!python/tuple
+  - nutrition
+  - {weight: 427.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 401.0}
+- !!python/tuple
+  - marketing
+  - {weight: 383.0}
+airlines_aviation:
+- !!python/tuple
+  - ceo
+  - {weight: 287.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 243.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 195.0}
+- !!python/tuple
+  - youtube
+  - {weight: 173.0}
+- !!python/tuple
+  - hospitality
+  - {weight: 160.0}
+animation:
+- !!python/tuple
+  - director
+  - {weight: 1037.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 589.0}
+- !!python/tuple
+  - cinema
+  - {weight: 484.0}
+- !!python/tuple
+  - comics
+  - {weight: 368.0}
+- !!python/tuple
+  - youtube
+  - {weight: 207.0}
+anime:
+- !!python/tuple
+  - youtube
+  - {weight: 810.0}
+- !!python/tuple
+  - comics
+  - {weight: 254.0}
+- !!python/tuple
+  - gaming
+  - {weight: 168.0}
+- !!python/tuple
+  - tech
+  - {weight: 115.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 78.0}
+anthropology:
+- !!python/tuple
+  - sociology
+  - {weight: 547.0}
+- !!python/tuple
+  - archaeology
+  - {weight: 489.0}
+- !!python/tuple
+  - tech
+  - {weight: 439.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 396.0}
+- !!python/tuple
+  - neuroscience
+  - {weight: 377.0}
+archaeology:
+- !!python/tuple
+  - anthropology
+  - {weight: 674.0}
+- !!python/tuple
+  - history
+  - {weight: 524.0}
+- !!python/tuple
+  - youtube
+  - {weight: 286.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 230.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 121.0}
+architecture:
+- !!python/tuple
+  - construction
+  - {weight: 790.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 361.0}
+- !!python/tuple
+  - geography
+  - {weight: 338.0}
+- !!python/tuple
+  - innovation
+  - {weight: 286.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 196.0}
+army_military_veteran:
+- !!python/tuple
+  - politics_news
+  - {weight: 1396.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 623.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 270.0}
+- !!python/tuple
+  - tech
+  - {weight: 221.0}
+- !!python/tuple
+  - liberal
+  - {weight: 210.0}
+astrology:
+- !!python/tuple
+  - politics_news
+  - {weight: 352.0}
+- !!python/tuple
+  - youtube
+  - {weight: 297.0}
+- !!python/tuple
+  - archaeology
+  - {weight: 156.0}
+- !!python/tuple
+  - liberal
+  - {weight: 146.0}
+- !!python/tuple
+  - sociology
+  - {weight: 132.0}
+astronomy_physics:
+- !!python/tuple
+  - tech
+  - {weight: 416.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 348.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 257.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 246.0}
+- !!python/tuple
+  - biology
+  - {weight: 117.0}
+author:
+- !!python/tuple
+  - publishing_literature
+  - {weight: 1336.0}
+- !!python/tuple
+  - romance
+  - {weight: 1327.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 705.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 653.0}
+- !!python/tuple
+  - writing
+  - {weight: 516.0}
+automotive:
+- !!python/tuple
+  - racing
+  - {weight: 472.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 356.0}
+- !!python/tuple
+  - marketing
+  - {weight: 351.0}
+- !!python/tuple
+  - youtube
+  - {weight: 327.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 321.0}
+baking:
+- !!python/tuple
+  - recipes_cooking
+  - {weight: 3095.0}
+- !!python/tuple
+  - food_chef
+  - {weight: 2826.0}
+- !!python/tuple
+  - wedding
+  - {weight: 381.0}
+- !!python/tuple
+  - etsy_handmade
+  - {weight: 291.0}
+- !!python/tuple
+  - youtube
+  - {weight: 225.0}
+banking:
+- !!python/tuple
+  - tech
+  - {weight: 972.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 918.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 522.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 456.0}
+- !!python/tuple
+  - blogs
+  - {weight: 330.0}
+baseball:
+- !!python/tuple
+  - fantasy
+  - {weight: 477.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 281.0}
+- !!python/tuple
+  - reporter
+  - {weight: 248.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 228.0}
+- !!python/tuple
+  - basketball
+  - {weight: 190.0}
+basketball:
+- !!python/tuple
+  - rapper
+  - {weight: 779.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 610.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 334.0}
+- !!python/tuple
+  - reporter
+  - {weight: 223.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 122.0}
+beauty_fashion_shopping:
+- !!python/tuple
+  - magazine
+  - {weight: 3356.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 1989.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 1566.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 1496.0}
+- !!python/tuple
+  - rapper
+  - {weight: 432.0}
+beer:
+- !!python/tuple
+  - food_chef
+  - {weight: 290.0}
+- !!python/tuple
+  - youtube
+  - {weight: 280.0}
+- !!python/tuple
+  - nutrition
+  - {weight: 242.0}
+- !!python/tuple
+  - wine
+  - {weight: 172.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 141.0}
+biology:
+- !!python/tuple
+  - neuroscience
+  - {weight: 354.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 245.0}
+- !!python/tuple
+  - pharma
+  - {weight: 211.0}
+- !!python/tuple
+  - university
+  - {weight: 207.0}
+- !!python/tuple
+  - tech
+  - {weight: 205.0}
+blogs:
+- !!python/tuple
+  - tech
+  - {weight: 1199.0}
+- !!python/tuple
+  - rapper
+  - {weight: 997.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 801.0}
+- !!python/tuple
+  - youtube
+  - {weight: 267.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 254.0}
+branding:
+- !!python/tuple
+  - marketing
+  - {weight: 3439.0}
+- !!python/tuple
+  - career_employment
+  - {weight: 1349.0}
+- !!python/tuple
+  - tech
+  - {weight: 922.0}
+- !!python/tuple
+  - advertising
+  - {weight: 704.0}
+- !!python/tuple
+  - ceo
+  - {weight: 634.0}
+buddhism:
+- !!python/tuple
+  - meditation
+  - {weight: 1022.0}
+- !!python/tuple
+  - yoga
+  - {weight: 482.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 257.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 170.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 160.0}
+cancer:
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 713.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 659.0}
+- !!python/tuple
+  - cycling
+  - {weight: 624.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 485.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 426.0}
+career_employment:
+- !!python/tuple
+  - blogs
+  - {weight: 2592.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 2009.0}
+- !!python/tuple
+  - branding
+  - {weight: 1646.0}
+- !!python/tuple
+  - marketing
+  - {weight: 1014.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1012.0}
+ceo:
+- !!python/tuple
+  - tech
+  - {weight: 2566.0}
+- !!python/tuple
+  - marketing
+  - {weight: 1982.0}
+- !!python/tuple
+  - investor
+  - {weight: 1545.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 821.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 771.0}
+charity_philanthropy:
+- !!python/tuple
+  - politics_news
+  - {weight: 1386.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 1247.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 1194.0}
+- !!python/tuple
+  - poverty
+  - {weight: 1114.0}
+- !!python/tuple
+  - tech
+  - {weight: 606.0}
+chemistry:
+- !!python/tuple
+  - biology
+  - {weight: 409.0}
+- !!python/tuple
+  - astronomy_physics
+  - {weight: 139.0}
+- !!python/tuple
+  - pharma
+  - {weight: 115.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 86.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 76.0}
+children:
+- !!python/tuple
+  - parenting
+  - {weight: 1053.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 589.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 433.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 433.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 428.0}
+cinema:
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 735.0}
+- !!python/tuple
+  - director
+  - {weight: 556.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 515.0}
+- !!python/tuple
+  - youtube
+  - {weight: 487.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 334.0}
+climatechange:
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 3049.0}
+- !!python/tuple
+  - energy
+  - {weight: 1703.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1288.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 1026.0}
+- !!python/tuple
+  - nature
+  - {weight: 909.0}
+climbing:
+- !!python/tuple
+  - outdoors_hiking
+  - {weight: 1233.0}
+- !!python/tuple
+  - skiing
+  - {weight: 339.0}
+- !!python/tuple
+  - running
+  - {weight: 186.0}
+- !!python/tuple
+  - nature
+  - {weight: 177.0}
+- !!python/tuple
+  - yoga
+  - {weight: 170.0}
+college:
+- !!python/tuple
+  - newspaper
+  - {weight: 850.0}
+- !!python/tuple
+  - highered
+  - {weight: 771.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 552.0}
+- !!python/tuple
+  - university
+  - {weight: 469.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 330.0}
+comedy_funny:
+- !!python/tuple
+  - director
+  - {weight: 1053.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 1036.0}
+- !!python/tuple
+  - jokes
+  - {weight: 497.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 478.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 444.0}
+comics:
+- !!python/tuple
+  - gaming
+  - {weight: 649.0}
+- !!python/tuple
+  - author
+  - {weight: 553.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 466.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 417.0}
+- !!python/tuple
+  - director
+  - {weight: 384.0}
+composer:
+- !!python/tuple
+  - piano
+  - {weight: 712.0}
+- !!python/tuple
+  - jazz
+  - {weight: 498.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 288.0}
+- !!python/tuple
+  - youtube
+  - {weight: 201.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 183.0}
+construction:
+- !!python/tuple
+  - architecture
+  - {weight: 858.0}
+- !!python/tuple
+  - lawyer_legal
+  - {weight: 563.0}
+- !!python/tuple
+  - housing
+  - {weight: 458.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 403.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 371.0}
+cycling:
+- !!python/tuple
+  - cancer
+  - {weight: 445.0}
+- !!python/tuple
+  - running
+  - {weight: 204.0}
+- !!python/tuple
+  - motorcycle
+  - {weight: 152.0}
+- !!python/tuple
+  - racing
+  - {weight: 109.0}
+- !!python/tuple
+  - tech
+  - {weight: 81.0}
+dance:
+- !!python/tuple
+  - youtube
+  - {weight: 865.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 703.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 692.0}
+- !!python/tuple
+  - theatre_theater
+  - {weight: 401.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 366.0}
+database:
+- !!python/tuple
+  - java
+  - {weight: 581.0}
+- !!python/tuple
+  - tech
+  - {weight: 457.0}
+- !!python/tuple
+  - ruby
+  - {weight: 398.0}
+- !!python/tuple
+  - developer
+  - {weight: 222.0}
+- !!python/tuple
+  - youtube
+  - {weight: 185.0}
+dating:
+- !!python/tuple
+  - politics_news
+  - {weight: 613.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 386.0}
+- !!python/tuple
+  - blogs
+  - {weight: 323.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 273.0}
+- !!python/tuple
+  - magazine
+  - {weight: 259.0}
+democrat:
+- !!python/tuple
+  - politics_news
+  - {weight: 1862.0}
+- !!python/tuple
+  - liberal
+  - {weight: 484.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 423.0}
+- !!python/tuple
+  - army_military_veteran
+  - {weight: 283.0}
+- !!python/tuple
+  - reporter
+  - {weight: 168.0}
+dental:
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 327.0}
+- !!python/tuple
+  - youtube
+  - {weight: 327.0}
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 74.0}
+- !!python/tuple
+  - marketing
+  - {weight: 69.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 69.0}
+developer:
+- !!python/tuple
+  - html
+  - {weight: 2597.0}
+- !!python/tuple
+  - ipad
+  - {weight: 2140.0}
+- !!python/tuple
+  - ruby
+  - {weight: 1351.0}
+- !!python/tuple
+  - tech
+  - {weight: 1089.0}
+- !!python/tuple
+  - mac_iphone
+  - {weight: 878.0}
+director:
+- !!python/tuple
+  - comedy_funny
+  - {weight: 1997.0}
+- !!python/tuple
+  - rapper
+  - {weight: 1610.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 1216.0}
+- !!python/tuple
+  - horror
+  - {weight: 1077.0}
+- !!python/tuple
+  - screenwriter
+  - {weight: 1048.0}
+documentary:
+- !!python/tuple
+  - filmfestival
+  - {weight: 1268.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 561.0}
+- !!python/tuple
+  - cinema
+  - {weight: 535.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 496.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 319.0}
+drums:
+- !!python/tuple
+  - youtube
+  - {weight: 756.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 397.0}
+- !!python/tuple
+  - rapper
+  - {weight: 309.0}
+- !!python/tuple
+  - guitar
+  - {weight: 178.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 159.0}
+energy:
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 1002.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 969.0}
+- !!python/tuple
+  - climatechange
+  - {weight: 845.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 840.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 609.0}
+engineering:
+- !!python/tuple
+  - university
+  - {weight: 409.0}
+- !!python/tuple
+  - tech
+  - {weight: 237.0}
+- !!python/tuple
+  - astronomy_physics
+  - {weight: 184.0}
+- !!python/tuple
+  - automotive
+  - {weight: 148.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 139.0}
+etsy_handmade:
+- !!python/tuple
+  - politics_news
+  - {weight: 130.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 108.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 94.0}
+- !!python/tuple
+  - beauty_fashion_shopping
+  - {weight: 92.0}
+- !!python/tuple
+  - photography
+  - {weight: 86.0}
+exercise_fitness:
+- !!python/tuple
+  - youtube
+  - {weight: 1326.0}
+- !!python/tuple
+  - nutrition
+  - {weight: 1187.0}
+- !!python/tuple
+  - running
+  - {weight: 609.0}
+- !!python/tuple
+  - marketing
+  - {weight: 485.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 466.0}
+fantasy:
+- !!python/tuple
+  - sport_football
+  - {weight: 1443.0}
+- !!python/tuple
+  - baseball
+  - {weight: 1437.0}
+- !!python/tuple
+  - wrestling
+  - {weight: 340.0}
+- !!python/tuple
+  - beer
+  - {weight: 151.0}
+- !!python/tuple
+  - reporter
+  - {weight: 139.0}
+filmfestival:
+- !!python/tuple
+  - documentary
+  - {weight: 840.0}
+- !!python/tuple
+  - cinema
+  - {weight: 454.0}
+- !!python/tuple
+  - screenwriter
+  - {weight: 404.0}
+- !!python/tuple
+  - director
+  - {weight: 388.0}
+- !!python/tuple
+  - horror
+  - {weight: 382.0}
+finance_economics:
+- !!python/tuple
+  - politics_news
+  - {weight: 744.0}
+- !!python/tuple
+  - tech
+  - {weight: 454.0}
+- !!python/tuple
+  - trading
+  - {weight: 317.0}
+- !!python/tuple
+  - banking
+  - {weight: 286.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 269.0}
+fishing:
+- !!python/tuple
+  - hunting
+  - {weight: 846.0}
+- !!python/tuple
+  - youtube
+  - {weight: 124.0}
+- !!python/tuple
+  - running
+  - {weight: 95.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 83.0}
+- !!python/tuple
+  - nature
+  - {weight: 75.0}
+flash:
+- !!python/tuple
+  - html
+  - {weight: 1339.0}
+- !!python/tuple
+  - developer
+  - {weight: 885.0}
+- !!python/tuple
+  - tech
+  - {weight: 437.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 251.0}
+- !!python/tuple
+  - youtube
+  - {weight: 187.0}
+food_chef:
+- !!python/tuple
+  - recipes_cooking
+  - {weight: 2237.0}
+- !!python/tuple
+  - baking
+  - {weight: 1305.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 850.0}
+- !!python/tuple
+  - restaurant_dining
+  - {weight: 457.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 394.0}
+gambling:
+- !!python/tuple
+  - poker
+  - {weight: 847.0}
+- !!python/tuple
+  - youtube
+  - {weight: 302.0}
+- !!python/tuple
+  - basketball
+  - {weight: 253.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 204.0}
+- !!python/tuple
+  - hockey
+  - {weight: 154.0}
+gaming:
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 453.0}
+- !!python/tuple
+  - comics
+  - {weight: 440.0}
+- !!python/tuple
+  - tech
+  - {weight: 429.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 261.0}
+- !!python/tuple
+  - youtube
+  - {weight: 207.0}
+gardening:
+- !!python/tuple
+  - nature
+  - {weight: 563.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 349.0}
+- !!python/tuple
+  - agriculture
+  - {weight: 301.0}
+- !!python/tuple
+  - food_chef
+  - {weight: 208.0}
+- !!python/tuple
+  - recipes_cooking
+  - {weight: 159.0}
+genealogy:
+- !!python/tuple
+  - history
+  - {weight: 861.0}
+- !!python/tuple
+  - archaeology
+  - {weight: 201.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 191.0}
+- !!python/tuple
+  - youtube
+  - {weight: 157.0}
+- !!python/tuple
+  - tech
+  - {weight: 145.0}
+geography:
+- !!python/tuple
+  - newspaper
+  - {weight: 423.0}
+- !!python/tuple
+  - tech
+  - {weight: 339.0}
+- !!python/tuple
+  - photography
+  - {weight: 328.0}
+- !!python/tuple
+  - architecture
+  - {weight: 310.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 267.0}
+golf:
+- !!python/tuple
+  - sport_football
+  - {weight: 310.0}
+- !!python/tuple
+  - basketball
+  - {weight: 172.0}
+- !!python/tuple
+  - tennis
+  - {weight: 169.0}
+- !!python/tuple
+  - rugby
+  - {weight: 142.0}
+- !!python/tuple
+  - racing
+  - {weight: 140.0}
+guitar:
+- !!python/tuple
+  - musician_singer
+  - {weight: 557.0}
+- !!python/tuple
+  - youtube
+  - {weight: 342.0}
+- !!python/tuple
+  - drums
+  - {weight: 127.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 104.0}
+- !!python/tuple
+  - blogs
+  - {weight: 99.0}
+hacking:
+- !!python/tuple
+  - mac_iphone
+  - {weight: 627.0}
+- !!python/tuple
+  - tech
+  - {weight: 284.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 268.0}
+- !!python/tuple
+  - liberal
+  - {weight: 120.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 112.0}
+healthcare_medicine:
+- !!python/tuple
+  - pharma
+  - {weight: 1522.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 794.0}
+- !!python/tuple
+  - cancer
+  - {weight: 734.0}
+- !!python/tuple
+  - tech
+  - {weight: 610.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 435.0}
+highered:
+- !!python/tuple
+  - marketing
+  - {weight: 1101.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 791.0}
+- !!python/tuple
+  - tech
+  - {weight: 566.0}
+- !!python/tuple
+  - college
+  - {weight: 483.0}
+- !!python/tuple
+  - university
+  - {weight: 462.0}
+history:
+- !!python/tuple
+  - newspaper
+  - {weight: 334.0}
+- !!python/tuple
+  - astronomy_physics
+  - {weight: 248.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 217.0}
+- !!python/tuple
+  - genealogy
+  - {weight: 213.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 159.0}
+hockey:
+- !!python/tuple
+  - youtube
+  - {weight: 196.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 167.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 103.0}
+- !!python/tuple
+  - radio
+  - {weight: 84.0}
+- !!python/tuple
+  - baseball
+  - {weight: 79.0}
+homeschool_school:
+- !!python/tuple
+  - parenting
+  - {weight: 398.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 335.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 266.0}
+- !!python/tuple
+  - marketing
+  - {weight: 164.0}
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 158.0}
+horror:
+- !!python/tuple
+  - director
+  - {weight: 1666.0}
+- !!python/tuple
+  - youtube
+  - {weight: 420.0}
+- !!python/tuple
+  - cinema
+  - {weight: 253.0}
+- !!python/tuple
+  - screenwriter
+  - {weight: 229.0}
+- !!python/tuple
+  - author
+  - {weight: 197.0}
+hospitality:
+- !!python/tuple
+  - newspaper
+  - {weight: 2054.0}
+- !!python/tuple
+  - tech
+  - {weight: 787.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 739.0}
+- !!python/tuple
+  - marketing
+  - {weight: 668.0}
+- !!python/tuple
+  - restaurant_dining
+  - {weight: 563.0}
+housing:
+- !!python/tuple
+  - newspaper
+  - {weight: 985.0}
+- !!python/tuple
+  - construction
+  - {weight: 313.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 260.0}
+- !!python/tuple
+  - poverty
+  - {weight: 211.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 187.0}
+html:
+- !!python/tuple
+  - developer
+  - {weight: 2570.0}
+- !!python/tuple
+  - flash
+  - {weight: 1129.0}
+- !!python/tuple
+  - python
+  - {weight: 500.0}
+- !!python/tuple
+  - tech
+  - {weight: 495.0}
+- !!python/tuple
+  - blogs
+  - {weight: 286.0}
+humanrights_activism_justice:
+- !!python/tuple
+  - politics_news
+  - {weight: 2608.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 1379.0}
+- !!python/tuple
+  - liberal
+  - {weight: 1059.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 889.0}
+- !!python/tuple
+  - democrat
+  - {weight: 884.0}
+hunting:
+- !!python/tuple
+  - fishing
+  - {weight: 880.0}
+- !!python/tuple
+  - youtube
+  - {weight: 651.0}
+- !!python/tuple
+  - marketing
+  - {weight: 455.0}
+- !!python/tuple
+  - nature
+  - {weight: 398.0}
+- !!python/tuple
+  - photography
+  - {weight: 103.0}
+innovation:
+- !!python/tuple
+  - management
+  - {weight: 1182.0}
+- !!python/tuple
+  - tech
+  - {weight: 1139.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 922.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 846.0}
+- !!python/tuple
+  - ceo
+  - {weight: 694.0}
+insurance:
+- !!python/tuple
+  - marketing
+  - {weight: 621.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 437.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 281.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 211.0}
+- !!python/tuple
+  - tech
+  - {weight: 182.0}
+investor:
+- !!python/tuple
+  - tech
+  - {weight: 3492.0}
+- !!python/tuple
+  - ceo
+  - {weight: 1572.0}
+- !!python/tuple
+  - trading
+  - {weight: 1287.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 704.0}
+- !!python/tuple
+  - marketing
+  - {weight: 563.0}
+ipad:
+- !!python/tuple
+  - developer
+  - {weight: 2826.0}
+- !!python/tuple
+  - mac_iphone
+  - {weight: 1401.0}
+- !!python/tuple
+  - tech
+  - {weight: 1118.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 452.0}
+- !!python/tuple
+  - investor
+  - {weight: 258.0}
+islam:
+- !!python/tuple
+  - politics_news
+  - {weight: 930.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 425.0}
+- !!python/tuple
+  - liberal
+  - {weight: 284.0}
+- !!python/tuple
+  - religion
+  - {weight: 231.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 149.0}
+java:
+- !!python/tuple
+  - database
+  - {weight: 645.0}
+- !!python/tuple
+  - developer
+  - {weight: 394.0}
+- !!python/tuple
+  - ruby
+  - {weight: 375.0}
+- !!python/tuple
+  - tech
+  - {weight: 192.0}
+- !!python/tuple
+  - html
+  - {weight: 153.0}
+jazz:
+- !!python/tuple
+  - youtube
+  - {weight: 1276.0}
+- !!python/tuple
+  - composer
+  - {weight: 421.0}
+- !!python/tuple
+  - theatre_theater
+  - {weight: 168.0}
+- !!python/tuple
+  - drums
+  - {weight: 165.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 141.0}
+jewish:
+- !!python/tuple
+  - politics_news
+  - {weight: 928.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 597.0}
+- !!python/tuple
+  - youtube
+  - {weight: 329.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 247.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 231.0}
+jokes:
+- !!python/tuple
+  - comedy_funny
+  - {weight: 1037.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 428.0}
+- !!python/tuple
+  - blogs
+  - {weight: 184.0}
+- !!python/tuple
+  - youtube
+  - {weight: 163.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 137.0}
+lawyer_legal:
+- !!python/tuple
+  - tech
+  - {weight: 1018.0}
+- !!python/tuple
+  - marketing
+  - {weight: 866.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 623.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 384.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 322.0}
+lesbian:
+- !!python/tuple
+  - politics_news
+  - {weight: 1034.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 590.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 437.0}
+- !!python/tuple
+  - liberal
+  - {weight: 404.0}
+- !!python/tuple
+  - author
+  - {weight: 297.0}
+liberal:
+- !!python/tuple
+  - politics_news
+  - {weight: 5248.0}
+- !!python/tuple
+  - democrat
+  - {weight: 1305.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 913.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 539.0}
+- !!python/tuple
+  - reporter
+  - {weight: 462.0}
+linguistics:
+- !!python/tuple
+  - writing
+  - {weight: 282.0}
+- !!python/tuple
+  - author
+  - {weight: 220.0}
+- !!python/tuple
+  - teaching
+  - {weight: 154.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 127.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 120.0}
+linux_opensource:
+- !!python/tuple
+  - tech
+  - {weight: 229.0}
+- !!python/tuple
+  - youtube
+  - {weight: 129.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 98.0}
+- !!python/tuple
+  - developer
+  - {weight: 76.0}
+- !!python/tuple
+  - hacking
+  - {weight: 47.0}
+literacy:
+- !!python/tuple
+  - teaching
+  - {weight: 1142.0}
+- !!python/tuple
+  - parenting
+  - {weight: 1123.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 805.0}
+- !!python/tuple
+  - publishing_literature
+  - {weight: 799.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 686.0}
+mac_iphone:
+- !!python/tuple
+  - ipad
+  - {weight: 1007.0}
+- !!python/tuple
+  - developer
+  - {weight: 791.0}
+- !!python/tuple
+  - tech
+  - {weight: 443.0}
+- !!python/tuple
+  - hacking
+  - {weight: 374.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 156.0}
+magazine:
+- !!python/tuple
+  - beauty_fashion_shopping
+  - {weight: 5933.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 3194.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 1945.0}
+- !!python/tuple
+  - rapper
+  - {weight: 1584.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 1249.0}
+magician:
+- !!python/tuple
+  - tech
+  - {weight: 565.0}
+- !!python/tuple
+  - blogs
+  - {weight: 354.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 331.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 243.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 206.0}
+management:
+- !!python/tuple
+  - innovation
+  - {weight: 1001.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 655.0}
+- !!python/tuple
+  - marketing
+  - {weight: 627.0}
+- !!python/tuple
+  - career_employment
+  - {weight: 417.0}
+- !!python/tuple
+  - ceo
+  - {weight: 390.0}
+marketing:
+- !!python/tuple
+  - tech
+  - {weight: 1974.0}
+- !!python/tuple
+  - publicrelations
+  - {weight: 1684.0}
+- !!python/tuple
+  - branding
+  - {weight: 1578.0}
+- !!python/tuple
+  - ceo
+  - {weight: 1034.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 779.0}
+marriage:
+- !!python/tuple
+  - wedding
+  - {weight: 533.0}
+- !!python/tuple
+  - psychology_mentalhealth
+  - {weight: 374.0}
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 292.0}
+- !!python/tuple
+  - parenting
+  - {weight: 268.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 252.0}
+mathematics:
+- !!python/tuple
+  - tech
+  - {weight: 319.0}
+- !!python/tuple
+  - teaching
+  - {weight: 266.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 206.0}
+- !!python/tuple
+  - astronomy_physics
+  - {weight: 152.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 150.0}
+meditation:
+- !!python/tuple
+  - buddhism
+  - {weight: 1115.0}
+- !!python/tuple
+  - yoga
+  - {weight: 486.0}
+- !!python/tuple
+  - author
+  - {weight: 309.0}
+- !!python/tuple
+  - youtube
+  - {weight: 275.0}
+- !!python/tuple
+  - architecture
+  - {weight: 218.0}
+mobile_smartphone:
+- !!python/tuple
+  - tech
+  - {weight: 1709.0}
+- !!python/tuple
+  - blogs
+  - {weight: 424.0}
+- !!python/tuple
+  - advertising
+  - {weight: 375.0}
+- !!python/tuple
+  - gaming
+  - {weight: 305.0}
+- !!python/tuple
+  - ipad
+  - {weight: 265.0}
+motorcycle:
+- !!python/tuple
+  - cycling
+  - {weight: 318.0}
+- !!python/tuple
+  - racing
+  - {weight: 297.0}
+- !!python/tuple
+  - youtube
+  - {weight: 239.0}
+- !!python/tuple
+  - poetry
+  - {weight: 109.0}
+- !!python/tuple
+  - automotive
+  - {weight: 105.0}
+multimedia:
+- !!python/tuple
+  - newspaper
+  - {weight: 1138.0}
+- !!python/tuple
+  - director
+  - {weight: 904.0}
+- !!python/tuple
+  - photography
+  - {weight: 848.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 706.0}
+- !!python/tuple
+  - tech
+  - {weight: 462.0}
+musician_singer:
+- !!python/tuple
+  - rapper
+  - {weight: 529.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 503.0}
+- !!python/tuple
+  - blogs
+  - {weight: 462.0}
+- !!python/tuple
+  - radio
+  - {weight: 376.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 357.0}
+nature:
+- !!python/tuple
+  - newspaper
+  - {weight: 2626.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 1646.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1077.0}
+- !!python/tuple
+  - climatechange
+  - {weight: 694.0}
+- !!python/tuple
+  - outdoors_hiking
+  - {weight: 678.0}
+neuroscience:
+- !!python/tuple
+  - biology
+  - {weight: 662.0}
+- !!python/tuple
+  - psychology_mentalhealth
+  - {weight: 594.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 220.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 205.0}
+- !!python/tuple
+  - philosophy
+  - {weight: 192.0}
+newspaper:
+- !!python/tuple
+  - politics_news
+  - {weight: 486.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 161.0}
+- !!python/tuple
+  - tech
+  - {weight: 158.0}
+- !!python/tuple
+  - youtube
+  - {weight: 149.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 139.0}
+nursing:
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 1745.0}
+- !!python/tuple
+  - racing
+  - {weight: 529.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 234.0}
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 157.0}
+- !!python/tuple
+  - cancer
+  - {weight: 151.0}
+nutrition:
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 2221.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1311.0}
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 1016.0}
+- !!python/tuple
+  - food_chef
+  - {weight: 895.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 717.0}
+outdoors_hiking:
+- !!python/tuple
+  - nature
+  - {weight: 2219.0}
+- !!python/tuple
+  - climbing
+  - {weight: 1735.0}
+- !!python/tuple
+  - skiing
+  - {weight: 611.0}
+- !!python/tuple
+  - running
+  - {weight: 313.0}
+- !!python/tuple
+  - sustainability_ecology
+  - {weight: 237.0}
+parenting:
+- !!python/tuple
+  - politics_news
+  - {weight: 929.0}
+- !!python/tuple
+  - marketing
+  - {weight: 850.0}
+- !!python/tuple
+  - pregnancy
+  - {weight: 600.0}
+- !!python/tuple
+  - psychology_mentalhealth
+  - {weight: 512.0}
+- !!python/tuple
+  - literacy
+  - {weight: 492.0}
+peace:
+- !!python/tuple
+  - politics_news
+  - {weight: 619.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 523.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 396.0}
+- !!python/tuple
+  - climatechange
+  - {weight: 379.0}
+- !!python/tuple
+  - energy
+  - {weight: 314.0}
+perl:
+- !!python/tuple
+  - developer
+  - {weight: 516.0}
+- !!python/tuple
+  - ruby
+  - {weight: 391.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 327.0}
+- !!python/tuple
+  - tech
+  - {weight: 319.0}
+- !!python/tuple
+  - comics
+  - {weight: 274.0}
+pharma:
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 2316.0}
+- !!python/tuple
+  - marketing
+  - {weight: 681.0}
+- !!python/tuple
+  - cancer
+  - {weight: 460.0}
+- !!python/tuple
+  - youtube
+  - {weight: 276.0}
+- !!python/tuple
+  - tech
+  - {weight: 272.0}
+philosophy:
+- !!python/tuple
+  - liberal
+  - {weight: 278.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 189.0}
+- !!python/tuple
+  - composer
+  - {weight: 122.0}
+- !!python/tuple
+  - youtube
+  - {weight: 122.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 121.0}
+photography:
+- !!python/tuple
+  - blogs
+  - {weight: 1010.0}
+- !!python/tuple
+  - tech
+  - {weight: 872.0}
+- !!python/tuple
+  - multimedia
+  - {weight: 581.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 306.0}
+- !!python/tuple
+  - marketing
+  - {weight: 273.0}
+php:
+- !!python/tuple
+  - developer
+  - {weight: 918.0}
+- !!python/tuple
+  - ruby
+  - {weight: 477.0}
+- !!python/tuple
+  - tech
+  - {weight: 415.0}
+- !!python/tuple
+  - mac_iphone
+  - {weight: 342.0}
+- !!python/tuple
+  - python
+  - {weight: 320.0}
+piano:
+- !!python/tuple
+  - composer
+  - {weight: 379.0}
+- !!python/tuple
+  - theatre_theater
+  - {weight: 254.0}
+- !!python/tuple
+  - youtube
+  - {weight: 188.0}
+- !!python/tuple
+  - jazz
+  - {weight: 149.0}
+- !!python/tuple
+  - homeschool_school
+  - {weight: 106.0}
+poetry:
+- !!python/tuple
+  - publishing_literature
+  - {weight: 946.0}
+- !!python/tuple
+  - writing
+  - {weight: 355.0}
+- !!python/tuple
+  - author
+  - {weight: 213.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 197.0}
+- !!python/tuple
+  - youtube
+  - {weight: 186.0}
+poker:
+- !!python/tuple
+  - gambling
+  - {weight: 417.0}
+- !!python/tuple
+  - basketball
+  - {weight: 245.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 187.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 175.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 127.0}
+politics_news:
+- !!python/tuple
+  - reporter
+  - {weight: 1246.0}
+- !!python/tuple
+  - democrat
+  - {weight: 1077.0}
+- !!python/tuple
+  - liberal
+  - {weight: 888.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 886.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 758.0}
+poverty:
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 1862.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 1480.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1433.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 1263.0}
+- !!python/tuple
+  - liberal
+  - {weight: 583.0}
+pregnancy:
+- !!python/tuple
+  - parenting
+  - {weight: 1617.0}
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 284.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 215.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 126.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 79.0}
+psychology_mentalhealth:
+- !!python/tuple
+  - newspaper
+  - {weight: 996.0}
+- !!python/tuple
+  - healthcare_medicine
+  - {weight: 957.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 881.0}
+- !!python/tuple
+  - parenting
+  - {weight: 643.0}
+- !!python/tuple
+  - neuroscience
+  - {weight: 609.0}
+publicrelations:
+- !!python/tuple
+  - marketing
+  - {weight: 5390.0}
+- !!python/tuple
+  - tech
+  - {weight: 1447.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 770.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 734.0}
+- !!python/tuple
+  - blogs
+  - {weight: 725.0}
+publishing_literature:
+- !!python/tuple
+  - author
+  - {weight: 2305.0}
+- !!python/tuple
+  - romance
+  - {weight: 1991.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 1210.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 1198.0}
+- !!python/tuple
+  - magazine
+  - {weight: 1116.0}
+python:
+- !!python/tuple
+  - developer
+  - {weight: 946.0}
+- !!python/tuple
+  - ruby
+  - {weight: 607.0}
+- !!python/tuple
+  - html
+  - {weight: 493.0}
+- !!python/tuple
+  - php
+  - {weight: 366.0}
+- !!python/tuple
+  - tech
+  - {weight: 323.0}
+racing:
+- !!python/tuple
+  - automotive
+  - {weight: 652.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 474.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 418.0}
+- !!python/tuple
+  - motorcycle
+  - {weight: 364.0}
+- !!python/tuple
+  - golf
+  - {weight: 286.0}
+radio:
+- !!python/tuple
+  - musician_singer
+  - {weight: 3351.0}
+- !!python/tuple
+  - documentary
+  - {weight: 1473.0}
+- !!python/tuple
+  - rapper
+  - {weight: 1246.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 760.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 742.0}
+rapper:
+- !!python/tuple
+  - youtube
+  - {weight: 1003.0}
+- !!python/tuple
+  - basketball
+  - {weight: 424.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 367.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 213.0}
+- !!python/tuple
+  - radio
+  - {weight: 166.0}
+realestate:
+- !!python/tuple
+  - marketing
+  - {weight: 1078.0}
+- !!python/tuple
+  - tech
+  - {weight: 697.0}
+- !!python/tuple
+  - blogs
+  - {weight: 617.0}
+- !!python/tuple
+  - finance_economics
+  - {weight: 465.0}
+- !!python/tuple
+  - youtube
+  - {weight: 420.0}
+realitytv:
+- !!python/tuple
+  - musician_singer
+  - {weight: 738.0}
+- !!python/tuple
+  - rapper
+  - {weight: 681.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 614.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 454.0}
+- !!python/tuple
+  - magazine
+  - {weight: 421.0}
+recipes_cooking:
+- !!python/tuple
+  - food_chef
+  - {weight: 4986.0}
+- !!python/tuple
+  - baking
+  - {weight: 2096.0}
+- !!python/tuple
+  - nutrition
+  - {weight: 417.0}
+- !!python/tuple
+  - parenting
+  - {weight: 380.0}
+- !!python/tuple
+  - marketing
+  - {weight: 304.0}
+religion:
+- !!python/tuple
+  - politics_news
+  - {weight: 1106.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 802.0}
+- !!python/tuple
+  - liberal
+  - {weight: 262.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 241.0}
+- !!python/tuple
+  - publishing_literature
+  - {weight: 239.0}
+reporter:
+- !!python/tuple
+  - politics_news
+  - {weight: 5827.0}
+- !!python/tuple
+  - basketball
+  - {weight: 787.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 777.0}
+- !!python/tuple
+  - tech
+  - {weight: 600.0}
+- !!python/tuple
+  - democrat
+  - {weight: 481.0}
+restaurant_dining:
+- !!python/tuple
+  - food_chef
+  - {weight: 1042.0}
+- !!python/tuple
+  - youtube
+  - {weight: 454.0}
+- !!python/tuple
+  - hospitality
+  - {weight: 381.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 261.0}
+- !!python/tuple
+  - beer
+  - {weight: 228.0}
+romance:
+- !!python/tuple
+  - author
+  - {weight: 1679.0}
+- !!python/tuple
+  - publishing_literature
+  - {weight: 1434.0}
+- !!python/tuple
+  - writing
+  - {weight: 225.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 179.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 144.0}
+ruby:
+- !!python/tuple
+  - developer
+  - {weight: 2360.0}
+- !!python/tuple
+  - python
+  - {weight: 431.0}
+- !!python/tuple
+  - php
+  - {weight: 320.0}
+- !!python/tuple
+  - html
+  - {weight: 259.0}
+- !!python/tuple
+  - tech
+  - {weight: 221.0}
+rugby:
+- !!python/tuple
+  - golf
+  - {weight: 364.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 356.0}
+- !!python/tuple
+  - youtube
+  - {weight: 135.0}
+- !!python/tuple
+  - swimming
+  - {weight: 112.0}
+- !!python/tuple
+  - gaming
+  - {weight: 89.0}
+running:
+- !!python/tuple
+  - cycling
+  - {weight: 868.0}
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 236.0}
+- !!python/tuple
+  - climbing
+  - {weight: 160.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 154.0}
+- !!python/tuple
+  - cancer
+  - {weight: 123.0}
+sailing:
+- !!python/tuple
+  - youtube
+  - {weight: 198.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 107.0}
+- !!python/tuple
+  - skiing
+  - {weight: 89.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 70.0}
+- !!python/tuple
+  - nature
+  - {weight: 66.0}
+screenwriter:
+- !!python/tuple
+  - director
+  - {weight: 1474.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 713.0}
+- !!python/tuple
+  - author
+  - {weight: 689.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 576.0}
+- !!python/tuple
+  - writing
+  - {weight: 410.0}
+skateboarding:
+- !!python/tuple
+  - surfing
+  - {weight: 952.0}
+- !!python/tuple
+  - rapper
+  - {weight: 460.0}
+- !!python/tuple
+  - skiing
+  - {weight: 271.0}
+- !!python/tuple
+  - basketball
+  - {weight: 221.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 168.0}
+skiing:
+- !!python/tuple
+  - skateboarding
+  - {weight: 1119.0}
+- !!python/tuple
+  - climbing
+  - {weight: 496.0}
+- !!python/tuple
+  - youtube
+  - {weight: 378.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 232.0}
+- !!python/tuple
+  - airlines_aviation
+  - {weight: 231.0}
+sociology:
+- !!python/tuple
+  - tech
+  - {weight: 550.0}
+- !!python/tuple
+  - humanrights_activism_justice
+  - {weight: 468.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 374.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 364.0}
+- !!python/tuple
+  - anthropology
+  - {weight: 364.0}
+sport_football:
+- !!python/tuple
+  - newspaper
+  - {weight: 2634.0}
+- !!python/tuple
+  - basketball
+  - {weight: 529.0}
+- !!python/tuple
+  - rapper
+  - {weight: 381.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 207.0}
+- !!python/tuple
+  - golf
+  - {weight: 174.0}
+storage:
+- !!python/tuple
+  - tech
+  - {weight: 648.0}
+- !!python/tuple
+  - youtube
+  - {weight: 169.0}
+- !!python/tuple
+  - ceo
+  - {weight: 165.0}
+- !!python/tuple
+  - airlines_aviation
+  - {weight: 163.0}
+- !!python/tuple
+  - database
+  - {weight: 160.0}
+surfing:
+- !!python/tuple
+  - skateboarding
+  - {weight: 807.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 113.0}
+- !!python/tuple
+  - sport_football
+  - {weight: 97.0}
+- !!python/tuple
+  - radio
+  - {weight: 90.0}
+- !!python/tuple
+  - skiing
+  - {weight: 90.0}
+sustainability_ecology:
+- !!python/tuple
+  - climatechange
+  - {weight: 2243.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 1214.0}
+- !!python/tuple
+  - energy
+  - {weight: 1197.0}
+- !!python/tuple
+  - nature
+  - {weight: 1115.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 996.0}
+swimming:
+- !!python/tuple
+  - sport_football
+  - {weight: 439.0}
+- !!python/tuple
+  - rugby
+  - {weight: 328.0}
+- !!python/tuple
+  - food_chef
+  - {weight: 214.0}
+- !!python/tuple
+  - youtube
+  - {weight: 156.0}
+- !!python/tuple
+  - cycling
+  - {weight: 130.0}
+teaching:
+- !!python/tuple
+  - politics_news
+  - {weight: 769.0}
+- !!python/tuple
+  - literacy
+  - {weight: 280.0}
+- !!python/tuple
+  - rapper
+  - {weight: 265.0}
+- !!python/tuple
+  - marketing
+  - {weight: 243.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 243.0}
+tech:
+- !!python/tuple
+  - ceo
+  - {weight: 1187.0}
+- !!python/tuple
+  - investor
+  - {weight: 1127.0}
+- !!python/tuple
+  - cancer
+  - {weight: 732.0}
+- !!python/tuple
+  - mobile_smartphone
+  - {weight: 718.0}
+- !!python/tuple
+  - ipad
+  - {weight: 623.0}
+tennis:
+- !!python/tuple
+  - sport_football
+  - {weight: 375.0}
+- !!python/tuple
+  - radio
+  - {weight: 312.0}
+- !!python/tuple
+  - golf
+  - {weight: 251.0}
+- !!python/tuple
+  - basketball
+  - {weight: 174.0}
+- !!python/tuple
+  - college
+  - {weight: 165.0}
+theatre_theater:
+- !!python/tuple
+  - newspaper
+  - {weight: 1453.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 536.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 363.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 298.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 287.0}
+toys:
+- !!python/tuple
+  - gaming
+  - {weight: 313.0}
+- !!python/tuple
+  - comics
+  - {weight: 311.0}
+- !!python/tuple
+  - parenting
+  - {weight: 172.0}
+- !!python/tuple
+  - blogs
+  - {weight: 167.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 154.0}
+trading:
+- !!python/tuple
+  - finance_economics
+  - {weight: 1057.0}
+- !!python/tuple
+  - investor
+  - {weight: 377.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 220.0}
+- !!python/tuple
+  - hockey
+  - {weight: 207.0}
+- !!python/tuple
+  - tech
+  - {weight: 171.0}
+tvshows_drama_actor_hollywood:
+- !!python/tuple
+  - comedy_funny
+  - {weight: 1422.0}
+- !!python/tuple
+  - director
+  - {weight: 744.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 729.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 500.0}
+- !!python/tuple
+  - tech
+  - {weight: 426.0}
+university:
+- !!python/tuple
+  - highered
+  - {weight: 807.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 683.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 535.0}
+- !!python/tuple
+  - college
+  - {weight: 253.0}
+- !!python/tuple
+  - publishing_literature
+  - {weight: 238.0}
+vegetarian:
+- !!python/tuple
+  - food_chef
+  - {weight: 666.0}
+- !!python/tuple
+  - nutrition
+  - {weight: 376.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 309.0}
+- !!python/tuple
+  - restaurant_dining
+  - {weight: 290.0}
+- !!python/tuple
+  - recipes_cooking
+  - {weight: 258.0}
+weather:
+- !!python/tuple
+  - politics_news
+  - {weight: 832.0}
+- !!python/tuple
+  - newspaper
+  - {weight: 487.0}
+- !!python/tuple
+  - tech
+  - {weight: 142.0}
+- !!python/tuple
+  - charity_philanthropy
+  - {weight: 134.0}
+- !!python/tuple
+  - astronomy_physics
+  - {weight: 123.0}
+wedding:
+- !!python/tuple
+  - beauty_fashion_shopping
+  - {weight: 679.0}
+- !!python/tuple
+  - magazine
+  - {weight: 419.0}
+- !!python/tuple
+  - baking
+  - {weight: 397.0}
+- !!python/tuple
+  - photography
+  - {weight: 368.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 366.0}
+wine:
+- !!python/tuple
+  - branding
+  - {weight: 801.0}
+- !!python/tuple
+  - food_chef
+  - {weight: 692.0}
+- !!python/tuple
+  - beer
+  - {weight: 520.0}
+- !!python/tuple
+  - tech
+  - {weight: 343.0}
+- !!python/tuple
+  - recipes_cooking
+  - {weight: 245.0}
+wrestling:
+- !!python/tuple
+  - comedy_funny
+  - {weight: 397.0}
+- !!python/tuple
+  - musician_singer
+  - {weight: 324.0}
+- !!python/tuple
+  - youtube
+  - {weight: 205.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 193.0}
+- !!python/tuple
+  - basketball
+  - {weight: 180.0}
+writing:
+- !!python/tuple
+  - publishing_literature
+  - {weight: 3131.0}
+- !!python/tuple
+  - author
+  - {weight: 1795.0}
+- !!python/tuple
+  - marketing
+  - {weight: 595.0}
+- !!python/tuple
+  - romance
+  - {weight: 557.0}
+- !!python/tuple
+  - screenwriter
+  - {weight: 421.0}
+yoga:
+- !!python/tuple
+  - buddhism
+  - {weight: 600.0}
+- !!python/tuple
+  - exercise_fitness
+  - {weight: 369.0}
+- !!python/tuple
+  - youtube
+  - {weight: 276.0}
+- !!python/tuple
+  - politics_news
+  - {weight: 275.0}
+- !!python/tuple
+  - author
+  - {weight: 261.0}
+youtube:
+- !!python/tuple
+  - musician_singer
+  - {weight: 571.0}
+- !!python/tuple
+  - tvshows_drama_actor_hollywood
+  - {weight: 461.0}
+- !!python/tuple
+  - comedy_funny
+  - {weight: 346.0}
+- !!python/tuple
+  - tech
+  - {weight: 278.0}
+- !!python/tuple
+  - realitytv
+  - {weight: 221.0}

@@ -9,7 +9,8 @@ members = FasterCSV.read("#{RAILS_ROOT}/analysis/data/partitions/final_partition
 communities = members.collect{|m| m[1]}.uniq
 
 CSV::Writer.generate(outfile) do |csv|
-  csv << ["Community ID", "Name", "List ID", "List Name", "Number of Lists", "Number of Persons", "Number of Private Persons", "Number of deleted Persons", "Number of Persons without Tweets", "Number of Tweets", "Number of Retweets"]  
+  #"Number of Private Persons", "Number of deleted Persons", "Number of Persons without Tweets", "Number of Tweets", "Number of Retweets"]  
+  csv << ["Community ID", "Group Name", "List ID", "List Name", "Number of Lists", "Unique members on lists", "Average users per list", "Min users", "Max users"]
 end
 
 CSV::Writer.generate(outfile) do |csv|
@@ -41,36 +42,33 @@ CSV::Writer.generate(outfile) do |csv|
       end
       
       # Collect all persons that belong to a project    
-      project_persons = members.collect{|m| m[0] if m[1] == community}.compact      
-      project_persons.each do |p|        
-        person = Person.find_by_username(p)        
-        # Check Persons    
-        if person.private
-          private_persons += 1
-        end              
-        # Check Tweets
-        project_tweets += person.feed_entries.count        
-        #Check deleted_persons and persons without tweets
-        if person.feed_entries.count == 0
-          if person.d2 == "deleted"
-            persons_deleted += 1          
-          else
-            persons_without_tweets += 1
-          end        
-        end        
-        # Add up Retweets of all persons
-        if person.d1 != nil
-          project_retweets += person.d1
-        else
-          project_retweets += 0
-        end        
-      end
+      #project_persons = members.collect{|m| m[0] if m[1] == community}.compact
+      #project_persons.each do |p|
+      #  person = Person.find_by_username(p)
+      #  # Check Persons
+      #  if person.private
+      #    private_persons += 1
+      #  end
+      #  # Check Tweets
+      #  project_tweets += person.feed_entries.count
+      #  #Check deleted_persons and persons without tweets
+      #  if person.feed_entries.count == 0
+      #    if person.d2 == "deleted"
+      #      persons_deleted += 1
+      #    else
+      #      persons_without_tweets += 1
+      #    end
+      #  end
+      #  # Add up Retweets of all persons
+      #  if person.d1 != nil
+      #    project_retweets += person.d1
+      #  else
+      #    project_retweets += 0
+      #  end
+      #end
       csv << [project.id, project.name, project_lists_ids.join(","), project_lists_names.join(","), project_lists_counts.join(","),
               project.persons.count, private_persons, persons_deleted, persons_without_tweets, project_tweets, project_retweets]
     end
   end  
 end
-
-
-
 

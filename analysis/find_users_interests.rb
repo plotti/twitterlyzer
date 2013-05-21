@@ -3,10 +3,19 @@ require '../config/environment'
 interests = {}
 rows = FasterCSV.read("#{RAILS_ROOT}/analysis/data/partitions/final_partitions_p100_200_0.2.csv")
 rows.each do |row|
-  interests[row[0]] = {:category => row[1], :count => row[2]}
+  person = Person.find_by_username(row[0])
+  interests[row[0]] = {:category => row[1], :count => row[2], :id => person.twitter_id}
 end
 
-project = Project.last
+#outfile = File.open("#{RAILS_ROOT}/config/temp_interests.csv", 'wb')
+#CSV::Writer.generate(outfile) do |csv|  
+#  interests.each do |k,v|
+#    csv << [k,v[:category], v[:count], v[:id]]  
+#  end
+#end
+#outfile.close
+
+project = Project.find(584)
 ids = project.persons.collect{|p| p.twitter_id}
 
 name = "burnedshop"

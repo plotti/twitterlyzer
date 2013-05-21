@@ -213,9 +213,10 @@ def individual_reciprocity(D,node=None):
 	
 # Calculates the overal reciprocity in a graph
 # Is this my own algorithm or is it based on some considerations from theoretical literature?
+#http://en.wikipedia.org/wiki/Reciprocity_in_network
 def reciprocity(D):
 	G = reciprocated_graph(D)
-	return float(len(G.edges()))/len(D.to_undirected().edges())
+	return float(len(G.edges()))/len(D.edges())
 
 def reciprocated_graph(D):
 	G=D.to_undirected() # copy 

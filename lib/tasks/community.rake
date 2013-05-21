@@ -182,7 +182,9 @@ task :collect_communities do
 	# Finished collection 10.04
 	#Log 10.04
 	# Recollection of communities with only few lists
-	@@communities = ["mobilephones","drinking","columnist","drama","electronicmusic","greenliving","ecology","piano","father","collectibles","dining","sculpture","classicalmusic","realitytv","painting","seniors","html","army","boating","innovation","smartphone","diversity","teaching","geography","magician","hacking","tvshows","employment","gambling","composer","biology","attorney","weightloss","housing","mathematics","democrat","documentary","dental","mentalhealth","veteran","drums","hollywood","baking","school","lesbian","justice","liberal","meditation","screenwriter"]	
+	# @@communities = ["mobilephones","drinking","columnist","drama","electronicmusic","greenliving","ecology","piano","father","collectibles","dining","sculpture","classicalmusic","realitytv","painting","seniors","html","army","boating","innovation","smartphone","diversity","teaching","geography","magician","hacking","tvshows","employment","gambling","composer","biology","attorney","weightloss","housing","mathematics","democrat","documentary","dental","mentalhealth","veteran","drums","hollywood","baking","school","lesbian","justice","liberal","meditation","screenwriter"]
+	# Log 28.02 
+	#@@communities = ["java", "astronomy", "marketing", "surfing", "hospitality", "finance", "tennis", "tech", "trading", "astrology", "politics", "news", "perl", "sailing", "photography", "lawyer", "hiking", "basketball", "sustainability", "python", "investor", "advertising", "sport", "football", "religion", "airlines", "dating", "ruby", "automotive", "comedy", "healthcare", "ceo", "food", "accounting", "golf", "musician", "realestate", "radio"]	
 	@@communities.each do |community|
 		ENV["keyword"] = community
 		Rake::Task['collect_community'].invoke

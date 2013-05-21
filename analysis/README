@@ -3,7 +3,7 @@ General Workflow
 Collect user interests:
     Collect keywords from wefollow
     Collect keywords from yahoo
-    Merge into one ontology --> In which file is this done?
+    Merge into one ontology --> This is done by hand.
     Manual filtering according to criteria described in dissertation document
     OUTPUT: is a list of keywords that represent user interests
 
@@ -28,9 +28,9 @@ Sorted members creation
 
 Check Collected Lists
     TODO: write file that automates this process
-    manual step
-    Only keep those keywords that output lists that contain enough members
-    Only keep those lists that show a typical power law distribution
+    Manual step
+    Only keep those keywords that output lists that contain enough members (more than 10 lists)
+    Only keep those lists that show a typical power law distribution (to avoid spam)
     
 Keyword-merge-Procedure
     dump_partitions_from_lists_only.rb

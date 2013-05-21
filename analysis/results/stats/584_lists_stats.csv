@@ -1,167 +1,185 @@
-Community name,Based on Projects,# lists,Total unique members on all lists
-archaeology,archaeology,610,1878
-java,java,NaN,2705
-liberal,liberal,992,5334
-horror,horror,1025,4166
-astronomy_physics,"astronomy,physics","NaN,733",6230
-highered,highered,612,6305
-parenting,parenting,2821,13635
-nature,nature,995,12229
-marketing,marketing,NaN,139084
-surfing,surfing,NaN,2204
-wedding,wedding,7072,21085
-magician,magician,663,1141
-hospitality,hospitality,NaN,8587
-jazz,jazz,1392,7422
-meditation,meditation,1056,2322
-piano,piano,328,1536
-wrestling,wrestling,2237,7538
-blogs,blogs,1286,41108
-marriage,marriage,324,1050
-lesbian,lesbian,674,2125
-climbing,climbing,301,2410
-engineering,engineering,231,3547
-finance_economics,"finance,economics","NaN,684",25056
-tennis,tennis,NaN,7313
-tech,tech,NaN,137325
-peace,peace,207,5385
-storage,storage,923,3758
-anthropology,anthropology,592,1300
-banking,banking,133,1820
-swimming,swimming,190,1811
-management,management,452,7405
-trading,trading,NaN,7622
-fantasy,fantasy,396,5763
-hockey,hockey,5064,14937
-islam,islam,532,3228
-astrology,astrology,NaN,2372
-agriculture,agriculture,447,4215
-dance,dance,1538,14952
-cycling,cycling,4644,15358
-climatechange,climatechange,66,798
-fishing,fishing,552,5456
-humanrights_activism_justice,"humanrights,activism,justice","180,283,1734",19746
-energy,energy,1413,12582
-wine,wine,9371,37798
-php,php,1616,4296
-cancer,cancer,1568,6781
-html,html,1369,2309
-vegetarian,vegetarian,458,2260
-jokes,jokes,101,1347
-gardening,gardening,1286,6536
-charity_philanthropy,"charity,philanthropy","1222,791",12034
-history,history,1307,9979
-magazine,magazine,3165,24106
-branding,branding,3058,7301
-racing,racing,1691,7508
-author,author,2532,40658
-politics_news,"politics,news","NaN,NaN",220652
-innovation,innovation,2672,14499
-perl,perl,NaN,1323
-sailing,sailing,NaN,3531
-drums,drums,508,598
-university,university,294,2347
-photography,photography,NaN,68938
-lawyer_legal,"lawyer,legal","NaN,955",19862
-jewish,jewish,548,2333
-gaming,gaming,4647,16728
-dental,dental,984,4359
-composer,composer,979,3607
-linux_opensource,"linux,opensource","1694,403",8908
-animation,animation,596,4857
-youtube,youtube,2635,7586
-insurance,insurance,562,5325
-pharma,pharma,1656,5722
-toys,toys,399,2083
-gambling,gambling,466,951
-outdoors_hiking,"outdoors,hiking","883,NaN",12172
-developer,developer,540,18075
-basketball,basketball,NaN,11024
-sustainability_ecology,"sustainability,ecology","NaN,559",20634
-homeschool_school,"homeschool,school","1377,5702",11250
-chemistry,chemistry,248,1568
-anime,anime,1017,13236
-rugby,rugby,1412,5948
-weather,weather,1936,7660
-etsy_handmade,"etsy,handmade","3147,1274",21345
-flash,flash,2022,3711
-skateboarding,skateboarding,541,1322
-python,python,NaN,2962
-investor,investor,NaN,3429
-motorcycle,motorcycle,479,4008
-hunting,hunting,465,2504
-poverty,poverty,161,2447
-literacy,literacy,312,2955
-college,college,681,10191
-democrat,democrat,1030,1731
-advertising,advertising,NaN,32156
-romance,romance,238,2348
-theatre_theater,"theatre,theater","2579,765",18320
-newspaper,newspaper,179,3704
-skiing,skiing,690,2226
-sport_football,"sport,football","NaN,NaN",79051
-tvshows_drama_actor_hollywood,"tvshows,drama,actor,hollywood","568,727,1826,3882",23535
-mac_iphone,"mac,iphone","1124,3120",23853
-religion,religion,NaN,10708
-airlines_aviation,"airlines,aviation","NaN,1574",7341
-construction,construction,759,6098
-publicrelations,publicrelations,2198,2642
-nutrition,nutrition,939,9947
-philosophy,philosophy,235,4185
-psychology_mentalhealth,"psychology,mentalhealth","1043,861",7569
-mathematics,mathematics,564,1666
-architecture,architecture,4346,14084
-documentary,documentary,656,1121
-career_employment,"career,employment","2276,637",12036
-linguistics,linguistics,315,1851
-dating,dating,NaN,3617
-biology,biology,678,1563
-filmfestival,filmfestival,336,977
-genealogy,genealogy,1165,1977
-database,database,67,800
-sociology,sociology,307,1691
-nursing,nursing,531,2407
-hacking,hacking,648,1782
-realitytv,realitytv,565,1618
-ruby,ruby,NaN,6055
-pregnancy,pregnancy,224,1747
-poker,poker,7753,10632
-ipad,ipad,123,2823
-geography,geography,460,1395
-automotive,automotive,NaN,14373
-comedy_funny,"comedy,funny","NaN,1576",36694
-healthcare_medicine,"healthcare,medicine","NaN,584",21744
-ceo,ceo,NaN,7534
-food_chef,"food,chef","NaN,1407",127932
-publishing_literature,"publishing,literature","3784,228",22559
-buddhism,buddhism,907,2882
-exercise_fitness,"exercise,fitness","342,4229",28653
-baseball,baseball,4418,11270
-writing,writing,2947,42081
-multimedia,multimedia,184,2802
-director,director,296,3815
-accounting,accounting,NaN,3133
-golf,golf,NaN,17167
-housing,housing,793,1970
-musician_singer,"musician,singer","NaN,549",38673
-realestate,realestate,NaN,14435
-reporter,reporter,184,7501
-neuroscience,neuroscience,396,2258
-rapper,rapper,232,4565
-beer,beer,107,4932
-beauty_fashion_shopping,"beauty,fashion,shopping","3963,18707,3109",91348
-comics,comics,6106,15030
-radio,radio,NaN,42945
-running,running,2090,11091
-yoga,yoga,2782,10320
-cinema,cinema,742,11872
-screenwriter,screenwriter,815,2342
-recipes_cooking,"recipes,cooking","1029,2177",11231
-poetry,poetry,846,7552
-teaching,teaching,915,4521
-army_military_veteran,"army,military,veteran","316,1870,761",9451
-children,children,493,5024
-restaurant_dining,"restaurant,dining","871,588",24293
-mobile_smartphone,"mobile,smartphone","2053,471",21393
-guitar,guitar,822,5839
-baking,baking,683,2302
+Community name,Based on Projects,# lists,Total unique members on all lists,Average users per list,Min users,Max users
+peace,peace,207,5385,81.6811594202899,1,491
+storage,storage,923,3758,100.553629469122,1,490
+anthropology,anthropology,592,1300,69.0625,1,178
+banking,banking,133,1820,97.5864661654135,2,473
+swimming,swimming,190,1811,50.6526315789474,1,335
+management,management,452,7405,124.561946902655,1,500
+trading,trading,2231,7304,133.274316450022,1,492
+fantasy,fantasy,396,5763,70.5227272727273,1,371
+hockey,hockey,5064,14937,117.708333333333,1,500
+islam,islam,532,3228,73.9266917293233,1,462
+astrology,astrology,1239,1748,72.0524616626312,1,424
+agriculture,agriculture,447,4215,164.565995525727,1,481
+dance,dance,1535,14952,96.7068403908795,0,500
+cycling,cycling,3530,15358,101.017563739377,0,500
+climatechange,climatechange,66,798,54.8787878787879,4,172
+fishing,fishing,552,5456,113.503623188406,1,478
+humanrights_activism_justice,"humanrights,activism,justice",2197,19746,109.967228038234,1,501
+energy,energy,1413,12582,105.650389242746,1,501
+wine,wine,9371,37798,185.895742183332,1,500
+php,php,1616,4296,50.3576732673267,1,473
+cancer,cancer,1568,6781,120.927295918367,1,499
+html,html,1369,2309,50.3652300949598,1,495
+vegetarian,vegetarian,458,2260,105.700873362445,1,474
+jokes,jokes,101,1347,72.1188118811881,1,497
+gardening,gardening,1286,6536,132.779160186625,1,501
+charity_philanthropy,"charity,philanthropy",2013,12034,125.183308494784,0,485
+history,history,1307,9979,82.1040550879878,1,492
+magazine,magazine,3165,24106,75.7071090047393,1,500
+branding,branding,1612,7301,391.039081885856,0,498
+racing,racing,1691,7508,106.149024246008,1,466
+author,author,2532,40658,237.080963665087,1,502
+politics_news,"List 513645, news"
+politics_news,"List 514152, news"
+politics_news,"List 526009, news"
+politics_news,"List 529118, news"
+politics_news,"List 551956, news"
+politics_news,"List 562238, news"
+politics_news,"List 565565, news"
+politics_news,"List 569849, news"
+politics_news,"List 584819, news"
+politics_news,"List 595263, news"
+politics_news,"List 615272, news"
+politics_news,"List 622380, news"
+politics_news,"politics,news",157453,47963,67.8187320964679,1,583
+innovation,innovation,2672,14499,239.678517964072,1,500
+perl,perl,2142,1228,57.6461251167133,1,496
+sailing,sailing,1217,1762,65.5809367296631,1,248
+drums,drums,508,598,44.6003937007874,1,122
+university,university,294,2347,55.6054421768707,1,180
+photography,photography,31298,17238,124.984120391079,1,586
+lawyer_legal,"lawyer,legal",1994,17664,174.697592778335,1,499
+jewish,jewish,548,2333,111.644160583942,1,453
+gaming,gaming,4647,16728,77.8777706046912,1,500
+dental,dental,984,4359,197.555894308943,1,496
+composer,composer,979,3607,184.5291113381,2,500
+linux_opensource,"linux,opensource",2097,8908,54.1249403910348,1,469
+animation,animation,596,4857,74.3070469798658,1,498
+youtube,youtube,2635,7586,53.6592030360531,1,467
+insurance,insurance,562,5325,108.562277580071,1,501
+pharma,pharma,1656,5722,87.2928743961353,1,496
+toys,toys,399,2083,64.1679197994987,1,384
+gambling,gambling,466,951,71.8562231759657,1,103
+outdoors_hiking,"outdoors,hiking",1399,11264,90.3631165117941,1,502
+developer,developer,540,18075,133.583333333333,1,502
+basketball,basketball,9497,6377,81.1627882489207,1,500
+sustainability_ecology,"sustainability,ecology",3400,17419,138.049411764706,1,500
+homeschool_school,"homeschool,school",7079,11250,92.8365588359938,1,499
+chemistry,chemistry,248,1568,73.6411290322581,1,330
+anime,anime,1017,13236,91.944936086529,1,500
+rugby,rugby,1412,5948,76.0516997167139,1,498
+weather,weather,1936,7660,42.3460743801653,1,500
+etsy_handmade,"etsy,handmade",2870,21345,308.294076655052,0,499
+flash,flash,2022,3711,81.9139465875371,1,498
+skateboarding,skateboarding,541,1322,113.109057301294,1,261
+python,python,3957,1572,54.5544604498357,1,474
+investor,investor,1796,4079,90.9070155902004,1,498
+motorcycle,motorcycle,479,4008,107.277661795407,1,488
+hunting,hunting,465,2504,173.148387096774,1,406
+poverty,poverty,161,2447,65.3664596273292,1,498
+literacy,literacy,312,2955,78.25,1,500
+college,college,681,10191,117.102790014684,1,498
+democrat,democrat,1030,1731,80.9116504854369,1,391
+advertising,advertising,10720,22988,209.722574626866,1,500
+romance,romance,238,2348,99.8865546218487,1,306
+theatre_theater,"theatre,theater",3344,18320,115.9375,1,500
+newspaper,newspaper,179,3704,70.608938547486,1,393
+skiing,skiing,690,2226,95.0144927536232,1,478
+sport_football,"sport,football",59538,40821,73.6012966508784,1,501
+tvshows_drama_actor_hollywood,"tvshows,drama,actor,hollywood",7003,23535,75.4902184777952,1,501
+mac_iphone,"mac,iphone",4244,23853,68.75,1,498
+religion,religion,1862,7117,108.965628356606,1,500
+airlines_aviation,"airlines,aviation",8710,5964,80.1606199770379,1,408
+construction,construction,759,6098,135.737812911726,1,497
+publicrelations,publicrelations,2198,2642,469.457233848954,1,500
+nutrition,nutrition,939,9947,223.92225772098,1,499
+philosophy,philosophy,235,4185,96.2297872340425,1,501
+psychology_mentalhealth,"psychology,mentalhealth",1904,7569,125.775735294118,1,500
+mathematics,mathematics,564,1666,111.90780141844,1,483
+architecture,architecture,3211,14084,126.762067891623,0,500
+documentary,documentary,656,1121,96.265243902439,1,367
+career_employment,"career,employment",2913,12036,182.62306900103,1,500
+linguistics,linguistics,315,1851,96.2603174603175,2,470
+dating,dating,969,2627,104.339525283798,1,466
+biology,biology,678,1563,54.2315634218289,1,276
+filmfestival,filmfestival,336,977,120.830357142857,5,212
+genealogy,genealogy,1165,1977,106.88669527897,1,486
+database,database,67,800,33.7611940298507,1,332
+sociology,sociology,307,1691,132.700325732899,1,429
+nursing,nursing,531,2407,81.1845574387947,1,239
+hacking,hacking,648,1782,63.7345679012346,1,158
+realitytv,realitytv,565,1618,143.311504424779,1,500
+ruby,ruby,9006,5298,75.8026870974906,1,449
+pregnancy,pregnancy,224,1747,78.1116071428571,1,266
+poker,poker,6839,10632,98.7047814007896,0,500
+ipad,ipad,123,2823,113.577235772358,1,498
+geography,geography,460,1395,122.569565217391,2,401
+automotive,automotive,1689,5039,120.988158673771,1,382
+comedy_funny,"comedy,funny",25319,25466,76.2292349618863,1,501
+healthcare_medicine,"healthcare,medicine",4156,18701,152.265640038499,1,500
+ceo,ceo,941,2738,52.0127523910733,1,500
+food_chef,"food,chef",61025,44632,92.6390823433019,1,501
+publishing_literature,"publishing,literature",3280,22559,131.591463414634,0,501
+buddhism,buddhism,907,2882,159.777287761852,1,461
+exercise_fitness,"exercise,fitness",4571,28653,165.490264712317,1,501
+baseball,baseball,3363,11270,103.671126969967,0,492
+writing,writing,2947,42081,187.517814726841,1,527
+multimedia,multimedia,184,2802,70.2065217391304,1,500
+director,director,296,3815,124.804054054054,1,499
+accounting,accounting,1100,3680,210.715454545455,1,501
+golf,golf,17144,6817,66.1201003266449,1,497
+housing,housing,793,1970,115.575031525851,1,478
+musician_singer,"musician,singer",20941,38673,90.5928083663626,1,501
+realestate,realestate,1847,11333,228.174336762317,1,500
+reporter,reporter,184,7501,90.4130434782609,1,483
+neuroscience,neuroscience,396,2258,190.99494949495,1,479
+rapper,rapper,232,4565,137.702586206897,1,499
+beer,beer,107,4932,180.588785046729,3,493
+beauty_fashion_shopping,"List 243819, fashion"
+beauty_fashion_shopping,"List 245260, fashion"
+beauty_fashion_shopping,"List 246009, fashion"
+beauty_fashion_shopping,"List 246485, fashion"
+beauty_fashion_shopping,"List 247263, fashion"
+beauty_fashion_shopping,"List 247779, fashion"
+beauty_fashion_shopping,"List 247848, fashion"
+beauty_fashion_shopping,"List 248511, fashion"
+beauty_fashion_shopping,"List 249523, fashion"
+beauty_fashion_shopping,"List 249585, fashion"
+beauty_fashion_shopping,"List 250074, fashion"
+beauty_fashion_shopping,"List 250270, fashion"
+beauty_fashion_shopping,"List 250517, fashion"
+beauty_fashion_shopping,"List 250686, fashion"
+beauty_fashion_shopping,"List 251861, fashion"
+beauty_fashion_shopping,"List 251902, fashion"
+beauty_fashion_shopping,"List 252331, fashion"
+beauty_fashion_shopping,"List 252544, fashion"
+beauty_fashion_shopping,"List 253340, fashion"
+beauty_fashion_shopping,"List 253679, fashion"
+beauty_fashion_shopping,"List 254145, fashion"
+beauty_fashion_shopping,"List 254428, fashion"
+beauty_fashion_shopping,"List 255907, fashion"
+beauty_fashion_shopping,"List 256233, fashion"
+beauty_fashion_shopping,"List 257734, fashion"
+beauty_fashion_shopping,"List 258117, fashion"
+beauty_fashion_shopping,"List 258300, fashion"
+beauty_fashion_shopping,"List 258757, fashion"
+beauty_fashion_shopping,"List 259323, fashion"
+beauty_fashion_shopping,"List 260117, fashion"
+beauty_fashion_shopping,"List 261866, fashion"
+beauty_fashion_shopping,"beauty,fashion,shopping",25779,91348,127.499533944384,1,565
+comics,comics,5843,15030,84.9104911860346,0,500
+radio,radio,4915,32164,78.7416073245168,1,501
+running,running,2090,11091,72.2038277511962,1,499
+yoga,yoga,2782,10320,111.520488856937,1,498
+cinema,cinema,742,11872,73.0700808625337,1,500
+screenwriter,screenwriter,815,2342,84.158282208589,1,415
+recipes_cooking,"recipes,cooking",3206,11231,238.17217716781,1,493
+poetry,poetry,846,7552,104.358156028369,1,500
+teaching,teaching,915,4521,100.454644808743,1,491
+army_military_veteran,"army,military,veteran",2947,9451,105.774346793349,1,499
+children,children,493,5024,105.434077079108,1,492
+restaurant_dining,"restaurant,dining",1459,24293,146.62577107608,1,501
+mobile_smartphone,"mobile,smartphone",2524,21393,92.7987321711569,1,503
+guitar,guitar,822,5839,80.9136253041362,1,497
+baking,baking,683,2302,135.190336749634,1,450

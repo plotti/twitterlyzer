@@ -8,7 +8,8 @@ def main(argv):
     #Standardvalues
     partitionfile = "data/partitions/final_partitions_p100_200_0.2.csv"
     project = "584"
-    to_pajek = False
+    to_pajek = True
+    
     try:
       opts, args = getopt.getopt(argv,"p:s:o")
     except getopt.GetoptError:
@@ -30,6 +31,9 @@ def main(argv):
     
     csv_writer = csv.writer(open('results/spss/group bonding/%s_group_bonding.csv' % project, 'wb'))
     
+    #Attributes for Gephi
+    csv_attributes = csv.writer(open('results/networks/%s_at_node_attributes.csv' % project, 'wb'))
+    
     csv_writer.writerow(["Project", "Name", "Member_count", "Competing_Lists",
                         "FF_Nodes", "AT_Nodes", "RT_Nodes",
                         "FF_Edges","AT_Edges", "RT_Edges",
@@ -40,6 +44,7 @@ def main(argv):
                         "FF_bin_transitivity", "AT_bin_transitivity",                    
                         "RT_density", "RT_total_volume"
                         ])    
+        
     
     # Read in the networks    
     FF_all = nx.read_edgelist('data/networks/%s_FF.edgelist' % project, nodetype=str, data=(('weight',float),),create_using=nx.DiGraph()) 
@@ -66,7 +71,8 @@ def main(argv):
                 listings[row[1]]["competing_lists"] += int(row[3])
             else:
                 listings[row[1]] = {"competing_lists": int(row[3])}
-                
+
+               
     i = 0
     for partition in partitions:
         for node in partition:
@@ -77,9 +83,19 @@ def main(argv):
         
     #Write out to pajek for gephi visualization
     if to_pajek:
+        #Write the attributes file
+        i= 0
+        csv_attributes.writerow(["id", "name", "type"])
+        for node in AT_all.nodes():
+            i+= 1
+            csv_attributes.writerow([i, node, AT_all.node[node]["group"]])
+            
         nx.write_pajek(FF_all,"results/networks/%s_FF.net" % project)
         nx.write_pajek(AT_all,"results/networks/%s_AT.net" % project)
         nx.write_pajek(RT_all,"results/networks/%s_RT.net" % project)
+        
+
+        
     
     i = 0    
     for partition in partitions:
@@ -132,8 +148,7 @@ def main(argv):
         RT_density = hp.average_tie_strength(RT) 
         RT_total_volume = hp.total_edge_weight(RT)
     
-        ############### Output ################
-    
+        ############### Output ################        
         csv_writer.writerow([project, project_name, member_count, listings[project_name]["competing_lists"],
                              len(FF.nodes()), len(AT.nodes()), len(RT.nodes()),
                              len(FF.edges()), len(AT.edges()), len(RT.edges()),

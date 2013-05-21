@@ -36,7 +36,9 @@ spammed_keywords = [137,457]
 @@communities = keywords_from_wefollow + keywords_from_backup + keywords_after_yahoo  + recollected_lists_for_small_communities  - communities_with_not_enough_lists - replaced_communities
 
 @@community_map = {}
-@@communities.each{|c| @@community_map[Project.find(c).name] = Project.find(c).id}
+if ENV["RAILS_ENV"] == "development"
+  @@communities.each{|c| @@community_map[Project.find(c).name] = Project.find(c).id}
+end
 
 #Blacklist
 BLACKLIST = FasterCSV.read("#{RAILS_ROOT}/config/blacklist.csv").flatten

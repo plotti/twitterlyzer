@@ -224,60 +224,63 @@ def main(argv):
 
     ###########################  Output ###########################
     
-    bridging_csv_writer.writerow(["bridging_at_strength","bridging_retweets", "bridging_no_retweets", "bridging_retweets/no_retweets", "average","std"])
-    bonding_csv_writer.writerow(["bonding_at_strength","bonding_retweets", "bonding_no_retweets", "bonding_retweets/no_retweets", "average", "std"])
-
-    bridging_tie_strengths = []
-    bridging_rt_ratios = []
-    bridging_stds = []
-    
-    bonding_tie_strengths = []
-    bonding_rt_ratios = []
-    bonding_stds = []
-    
+    bridging_csv_writer.writerow(["bridging_tie_type","#_ties_w_retweets", "#_ties_w_o_retweets", "#_retweets", "%_of_total", "retweets/#_ties_w_o_retweets", "retweets/#_ties_w_retweets", "std"])
+    bonding_csv_writer.writerow(["bonding_tie_type","#_ties_w_retweets", "#_ties_w_o_retweets", "#_retweets", "%_of_total", "retweets/#_ties_w_o_retweets", "retweets/#_ties_w_retweets", "std"])
+   
     #BRIDGING TIES
+    bridging_total = [val for subl in bridging_flow.values() for val in subl]
+    bridging_noflow_total = sum(bridging_no_flow.values())
     for k,v in bridging_flow.iteritems():        
         if bridging_no_flow.has_key(k) and bridging_no_flow[k] != 0 and len(bridging_flow[k]) > 5:                        
-            ratio = sum(bridging_flow[k])/bridging_no_flow[k]            
+            ratio = sum(bridging_flow[k])/bridging_no_flow[k]
+            of_total = sum(bridging_flow[k])/float(sum(bridging_total))
             std = np.std(bridging_flow[k])
             average = np.average(bridging_flow[k])
-            if is_number(k):
-                bridging_tie_strengths.append(k)
-                bridging_rt_ratios.append(ratio)
-                bridging_stds.append(std)                    
-            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),bridging_no_flow[k],ratio,average,std])
+            bridging_csv_writer.writerow([k,len(bridging_flow[k]), bridging_no_flow[k],
+                                          sum(bridging_flow[k]), of_total,ratio,average,std])
         if k == "no_tie":
             std = np.std(bridging_flow[k])
-            bridging_csv_writer.writerow([k,sum(bridging_flow[k]),0,0,0,std])
+            average = np.average(bridging_flow[k])
+            bridging_csv_writer.writerow([k,len(bridging_flow[k]), 0, sum(bridging_flow[k]),0,0,average,std])
+    
+    
+    std = np.std(bridging_total)
+    average = np.average(bridging_total)
+    bridging_csv_writer.writerow(["total",len(bridging_total),bridging_noflow_total, sum(bridging_total), 1,sum(bridging_total)/float(bridging_noflow_total), average, std])
     
     #BONDING TIES
+    bonding_total = [val for subl in bonding_flow.values() for val in subl]
+    bonding_noflow_total = sum(bonding_no_flow.values())
     for k,v in bonding_flow.iteritems():    
         if bonding_no_flow.has_key(k) and bonding_no_flow[k] != 0 and len(bonding_flow[k]) > 5:
-            ratio = sum(bonding_flow[k])/bonding_no_flow[k]   
+            ratio = sum(bonding_flow[k])/bonding_no_flow[k]
+            of_total = sum(bridging_flow[k])/float(sum(bonding_total))
             std = np.std(bonding_flow[k])
-            average = np.average(bonding_flow[k])
-            if is_number(k):
-                bonding_tie_strengths.append(k)
-                bonding_rt_ratios.append(ratio)
-                bonding_stds.append(std)  
-            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),bonding_no_flow[k],ratio,average,std])
+            average = np.average(bonding_flow[k])     
+            bonding_csv_writer.writerow([k,len(bonding_flow[k]), bonding_no_flow[k],
+                                          sum(bonding_flow[k]), of_total,ratio,average,std])
         if k == "no_tie":
             std = np.std(bonding_flow[k])
-            bonding_csv_writer.writerow([k,sum(bonding_flow[k]),0,0,0,std])
-      
+            average = np.average(bonding_flow[k])
+            bonding_csv_writer.writerow([k,len(bonding_flow[k]), 0, sum(bonding_flow[k]),0,0,average,std])
+    
+    
+    std = np.std(bonding_total)
+    average = np.average(bonding_total)
+    bonding_csv_writer.writerow(["total",len(bonding_total), bonding_noflow_total, sum(bonding_total), 1, sum(bonding_total)/float(bonding_no_flow_total), average, std])
     
     #Plot Errorplots
-    fig = plt.figure(figsize=(42.67, 32.0))
-    plt.errorbar(bridging_tie_strengths, bridging_rt_ratios, bridging_stds,ls="-",color="g", label='Bridging RT/No_RT percentage through ties with strength x')
-    plt.errorbar(bonding_tie_strengths, bonding_rt_ratios, bonding_stds,ls="-",color="b", label='Bonding RT/No_RT percentage through ties with strength x')
-    plt.ylim([0,40])
-    plt.axhline(1,color="r")
-    plt.legend()
-    if reverse:
-        plt.savefig("results/errorplot_reverse_valued_edges.png")
-    else:
-        plt.savefig("results/errorplot_valued_edges.png")       
-    plt.close()
+    #fig = plt.figure(figsize=(42.67, 32.0))
+    #plt.errorbar(bridging_tie_strengths, bridging_rt_ratios, bridging_stds,ls="-",color="g", label='Bridging RT/No_RT percentage through ties with strength x')
+    #plt.errorbar(bonding_tie_strengths, bonding_rt_ratios, bonding_stds,ls="-",color="b", label='Bonding RT/No_RT percentage through ties with strength x')
+    #plt.ylim([0,40])
+    #plt.axhline(1,color="r")
+    #plt.legend()
+    #if reverse:
+    #    plt.savefig("results/errorplot_reverse_valued_edges.png")
+    #else:
+    #    plt.savefig("results/errorplot_valued_edges.png")       
+    #plt.close()
 
 if __name__ == "__main__":
    main(sys.argv[1:])
