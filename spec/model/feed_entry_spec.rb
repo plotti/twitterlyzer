@@ -22,12 +22,6 @@ describe FeedEntry do
     FeedEntry.count.should be_close(3200,200)
   end
   
-  it "sould not collect tweets that are already collected again" do    
-    p = Factory(:person)
-    r1 = FeedEntry.collect_all_entries p
-    r2 = FeedEntry.collect_all_entries p
-    FeedEntry.count.should < 4000
-  end
   
   it "should collect the right amount of retweets and persons for a given tweet" do
     f = Factory(:feed_entry)

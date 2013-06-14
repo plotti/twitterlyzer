@@ -297,10 +297,6 @@ class FeedEntry < ActiveRecord::Base
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
-      while @@client.application.rate_limit_status?.resources.statuses.send("/statuses/retweets/:id").remaining == 0
-        puts "retweet waiting..."
-        sleep(60) 
-      end
       begin	
         @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
           entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}

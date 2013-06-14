@@ -138,7 +138,7 @@ class Person < ActiveRecord::Base
     outfile = File.open("data/" + project_id.to_s + "_all_lists.csv",'a')	
     seen_lists = []
     lists.each do |list|
-      outfile.puts "#{username};#{list.user.screen_name};#{list.name};#{list.uri};#{list.member_count.member_count}"
+      outfile.puts "#{username};#{list.user.screen_name};#{list.name};#{list.uri};#{list.member_count}"
       #It collects only the lists that match the project keyword
       if list.name.include? @project.keyword
         if !seen_lists.include? list.uri  # Only lists that we did not already collect
