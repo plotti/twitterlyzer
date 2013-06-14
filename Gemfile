@@ -2,7 +2,7 @@ source :gemcutter
 gem "rails", "2.3.7"
 gem 'whenever', "0.7.3"
 gem 'will_paginate', "2.2.2"
-gem 'grackle', "0.1.10"
+gem 'grackle'
 gem 'twitter', "1.7.2"
 gem 'ruby-debug', "0.10.4"
 gem 'chronic', "0.6.7"

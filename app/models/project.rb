@@ -447,6 +447,7 @@ class Project < ActiveRecord::Base
   # This makes sure that we only get the @ communication without the RT.
   # Everytime we find somebody we set the value up.
   # Tested in project spec
+  
   def find_at_connections(friend = true, follower = false, category = false)
     outfile = CSV.open("#{RAILS_ROOT}/analysis/data/normal_#{self.id}_at_connections.csv", "wb")
     if category
@@ -463,7 +464,7 @@ class Project < ActiveRecord::Base
         usernames.each do |tmp_user|
           #Use downcase to find smallcase mentions but try to exclude tweets
           tmp_user.downcase!
-          if tweet.text.downcase.include?("@" + tmp_user ) && !tweet.text.include?("RT @#{tmp_user}") && tweet.text.split.first != "RT" && result.text.split.first != "RT|"
+          if tweet.text.downcase.include?("@" + tmp_user ) && !tweet.text.include?("RT @#{tmp_user}") && tweet.text.split.first != "RT" && tweet.text.split.first != "RT|"
             #If we compute only persons from the same category.
             if category 
               if person.category != Person.find_by_username(tmp_user).category
