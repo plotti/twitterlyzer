@@ -33,7 +33,8 @@ class FeedEntry < ActiveRecord::Base
   # Tested
   def self.collect_all_entries(person)
     
-    while Project.get_remaining_hits == "timeout"
+    while @@client.application.rate_limit_status?.resources.statuses.send("/statuses/user_timeline").remaining == 0
+      puts "collect_person waiting..."
       sleep(60) 
     end
     
@@ -42,20 +43,32 @@ class FeedEntry < ActiveRecord::Base
     page = 1
     more_tweets_found = true    
     
-    #Gather Feeds from Twitter
+    #Gather Feeds from Twitter    
+    r = @@client.statuses.user_timeline? :screen_name => person.username, :count => 200
+    last_page = r.last.id
+    old_last_page = 0
+    if r.count < 200
+      feeds += r.entries
+      FeedEntry.add_entries(r, person)
+      more_tweets_found = false
+    end
     while more_tweets_found
-      begin
-        puts "On page #{page}"
-        #if @@twitter.rate_limit_status.remaining_hits > 20
-          r = @@twitter.user_timeline(person.username, {:count => ENTRIES_PER_PAGE, :page => page, :include_rts => :true})         
-        #else
-        #  sleep(120)
-        #end          
-        if r == []
-          more_tweets_found = false
+      begin        
+        if @@client.application.rate_limit_status?.resources.statuses.send("/statuses/user_timeline").remaining != 0
+	  puts "#{feeds.uniq.count} - Collecting on id #{last_page}"
+	  r = @@client.statuses.user_timeline? :screen_name => person.username, :count => 200, :max_id => last_page
+	  r = r.entries
+        else
+	  puts "Waiting for more api hits"
+          sleep(120)
+        end          
+        if old_last_page == last_page
+          FeedEntry.add_entries(r, person)
+          more_tweets_found = false          
+          break
         else
           #Add to Database
-          feeds << r          
+          feeds += r          
           FeedEntry.add_entries(r, person)
         end
       rescue Twitter::BadGateway => e        
@@ -66,21 +79,19 @@ class FeedEntry < ActiveRecord::Base
         retry
       rescue Twitter::Unauthorized => e
         puts e.class
-        more_tweets_found = false
-        #SystemMessage.add_message("error", "Collect all entries", "Unauthorized error " + person.username + " not found.#{e}")
+        more_tweets_found = false        
       rescue Twitter::NotFound => e
-        more_tweets_found = false
-        #SystemMessage.add_message("error", "Collect all entries", "User " + person.username + " not found.#{e}")
+        more_tweets_found = false        
       rescue Exception => e
         puts e.class
-        more_tweets_found = false
-        #SystemMessage.add_message("error", "Collect all entries", "General error for User " + person.username + " not found.#{e}")
+        more_tweets_found = false        
       end
-      page += 1
+      old_last_page = last_page
+      last_page = r.last.id
     end    
     
     if feeds != nil
-      logger.info "Collect_all_entries -- Collected #{page} Pages of Tweets of " + person.username      
+      logger.info "Collect_all_entries -- Collected #{last_page} Pages of Tweets of " + person.username      
     end
     return feeds
   end
@@ -277,14 +288,21 @@ class FeedEntry < ActiveRecord::Base
   #Collects the retweets of a tweet
   #TESTED
   def self.collect_retweet_ids_for_entry(entry)
+        
+    while @@client.application.rate_limit_status?.resources.statuses.send("/statuses/retweets/:id").remaining == 0
+      puts "retweet waiting..."
+      sleep(60) 
+    end
+    
     if entry.retweet_count.to_i > 0       
       entry.retweet_ids = []
       entry.save!
-      while Project.get_remaining_hits == "timeout"
+      while @@client.application.rate_limit_status?.resources.statuses.send("/statuses/retweets/:id").remaining == 0
+        puts "retweet waiting..."
         sleep(60) 
       end
-      begin        
-        @@twitter.retweeters_of(entry.guid, {:count => 100}).each do |retweet|
+      begin	
+        @@client.statuses.retweets?(:id => entry.guid, :count => 100).each do |retweet|
           entry.retweet_ids << {:id => retweet.id, :person => retweet.screen_name, :followers_count => retweet.followers_count, :published_at => retweet.created_at}
         end    
         entry.save!        
@@ -362,7 +380,8 @@ class FeedEntry < ActiveRecord::Base
     return results
   end
   
-  #Update persons
+  # Update persons
+  # Deprecated
   def self.update_rss    
     Project.all.each do |project|      
       if project.monitor_feeds == true
@@ -374,7 +393,8 @@ class FeedEntry < ActiveRecord::Base
     end
   end
   
-  #Returns number of remaining Twitter API Hits
+  # Returns number of remaining Twitter API Hits
+  # Deprecated
   def self.get_remaining_api_hits()
     result = {}
     begin

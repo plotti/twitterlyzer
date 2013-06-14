@@ -454,7 +454,7 @@ class Project < ActiveRecord::Base
       puts "COMPUTING CATEGORY only @ Interactions"
     end
     values = []
-    usernames = persons.collect{|p| p.username}
+    usernames = persons.collect{|p| p.username}    
     i = 0
     persons.each do |person|
       t1 = Time.now      
@@ -463,7 +463,7 @@ class Project < ActiveRecord::Base
         #puts "#Analyzing tweet #{tweet.id}"
         usernames.each do |tmp_user|
           #Use downcase to find smallcase mentions but try to exclude tweets
-          tmp_user.downcase!
+          tmp_user.downcase!          
           if tweet.text.downcase.include?("@" + tmp_user ) && !tweet.text.include?("RT @#{tmp_user}") && tweet.text.split.first != "RT" && tweet.text.split.first != "RT|"
             #If we compute only persons from the same category.
             if category 
@@ -475,7 +475,8 @@ class Project < ActiveRecord::Base
             else
               #if the tweet has not been retweeted hence is not a retweet
               #if tweet.retweet_ids == [] &&
-              if person.username != tmp_user
+              puts "been here"
+              if person.username != tmp_user                
                 values << [person.username,tmp_user,1]
                 outfile<< [person.username, tmp_user, tweet.id, tweet.text, tweet.retweet_ids.count]
               end             

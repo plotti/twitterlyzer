@@ -2,21 +2,20 @@ class Person < ActiveRecord::Base
   
   require 'open-uri'  
   require 'json'
-  require 'typhoeus'
+  #require 'typhoeus'
   require 'twitter'
   require 'ar-extensions'  
   require 'ar-extensions/adapters/mysql'
   require 'ar-extensions/import/mysql' 
-  include Typhoeus
+  #include Typhoeus
   require 'pstore'
   
   #associations
   has_and_belongs_to_many :project
   has_many :feed_entries, :dependent => :destroy
-  after_destroy :destroy_relations
+  #after_destroy :destroy_relations
   
-  #Destroys the files on the HDD
-  #TODO TEST it!
+  #Destroys the files on the HDD  
   def destroy_relations
     begin
       File.delete FRIENDS_IDS_PATH + self.twitter_id.to_s
@@ -29,6 +28,12 @@ class Person < ActiveRecord::Base
   #collects the friends of a given user
   #Tested
   def collect_friends twitter_id 
+    
+    while @@client.application.rate_limit_status?.resources.friends.send("/friends/ids").remaining == 0
+      puts "collect friends waiting..."
+      sleep(60) 
+    end
+    
     begin
       puts "COLLECTING Friends IDS OF #{twitter_id}"
       result = @@client.friends.ids? :id => twitter_id, :cursor => -1
@@ -61,6 +66,11 @@ class Person < ActiveRecord::Base
   # collects the followers of a given user
   # Tested
   def collect_followers twitter_id
+    while @@client.application.rate_limit_status?.resources.followers.send("/followers/ids").remaining == 0
+      puts "collect friends waiting..."
+      sleep(60) 
+    end
+    
     begin
      puts "COLLECTING Follower IDS OF #{twitter_id}"
      result = @@client.followers.ids? :id => twitter_id, :cursor => -1
@@ -92,34 +102,26 @@ class Person < ActiveRecord::Base
   #returns the lists in which the user is listed
   #Tested
   def self.collect_list_memberships(username, project_id = "")
-    page_size = LIST_PAGE_SIZE
-    attempts = 0
-    while Project.get_remaining_hits == "timeout"
-      puts "collect_list_memberships waiting..."
+                
+    while @@client.application.rate_limit_status?.resources.lists.send("/lists/memberships").remaining == 0
+      puts "collect friends waiting..."
       sleep(60) 
     end
-    begin
-      result = @@twitter.memberships(username, {:cursor => -1, :count => page_size})
-      lists = result["lists"]
-      next_cursor = result["next_cursor"]
-      old_next_cursor = 0
-      @project = Project.find(project_id)
-      puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"    
-    rescue
-      puts "Got an error on user #{username}. Retrying."
-      page_size = (page_size * 0.8).to_i
-      attempts += 1
-      if attempts < 10
-        retry
-      end      
-    end
-    while old_next_cursor != next_cursor and next_cursor != 0
-      puts "been here"
+    
+    page_size = LIST_PAGE_SIZE
+    attempts = 0        
+    result = @@client.lists.memberships? :screen_name => username, :cursor => -1
+    lists = result.lists
+    next_cursor = result.next_cursor
+    old_next_cursor = 0
+    @project = Project.find(project_id)    
+    
+    while old_next_cursor != next_cursor and next_cursor != 0      
       begin
         old_next_cursor = next_cursor      
-        result = @@twitter.memberships(username, {:cursor => next_cursor, :count => page_size})
-        lists += result["lists"]
-        next_cursor = result["next_cursor"]
+        result = @@client.lists.memberships? :screen_name => username, :cursor => next_cursor        
+        lists += result.lists
+        next_cursor = result.next_cursor
         puts "Membership Lists Count #{lists.count} page size : #{page_size} next cursor: #{next_cursor}"
         page_size = (page_size * 1.05).to_i
       rescue
@@ -136,13 +138,13 @@ class Person < ActiveRecord::Base
     outfile = File.open("data/" + project_id.to_s + "_all_lists.csv",'a')	
     seen_lists = []
     lists.each do |list|
-      outfile.puts "#{username};#{list['user']['screen_name']};#{list['name']};#{list['uri']};#{list['member_count']}"
+      outfile.puts "#{username};#{list.user.screen_name};#{list.name};#{list.uri};#{list.member_count.member_count}"
       #It collects only the lists that match the project keyword
-      if list["name"].include? @project.keyword
+      if list.name.include? @project.keyword
         if !seen_lists.include? list.uri  # Only lists that we did not already collect
-          List.create(:username => list["user"]["screen_name"], :list_type => "member", :name =>  list["name"],
-                      :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                      :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"],
+          List.create(:username => list.user.screen_name, :list_type => "member", :name =>  list.name,
+                      :subscriber_count => list.subscriber_count,  :member_count => list.member_count,
+                      :description => list.description, :uri => list.uri, :slug => list.slug, :guid => list.id,
                       :project_id => project_id)
         end
         seen_lists << list.uri
@@ -154,89 +156,98 @@ class Person < ActiveRecord::Base
   #returns the lists which have been created by the user
   #Tested
   def self.collect_own_lists(username)
-    while Project.get_remaining_hits == "timeout"
-      puts "collect_own_lists waiting..."
+    
+    while @@client.application.rate_limit_status?.resources.lists.send("/lists/ownerships").remaining == 0
+      puts "collect friends waiting..."
       sleep(60) 
     end
+        
     result = []
-    result = @@twitter.lists(username, {:cursor => -1})
-    lists = result["lists"]
-    next_cursor = result["next_cursor"]
+    result = @@client.lists.ownerships? :screen_name => username, :cursor => -1
+    lists = result.lists
+    next_cursor = result.next_cursor
     old_next_cursor = 0
     puts "Own Lists Count #{lists.count} next cursor: #{next_cursor}"
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = @@twitter.lists(username, {:cursor => next_cursor})      
-      lists += result["lists"]
-      next_cursor = result["next_cursor"]
+      result = @@client.lists.ownerships? :screen_name => username, :cursor => next_cursor      
+      lists += result.lists
+      next_cursor = result.next_cursor
       puts "Membership Lists Count #{lists.count} next cursor: #{next_cursor}"
     end
     lists.each do |list|
-      List.create!(:username => list["user"]["screen_name"], :list_type => "own", :name =>  list["name"],
-                  :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                  :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"])
+      List.create!(:username => list.user.screen_name, :list_type => "own", :name =>  list.name,
+                  :subscriber_count => list.subscriber_count,  :member_count => list.member_count,
+                  :description => list.description, :uri => list.uri, :slug => list.slug, :guid => list.id)
     end    
   end
   
   #returns the lists that the user is following
   #Tested 
   def self.collect_list_subscriptions(username)
-    while Project.get_remaining_hits == "timeout"
-      puts "collect_list_subscriptions waiting..."
+    
+    while @@client.application.rate_limit_status?.resources.lists.send("/lists/subscriptions").remaining == 0
+      puts "collect friends waiting..."
       sleep(60) 
     end
-    result = @@twitter.subscriptions(username,{:cursor => -1})
-    lists = result["lists"]
-    next_cursor = result["next_cursor"]
+            
+    result = @@client.lists.subscriptions? :screen_name => username, :cursor => -1
+    lists = result.lists
+    next_cursor = result.next_cursor
     old_next_cursor = 0
     puts "Subscribed Lists Count #{lists.count} next cursor: #{next_cursor}"
     
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
       result = @@twitter.subscriptions(username,{:cursor => next_cursor})
-      lists += result["lists"]
-      next_cursor = result["next_cursor"]
+      lists += result.lists
+      next_cursor = result.next_cursor
     end
     lists.each do |list|
-      List.create!(:username => list["user"]["screen_name"], :list_type => "subscribe", :name =>  list["name"],
-                  :subscriber_count => list["subscriber_count"],  :member_count => list["member_count"],
-                  :description => list["description"], :uri => list["uri"], :slug => list["slug"], :guid => list["id"])
+      List.create!(:username => list.user.screen_name, :list_type => "subscribe", :name =>  list.name,
+                  :subscriber_count => list.subscriber_count,  :member_count => list.member_count,
+                  :description => list.description, :uri => list.uri, :slug => list.slug, :guid => list.id)
     end
   end
   
   #returns the members of a given list
   #Tested
   def self.collect_list_members(username, list_id,project_id)    
-    while Project.get_remaining_hits == "timeout"
-      puts "collect_list_members waiting..."
+    
+    while @@client.application.rate_limit_status?.resources.lists.send("/lists/members").remaining == 0
+      puts "collect friends waiting..."
       sleep(60) 
     end
-    result = @@twitter.list_members(username, list_id, {:cursor => -1})    
-    members = result["users"]
-    next_cursor = result["next_cursor"]
+     
+
+    result = @@client.lists.members? :owner_screen_name => username, :slug => list_id, :cursor => -1
+    members = result.users
+    next_cursor = result.next_cursor
     old_next_cursor = 0    
     
     while old_next_cursor != next_cursor and next_cursor != 0
       old_next_cursor = next_cursor
-      result = @@twitter.list_members(username, list_id, {:cursor => next_cursor })  
-      members = members + result["users"]
-      next_cursor = result["next_cursor"]
+      result = @@client.lists.members? :owner_screen_name => username, :slug => list_id, :cursor => next_cursor      
+      members = members + result.users
+      next_cursor = result.next_cursor
       puts "Member Count #{members.count} next cursor: #{next_cursor}"
     end
     members.each do |member|
-      Delayed::Job.enqueue(CollectPersonJob.new(member["id"],project_id,100000))  
+      Delayed::Job.enqueue(CollectPersonJob.new(member.id,project_id,100000))  
     end
+    
     return members
   end
   
   #Collects a person and adds it to the database if not exisiting yet, otherwise retrieves it from the database
   #Tested  
   def self.collect_person(twitter_id, project_id, max_collection, category = "", friends = true, followers = false)                
-    while Project.get_remaining_hits == "timeout"
+    
+    while @@client.application.rate_limit_status?.resources.users.send("/users/show/:id").remaining == 0
       puts "collect_person waiting..."
       sleep(60) 
     end
-    
+            
     # Check if we can find the user in the DB
     if twitter_id.is_a?(Numeric)
       person = Person.find_by_twitter_id(twitter_id)        

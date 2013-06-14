@@ -4,7 +4,7 @@ require 'spec_helper'
 describe FeedEntry do
   
   before :all do
-    system("rake", "sunspot:solr:start")
+    system("bundle", "exec", "rake", "sunspot:solr:start")
     begin
       Sunspot.remove_all!
     rescue Errno::ECONNREFUSED
@@ -13,13 +13,13 @@ describe FeedEntry do
   end
     
   after :all do
-    system("rake", "sunspot:solr:stop")
+    system("bundle", "exec", "rake", "sunspot:solr:stop")
   end
   
   it "should collect almost all 3200 Tweets of a person with a lot of tweets" do    
     p = Factory(:person) 
     r = FeedEntry.collect_all_entries p
-    FeedEntry.count.should be_close(3200,100)
+    FeedEntry.count.should be_close(3200,200)
   end
   
   it "sould not collect tweets that are already collected again" do    
@@ -41,12 +41,6 @@ describe FeedEntry do
     FeedEntry.collect_retweet_ids_for_entry(f)
     f.retweet_ids.count.should be_close(94,10)
   end
-  
-  # Me including my 7 retweets
-  it "should collect the right amount of persons for a given retweet" do
-    f = Factory(:feed_entry)
-    FeedEntry.collect_retweet_ids_for_entry_with_persons(f)
-    f.person.project.first.persons.count.should == 8
-  end
+
   
 end

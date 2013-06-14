@@ -1,4 +1,5 @@
 source :gemcutter
+gem "rake", "0.9.2.2"
 gem "rails", "2.3.7"
 gem 'whenever', "0.7.3"
 gem 'will_paginate', "2.2.2"
